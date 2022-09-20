@@ -1,0 +1,23 @@
+name: backend
+
+container:
+  image: busybox
+  command:
+    - /bin/sh
+    - -c
+    - while true; do printenv; echo ...sleeping 10 sec...; sleep 10; done
+  variables:
+    CONNECTION_STRING: postgresql://${resources.db.username}:${resources.db.password}@${resources.db.host}:${resources.db.port}/${resources.db.name}
+
+resources:
+  db:
+    type: postgres
+    properties:
+      host:
+      port:
+        default: 5432
+      name:
+      username:
+        secret: true
+      password:
+        secret: true
