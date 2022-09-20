@@ -1,7 +1,6 @@
 +++
 title = "Score"
 linkTitle = "Score"
-
 +++
 
 {{< blocks/cover title="🎷🐈 Welcome to Score: A Work in progress 🎷🐈 " image_anchor="top" height="full" color="blue" >}}
