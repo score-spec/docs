@@ -22,7 +22,7 @@
     "autoprefixer": "^10.4.0",
     "hugo-extended": "^0.103.1",
     "postcss": "^8.4.16",
-    "postcss-cli": "^9.0.2"
+    "postcss-cli": "^10.0.0"
   },
   "dependencies": {
     "html-hint": "^0.2.4",
