@@ -6,14 +6,6 @@ description: >
   Low level reference docs for your project.
 ---
 
-Each command is represented as a command or subcommand, and there are a number of command and subcommand options available: HTTP options, output options, and command-specific options.
-
-Construct your Score CLI command such that the command options precede its path and arguments if any:
-
-```bash
-score-[platform] [command] [flag]
-```
-
 ## Platform options
 
 Currently, the following platforms are available.
@@ -25,3 +17,17 @@ score-humanitec
 ```bash
 score-compose
 ```
+
+## Command options
+
+The following are a list of available commands.
+
+`completion` Generate the autocompletion script for the specified shell
+`help` Help about any command
+`run` Translate the PAWS file to docker-compose configuration
+
+## Universal flags
+
+You can run these flags in most positions in the Score CLI.
+-h, --help help for paws-compose
+-v, --version version for paws-compose

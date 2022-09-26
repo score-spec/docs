@@ -16,5 +16,4 @@ Score uses environment specific configurations to support a wide range of use ca
 - The Score specification declares that the workload is deployed in multiple replicas so that the application can scale up. The exact number of replicas differ given the environment. The environment specific parameters include each value for the specific environment.
 - #TODO The Score specification declares a container image name and tag. The image pull secret to fetch the image from the registry has to made available by the platform.
 
-
 For more information see, [Environment variable]({{< ref "/content/en/docs/Target Platform/environmental-variables.md" >}} "Environment variable").

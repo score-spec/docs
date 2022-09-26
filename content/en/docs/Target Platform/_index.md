@@ -8,4 +8,4 @@ description: >
 
 To learn how to implement the environment variables see here.
 
-To lean how to 
+To lean how to

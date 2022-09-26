@@ -1,31 +1,43 @@
 {
-  "name": "score-technical-documentation",
-  "version": "0.0.1",
-  "description": "Score technical documentation.",
-  "main": "none.js",
-  "scripts": {
-    "fmt": "dprint fmt",
-    "build": "hugo server -D",
-    "lint": "vale content/en/docs/**/* && dprint check"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/google/docsy-example.git"
-  },
   "author": "",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/google/docsy-example/issues"
   },
-  "homepage": "https://github.com/google/docsy-example#readme",
+  "comments": {
+    "dependencies": {
+      "html-hint": "project",
+      "hugo-cli": "project"
+    },
+    "devDependencies": {
+      "autoprefixer": "project",
+      "hugo-extended": "project",
+      "postcss": "project",
+      "postcss-cli": "project"
+    }
+  },
+  "dependencies": {
+    "html-hint": "^0.2.4",
+    "hugo-cli": "^0.11.0"
+  },
+  "description": "Score technical documentation.",
   "devDependencies": {
     "autoprefixer": "^10.4.0",
     "hugo-extended": "^0.103.1",
     "postcss": "^8.4.16",
     "postcss-cli": "^10.0.0"
   },
-  "dependencies": {
-    "html-hint": "^0.2.4",
-    "hugo-cli": "^0.11.0"
-  }
+  "homepage": "https://github.com/google/docsy-example#readme",
+  "license": "Apache-2.0",
+  "main": "none.js",
+  "name": "score-technical-documentation",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/google/docsy-example.git"
+  },
+  "scripts": {
+    "build": "hugo server -D",
+    "fmt": "dprint fmt",
+    "lint": "vale content/en/docs/**/* && dprint check"
+  },
+  "version": "0.0.1"
 }

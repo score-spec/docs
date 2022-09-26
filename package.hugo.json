@@ -1,0 +1,31 @@
+{
+  "name": "score-technical-documentation",
+  "version": "0.0.1",
+  "description": "Score technical documentation.",
+  "main": "none.js",
+  "scripts": {
+    "fmt": "dprint fmt",
+    "build": "hugo server -D",
+    "lint": "vale content/en/docs/**/* && dprint check"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/google/docsy-example.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/google/docsy-example/issues"
+  },
+  "homepage": "https://github.com/google/docsy-example#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "hugo-extended": "^0.103.1",
+    "postcss": "^8.4.16",
+    "postcss-cli": "^10.0.0"
+  },
+  "dependencies": {
+    "html-hint": "^0.2.4",
+    "hugo-cli": "^0.11.0"
+  }
+}
