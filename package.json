@@ -1,7 +1,7 @@
 {
   "author": "",
   "bugs": {
-    "url": "https://github.com/google/docsy-example/issues"
+    "url": "https://github.com/Humanitec/score-docs/issues"
   },
   "comments": {
     "dependencies": {
@@ -26,13 +26,13 @@
     "postcss": "^8.4.16",
     "postcss-cli": "^10.0.0"
   },
-  "homepage": "https://github.com/google/docsy-example#readme",
+  "homepage": "https://github.com/Humanitec/score-docs#readme",
   "license": "Apache-2.0",
   "main": "none.js",
   "name": "score-technical-documentation",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/google/docsy-example.git"
+    "url": "git+https://github.com/Humanitec/score-docs.git"
   },
   "scripts": {
     "build": "hugo server -D",

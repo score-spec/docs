@@ -4,4 +4,4 @@ level: warning
 ignorecase: false
 # swap maps tokens in form of bad: good
 swap:
-  PAWS: Score
+  score: Score

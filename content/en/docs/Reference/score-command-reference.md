@@ -24,10 +24,10 @@ The following are a list of available commands.
 
 `completion` Generate the autocompletion script for the specified shell
 `help` Help about any command
-`run` Translate the PAWS file to docker-compose configuration
+`run` Translate the score file to docker-compose configuration
 
 ## Universal flags
 
 You can run these flags in most positions in the Score CLI.
--h, --help help for paws-compose
--v, --version version for paws-compose
+-h, --help help for score-compose
+-v, --version version for score-compose

@@ -1,6 +1,6 @@
 ---
-title: "Quick Start: Resources with Score -humanitec"
-subtitle: "Score -humanitec"
+title: "Quick Start: Resources with score-humanitec"
+subtitle: "score-humanitec"
 date: 2017-01-05
 weight: 5
 description: >
@@ -12,7 +12,7 @@ description: >
 Resources referenced in `Score.yaml` should be pre-configured in Humanitec by DevOps (for each resource type). They are picked by the system at a deployment time in accordance with the Matching Criteria (also configured by DevOps).
 
 <aside>
-🚧 **TBD:** When creating a new workload deployment draft `Score -humanitec` does not add the external (shared) resource to the workload automatically. Thus a manual intervention is needed to complete the deployment draft for brand-new workloads.
+🚧 **TBD:** When creating a new workload deployment draft `score-humanitec` does not add the external (shared) resource to the workload automatically. Thus a manual intervention is needed to complete the deployment draft for brand-new workloads.
 
 </aside>
 
@@ -53,9 +53,9 @@ resources:
         secret: true
 ```
 
-## Executing `Score -humanitec`
+## Executing `score-humanitec`
 
-Run the `Score -humanitec` CLI tool to create a new Humanitec deployment:
+Run the `score-humanitec` CLI tool to create a new Humanitec deployment:
 
 <aside>
 💡 To authenticate with Humanitec API a static token should be created as described in [this section](https://api-docs.humanitec.com/#section/Introduction/Authentication).
@@ -63,7 +63,7 @@ Run the `Score -humanitec` CLI tool to create a new Humanitec deployment:
 </aside>
 
 ```bash
-Score -humanitec run -f /tmp/Score.yaml \
+score-humanitec run -f /tmp/Score.yaml \
   --org my-org --app my-app --env development \
   --url https://dev-api.humanitec.io --token h96...stc
 ```
@@ -125,4 +125,4 @@ curl -v -X POST -H 'Authorization: Bearer qwe...rty' \
 
 ## Working with multiple environments
 
-With Humanitec and Score it is very simple to deploy the same workload into multiple environments. `Score -humanitec` CLI tool can create deployments for each target environment, while the rest of the configuration could be set-up once by DevOps.
+With Humanitec and Score it is very simple to deploy the same workload into multiple environments. `score-humanitec` CLI tool can create deployments for each target environment, while the rest of the configuration could be set-up once by DevOps.

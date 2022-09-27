@@ -28,25 +28,23 @@ Developers use Score to describe their resources and environment's consistently.
 
 Then they use the Score CLI to generate their resources in an environment of choice. For example, you might use a PostGres database in a local, development, staging, and production stage. Each stage of the deployment process connects to a different PostGres database. When you compose your Score, you'll describe that resource once, then each environment will connect your PostGres database dynamically.
 
-## TODO Benefits
+## Benefits
 
-Because Score is developer-centric and platform-agnostic way to describe a workload, the `score.yaml` file is the single source of truth for workloads profile of requirements and works to utilize any platform or tooling. you eliminate specifiaction misconfigarion between environments which reduces:
+Because Score is developer-centric and platform-agnostic way to describe a workload, the `score.yaml` file is the single source of truth for workloads profile of requirements and works to utilize any platform or tooling. Because of this, you eliminate specification misconfiguration between environments which reduces:
 
 - reduces time spent on debugging.
 - reduces time spent on repetitive tasks.
 - reduces cognitive load.
 
-(Differentiate between Score and services similar to Score)
-
 ## How is Score different from other specs?
 
 Docker-Compose and Helm Charts are great at running resources regardless of platform, but when you use Docker in testing and Helm in development, ensuring your code runs in both environment can present a layer of friction. Score abstracts the complexity by providing a language agnostic layer that can describe your resources without the platform provider.
 
-## What Score isn't TODO
+## What Score isn't
 
 Score exclusively takes care of translating the workload requirements specified in `score.yaml` into a platform-specific format (such as `docker-compose.yaml`). The platform consuming the generated file (such as Docker Compose) is responsible for processing and resolving each property. This means:
 
-- Score is **not a configuration management tool** for environments. It is not recommended to store configuration values or secrets in `score.yaml`. Instead, it is possible to declare items such as configuration maps or secrets and vaults as a [workload dependancy](https://www.notion.so/Score-Philosophy-Concepts-dc837c02120047d49b68342768341573) in your Score specification.
+- Score is **not a configuration management tool** for environments. It is not recommended to store configuration values or secrets in `score.yaml`. Instead, it is possible to declare items such as configuration maps or secrets and vaults as a [workload dependency](https://www.notion.so/Score-Philosophy-Concepts-dc837c02120047d49b68342768341573) in your Score specification.
 - Score is **not a resource and environment management system**, such as Terraform or an Internal Developer Platform like Humanitec. It won’t spin up or purge physical resources or services defined in `score.yaml`.
 - Score is **not a deployment tool**. It does not support you with deploying or promoting workloads across environments.
 
@@ -61,7 +59,7 @@ Beyond the Getting started section, you can learn more about Score and it's conc
 
 - [Concepts](/docs/concepts): Recommended reading for anyone consuming or operating Score.
 - [Tasks](/docs/tasks/): Common tasks.
-  (append to beyond getting started #TODO)
+
   For more information, see Core Tasks:
 
 - Define routes as resources

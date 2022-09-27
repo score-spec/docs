@@ -25,16 +25,16 @@ The following are basic prerequisites for using Docsy in your site:
 
 ## Example and usage
 
-You can find an example project that uses Docsy in the [Docsy Example Projectrepo](https://github.com/google/docsy-example).The Docsy Example Project is
+You can find an example project that uses Docsy in the [Docsy Example Projectrepo](https://github.com/Humanitec/score-docs).The Docsy Example Project is
 hosted at [https://example.docsy.dev](https://example.docsy.dev). For
 real-life examples of sites that use Docsy (and their source repos), see our
 [Examples](https://www.docsy.dev/docs/examples/) page.
 
 To use the Docsy theme for your own site:
 
-- (Recommended) Use the [exampleproject](https://github.com/google/docsy-example), which includes the Docsy
+- (Recommended) Use the [exampleproject](https://github.com/Humanitec/score-docs), which includes the Docsy
   theme as a submodule, as a template to create your project. You can customize
-  this pre-configured basic site into your own Docsy themed site. [Learnmore...](https://github.com/google/docsy-example)
+  this pre-configured basic site into your own Docsy themed site. [Learnmore...](https://github.com/Humanitec/score-docs)
 
 - Add Docsy to your existing Hugo site repo's `themes` directory. You can
   either add Docsy as a Git submodule, or clone the Docsy theme into your

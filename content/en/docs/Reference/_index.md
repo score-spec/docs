@@ -63,7 +63,7 @@ Declared resources and their properties can be referenced in other places in Sco
 
 It is up to the Score implementation (CLI tool) how and when the resource reference is resolved, and when the referenced values substitution occurs.
 
-For example, `Score -compose` would convert resource properties into environment variables references in resulting `compose.yaml` configuration file, and produce a reference `.env` file that the user can then populate ([read more](https://docs.docker.com/compose/environment-variables/#the-env-file)).
+For example, `score-compose` would convert resource properties into environment variables references in resulting `compose.yaml` configuration file, and produce a reference `.env` file that the user can then populate ([read more](https://docs.docker.com/compose/environment-variables/#the-env-file)).
 
 Simple Score file with a single resource:
 

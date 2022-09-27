@@ -14,7 +14,7 @@ Score uses environment specific configurations to support a wide range of use ca
 
 - The Score specification declares that a workload is available on a TCP port. The configuration value is sourced from the target environment's application settings.
 - The Score specification declares that the workload is deployed in multiple replicas so that the application can scale up. The exact number of replicas differ given the environment. The environment specific parameters include each value for the specific environment.
-- #TODO The Score specification declares a container image name and tag. The image pull secret to fetch the image from the registry has to made available by the platform.
+- The Score specification declares a container image name and tag. The image pull secret to fetch the image from the registry has to made available by the platform.
 
 ## Get started
 

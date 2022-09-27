@@ -1,6 +1,6 @@
 ---
 title: "Quick Start: CI CD with Score "
-subtitle: "Score -compose"
+subtitle: "score-compose"
 date: 2017-01-05
 weight: 5
 description: >
@@ -135,18 +135,18 @@ services:
 
 This Docker Compose configuration file uses local environment variables to keep the secrets out of the source control system, and to share configuration between the services (`backend` and `database`).
 
-## Running service locally with `Score -compose`
+## Running service locally with `score-compose`
 
-Every time the service configuration changes in `./backend/Score.yaml`, or when the source code updates are downloaded, the developer can use `Score -compose` CLI tool to produce a fresh compose configuration file for the `backend` service:
+Every time the service configuration changes in `./backend/Score.yaml`, or when the source code updates are downloaded, the developer can use `score-compose` CLI tool to produce a fresh compose configuration file for the `backend` service:
 
 ```yaml
-Score -compose run \
+score-compose run \
   -f ./backend/Score.yaml -o backend.yaml --env-file backend.env \
   --build ./backend
 ```
 
 <aside>
-💡 The files produced by `Score -compose` CLI tool (`backend.yaml` and `backend.env`) are both considered to be temporary and should not be committed into the source control system. They are excluded in `./gitignore` for this reason.
+💡 The files produced by `score-compose` CLI tool (`backend.yaml` and `backend.env`) are both considered to be temporary and should not be committed into the source control system. They are excluded in `./gitignore` for this reason.
 
 </aside>
 
@@ -241,17 +241,17 @@ jobs:
           humanitec-token: ${{ secrets.HUMANITEC_TOKEN }}
 ```
 
-## Deploying updates with `Score -humanitec`
+## Deploying updates with `score-humanitec`
 
 <aside>
-🚧 This section describes manual steps on how to use `Score -humanitec` CLI tool to deploy the service updates with Humanitec. In real life scenario GitHub Actions or custom scripts would perform this task automatically as a part of CI/CD pipeline.
+🚧 This section describes manual steps on how to use `score-humanitec` CLI tool to deploy the service updates with Humanitec. In real life scenario GitHub Actions or custom scripts would perform this task automatically as a part of CI/CD pipeline.
 
 </aside>
 
-The developer can quickly deploy updated service to the remote environment with `Score -humanitec`:
+The developer can quickly deploy updated service to the remote environment with `score-humanitec`:
 
 ```bash
-Score -humanitec run \
+score-humanitec run \
   -f ./backend/Score.yaml \
   --org humanitec-demo --app Score -demo --env development --token $HT_TOKEN \
   --image=registry.humanitec.io/humanitec-demo/Score -demo-backend:0.3.0
@@ -309,14 +309,14 @@ Once deployed, updated application should report its current configuration prope
 
 ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e5c7a163-1a75-449f-93ef-6ef9117f22e1/Untitled.png)
 
-## Calling `Score -humanitec` from CI pipeline
+## Calling `score-humanitec` from CI pipeline
 
 <aside>
 🚧 This feature is under construction…
 
 </aside>
 
-The idea is to provide an open-source GitHub action (for example, `Score -setup`) that would add `Score -humanitec` to the CI toolset and would allow users to create Humanitec deployment drafts and, possibly, trigger deployments from their CI pipelines directly.
+The idea is to provide an open-source GitHub action (for example, `Score -setup`) that would add `score-humanitec` to the CI toolset and would allow users to create Humanitec deployment drafts and, possibly, trigger deployments from their CI pipelines directly.
 
 ## Deploying Score -enabled services with Humanitec events
 

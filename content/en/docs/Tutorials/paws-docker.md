@@ -1,6 +1,6 @@
 ---
-title: "Quick Start: Resources with Score -compose"
-subtitle: "Score -compose"
+title: "Quick Start: Resources with score-compose"
+subtitle: "score-compose"
 date: 2017-01-05
 weight: 5
 description: >
@@ -73,9 +73,9 @@ resources:
         secret: true
 ```
 
-## Executing `Score -compose`
+## Executing `score-compose`
 
-The user can now produce a `backend.compose.yaml` override file for Docker Compose with `Score -compose` CLI tool:
+The user can now produce a `backend.compose.yaml` override file for Docker Compose with `score-compose` CLI tool:
 
 <aside>
 💡 When setting things up the first time, the User can add `--env-file` parameter to instruct the tool to produce a sample `.env` file with all the environment variables available for overriding. This `.env` file is typically used to customise configuration in different environments. Refer to the official Docker Compose documentation for [more information](https://docs.docker.com/compose/environment-variables/#the-env-file).
@@ -83,7 +83,7 @@ The user can now produce a `backend.compose.yaml` override file for Docker Compo
 </aside>
 
 ```bash
-Score -compose run -f /tmp/Score.yaml -o /tmp/backend.compose.yaml \
+score-compose run -f /tmp/Score.yaml -o /tmp/backend.compose.yaml \
   --env-file /tmp/backend.env
 ```
 

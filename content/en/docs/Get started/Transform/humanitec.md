@@ -12,7 +12,7 @@ The target Platform CLI tool takes in the Score Specification file and translate
 
 This section will get you started with transforming a Score Specification file into a Docker Compose file and share important information on the target Platform CLI tool.
 
-To get started with `score-docker` create a directory and enter the following information into a file called `paws.yaml`.
+To get started with `score-docker` create a directory and enter the following information into a file called `score.yaml`.
 
 ```yaml Hello world
 name: hello-world
@@ -24,16 +24,16 @@ containers:
 From your terminal, run the following command.
 
 ```bash
-paws-compose run
+score-compose run
 ```
 
-By default, `--file` defaults to `./paws.yaml` and `--output` defaults to `./compose.yaml`.
+By default, `--file` defaults to `./score.yaml` and `--output` defaults to `./compose.yaml`.
 
 The following is the expected output from the previous command.
 
 ```bash
-Reading './paws.yaml'...
-Parsing PAWS spec...
+Reading './score.yaml'...
+Parsing score spec...
 Building docker-compose configuration...
 Creating './compose.yaml'...
 Writing docker-compose configuration...

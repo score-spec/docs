@@ -11,23 +11,23 @@ One of the best ways to see what Docsy can do, and learn how to configure a site
 
 Example sites that have low to no customization:
 
-| Site                                                            | Repo (if public)                                             |
-| --------------------------------------------------------------- | ------------------------------------------------------------ |
-| [This Docsy documentation site](/docs)                          | https://github.com/google/docsy                              |
-| ["Goldydocs" - a Docsy example site](https://example.docsy.dev) | https://github.com/google/docsy-example                      |
-| https://www.kubeflow.org/                                       | https://github.com/kubeflow/website                          |
-| https://agones.dev/site/                                        | https://github.com/googleforgames/agones/tree/master/site    |
-| https://googlecontainertools.github.io/kpt/                     | https://github.com/GoogleContainerTools/kpt/tree/master/docs |
-| [Navidrome Music Server](https://www.navidrome.org)             | https://github.com/navidrome/website                         |
-| https://docs.agilebase.co.uk/                                   | https://github.com/okohll/abdocs                             |
-| https://jvmperf.net/                                            | https://github.com/cchesser/java-perf-workshop               |
-| [gRPC](https://www.grpc.io/)                                    | https://github.com/grpc/grpc.io                              |
-| [tekton.dev](https://tekton.dev/)                               | https://github.com/tektoncd                                  |
-| [fluxcd.io](https://fluxcd.io)                                  | https://github.com/fluxcd/website                            |
-| [Graphviz](https://graphviz.org)                                | https://gitlab.com/graphviz/graphviz.gitlab.io               |
-| [Cloudpods](https://www.cloudpods.org)                          | https://github.com/yunionio/docs                             |
-| [Selenium](https://www.selenium.dev/)                           | https://github.com/SeleniumHQ/seleniumhq.github.io           |
-| [fission.io](https://fission.io/)                               | https://github.com/fission/fission.io                        |
+| Site                                                  | Repo (if public)                                             |
+| ----------------------------------------------------- | ------------------------------------------------------------ |
+| [This Docsy documentation site](/docs)                | https://github.com/Humanitec/score-docs                      |
+| [Score documenation site.](https://example.docsy.dev) | https://github.com/Humanitec/score-docs                      |
+| https://www.kubeflow.org/                             | https://github.com/kubeflow/website                          |
+| https://agones.dev/site/                              | https://github.com/googleforgames/agones/tree/master/site    |
+| https://googlecontainertools.github.io/kpt/           | https://github.com/GoogleContainerTools/kpt/tree/master/docs |
+| [Navidrome Music Server](https://www.navidrome.org)   | https://github.com/navidrome/website                         |
+| https://docs.agilebase.co.uk/                         | https://github.com/okohll/abdocs                             |
+| https://jvmperf.net/                                  | https://github.com/cchesser/java-perf-workshop               |
+| [gRPC](https://www.grpc.io/)                          | https://github.com/grpc/grpc.io                              |
+| [tekton.dev](https://tekton.dev/)                     | https://github.com/tektoncd                                  |
+| [fluxcd.io](https://fluxcd.io)                        | https://github.com/fluxcd/website                            |
+| [Graphviz](https://graphviz.org)                      | https://gitlab.com/graphviz/graphviz.gitlab.io               |
+| [Cloudpods](https://www.cloudpods.org)                | https://github.com/yunionio/docs                             |
+| [Selenium](https://www.selenium.dev/)                 | https://github.com/SeleniumHQ/seleniumhq.github.io           |
+| [fission.io](https://fission.io/)                     | https://github.com/fission/fission.io                        |
 
 ## Customized Docsy examples
 

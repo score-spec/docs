@@ -15,7 +15,7 @@ enable = true
 # drawio_server = "https://example.com/"
 
 # For a full list of parameters used in Docsy sites, see:
-# https://github.com/google/docsy-example/blob/master/config.toml
+# https://github.com/Humanitec/score-docs/blob/master/config.toml
 
 [outputFormats]
 [outputFormats.PRINT]

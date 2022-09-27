@@ -83,7 +83,7 @@ Note that versions of `PostCSS` later than 5.0.1 will not load `autoprefixer` if
 
 To use the Docsy Hugo theme, you have a couple of options:
 
-- **Copy and edit the source for the [Docsy example site](https://github.com/google/docsy-example).** This approach gives you a skeleton structure for your site, with top-level and documentation sections and templates that you can modify as necessary. The example site uses Docsy as a [Git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules), so it's easy to [keep up to date](/docs/updating/).
+- **Copy and edit the source for the [Docsy example site](https://github.com/Humanitec/score-docs).** This approach gives you a skeleton structure for your site, with top-level and documentation sections and templates that you can modify as necessary. The example site uses Docsy as a [Git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules), so it's easy to [keep up to date](/docs/updating/).
 - **Build your own site using the Docsy theme.** Specify the [Docsy theme](https://github.com/google/docsy) like any other [Hugo theme](https://gohugo.io/themes/) when creating or updating your site. With this option, you'll get Docsy look and feel, navigation, and other features, but you'll need to specify your own site structure.
 
 ### Option 1: Copy the Docsy example site
@@ -98,7 +98,7 @@ pre-configured to use the Docsy theme as a Git submodule. You can copy the Examp
 
 This is the simplest approach, as the Docsy example site repo is a [template repository](https://github.blog/2019-06-06-generate-new-repositories-with-repository-templates/). To create your own copy of the Docsy example site repo:
 
-1. Go to the [repo page](https://github.com/google/docsy-example) and click **Use this template**.
+1. Go to the [repo page](https://github.com/Humanitec/score-docs) and click **Use this template**.
 
 1. Type your chosen name for your new repository in the **Repository name** field. You can also add an optional **Description**.
 
@@ -118,7 +118,7 @@ To copy the example site:
 
 1. Make a local working copy of the example site directly using `git clone`:
 
-       git clone https://github.com/google/docsy-example.git
+       git clone https://github.com/Humanitec/score-docs.git
 
 1. Switch to the root of the cloned project, for example:
 
@@ -168,7 +168,7 @@ Whichever approach you use, for simplicity we recommend copying and editing our 
 Adding Docsy as a Git submodule is our recommended approach for using the theme, as it means your project
 always refers to the Docsy repo version at your chosen revision, rather than you having your own copy in
 your repo that may result in merge conflicts when you try to update it. This is the approach used by our
-[example project](https://github.com/google/docsy-example).
+[example project](https://github.com/Humanitec/score-docs).
 
 To create a new Hugo site project and then add the Docs theme as a submodule, run the following commands from your project's root directory.
 
@@ -221,7 +221,7 @@ By default, your site will be available at http://localhost:1313/. [See the know
 
 ## Basic site configuration
 
-Site-wide configuration details and parameters are defined in your project's `config.toml` file. These include your chosen Hugo theme (Docsy, of course!), project name, community links, Google Analytics configuration, and Markdown parser parameters. See the examples with comments in [`config.toml` in the example project](https://github.com/google/docsy-example/blob/master/config.toml) for how to add this information. **We recommend copying this `config.toml` and editing it even if you're just using the theme and not copying the entire Docsy example site**.
+Site-wide configuration details and parameters are defined in your project's `config.toml` file. These include your chosen Hugo theme (Docsy, of course!), project name, community links, Google Analytics configuration, and Markdown parser parameters. See the examples with comments in [`config.toml` in the example project](https://github.com/Humanitec/score-docs/blob/master/config.toml) for how to add this information. **We recommend copying this `config.toml` and editing it even if you're just using the theme and not copying the entire Docsy example site**.
 
 The Docsy example site comes with some defaults you may want to remove or customize straight away:
 
@@ -312,5 +312,5 @@ If you're using WSL, ensure that you're running `hugo` on a Linux mount of the f
 ## What's next?
 
 - [Add content and customize your site](/docs/adding-content/)
-- Get some ideas from our [Example Site](https://github.com/google/docsy-example) and other [Examples](/docs/examples/).
+- Get some ideas from our [Example Site](https://github.com/Humanitec/score-docs) and other [Examples](/docs/examples/).
 - [Publish your site](/docs/deployment/).
