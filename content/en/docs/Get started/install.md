@@ -1,14 +1,14 @@
 ---
-title: "Install the Score CLI"
+title: "Install the Platform CLI"
 linkTitle: "Install"
 weight: 3
 description: >
-  This section covers how to install the Score CLI.
+  This section covers how to install the Platform CLI.
 ---
 
 ### macOS
 
-We recommend installing the Score CLI with [Homebrew](https://brew.sh/index.html).
+We recommend installing the {{< glossary_tooltip text="Platform CLI" term_id="platform-cli" >}} with [Homebrew](https://brew.sh/index.html).
 With Homebrew, you can access an extensive selection of libraries and applications, with their dependencies managed for you.
 
 ### Prerequisites
@@ -24,7 +24,7 @@ Install Homebrew according to the [official Homebrew installation instructions](
 
 On the Linux operating systems, use the built-in package manager to install Score:
 
-1. Open a terminal and run these commands to install the latest Score CLI from the officially maintained package archives:
+1. Open a terminal and run these commands to install the latest {{< glossary_tooltip text="Platform CLI" term_id="platform-cli" >}} from the officially maintained package archives:
 
    ```shell
    sudo apt-add-repository ppa:score

@@ -2,7 +2,7 @@
 
 _Score_ is a platform-agnostic specification for defining environment configuration for cloud based workloads
 
-The _Score CLI_ is a tool to synchronize your specification against your platform specific environment.
+The _Platform CLI_ is a tool to synchronize your specification against your platform specific environment.
 
 ## Installation
 

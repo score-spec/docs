@@ -41,7 +41,7 @@ resources:
 
 ## Reserved Resource Types
 
-In general, `resource-type` has no meaning for Score, but it can affect how targeted Score CLI tool resolves the resource. Following are the conventions on the “reserved” resource types:
+In general, `resource-type` has no meaning for Score, but it can affect how targeted Platform CLI tool resolves the resource. Following are the conventions on the “reserved” resource types:
 
 | resource-type                  | Score-compose                                                                                                                   | Score-humanitec                                                                                                                 |
 | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |

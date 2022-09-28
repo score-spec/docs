@@ -19,3 +19,5 @@ To use Score, you'll do the following:
 ## Getting started
 
 To get started, you'll want to:
+
+- [Install]({{< ref "/install" >}} "Learn to install") the {{< glossary_tooltip text="Platform CLI" term_id="platform-cli" >}}.

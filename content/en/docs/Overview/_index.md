@@ -26,7 +26,7 @@ _Configuration drift_ is the difference between how your local environment and r
 
 Developers use Score to describe their resources and environment's consistently.
 
-Then they use the Score CLI to generate their resources in an environment of choice. For example, you might use a PostGres database in a local, development, staging, and production stage. Each stage of the deployment process connects to a different PostGres database. When you compose your Score, you'll describe that resource once, then each environment will connect your PostGres database dynamically.
+Then they use the {{< glossary_tooltip text="Platform CLI" term_id="platform-cli" >}} to generate their resources in an environment of choice. For example, you might use a PostGres database in a local, development, staging, and production stage. Each stage of the deployment process connects to a different PostGres database. When you compose your Score, you'll describe that resource once, then each environment will connect your PostGres database dynamically.
 
 ## Benefits
 
