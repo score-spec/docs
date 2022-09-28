@@ -6,11 +6,11 @@ description: >
   This page is an overview of the Score Specification.
 ---
 
-<!-- Configuration inconsistencies -->
+<!-- Configuration mismanagement -->
 
 ## What is Score?
 
-_Score_ provides a developer-centric and platform-agnostic workload specification to improve developer productivity and experience. Score eliminates configuration inconsistencies between local and remote environments.
+_Score_ provides a developer-centric and platform-agnostic workload specification to improve developer productivity and experience. Score eliminates Configuration mismanagement between local and remote environments.
 
 The _Platform CLI tool_ is a conversion tool for developers and teams to generate an environment specific configurations. Use the Platform CLI tool to generate your target platform from the Score Specification, which can then be combined with environment specific parameters to run the workload in the target environment.
 

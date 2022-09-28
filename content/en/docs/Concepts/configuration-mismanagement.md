@@ -6,7 +6,7 @@ description: >
  This section covers some concepts that are important to understand for day to day Score usage and operation.
 ---
 
-_Configuration drift_, also known as Configuration inconsistencies, is the difference between how your local environment and remote environments are defined.
+_Configuration drift_, also known as Configuration mismanagement, is the difference between how your local environment and remote environments are defined.
 
 In modern software development, applications are typically deployed as microservices, each part packaged into its own container and promoted across different cloud environments. To run containerized workloads, teams make use of container orchestration platforms. As a developer you might be using Docker Compose or Minikube for local development and deploy to remote environments that are based on systems such as Kubernetes, OpenShift, Nomad or Mesos.
 
