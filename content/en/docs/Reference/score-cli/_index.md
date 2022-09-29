@@ -13,26 +13,24 @@ The Platform CLI is a command-line tool used to interact with a Score Specificat
 
 ## The Platform CLI
 
-The Platform CLI has two distinct parts.
-
-- **Comands**: The commands are tasks you want Score to do. Supply commands and subcommands to score on the command.
-- **Flags**: Also called parameters, are options that modify the result of the command by providing additional configurations. Flags are specific to the command, and each command can have independent flags.
-
-### Command reference
-
 Construct your Platform CLI command such that the command options precede its path and arguments when provided.
 
 ```bash
 score-[platform] [command] [flag]
 ```
 
-## Score platforms
-
 Currently, supported platforms includes:
 
-`score-humanitec` the implementation of a Humanitec configuration.
+- `score-compose` the implementation of a Docker Compose configuration.
+- `score-helm` the implementation of a Helm Chart configuration.
+- `score-humanitec` the implementation of a Humanitec configuration.
 
-`score-compose` the implementation of a Docker Compose configuration.
+## Command reference
+
+The Platform CLI has two distinct parts.
+
+- **Comands**: The commands are tasks you want Score to do. Supply commands and subcommands to score on the command.
+- **Flags**: Also called parameters, are options that modify the result of the command by providing additional configurations. Flags are specific to the command, and each command can have independent flags.
 
 ## Score commands
 

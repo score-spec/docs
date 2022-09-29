@@ -6,11 +6,27 @@ description: >
   Low level reference docs for your project.
 ---
 
+## Top Level Structure
+
+Score file describes a single workload and includes:
+
+- `containers`: that executes workload’s tasks
+- `resources`:(dependencies) needed by the workload
+- `service`: exported by the workload for other application components or for the outer world
+
 ## Resources definition
 
-Score allows users to define the resources their service relies on. It does not declare who, when, and how it should provision the resource in the target environment. The only purpose for the resource definition is to validate resources references in the same Score file.
+Score allows users to define the resources their service relies on.
 
-The resource could be anything. Score doesn't differentiate resources by types. It is up to Score implementation (CLI tool) to resolve the resource by name, type, or any other meta information available.
+It does not declare who, when, and how it should provision the resource in the target environment.
+
+The only purpose for the resource definition is to validate resources references in the same Score file.
+
+The resource could be anything.
+
+Score doesn't differentiate resources by types.
+
+It is up to Score implementation (CLI tool) to resolve the resource by name, type, or any other meta information available.
 
 ## Schema
 

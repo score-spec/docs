@@ -11,6 +11,10 @@ description: >
 Currently, the following platforms are available.
 
 ```bash
+score-helm
+```
+
+```bash
 score-humanitec
 ```
 
@@ -29,5 +33,7 @@ The following are a list of available commands.
 ## Universal flags
 
 You can run these flags in most positions in the {{< glossary_tooltip text="Platform CLI" term_id="platform-cli" >}}.
+
 -h, --help help for score-compose
+
 -v, --version version for score-compose

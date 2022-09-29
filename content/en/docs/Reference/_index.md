@@ -24,4 +24,4 @@ This section of the Score documentation contains references.
 
 ## Glossary
 
-- [Glossary](/docs/reference/glossary/) - a comprehensive list of Score terminology.
+- [Glossary](/docs/glossary/) - a comprehensive list of Score terminology.

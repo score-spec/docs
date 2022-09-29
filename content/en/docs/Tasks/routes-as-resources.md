@@ -10,7 +10,7 @@ Suggestions and ideas around managing routes via resources definitions in Humani
 
 Applications that consist of multiple microservices would typically need a routing controller that would redirect incoming requests to a proper workload at run time.
 
-Common scenario is to deploy an “API-Gateway” or “Ingress” controller as a part of the application.
+Common scenario is to deploy an `API-Gateway` or `Ingress` controller as a part of the application.
 
 **In this case a “routes table” should be maintained and updated after new services deployments. Which is a pain point as the software grows.**
 
@@ -70,7 +70,3 @@ resources:
 **Humanitec**
 
 When translated by `score-humanitec` two workload resources reference would be created in the deployment delta, one for `dns` and one for `route`. These would be resolved to actual values based on the configuration specified by the DevOps for the target environment.
-
-**Score is not a Configuration Management Tool**
-
-We do not want to specify any `dns` or `route` attributes values in Score file as those may change based on the target environment. Specifically, routes table management is clearly a configuration management task. And Score is not a Configuration Management Tool.
