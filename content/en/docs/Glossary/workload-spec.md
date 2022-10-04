@@ -4,7 +4,7 @@ id: workload-spec
 full_link: /docs/concepts/score-specification/
 short_description: >
     A Workload Specification file, or Workload Spec, is a single workload specification file.
-aka: 
+aka:
 tags:
 - workload
 - fundamental

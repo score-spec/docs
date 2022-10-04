@@ -6,44 +6,64 @@ description: >
   This page is an overview of Score for Humanitec.
 ---
 
-Use `score-docker` to run the target Platform CLI tool.
+Use `score-humanitec` to run the target Platform CLI tool and output the deployment delta details.
 
-The target Platform CLI tool takes in the Score Specification file and translates it into a Docker Compose configuration.
 
-This section will get you started with transforming a Score Specification file into a Docker Compose file and share important information on the target Platform CLI tool.
-
-To get started with `score-docker` create a directory and enter the following information into a file called `score.yaml`.
-
-```yaml Hello world
-name: hello-world
-containers:
-  hello:
-    image: busybox
-```
-
-From your terminal, run the following command.
+To deploy an updated service to the remote environment with `score-humanitec` run the following command.
 
 ```bash
-score-compose run
+score-humanitec run \
+  -f ./backend/score.yaml \
+  --org humanitec-demo --app score-demo --env development --token $HT_TOKEN \
+  --image=registry.humanitec.io/humanitec-demo/score-demo-backend:0.3.0
 ```
 
-By default, `--file` defaults to `./score.yaml` and `--output` defaults to `./compose.yaml`.
+The following is the output of the previous command.
 
-The following is the expected output from the previous command.
-
-```bash
-Reading './score.yaml'...
-Parsing score spec...
-Building docker-compose configuration...
-Creating './compose.yaml'...
-Writing docker-compose configuration...
+```json
+{
+  "id": "0025d1b6b90864ac3995998562e353290e458122",
+  "metadata": {
+    "env_id": "development",
+    "name": "PAWS-based deployment",
+    "created_by": "0110db28-90aa-4c42-bf52-9c49718da796",
+    "created_at": "2022-06-14T12:40:42.895793478Z",
+    "last_modified_at": "2022-06-14T12:40:42.895793478Z"
+  },
+  "modules": {
+    "add": {
+      "backend": {
+        "externals": {
+          "database": {
+            "type": "postgres"
+          }
+        },
+        "profile": "humanitec/default-module",
+        "spec": {
+          "containers": {
+            "backend": {
+              "id": "backend",
+              "image": "registry.humanitec.io/humanitec-demo/paws-demo-backend:0.3.0",
+              "variables": {
+                "CONNECTION_STRING": "postgresql://${externals.database.username}:${externals.database.password}@${externals.database.host}:${externals.database.port}/${externals.database.name}",
+                "DEBUG": "false",
+                "PORT": "8080"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 ```
 
-The following is the output of the run command.
+**Results**: You can now view and deploy this preview with the Humantiec Web UI or API.
 
-```yaml
-services:
-  hello-world: {}
-```
+## Deploy with Humanitec Web UI
 
-**Results**: You've successfully transformed a Score Specification file into a Docker Compose configuration.
+The following steps will deploy the deployment delta to your Humanitec organization through the Web UI.
+
+## Deploy with Humanitec API
+
+The following steps will deploy the deployment delta to your Humanitec organization through the API.

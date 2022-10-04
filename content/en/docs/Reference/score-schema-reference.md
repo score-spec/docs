@@ -3,32 +3,30 @@ title: "Score schema reference"
 linkTitle: "Score schema"
 weight: 9
 description: >
-  Low level reference docs for your project.
+  Reference documentation for the Score Specification.
 ---
 
-## Top Level Structure
+## Score structure
 
-Score file describes a single workload and includes:
+The Score Specification file contains the following top-level schema definitions. Use these definitions to describe a single {{< glossary_tooltip text="Workload" term_id="workload" >}}.
 
-- `containers`: that executes workload’s tasks
-- `resources`:(dependencies) needed by the workload
-- `service`: exported by the workload for other application components or for the outer world
+- `containers`: defines how the Workload's tasks are executed.
+- `resources`: defines dependencies needed by the Workload.
+- `service`: defines how an application can expose its resources when executed.
 
 ## Resources definition
 
-Score allows users to define the resources their service relies on.
+Score allows users to describe the relationship between workloads and their dependent resources in an environment-agnostic way.
 
 It does not declare who, when, and how it should provision the resource in the target environment.
 
-The only purpose for the resource definition is to validate resources references in the same Score file.
+The only purpose for the resource definition is to validate resources references in the same Score Specification file.
 
-The resource could be anything.
+The resource could be anything. Score doesn't differentiate resources by types.
 
-Score doesn't differentiate resources by types.
+It is up to {{< glossary_tooltip text="Platform CLI" term_id="platform-cli" >}} to resolve the resource by name, type, or any other meta information available.
 
-It is up to Score implementation (CLI tool) to resolve the resource by name, type, or any other meta information available.
-
-## Schema
+## Resources
 
 ```yaml
 resources:
@@ -73,11 +71,12 @@ Declared resources and their properties can be referenced in other places in Sco
 `${resource.[resource-name].[property-name]}`
 
 <aside>
+
 🚫 If the referenced resource or its property has not been defined, the Score implementation (CLI tool) should report a syntax error.
 
 </aside>
 
-It is up to the Score implementation (CLI tool) how and when the resource reference is resolved, and when the referenced values substitution occurs.
+It is up to the Score implementation (CLI tool) how and when the resource reference is resolved, and when the referenced values' substitution occurs.
 
 For example, `score-compose` would convert resource properties into environment variables references in resulting `compose.yaml` configuration file, and produce a reference `.env` file that the user can then populate ([read more](https://docs.docker.com/compose/environment-variables/#the-env-file)).
 
