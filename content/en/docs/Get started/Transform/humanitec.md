@@ -8,7 +8,6 @@ description: >
 
 Use `score-humanitec` to run the target Platform CLI tool and output the deployment delta details.
 
-
 To deploy an updated service to the remote environment with `score-humanitec` run the following command.
 
 ```bash
