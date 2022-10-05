@@ -1,31 +1,65 @@
 ---
-title: "Docker Compose"
-linkTitle: "Docker"
+title: "Compose"
+linkTitle: "Compose"
 weight: 4
 description: >
   Learn to translate a Score Specification file into a Docker Compose configuration with the target Platform CLI tool.
 ---
 
-Use `score-docker` to run the target Platform CLI tool.
+In this walkthrough you will:
 
-The target Platform CLI tool takes in the Score Specification file and translates it into a Docker Compose configuration.
+- 1
+- 2
+- 3
 
-This section will get you started with transforming a Score Specification file into a Docker Compose file and share important information on the target Platform CLI tool.
+Getting started:
+Start files
+End files
 
-To get started with `score-docker` create a directory and enter the following information into a file called `score.yaml`.
+### Prerequisites: Set up
 
-```yaml Hello world
-name: hello-world
-containers:
-  hello:
-    image: busybox
+1. Install the `score-compose` target Platform CLI tool.
+
+## Step 1. Author your score file
+
+1. Declare your resources.
+   1. In this example, we will use a Postgres database.
+
+```yaml
+resources:
+db:
+  type: postgres
 ```
 
-From your terminal, run the following command.
+2. Add properties.
 
-```bash
-score-compose run
+```yaml
+properties:
+      host:
+        default: localhost
+      port:
+        default: 5432
+      name:
+      username:
+        secret: true
+      password:
+        secret: true
 ```
+
+1. Declare your dependencies
+2. Add environmental variables.
+
+## Step 2. Run the target Platform CLI
+
+Choose from one of the following options:
+
+1. `score-compose`
+2. `score-helm`
+3. `score-humanitec`
+
+## Step 3. ?
+
+## Step 4. Push to CI
 
 By default, `--file` defaults to `./score.yaml` and `--output` defaults to `./compose.yaml`.
 
