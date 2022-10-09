@@ -12,7 +12,7 @@ description: >
 Resources referenced in `Score.yaml` should be pre-configured in Humanitec by DevOps (for each resource type). They are picked by the system at a deployment time in accordance with the Matching Criteria (also configured by DevOps).
 
 <aside>
-🚧 **TBD:** When creating a new workload deployment draft `score-humanitec` does not add the external (shared) resource to the workload automatically. Thus a manual intervention is needed to complete the deployment draft for brand-new workloads.
+🚧 **TBD:** When creating a new workload deployment draft `score-humanitec` doesn't add the external (shared) resource to the workload automatically. Thus a manual intervention is needed to complete the deployment draft for brand-new workloads.
 
 </aside>
 

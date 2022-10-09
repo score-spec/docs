@@ -41,7 +41,7 @@ services:
 The following `Score.yaml` configuration can be used to define the service and its dependencies:
 
 <aside>
-💡 We replace the image and entry point command bellow, so the User does not need a real microservice source code to run examples in this tutorial.
+💡 We replace the image and entry point command bellow, so the User doesn't need a real microservice source code to run examples in this tutorial.
 
 </aside>
 

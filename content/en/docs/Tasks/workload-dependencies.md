@@ -6,7 +6,7 @@ weight: 4
 
 The score specification may define one or more dependencies required by the workload to run. This could include other workloads, third party services, configuration sets or external resources such as databases and volumes for example.
 
-Workload dependancies are described declaratively. The score specification does not define how to configure or provision any dependancy but may include additional metadata (name, type, labels) that allows to identify and link it to the platform that consumes the output file generated based on score.yaml to deploy the workload at runtime.
+Workload dependancies are described declaratively. The score specification doesn't define how to configure or provision any dependancy but may include additional metadata (name, type, labels) that allows to identify and link it to the platform that consumes the output file generated based on score.yaml to deploy the workload at runtime.
 
 For example, the score specification might declare a `postgres` database as a required dependency for the workload:
 

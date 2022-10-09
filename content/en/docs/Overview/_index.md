@@ -46,7 +46,7 @@ Score exclusively takes care of translating the workload requirements specified 
 
 - Score is **not a configuration management tool** for environments. It is not recommended to store configuration values or secrets in `score.yaml`. Instead, it is possible to declare items such as configuration maps or secrets and vaults as a [workload dependency](https://www.notion.so/Score-Philosophy-Concepts-dc837c02120047d49b68342768341573) in your Score specification.
 - Score is **not a resource and environment management system**, such as Terraform or an Internal Developer Platform like Humanitec. It won’t spin up or purge physical resources or services defined in `score.yaml`.
-- Score is **not a deployment tool**. It does not support you with deploying or promoting workloads across environments.
+- Score is **not a deployment tool**. It doesn't support you with deploying or promoting workloads across environments.
 
 ## Where should I go next?
 

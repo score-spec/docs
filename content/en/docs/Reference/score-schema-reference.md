@@ -12,13 +12,13 @@ The Score Specification file contains the following top-level schema definitions
 
 - `containers`: defines how the Workload's tasks are executed.
 - `resources`: defines dependencies needed by the Workload.
-- `service`: defines how an application can expose its resources when executed.
+- [`service`](#service-definition): defines how an application can expose its resources when executed. Allows one or more `ports` to be exposed.
 
 ## Resources definition
 
 Score allows users to describe the relationship between workloads and their dependent resources in an environment-agnostic way.
 
-It does not declare who, when, and how it should provision the resource in the target environment.
+It doesn't declare who, when, and how it should provision the resource in the target environment.
 
 The only purpose for the resource definition is to validate resources references in the same Score Specification file.
 
@@ -36,8 +36,8 @@ resources:
       [property-name]:
         type: [property-type]     # optional
         default: [value]          # optional
-        required: [true|false]    # false by default
-        secret: [true|false]      # false by default
+        required: [true | false]    # false by default
+        secret: [true | false]      # false by default
 ```
 
 - `resource-name`: (required) specifies the resource name.
@@ -53,7 +53,7 @@ resources:
       - `required`: specifies a property as required.
       - `secret`: specifies a property value as a secret.
 
-## Reserved Resource Types
+### Reserved Resource Types
 
 In general, `resource-type` has no meaning for Score, but it can affect how targeted Platform CLI tool resolves the resource. Following are the conventions on the “reserved” resource types:
 
@@ -70,11 +70,11 @@ Declared resources and their properties can be referenced in other places in Sco
 
 `${resource.[resource-name].[property-name]}`
 
-<aside>
+{{% alert %}}
 
-🚫 If the referenced resource or its property has not been defined, the Score implementation (CLI tool) should report a syntax error.
+If the referenced resource or its property has not been defined, the {{< glossary_tooltip text="Platform CLI" term_id="platform-cli" >}} should report a syntax error.
 
-</aside>
+{{% /alert %}}
 
 It is up to the Score implementation (CLI tool) how and when the resource reference is resolved, and when the referenced values' substitution occurs.
 
@@ -106,4 +106,102 @@ resources:
         secret: true
       password:
         secret: true
+```
+
+## Service definition
+
+A `service` contains one or more networks ports that can be exposed to external applications.
+
+The `port` specification can include `public port` and should include `container port`.
+
+```yml
+service:
+  ports:
+    port-name: string                  # (required)
+      port: integer                    # (required)
+      protocol: string                 # (optional)
+      hostIP: integer                  # (optional)
+      hostPort: integer                # (optional)
+```
+
+`port-name`: describes the name of the port.
+
+`port`: contains the port to expose to an external application.
+
+`protocol`: describes the transportation layer protocol.
+
+- Defaults: `TCP`
+- Valid values: `SCTP` | `TCP` | `UDP`
+
+`hostIP`: describes the host IP to bind to.
+
+`hostPort`: describes the port to expose on the host. If the `hostPort` isn't specified, then it defaults to the required `port` property in the container.
+
+### Service example
+
+The following example advertises two public ports `80`, which points to the container's port `8080`, and `8080`, which also points to the container's port.
+
+```yml
+name: hello-world
+
+service:
+  ports:
+    www:
+      port: 8080
+      hostPort: 80
+    admin:
+      port: 8080
+
+# . . .
+```
+
+## Container definition
+
+The {{< glossary_tooltip text="Workload" term_id="workload" >}} container’s specification describes how the Workload's tasks are executed.
+
+```yml
+containers:
+  container-id:
+    image: busybox                            # Docker image name and tag
+
+    command:                                  # (Optional) Overrides image entry point
+    - "/bin/echo"
+    args:                                     # (Optional) Overrides entry point arguments
+    - "Hello $(FRIEND)"
+
+    variables:                                # (Optional) Specifies environment variables
+      FRIEND: World!
+
+    files:                                  # (Optional) Specifies extra files to mount
+    - target: /etc/hello-world/config.yaml  #    - Target file path and name
+      mode: "666"                           #    - Access mode
+      content:                              #    - Inline content (supports templates)
+      - "---"
+      - ${resources.env.APP_CONFIG}
+
+    volumes:                                # (Optional) Specifies volumes to mount
+    - source: ${resources.data}             #    - External volume reference
+      path: sub/path                        #    - (Optionla) Sub path in the volume
+      target: /mnt/data                     #    - Target mount path on the container
+      read_only: true                       #    - (Optional) Mount as read-only
+
+    resources:                              # (Optional) CPU and mempry resources needed
+      limits:                               #    - (Optional) Maximum alowed
+        memory: "128Mi"
+        cpu: "500m"
+      requests:                             #    - (Optional) Minimal required
+        memory: "64Mi"
+        cpu: "250m"
+
+    livenessProbe:                          # (Optional) Liveness probe
+      httpGet:                              #    - Only HTTP GET is supported
+        path: /alive
+        port: 8080
+    readinessProbe:                         # (Optional) Liveness probe
+      httpGet:                              #    - Only HTTP GET is supported
+        path: /ready
+        port: 8080
+        httpHeaders:                        #    - (Optional) HTTP Headers to include
+        - name: Custom-Header
+          value: Awesome
 ```
