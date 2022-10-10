@@ -6,8 +6,6 @@ description: >
   This page is an overview of the Score Specification.
 ---
 
-<!-- Configuration mismanagement -->
-
 ## What is Score?
 
 _Score_ provides a developer-centric and platform-agnostic workload specification to improve developer productivity and experience. Score eliminates Configuration mismanagement between local and remote environments.
@@ -16,11 +14,13 @@ The _Platform CLI tool_ is a conversion tool for developers and teams to generat
 
 ### Workload specification
 
-The Score specification file resolves configuration drift between environments. Compose a `score.yaml` file that describes how to run your workload. As a platform-agnostic declaration file, `score.yaml` creates a single source of truth on workload profiles of requirements and works to integrate with any platform or tooling.
+The Score specification file resolves configuration mismanagement between environments. Compose a `score.yaml` file that describes how to run your workload. As a platform-agnostic declaration file, `score.yaml` creates a single source of truth on workload profiles of requirements and works to integrate with any platform or tooling.
 
-### Eliminates configuration drift
+<!-- Configuration mismanagement -->
 
-_Configuration drift_ is the difference between how your local environment and remote environments are defined. For example, if you're running a testing in environment with Docker Compose and a production environment Kubernetes Cluster, keeping both environments in sync isn't clearly defined. With the Score Specification, you define your environment once, and the target _Platform CLI tool_ will manage the configuration drift.
+### Eliminates configuration mismanagement
+
+_Configuration mismanagement_ is the difference between how your local environment and remote environments are defined. For example, if you're running a testing in environment with Docker Compose and a production environment Kubernetes Cluster, keeping both environments in sync isn't clearly defined. With the Score Specification, you define your environment once, and the target _Platform CLI tool_ will manage the configuration mismanagement.
 
 ## Who uses Score?
 
@@ -44,7 +44,7 @@ Docker-Compose and Helm Charts are great at running resources regardless of plat
 
 Score exclusively takes care of translating the workload requirements specified in `score.yaml` into a platform-specific format (such as `docker-compose.yaml`). The platform consuming the generated file (such as Docker Compose) is responsible for processing and resolving each property. This means:
 
-- Score is **not a configuration management tool** for environments. It is not recommended to store configuration values or secrets in `score.yaml`. Instead, it is possible to declare items such as configuration maps or secrets and vaults as a [workload dependency](https://www.notion.so/Score-Philosophy-Concepts-dc837c02120047d49b68342768341573) in your Score specification.
+- Score is **not a configuration management tool** for environments. It is not recommended to store configuration values or secrets in `score.yaml`. Instead, it is possible to declare items such as configuration maps or secrets and vaults as a workload dependency in your Score specification.
 - Score is **not a resource and environment management system**, such as Terraform or an Internal Developer Platform like Humanitec. It won’t spin up or purge physical resources or services defined in `score.yaml`.
 - Score is **not a deployment tool**. It doesn't support you with deploying or promoting workloads across environments.
 

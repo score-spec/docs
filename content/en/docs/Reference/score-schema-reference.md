@@ -6,7 +6,7 @@ description: >
   Reference documentation for the Score Specification.
 ---
 
-## Score structure
+## Score schema
 
 The Score Specification file contains the following top-level schema definitions. Use these definitions to describe a single {{< glossary_tooltip text="Workload" term_id="workload" >}}.
 
@@ -26,7 +26,7 @@ The resource could be anything. Score doesn't differentiate resources by types.
 
 It is up to {{< glossary_tooltip text="Platform CLI" term_id="platform-cli" >}} to resolve the resource by name, type, or any other meta information available.
 
-## Resources
+### Resource properties
 
 ```yaml
 resources:
@@ -40,35 +40,47 @@ resources:
         secret: [true | false]      # false by default
 ```
 
-- `resource-name`: (required) specifies the resource name.
-  **Type**: string.
-  **Constraints**: alphanumeric string.
-  - `resource-type`: specifies the resource in the target environment.
-    **Type**: string.
-    **Constraints**: alphanumeric string.
-  - `properties` is a free collection of properties definitions that should be available on the resource. Only defined properties can be referenced in other places in Score file.
-    - `property-name`: is an alphanumeric string (no spaces, only `_` and `-` are allowed in names) that can be used to reference the resource property in other places in Score file.
-      - `default`: specifies a value that can be defined for the property.
-      - `type`: specifies a property type.
-      - `required`: specifies a property as required.
-      - `secret`: specifies a property value as a secret.
+**`resources`**: defines dependencies needed by the Workload.
 
-### Reserved Resource Types
+**`resource-name`**: a required property that specifies the resource name.
 
-In general, `resource-type` has no meaning for Score, but it can affect how targeted Platform CLI tool resolves the resource. Following are the conventions on the “reserved” resource types:
+- **Type**: string.
+- **Constraints**: alphanumeric string.
 
-| resource-type                  | Score-compose                                                                                                                   | Score-humanitec                                                                                                                 |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| environment                    | Translates to the environment variables references.                                                                             |                                                                                                                                 |
-| For example: ${PROPERTY-NAME}. | Translates to the application values references. For example: ${values.property-name}.                                          |                                                                                                                                 |
-| volume                         | Translates into a reference to the external volume. This reference is usually used in a container’s volume mount specification. | Translates into a reference to the external volume. This reference is usually used in a container’s volume mount specification. |
-| workload                       | N/A                                                                                                                             | Translates to the module properties references. For example: ${modules.workload-name.property-name}.                            |
+`resource-type`: specifies the resource in the target environment.
+
+- **Type**: string.
+- **Constraints**: alphanumeric string.
+
+**`properties`**: specifies properties definition that are available to the resource. Set properties that can be referenced in other places in the Score specification file. For more information, see [Referencing Resources](#referencing-resources).
+
+**`property-name`**: used to reference the resource property in other places in Score file.
+
+- **Type**: string.
+- **Constraints**: alphanumeric string.
+
+  - `default`: specifies a value that can be defined for the property.
+  - `type`: specifies a property type.
+  - `required`: specifies a property as required.
+  - `secret`: specifies a property value as a secret.
+
+### Reserved resource types
+
+In general, `resource-type` has no meaning for Score, but it can affect how targeted Platform CLI tool resolves the resource. Following are the conventions are _reserved_ resource types:
+
+| Resource type | `score-compose`                                                                                                                 | `score-humanitec`                                                                                                               |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `environment` | Translates to the environment variables references.  For example: `${PROPERTY-NAME}`.                                           | Translates to the application values references. For example: `${values.property-name}`.                                        |
+| `volume`      | Translates into a reference to the external volume. This reference is usually used in a container’s volume mount specification. | Translates into a reference to the external volume. This reference is usually used in a container’s volume mount specification. |
+| `workload`    | N/A                                                                                                                             | Translates to the module properties references. For example: `${modules.workload-name.property-name}`.                          |
 
 ## Referencing Resources
 
 Declared resources and their properties can be referenced in other places in Score file with the following template:
 
-`${resource.[resource-name].[property-name]}`
+```yaml
+${resource.[resource-name].[property-name]}
+```
 
 {{% alert %}}
 
