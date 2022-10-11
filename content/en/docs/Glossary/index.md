@@ -8,4 +8,3 @@ card:
   weight: 10
   title: Glossary
 ---
-

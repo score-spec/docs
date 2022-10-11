@@ -6,15 +6,15 @@ headless: true
 
 The Score completion script for PowerShell can be generated with the command `score completion powershell`.
 
-To do so in all your shell sessions, add the following line to your `$PROFILE` file:
+To do so in all your shell sessions, add the following line to your `$PROFILE` file.
 
 ```powershell
-score completion powershell | Out-String | Invoke-Expression
+score-<platform> completion powershell | Out-String | Invoke-Expression
 ```
 
 This command will regenerate the auto-completion script on every PowerShell start up. You can also add the generated script directly to your `$PROFILE` file.
 
-To add the generated script to your `$PROFILE` file, run the following line in your Powershell prompt:
+To add the generated script to your `$PROFILE` file, run the following line in your Powershell prompt.
 
 ```powershell
 score completion powershell >> $PROFILE

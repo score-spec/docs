@@ -4,7 +4,7 @@ linkTitle: "Enable autocomplete"
 weight: 4
 ---
 
-Score allows you to generate an autocompletion script for each platform tool for a specified shell.
+Score allows you to generate an autocompletion script for each Platform CLI tool for a specified shell.
 
 To enable autocomplete, run one of the following:
 
@@ -37,3 +37,5 @@ Below are the procedures to set up autocompletion for Bash, Fish, and Zsh.
 {{< tab name="Fish" include="included/optional-score-configs-fish.md" />}}
 {{< tab name="Zsh" include="included/optional-score-configs-zsh.md" />}}
 {{< /tabs >}}
+
+For more information, see Cobra's documentation on [Generating shell completions](https://github.com/spf13/cobra/blob/main/shell_completions.md).

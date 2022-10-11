@@ -70,7 +70,7 @@ In general, `resource-type` has no meaning for Score, but it can affect how targ
 
 | Resource type | `score-compose`                                                                                                                 | `score-humanitec`                                                                                                               |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| `environment` | Translates to the environment variables references.  For example: `${PROPERTY-NAME}`.                                           | Translates to the application values references. For example: `${values.property-name}`.                                        |
+| `environment` | Translates to the environment variables references. For example: `${PROPERTY-NAME}`.                                            | Translates to the application values references. For example: `${values.property-name}`.                                        |
 | `volume`      | Translates into a reference to the external volume. This reference is usually used in a container’s volume mount specification. | Translates into a reference to the external volume. This reference is usually used in a container’s volume mount specification. |
 | `workload`    | N/A                                                                                                                             | Translates to the module properties references. For example: `${modules.workload-name.property-name}`.                          |
 
