@@ -439,7 +439,7 @@ Responsive variations also exist for `flex-wrap`.
 
 ## Order
 
-Change the _visual_ order of specific flex items with a handful of `order` utilities. We only provide options for making an item first or last, as well as a reset to use the DOM order. As `order` takes any integer value (e.g., `5`), add custom CSS for any additional values needed.
+Change the _visual_ order of specific flex items with a handful of `order` utilities. We only provide options for making an item first or last, as well as a reset to use the DOM order. As `order` takes any integer value (for example, `5`), add custom CSS for any additional values needed.
 
 {{< example >}}
 

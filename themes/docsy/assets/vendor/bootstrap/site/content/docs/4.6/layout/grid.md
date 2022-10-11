@@ -41,7 +41,7 @@ Breaking it down, here's how it works:
 - Column `width`s are set in percentages, so they're always fluid and sized relative to their parent element.
 - Columns have horizontal `padding` to create the gutters between individual columns, however, you can remove the `margin` from rows and `padding` from columns with `.no-gutters` on the `.row`.
 - To make the grid responsive, there are five grid breakpoints, one for each [responsive breakpoint]({{< docsref "/layout/overview#responsive-breakpoints" >}}): all breakpoints (extra small), small, medium, large, and extra large.
-- Grid breakpoints are based on minimum width media queries, meaning **they apply to that one breakpoint and all those above it** (e.g., `.col-sm-4` applies to small, medium, large, and extra large devices, but not the first `xs` breakpoint).
+- Grid breakpoints are based on minimum width media queries, meaning **they apply to that one breakpoint and all those above it** (for example, `.col-sm-4` applies to small, medium, large, and extra large devices, but not the first `xs` breakpoint).
 - You can use predefined grid classes (like `.col-4`) or [Sass mixins](#sass-mixins) for more semantic markup.
 
 Be aware of the limitations and [bugs around flexbox](https://github.com/philipwalton/flexbugs), like the [inability to use some HTML elements as flex containers](https://github.com/philipwalton/flexbugs#flexbug-9).
@@ -319,7 +319,7 @@ Here's an example of customizing the Bootstrap grid at the large (`lg`) breakpoi
 
 ### Row columns
 
-Use the responsive `.row-cols-*` classes to quickly set the number of columns that best render your content and layout. Whereas normal `.col-*` classes apply to the individual columns (e.g., `.col-md-4`), the row columns classes are set on the parent `.row` as a shortcut.
+Use the responsive `.row-cols-*` classes to quickly set the number of columns that best render your content and layout. Whereas normal `.col-*` classes apply to the individual columns (for example, `.col-md-4`), the row columns classes are set on the parent `.row` as a shortcut.
 
 Use these row columns classes to quickly create basic grid layouts or to control your card layouts.
 
@@ -597,7 +597,7 @@ You may also apply this break at specific breakpoints with our [responsive displ
 
 ### Order classes
 
-Use `.order-` classes for controlling the **visual order** of your content. These classes are responsive, so you can set the `order` by breakpoint (e.g., `.order-1.order-md-2`). Includes support for `1` through `12` across all five grid tiers.
+Use `.order-` classes for controlling the **visual order** of your content. These classes are responsive, so you can set the `order` by breakpoint (for example, `.order-1.order-md-2`). Includes support for `1` through `12` across all five grid tiers.
 
 {{< example class="bd-example-row" >}}
 

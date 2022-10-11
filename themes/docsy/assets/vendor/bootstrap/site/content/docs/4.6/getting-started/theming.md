@@ -204,7 +204,7 @@ We also have another function for getting a particular _level_ of color from the
 }
 ```
 
-In practice, you'd call the function and pass in two parameters: the name of the color from `$theme-colors` (e.g., primary or danger) and a numeric level.
+In practice, you'd call the function and pass in two parameters: the name of the color from `$theme-colors` (for example, primary or danger) and a numeric level.
 
 ```scss
 .custom-element {
@@ -301,7 +301,7 @@ You can find and customize these variables for key global options in Bootstrap's
 | `$enable-transitions`                        | `true` (default) or `false`        | Enables predefined `transition`s on various components.                                                                                                                                                                        |
 | `$enable-prefers-reduced-motion-media-query` | `true` (default) or `false`        | Enables the [`prefers-reduced-motion` media query]({{< docsref "/getting-started/accessibility#reduced-motion" >}}), which suppresses certain animations/transitions based on the users' browser/operating system preferences. |
 | `$enable-hover-media-query`                  | `true` or `false` (default)        | **Deprecated**                                                                                                                                                                                                                 |
-| `$enable-grid-classes`                       | `true` (default) or `false`        | Enables the generation of CSS classes for the grid system (e.g., `.container`, `.row`, `.col-md-1`, etc.).                                                                                                                     |
+| `$enable-grid-classes`                       | `true` (default) or `false`        | Enables the generation of CSS classes for the grid system (for example, `.container`, `.row`, `.col-md-1`, etc.).                                                                                                              |
 | `$enable-caret`                              | `true` (default) or `false`        | Enables pseudo element caret on `.dropdown-toggle`.                                                                                                                                                                            |
 | `$enable-pointer-cursor-for-buttons`         | `true` (default) or `false`        | Add "hand" cursor to non-disabled button elements.                                                                                                                                                                             |
 | `$enable-print-styles`                       | `true` (default) or `false`        | Enables styles for optimizing printing.                                                                                                                                                                                        |
@@ -414,7 +414,7 @@ Many of Bootstrap's components and utilities are built with `@each` loops that i
 
 ### Modifiers
 
-Many of Bootstrap's components are built with a base-modifier class approach. This means the bulk of the styling is contained to a base class (e.g., `.btn`) while style variations are confined to modifier classes (e.g., `.btn-danger`). These modifier classes are built from the `$theme-colors` map to make customizing the number and name of our modifier classes.
+Many of Bootstrap's components are built with a base-modifier class approach. This means the bulk of the styling is contained to a base class (for example, `.btn`) while style variations are confined to modifier classes (for example, `.btn-danger`). These modifier classes are built from the `$theme-colors` map to make customizing the number and name of our modifier classes.
 
 Here are two examples of how we loop over the `$theme-colors` map to generate modifiers to the `.alert` component and all our `.bg-*` background utilities.
 
@@ -497,7 +497,7 @@ a {
 
 ### Breakpoint variables
 
-While we originally included breakpoints in our CSS variables (e.g., `--breakpoint-md`), **these are not supported in media queries**, but they can still be used _within_ rulesets in media queries. These breakpoint variables remain in the compiled CSS for backward compatibility given they can be utilized by JavaScript. [Learn more in the spec](https://www.w3.org/TR/css-variables-1/#using-variables).
+While we originally included breakpoints in our CSS variables (for example, `--breakpoint-md`), **these are not supported in media queries**, but they can still be used _within_ rulesets in media queries. These breakpoint variables remain in the compiled CSS for backward compatibility given they can be utilized by JavaScript. [Learn more in the spec](https://www.w3.org/TR/css-variables-1/#using-variables).
 
 Here's an example of **what's not supported:**
 

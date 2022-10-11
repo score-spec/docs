@@ -56,14 +56,14 @@ The general workflow for code contributions:
 
 If you need help, you can create an issue.
 
-### Reporting Bugs
+### Reporting bugs
 
-#### Before Submitting a Bug Report
+#### Before submitting an issue
 
 A good bug report shouldn't leave others needing to chase you up for more information. Therefore, we ask you to investigate carefully, collect information and describe the issue in detail in your report. Please complete the following steps in advance to help us fix any potential bug as fast as possible.
 
 - Make sure that you are using the latest version.
-- Determine if your bug is really a bug and not an error on your side e.g. using incompatible environment components/versions (Make sure that you have read the [documentation](https://github.com/score-dev/score-docs). If you are looking for support.
+- Determine if your bug is really a bug and not an error on your side for example using incompatible environment components/versions (Make sure that you have read the [documentation](https://github.com/score-dev/score-docs). If you are looking for support.
 - To see if other users have experienced (and potentially already solved) the same issue you are having, check if there is not already a bug report existing for your bug or error in the [bug tracker](https://github.com/score-dev/demo-repositoryissues?q=label%3Abug).
 - Also make sure to search the internet (including Stack Overflow) to see if users outside the GitHub community have discussed the issue.
 - Collect information about the bug:
@@ -79,4 +79,4 @@ Our [Code of Conduct](CODE_OF_CONDUCT.md) means that you are responsible for tre
 
 ## Community Guidelines
 
-This project follows the [CNCF Community Code of Conduct](https://github.com/cncf/foundation/blob/main/code1.of1.conduct.md).
+This project follows the [CNCF Community Code of Conduct](https://github.com/cncf/foundation/blob/main/code-of-conduct.md).

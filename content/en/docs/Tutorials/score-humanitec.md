@@ -21,7 +21,7 @@ Resources referenced in `Score.yaml` should be pre-configured in Humanitec by De
 The following `Score.yaml` configuration can be used to define the service and its dependencies:
 
 <aside>
-🚧 **TBD:** Humanitec enforces some limitations on the resource IDs. Specifically it should be at least 3 characters long. Thus the resource ID used in the example bellow (e.g. `db`) is not a valid resource ID. However, Humanitec API gladly accepts it and creates a new draft successfully.
+🚧 **TBD:** Humanitec enforces some limitations on the resource IDs. Specifically it should be at least 3 characters long. Thus the resource ID used in the example bellow (for example `db`) is not a valid resource ID. However, Humanitec API gladly accepts it and creates a new draft successfully.
 
 </aside>
 

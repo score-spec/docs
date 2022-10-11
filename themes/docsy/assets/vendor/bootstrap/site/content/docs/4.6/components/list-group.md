@@ -38,7 +38,7 @@ Add `.active` to a `.list-group-item` to indicate the current active selection.
 
 ## Disabled items
 
-Add `.disabled` to a `.list-group-item` to make it _appear_ disabled. Note that some elements with `.disabled` will also require custom JavaScript to fully disable their click events (e.g., links).
+Add `.disabled` to a `.list-group-item` to make it _appear_ disabled. Note that some elements with `.disabled` will also require custom JavaScript to fully disable their click events (for example, links).
 
 {{< example >}}
 
@@ -87,7 +87,7 @@ With `<button>`s, you can also make use of the `disabled` attribute instead of t
 
 ## Flush
 
-Add `.list-group-flush` to remove some borders and rounded corners to render list group items edge-to-edge in a parent container (e.g., cards).
+Add `.list-group-flush` to remove some borders and rounded corners to render list group items edge-to-edge in a parent container (for example, cards).
 
 {{< example >}}
 

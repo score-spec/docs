@@ -96,7 +96,7 @@ Right-aligned with `.justify-content-end`:
 
 ### Vertical
 
-Stack your navigation by changing the flex item direction with the `.flex-column` utility. Need to stack them on some viewports but not others? Use the responsive versions (e.g., `.flex-sm-column`).
+Stack your navigation by changing the flex item direction with the `.flex-column` utility. Need to stack them on some viewports but not others? Use the responsive versions (for example, `.flex-sm-column`).
 
 {{< example >}}
 

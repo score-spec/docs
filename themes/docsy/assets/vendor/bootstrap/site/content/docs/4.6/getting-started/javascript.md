@@ -20,7 +20,7 @@ Our dropdowns, popovers and tooltips also depend on [Popper.js](https://popper.j
 
 ## Data attributes
 
-Nearly all Bootstrap plugins can be enabled and configured through HTML alone with data attributes (our preferred way of using JavaScript functionality). Be sure to **only use one set of data attributes on a single element** (e.g., you cannot trigger a tooltip and modal from the same button.)
+Nearly all Bootstrap plugins can be enabled and configured through HTML alone with data attributes (our preferred way of using JavaScript functionality). Be sure to **only use one set of data attributes on a single element** (for example, you cannot trigger a tooltip and modal from the same button.)
 
 However, in some situations it may be desirable to disable this functionality. To disable the data attribute API, unbind all events on the document namespaced with `data-api` like so:
 

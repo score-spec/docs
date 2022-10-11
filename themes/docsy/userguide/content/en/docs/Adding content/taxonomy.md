@@ -15,13 +15,13 @@ Docsy supports Hugo's Taxonomies (see: https://gohugo.io/content-management/taxo
 To understand the usage of taxonomies you should understand the following terminology:
 
 Taxonomy
-: a categorization that can be used to classify content - e.g.: Tags, Categories, Projects, People
+: a categorization that can be used to classify content - for example: Tags, Categories, Projects, People
 
 Term
-: a key within the taxonomy - e.g. within projects: Project A, Project B
+: a key within the taxonomy - for example within projects: Project A, Project B
 
 Value
-: a piece of content assigned to a term - e.g. a page of your site, that belongs to a specific project
+: a piece of content assigned to a term - for example a page of your site, that belongs to a specific project
 
 A example taxonomy for a movie website you can find in the official Hugo docs: https://gohugo.io/content-management/taxonomies/#example-taxonomy-movie-website
 

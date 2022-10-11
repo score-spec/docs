@@ -40,7 +40,7 @@ Our bug tracker utilizes several labels to help organize and identify issues. He
 - `css` - Issues stemming from our compiled CSS or source Sass files.
 - `docs` - Issues for improving or updating our documentation.
 - `examples` - Issues involving the example templates included in our docs.
-- `feature` - Issues asking for a new feature to be added, or an existing one to be extended or modified. New features require a minor version bump (e.g., `v3.0.0` to `v3.1.0`).
+- `feature` - Issues asking for a new feature to be added, or an existing one to be extended or modified. New features require a minor version bump (for example, `v3.0.0` to `v3.1.0`).
 - `build` - Issues with our build system, which is used to run all our tests, concatenate and compile source files, and more.
 - `help wanted` - Issues we need or would love help from the community to resolve.
 - `js` - Issues stemming from our compiled or source JavaScript files.
@@ -117,7 +117,7 @@ Good pull requests—patches, improvements, new features—are a fantastic
 help. They should remain focused in scope and avoid containing unrelated
 commits.
 
-**Please ask first** before embarking on any **significant** pull request (e.g.
+**Please ask first** before embarking on any **significant** pull request (for example
 implementing features, refactoring code, porting to a different language),
 otherwise you risk spending a lot of time working on something that the
 project's developers might not want to merge into the project. For trivial
@@ -200,7 +200,7 @@ includes code changes) and under the terms of the
 
 [Adhere to the Code Guide.](https://codeguide.co/#html)
 
-- Use tags and elements appropriate for an HTML5 doctype (e.g., self-closing tags).
+- Use tags and elements appropriate for an HTML5 doctype (for example, self-closing tags).
 - Use CDNs and HTTPS for third-party JS when possible. We don't use protocol-relative URLs in this case because they break when viewing the page locally via `file://`.
 - Use [WAI-ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA) attributes in documentation examples to promote accessibility.
 
@@ -209,7 +209,7 @@ includes code changes) and under the terms of the
 [Adhere to the Code Guide.](https://codeguide.co/#css)
 
 - When feasible, default color palettes should comply with [WCAG color contrast guidelines](https://www.w3.org/TR/WCAG20/#visual-audio-contrast).
-- Except in rare cases, don't remove default `:focus` styles (via e.g. `outline: none;`) without providing alternative styles. See [this A11Y Project post](https://www.a11yproject.com/posts/2013-01-25-never-remove-css-outlines/) for more details.
+- Except in rare cases, don't remove default `:focus` styles (via for example `outline: none;`) without providing alternative styles. See [this A11Y Project post](https://www.a11yproject.com/posts/2013-01-25-never-remove-css-outlines/) for more details.
 
 ### JS
 

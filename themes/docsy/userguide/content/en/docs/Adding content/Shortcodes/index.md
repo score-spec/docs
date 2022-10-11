@@ -64,7 +64,7 @@ Note that the relevant shortcode parameters above will have sensible defaults, b
 To set the background image, place an image with the word "background" in the name in the page's [Page Bundle](/docs/adding-content/content/#page-bundles). For example, in our the example site the background image in the home page's cover block is [`featured-background.jpg`](https://github.com/Humanitec/score-docs/tree/master/content/en), in the same directory.
 
 {{% alert title="Tip" %}}
-If you also include the word **featured** in the image name, e.g. `my-featured-background.jpg`, it will also be used as the Twitter Card image when shared.
+If you also include the word **featured** in the image name, for example `my-featured-background.jpg`, it will also be used as the Twitter Card image when shared.
 {{% /alert %}}
 
 For available icons, see [Font Awesome](https://fontawesome.com/icons?d=gallery&m=free).
@@ -210,7 +210,7 @@ resources:
 | --------: | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |         1 | The image filename or enough of it to identify it (we do Glob matching)                                                                                     |
 |         2 | Command. One of `Fit`, `Resize` or `Fill`. See [Image Processing Methods](https://gohugo.io/content-management/image-processing/#image-processing-methods). |
-|         3 | Processing options, e.g. `400x450`. See [Image Processing Options](https://gohugo.io/content-management/image-processing/#image-processing-methods).        |
+|         3 | Processing options, for example `400x450`. See [Image Processing Options](https://gohugo.io/content-management/image-processing/#image-processing-methods). |
 
 ### swaggerui
 
@@ -248,7 +248,7 @@ With this shortcode you can embed external content into a Docsy page as an inlin
 {{% alert title="Warning" color="warning" %}}
 You can only embed external content from a server when its `X-Frame-Options` is not set or if it specifically allows embedding for your site. See https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options for details.
 
-There are several tools you can use to check if a website can be embedded via iframe - e.g.: https://gf.dev/x-frame-options-test. Be aware that when this test says "Couldn’t find the X-Frame-Options header
+There are several tools you can use to check if a website can be embedded via iframe - for example: https://gf.dev/x-frame-options-test. Be aware that when this test says "Couldn’t find the X-Frame-Options header
 in the response headers." you **CAN** embed it, but when the test says "Great! X-Frame-Options header was found in the HTTP response headers as highlighted below.", you **CANNOT** - unless it has been explicitly enabled for your site.
 {{% /alert %}}
 

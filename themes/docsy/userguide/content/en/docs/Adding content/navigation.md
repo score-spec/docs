@@ -105,7 +105,7 @@ On large sites (default: > 2000 pages) the section menu is not generated for eac
 
 ### Add icons to the section menu
 
-You can add icons to the section menu in the sidebar by setting the `icon` parameter in the page front matter (e.g. `icon: fas fa-tools`).
+You can add icons to the section menu in the sidebar by setting the `icon` parameter in the page front matter (for example `icon: fas fa-tools`).
 
 You can find a complete list of icons to use in the [FontAwesome documentation](https://fontawesome.com/icons?d=gallery&p=2). Docsy includes the free FontAwesome icons by default.
 
@@ -212,7 +212,7 @@ If you are accepted to the program, you will receive the JavaScript code to add 
 
 4. Add the JavaScript code provided to you by Algolia to the head and body of every page on your site. See [Add code to head or before body end](/docs/adding-content/lookandfeel/#add-code-to-head-or-before-body-end) for details.
 
-5. Update the `inputSelector` field in the body end Javascript with the appropriate CSS selector (e.g. `.td-search-input` to use the default CSS from this theme).
+5. Update the `inputSelector` field in the body end Javascript with the appropriate CSS selector (for example `.td-search-input` to use the default CSS from this theme).
 
 When you've completed these steps the Algolia search should be enabled on your site. Search results are displayed as a drop-down under the search box, so you don't need to add any search results page.
 

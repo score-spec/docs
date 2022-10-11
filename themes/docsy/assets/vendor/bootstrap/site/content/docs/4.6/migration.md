@@ -60,7 +60,7 @@ While in beta, we aim to have no breaking changes. However, things don't always 
 - Renamed `grayscale()` function to `gray()` to avoid breaking conflict with the CSS native `grayscale` filter.
 - Renamed `.table-inverse`, `.thead-inverse`, and `.thead-default` to `.*-dark` and `.*-light`, matching our color schemes used elsewhere.
 - Responsive tables now generate classes for each grid breakpoint. This breaks from Beta 1 in that the `.table-responsive` you've been using is more like `.table-responsive-md`. You may now use `.table-responsive` or `.table-responsive-{sm,md,lg,xl}` as needed.
-- Dropped Bower support as the package manager has been deprecated for alternatives (e.g., Yarn or npm). [See bower/bower#2298](https://github.com/bower/bower/issues/2298) for details.
+- Dropped Bower support as the package manager has been deprecated for alternatives (for example, Yarn or npm). [See bower/bower#2298](https://github.com/bower/bower/issues/2298) for details.
 - Bootstrap still requires jQuery 1.9.1 or higher, but you're advised to use version 3.x since v3.x's supported browsers are the ones Bootstrap supports plus v3.x has some security fixes.
 - Removed the unused `.form-control-label` class. If you did make use of this class, it was duplicate of the `.col-form-label` class that vertically centered a `<label>` with it's associated input in horizontal form layouts.
 - Changed the `color-yiq` from a mixin that included the `color` property to a function that returns a value, allowing you to use it for any CSS property. For example, instead of `color-yiq(#000)`, you'd write `color: color-yiq(#000);`.
@@ -85,7 +85,7 @@ Here are the big ticket items you'll want to be aware of when moving from v3 to 
 - Switched from `px` to `rem` as our primary CSS unit, though pixels are still used for media queries and grid behavior as device viewports are not affected by type size.
 - Global font-size increased from `14px` to `16px`.
 - Revamped grid tiers to add a fifth option (addressing smaller devices at `576px` and below) and removed the `-xs` infix from those classes. Example: `.col-6.col-sm-4.col-md-3`.
-- Replaced the separate optional theme with configurable options via SCSS variables (e.g., `$enable-gradients: true`).
+- Replaced the separate optional theme with configurable options via SCSS variables (for example, `$enable-gradients: true`).
 - Build system overhauled to use a series of npm scripts instead of Grunt. See `package.json` for all scripts, or our project readme for local development needs.
 - Non-responsive usage of Bootstrap is no longer supported.
 - Dropped the online Customizer in favor of more extensive setup documentation and customized builds.
@@ -98,7 +98,7 @@ Here are the big ticket items you'll want to be aware of when moving from v3 to 
   - As part of flexbox, included support for vertical and horizontal alignment classes.
 - **Updated grid class names and a new grid tier.**
   - Added a new `sm` grid tier below `768px` for more granular control. We now have `xs`, `sm`, `md`, `lg`, and `xl`. This also means every tier has been bumped up one level (so `.col-md-6` in v3 is now `.col-lg-6` in v4).
-  - `xs` grid classes have been modified to not require the infix to more accurately represent that they start applying styles at `min-width: 0` and not a set pixel value. Instead of `.col-xs-6`, it's now `.col-6`. All other grid tiers require the infix (e.g., `sm`).
+  - `xs` grid classes have been modified to not require the infix to more accurately represent that they start applying styles at `min-width: 0` and not a set pixel value. Instead of `.col-xs-6`, it's now `.col-6`. All other grid tiers require the infix (for example, `sm`).
 - **Updated grid sizes, mixins, and variables.**
   - Grid gutters now have a Sass map so you can specify specific gutter widths at each breakpoint.
   - Updated grid mixins to utilize a `make-col-ready` prep mixin and a `make-col` to set the `flex` and `max-width` for individual column sizing.
@@ -115,7 +115,7 @@ Here are the big ticket items you'll want to be aware of when moving from v3 to 
   - [Font Awesome](https://fontawesome.com/)
   - See the [Extend page]({{< docsref "/extend/icons" >}}) for a list of alternatives. Have additional suggestions? Please open an issue or PR.
 - **Dropped the Affix jQuery plugin.**
-  - We recommend using `position: sticky` instead. [See the HTML5 Please entry](https://html5please.com/#sticky) for details and specific polyfill recommendations. One suggestion is to use an `@supports` rule for implementing it (e.g., `@supports (position: sticky) { ... }`)
+  - We recommend using `position: sticky` instead. [See the HTML5 Please entry](https://html5please.com/#sticky) for details and specific polyfill recommendations. One suggestion is to use an `@supports` rule for implementing it (for example, `@supports (position: sticky) { ... }`)
   - If you were using Affix to apply additional, non-`position` styles, the polyfills might not support your use case. One option for such uses is the third-party [ScrollPos-Styler](https://github.com/acch/scrollpos-styler) library.
 - **Dropped the pager component** as it was essentially slightly customized buttons.
 - **Refactored nearly all components** to use more un-nested class selectors instead of over-specific children selectors.
@@ -161,7 +161,7 @@ New to Bootstrap 4 is the [Reboot]({{< docsref "/content/reboot" >}}), a new sty
 - Consolidated `.checkbox` and `.radio` into `.form-check` and the various `.form-check-*` classes.
 - Horizontal forms overhauled:
   - Dropped the `.form-horizontal` class requirement.
-  - `.form-group` no longer applies styles from the `.row` via mixin, so `.row` is now required for horizontal grid layouts (e.g., `<div class="form-group row">`).
+  - `.form-group` no longer applies styles from the `.row` via mixin, so `.row` is now required for horizontal grid layouts (for example, `<div class="form-group row">`).
   - Added new `.col-form-label` class to vertically center labels with `.form-control`s.
   - Added new `.form-row` for compact form layouts with the grid classes (swap your `.row` for a `.form-row` and go).
 - Added custom forms support (for checkboxes, radios, selects, and file inputs).
@@ -259,7 +259,7 @@ Dropped entirely for the new card component.
 - `.panel-default` removed and no replacement.
 - `.panel-group` removed and no replacement. `.card-group` is not a replacement, it is different.
 - `.panel-heading` to `.card-header`
-- `.panel-title` to `.card-title`. Depending on the desired look, you may also want to use [heading elements or classes]({{< docsref "/content/typography#headings" >}}) (e.g. `<h3>`, `.h3`) or bold elements or classes (e.g. `<strong>`, `<b>`, [`.font-weight-bold`]({{< docsref "/utilities/text#font-weight-and-italics" >}})). Note that `.card-title`, while similarly named, produces a different look than `.panel-title`.
+- `.panel-title` to `.card-title`. Depending on the desired look, you may also want to use [heading elements or classes]({{< docsref "/content/typography#headings" >}}) (for example `<h3>`, `.h3`) or bold elements or classes (for example `<strong>`, `<b>`, [`.font-weight-bold`]({{< docsref "/utilities/text#font-weight-and-italics" >}})). Note that `.card-title`, while similarly named, produces a different look than `.panel-title`.
 - `.panel-body` to `.card-body`
 - `.panel-footer` to `.card-footer`
 - `.panel-primary`, `.panel-success`, `.panel-info`, `.panel-warning`, and `.panel-danger` have been dropped for `.bg-`, `.text-`, and `.border` utilities generated from our `$theme-colors` Sass map.
@@ -276,7 +276,7 @@ Dropped entirely for the new card component.
   - For carousel items, `.next`, `.prev`, `.left`, and `.right` are now `.carousel-item-next`, `.carousel-item-prev`, `.carousel-item-left`, and `.carousel-item-right`.
   - `.item` is also now `.carousel-item`.
   - For prev/next controls, `.carousel-control.right` and `.carousel-control.left` are now `.carousel-control-next` and `.carousel-control-prev`, meaning they no longer require a specific base class.
-- Removed all responsive styling, deferring to utilities (e.g., showing captions on certain viewports) and custom styles as needed.
+- Removed all responsive styling, deferring to utilities (for example, showing captions on certain viewports) and custom styles as needed.
 - Removed image overrides for images in carousel items, deferring to utilities.
 - Tweaked the Carousel example to include the new markup and styles.
 
@@ -288,7 +288,7 @@ Dropped entirely for the new card component.
 ### Utilities
 
 - **Display, hidden, and more:**
-  - Made display utilities responsive (e.g., `.d-none` and `d-{sm,md,lg,xl}-none`).
+  - Made display utilities responsive (for example, `.d-none` and `d-{sm,md,lg,xl}-none`).
   - Dropped the bulk of `.hidden-*` utilities for new [display utilities]({{< docsref "/utilities/display" >}}). For example, instead of `.hidden-sm-up`, use `.d-sm-none`. Renamed the `.hidden-print` utilities to use the display utility naming scheme. More info under the [Responsive utilities](#responsive-utilities) section of this page.
   - Added `.float-{sm,md,lg,xl}-{left,right,none}` classes for responsive floats and removed `.pull-left` and `.pull-right` since they're redundant to `.float-left` and `.float-right`.
 - **Type:**
@@ -332,6 +332,6 @@ Our responsive utility classes have largely been removed in favor of explicit `d
   - Old names: `.visible-print-block`, `.visible-print-inline`, `.visible-print-inline-block`, `.hidden-print`
   - New classes: `.d-print-block`, `.d-print-inline`, `.d-print-inline-block`, `.d-print-none`
 
-Rather than using explicit `.visible-*` classes, you make an element visible by simply not hiding it at that screen size. You can combine one `.d-*-none` class with one `.d-*-block` class to show an element only on a given interval of screen sizes (e.g. `.d-none.d-md-block.d-xl-none` shows the element only on medium and large devices).
+Rather than using explicit `.visible-*` classes, you make an element visible by simply not hiding it at that screen size. You can combine one `.d-*-none` class with one `.d-*-block` class to show an element only on a given interval of screen sizes (for example `.d-none.d-md-block.d-xl-none` shows the element only on medium and large devices).
 
 Note that the changes to the grid breakpoints in v4 means that you'll need to go one breakpoint larger to achieve the same results. The new responsive utility classes don't attempt to accommodate less common cases where an element's visibility can't be expressed as a single contiguous range of viewport sizes; you will instead need to use custom CSS in such cases.
