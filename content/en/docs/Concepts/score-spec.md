@@ -1,6 +1,6 @@
 ---
 title: "Score specification"
-linkTitle: "Score specification"
+linkTitle: "Score spec"
 weight: 4
 ---
 

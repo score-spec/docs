@@ -36,17 +36,13 @@ score-compose -f /tmp/compose.yaml up backend
 
 ## Contributing
 
-Score is licensed under [Apache 2.0](LICENSE) and accepts contribution through GitHub pull requests.
-
-## Contributing
-
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please read [CONTRIBUTING](CONTRIBUTING.md) for more information.
 
 ## License
 
-[Apache 2.0](LICENSE)
+Score is licensed under [Apache 2.0](LICENSE).
 
 ## Code of conduct
 
@@ -60,13 +56,13 @@ You can find out more about how to install Hugo for your environment in our
 
 From the repo root folder, run:
 
-Use yarn.
+To use yarn.
 
 ```bash
 yarn build
 ```
 
-or use Hugo.
+To use Hugo.
 
 ```bash
 hugo server -D
@@ -109,27 +105,21 @@ See this [section](https://www.docsy.dev/docs/get-started/docsy-as-module/instal
 
 ## Troubleshooting doc build
 
-```
+When building the server, you may receive the following error message.
+
+```bash
 Error: from config: failed to resolve output format "print" from site config
 error Command failed with exit code 255.
 info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
 ```
 
-To resolve:
-
-```
-open $TMPDIR
-```
-
-Delete `hugo_cache`.
-
-Rerun `yarn`, `yarn build`.
-
-Or:
+To resolve, delete the temporary Hugo cache directory.
 
 ```bash
 sudo rm -rf $TMPDIR/hugo_cache
 ```
+
+<!-- https://github.com/google/docsy/issues/805#issuecomment-1245110883 -->
 
 ### Remove locked files
 

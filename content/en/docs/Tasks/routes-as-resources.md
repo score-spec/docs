@@ -4,43 +4,40 @@ linkTitle: "Define routes as resource"
 weight: 4
 ---
 
-Suggestions and ideas around managing routes via resources definitions in Humanitec and describing routes as resources dependencies in Score.
+<!-- Suggestions and ideas around managing routes via resources definitions in Humanitec and describing routes as resources dependencies in Score. -->
 
-# Routes Management in Applications
+## Overview
 
-Applications that consist of multiple microservices would typically need a routing controller that would redirect incoming requests to a proper workload at run time.
+<!-- Routes Management in Applications -->
 
-Common scenario is to deploy an `API-Gateway` or `Ingress` controller as a part of the application.
+Applications that consist of multiple microservices typically need a {{< glossary_tooltip text="routing controller" term_id="routing-controller" >}} routing controller that redirects incoming requests to a proper {{< glossary_tooltip text="Workload" term_id="workload" >}} at run time.
 
-**In this case a “routes table” should be maintained and updated after new services deployments. Which is a pain point as the software grows.**
+For example, a common scenario is to deploy an API Gateway, Ingress controller, or Service mesh as part of your application.
+Maintaining and updating {{< glossary_tooltip text="routing tables" term_id="routing-table" >}} after new service deployments is a point of friction as the application scales.
 
-Some teams choose to switch to automated service registry and discovery.
+## Routing details
 
-# Humanitec
+With Score, you can include advertised routes details as part of the Workload definition, allowing you to rebuild and update route tables during the deployment process.
 
-Humanitec proposes to include advertised routes details into a workload definition. This allows to rebuild and update routes tables during the deployment.
+Routes convert into resource definitions, so proper routes can be provisioned at the time of deployment based on the target environment and other parameters.
 
-A minor issue with the current implementation in Humanitec is that routes are statically defined as a part of a workload, and can’t be changed in the target environment.
+{{% alert %}}
+The Score Specification file has a concept of a {{< glossary_tooltip text="Workload specification" term_id="workload-spec" >}} that defines the requirements to run a Workload, but isn't used to manage Target Configuration or to provision any of the dependencies. For more information, see [Score specification]({{< ref "../concepts/score-spec.md" >}} "Score specification").
+{{% /alert %}}
 
-**The proposal is to convert routes in Humanitec into resources definitions, so proper routes can be generated (provisioned) during the deployment based on the target environments and other dynamic parameters.**
+Because of this, define routes as a dependency, or as a resource, that can be referenced in other parts of the Score Specification file.
 
-# Score
-
-Score has a concept of a workload specification that defines the requirements to run the workload, but in no way is used to manage target configuration or to provision any of the dependencies.
-
-**Following this logic, the idea is to define routes as a dependency (resource) that can be referenced in other parts of the Score specification.**
-
-Like any other resources, `route` would have a _name_ (_id_) and a set of attributes (_proto_, _port_, _prefix_, _type_). The values of these attributes would be available to the workload at a deployment time after the resource reference resolution takes place.
+Routes are just like any other resources. For example, a `route` would have the name `id` and a set of attributes like: `proto`, `port`, `prefix`, and `type`.
+The values of the attributes are available to the Workload at the time of deployment, after the provision of resources takes place.
 
 # Use Case 1
 
-A microservice (workload) needs to generate a self-reference in an e-mail that is automatically sent to the user. To build such reference service needs to know a full domain/subdomain name, prefix, and would then append a dynamically-generated part of the URL that has a unique request IDs to identify the user.
+A microservice Workload needs to generate a self-reference in an e-mail that is automatically sends to a user.
+To build such reference, the service needs to know a full domain, subdomain name, and prefix. Then the service would append a dynamically-generated part of the URL that has a unique request IDs to identify the user.
 
-Because in different environments the network configuration may differ, `DOMAIN_NAME` and `URL_PREFIX` are configurable via the environment variables for the microservice.
+Network configurations may differ depending on the environment setup.
 
-**Score**
-
-In `Score` file, the service would have two resources (dependencies) described, as those are essential for its functionality: `dns` and `route`. Something similar to this:
+In the following example, `DOMAIN_NAME` and `URL_PREFIX` are configured through the environment variables for the microservice and `dns` and `route` are two resources that act as dependencies essential for the service's functionality.
 
 ```yaml
 version: ...
