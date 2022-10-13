@@ -23,13 +23,23 @@ body:
       label: Is there an existing issue for this?
       description: Please search [our issues](https://github.com/score/score-docs/issues) to see if this bug already exists.
       options:
-        - label: I have searched the existing issues
-          required: true
+        - label: I have searched the existing issues.
+          required: false
   - type: checkboxes
     id: terms
     attributes:
       label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/score/score-docs/issues)
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/score/score-docs/issues).
       options:
         - label: I agree to follow this project's Code of Conduct
           required: true
+  - type: textarea
+    attributes:
+      label: Your code.
+      description: Copy and paste the code from the editor that you used in between the back-ticks.
+      value: |
+      ```
+
+      ```
+    validations:
+      required: false
