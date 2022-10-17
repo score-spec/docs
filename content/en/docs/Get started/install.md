@@ -8,11 +8,11 @@ description: >
 
 ## Install the Platform CLI
 
-To install the Platform CLI, you must provide which CLI tool you want to instal
+To install the Platform CLI, choose Platform CLI tool you want to install.
 
 {{< tabs name="score_installation" >}}
 {{< tab name="score-compose" include="included/install-score-compose-bash.md" />}}
-
+{{< tab name="score-humanitec" include="included/install-score-humanitec-bash.md" />}}
 {{< /tabs >}}
 
 <!-- ### macOS
@@ -49,4 +49,5 @@ On the Linux operating systems, use the built-in package manager to install Scor
 
 ### Windows
 -->
+
 ## After you install Score

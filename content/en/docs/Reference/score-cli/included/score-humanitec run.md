@@ -14,8 +14,7 @@ Specifies the application ID.
 
 Initiates a new draft deployment.
 
-
-### `--env` 
+### `--env`
 
 Specifies an Environment ID.
 
@@ -45,7 +44,6 @@ Specifies the Organization ID.
 ### `--token`
 
 Specifies a Humanitec API authentication token.
-
 
 ### `--url`
 

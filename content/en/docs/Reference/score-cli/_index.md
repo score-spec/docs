@@ -61,7 +61,6 @@ Alias: `-v`
 {{< tab name="score-compose run" include="included/score-humanitec run.md" />}}
 {{< /tabs >}}
 
-
 ## File defaults
 
 The following are defaults for the Platform CLI.
