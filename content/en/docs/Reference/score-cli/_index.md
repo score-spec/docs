@@ -29,12 +29,13 @@ Currently, supported platforms includes:
 
 The Platform CLI has two distinct parts.
 
-- **Comands**: The commands are tasks you want Score to do. Supply commands and subcommands to score on the command.
-- **Flags**: Also called parameters, are options that modify the result of the command by providing additional configurations. Flags are specific to the command, and each command can have independent flags.
+- **Comands**: The commands are tasks you want Score to do. Supply Score with commands and subcommands to execute specific tasks.
+- **Flags**: Flags, also called parameters, are options that modify the result of the _command_ by providing additional configurations. Flags are specific to the command, and each command can have independent flags.
 
 ## Score commands
 
-- [`run`](): Translates the Score file to the specified platform.
+- [`run`](#platform-cli-run): Translates the Score file to the specified platform.
+  - Valid options: `score-humanitec` | `score-helm` | `score-compose`
 - [`completion`](): Generates the autocompletion script for the specified shell.
 
 ## Global modifiers
@@ -52,3 +53,23 @@ Alias: `-h`
 Provides version information for the CLI.
 
 Alias: `-v`
+
+## Platform CLI run
+
+{{< tabs name="score-platform run" >}}
+{{< tab name="score-compose run" include="included/score-compose run.md" />}}
+{{< tab name="score-compose run" include="included/score-humanitec run.md" />}}
+{{< /tabs >}}
+
+
+## File defaults
+
+The following are defaults for the Platform CLI.
+
+### `./score.yaml`
+
+The source of the authored Score file location.
+
+### `./override.score.yaml`
+
+The override default file location.

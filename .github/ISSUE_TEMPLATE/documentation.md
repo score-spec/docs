@@ -1,5 +1,5 @@
 ---
-name: 'Documentation '
+name: 'Documentation'
 about: Issue with the documentation
 title: ''
 labels: documentation
@@ -8,7 +8,7 @@ assignees: rachfop
 ---
 
 **Link to document**
-URL: 
+URL:
 
 **Describe issue**
 
