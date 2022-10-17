@@ -8,7 +8,7 @@ description: >
 
 ## Install the Platform CLI
 
-To install the Platform CLI, choose Platform CLI tool you want to install.
+Choose Platform CLI tool you want to install.
 
 {{< tabs name="score_installation" >}}
 {{< tab name="score-compose" include="included/install-score-compose-bash.md" />}}
