@@ -7,6 +7,15 @@ description: >
   A quick start for score-humanitec.
 ---
 
+A minimumn configuration for a Score Specification that will run on Humanitec is as follows.
+
+```yaml
+name: app-workload
+
+container:
+ image: registry.humanitec.io/public/sample-service
+```
+
 # Environment Setup with Humanitec
 
 Resources referenced in `Score.yaml` should be pre-configured in Humanitec by DevOps (for each resource type). They are picked by the system at a deployment time in accordance with the Matching Criteria (also configured by DevOps).

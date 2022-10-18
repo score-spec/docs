@@ -8,19 +8,16 @@ description: >
 
 ## Score schema
 
-The Score Specification file contains the following top-level schema definitions. Use these definitions to describe a single {{< glossary_tooltip text="Workload" term_id="workload" >}}.
+The Score Specification is a yaml file that contains the following top-level schema definitions.
+Use these definitions to describe a single {{< glossary_tooltip text="Workload" term_id="workload" >}}.
 
-- `containers`: defines how the Workload's tasks are executed.
-- `resources`: defines dependencies needed by the Workload.
+- [`containers`](#container-definition): defines how the Workload's tasks are executed.
+- [`resources`](#resources-definition): defines dependencies needed by the Workload.
 - [`service`](#service-definition): defines how an application can expose its resources when executed. Allows one or more `ports` to be exposed.
 
 ## Resources definition
 
-Score allows users to describe the relationship between workloads and their dependent resources in an environment-agnostic way.
-
-It doesn't declare who, when, and how it should provision the resource in the target environment.
-
-The only purpose for the resource definition is to validate resources references in the same Score Specification file.
+The Resource section of the Score Specification allows users to describe the relationship between workloads and their dependent resources in an environment-agnostic way.
 
 The resource could be anything. Score doesn't differentiate resources by types.
 
@@ -74,9 +71,9 @@ In general, `resource-type` has no meaning for Score, but it can affect how targ
 | `volume`      | Translates into a reference to the external volume. This reference is usually used in a container’s volume mount specification. | Translates into a reference to the external volume. This reference is usually used in a container’s volume mount specification. |
 | `workload`    | N/A                                                                                                                             | Translates to the module properties references. For example: `${modules.workload-name.property-name}`.                          |
 
-## Referencing Resources
+### Referencing Resources
 
-Declared resources and their properties can be referenced in other places in Score file with the following template:
+Declared resources and their properties can be referenced in other places in Score file with the following template.
 
 ```yaml
 ${resource.[resource-name].[property-name]}
@@ -88,11 +85,13 @@ If the referenced resource or its property has not been defined, the {{< glossar
 
 {{% /alert %}}
 
-It is up to the Score implementation (CLI tool) how and when the resource reference is resolved, and when the referenced values' substitution occurs.
+### Resource example
 
-For example, `score-compose` would convert resource properties into environment variables references in resulting `compose.yaml` configuration file, and produce a reference `.env` file that the user can then populate ([read more](https://docs.docker.com/compose/environment-variables/#the-env-file)).
+It is up to the Platform CLI on how and when the resource reference is resolved, and when the referenced values' substitution occurs.
 
-Simple Score file with a single resource:
+For example, `score-compose` would convert resource properties into environment variables references in resulting `compose.yaml` configuration file, and produce a reference `.env` file that the user can then populate. For more information, see [the.env file](https://docs.docker.com/compose/environment-variables/#the-env-file).
+
+The following Score file contains a single resource.
 
 ```yaml
 name: backend
@@ -170,6 +169,100 @@ service:
 ## Container definition
 
 The {{< glossary_tooltip text="Workload" term_id="workload" >}} container’s specification describes how the Workload's tasks are executed.
+
+```yml
+containers:
+  container-id:
+    image: [image-name]
+    command:                                # (Optional)
+    args:                                   # (Optional)
+    variables:                              # (Optional)
+      [variable-name]: [object]
+
+    files:                                  # (Optional) Specifies extra files to mount
+    - target: [path/to/file-name.yaml]
+      mode:                                 #    - Access mode
+      content:                              #    - Inline content (supports templates)
+
+    volumes:                                # (Optional)
+    - source:
+      path:                                 # (Optional)
+      target:
+      read_only: [true | false]             # (Optional)
+
+    resources:                              # (Optional)
+      limits:                               # (Optional)
+        memory:
+        cpu:
+      requests:                             # (Optional)
+        memory:
+        cpu:
+
+    livenessProbe:                          # (Optional)
+      httpGet:
+        path:
+        port:
+    readinessProbe:                         # (Optional)
+      httpGet:
+        path:
+        port:
+        httpHeaders:                        # (Optional
+        - name:
+          value:
+```
+
+`container-id`: container’s specification describes how the Workload's tasks are executed.
+
+`image`: Docker image name and tag
+
+`command`: overrides image entry point.
+
+`args`: overrides entry point arguments.
+
+`variables`: specifies environment variables.
+
+`files`: specifies extra files to mount.
+
+- `target`: specifies file path and name.
+- `mode`: specifies access mode.
+- `content`: specifies inline content and supports templates.
+
+`volumes`: specifies volumes to mount.
+
+- `source`: specifies external volume reference.
+- `path` specifies a sub path in the volume.
+- `target`: specifies a target mount on the container.
+- `read_only`: if true, mounts as read only.
+
+<!-- Optional CPU and memory resources needed -->
+
+`limits`: maximum allowed memory.
+
+- `memory`: a string value representing the maximum allowed memory.s
+- `cpu`: a string value representing the maximum allowed CPUs.
+
+`requests`: minimum required memory.
+
+- `memory`: a string value representing the minimum required memory.
+- `cpu`: a string value representing the minimum required CPUs.
+
+`livenessProbe`: indicates if the container is running.
+
+- `httpGet`: performs an HTTP `Get` on a specified path and port.
+  - `path`: specifies a path for the HTTP `Get` method.
+  - `port`: specifies a port for the HTTP `Get` method.
+
+`readinessProbe`: indicates if the container is ready to respond to requests.
+
+- `httpGet`: performs an HTTP `Get` on a specified path and port.
+  - `path`: specifies a path for the HTTP `Get` method.
+  - `port`: specifies a port for the HTTP `Get` method.
+
+  - `httpHeaders`: headers to set in the request. Allows repeated headers.
+    - `name`: custom header to set in the request.
+    - `value`: specifies a value.
+
+### Container example
 
 ```yml
 containers:

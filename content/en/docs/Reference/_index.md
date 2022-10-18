@@ -22,6 +22,6 @@ This section of the Score documentation contains references.
 - [score-humanitec]()
 - [score-compose]()
 
-## Glossary
+<!-- ## Glossary
 
-- [Glossary](/docs/glossary/) - a comprehensive list of Score terminology.
+- [Glossary](/docs/glossary/) - a comprehensive list of Score terminology. -->
