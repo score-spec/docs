@@ -238,7 +238,7 @@ containers:
 
 `limits`: maximum allowed memory.
 
-- `memory`: a string value representing the maximum allowed memory.s
+- `memory`: a string value representing the maximum allowed memory.
 - `cpu`: a string value representing the maximum allowed CPUs.
 
 `requests`: minimum required memory.
