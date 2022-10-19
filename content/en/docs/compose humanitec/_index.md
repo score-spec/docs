@@ -62,7 +62,7 @@ The output of the `score-humanitec run --env development` command.
 
 In the next step, you'll want to think about is to specify resources for your container.
 
-In the following example, we specify two types of resources. A PostGres Database and storage.
+In the following example, we specify two types of resource: a PostGres database and storage.
 
 {{< tabs >}}
 {{% tab name="Score" %}}
