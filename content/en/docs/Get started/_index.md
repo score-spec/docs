@@ -20,4 +20,6 @@ To use Score, you'll do the following:
 
 To get started, you'll want to:
 
-- [Install]({{< ref "/install" >}} "Learn to install") the {{< glossary_tooltip text="Platform CLI" term_id="platform-cli" >}}.
+- Learn how to [install the Platform CLI]({{< ref "/install" >}} "Learn to install").
+- Run your [first transformation]({{< ref "get started/../Transform/" >}} "Learn to install").
+- Review the [reference material]({{< ref "reference" >}} "Reference content").

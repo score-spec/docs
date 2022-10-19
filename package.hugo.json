@@ -5,7 +5,7 @@
   "main": "none.js",
   "scripts": {
     "fmt": "dprint fmt",
-    "build": "hugo server -D",
+    "build": "hugo server",
     "lint": "vale content/en/docs/**/* && dprint check"
   },
   "repository": {

@@ -2,6 +2,7 @@
 title: "Compose and Django"
 linkTitle: "Compose and Django"
 weight: 4
+draft: true
 Description: >
     Shows how to use Docker Compose to set up and run a simple Django/PostgreSQL app.
 ---

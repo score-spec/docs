@@ -48,6 +48,7 @@ On the Linux operating systems, use the built-in package manager to install Scor
    ```
 
 ### Windows
--->
 
 ## After you install Score
+
+-->

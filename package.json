@@ -36,7 +36,8 @@
     "url": "git+https://github.com/Humanitec/score-docs.git"
   },
   "scripts": {
-    "build": "hugo server -D",
+    "build": "hugo server",
+    "draft": "hugo server --buildDrafts",
     "fmt": "dprint fmt",
     "lint": "vale content/en/docs/**/* && dprint check"
   },

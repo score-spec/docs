@@ -63,7 +63,7 @@ resources:
 
 ### Reserved resource types
 
-In general, `resource-type` has no meaning for Score, but it can affect how targeted Platform CLI tool resolves the resource. Following are the conventions are _reserved_ resource types:
+In general, `resource-type` has no meaning for Score, but it can affect how the targeted Platform CLI tool resolves the resource. The following conventions are _reserved_ resource types.
 
 | Resource type | `score-compose`                                                                                                                 | `score-humanitec`                                                                                                               |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
@@ -132,7 +132,7 @@ service:
       port: integer                    # (required)
       protocol: string                 # (optional)
       hostIP: integer                  # (optional)
-      hostPort: integer                # (optional)
+      targetPort: integer              # (optional)
 ```
 
 `port-name`: describes the name of the port.
@@ -146,7 +146,7 @@ service:
 
 `hostIP`: describes the host IP to bind to.
 
-`hostPort`: describes the port to expose on the host. If the `hostPort` isn't specified, then it defaults to the required `port` property in the container.
+`targetPort`: describes the port to expose on the host. If the `targetPort` isn't specified, then it defaults to the required `port` property in the container.
 
 ### Service example
 
@@ -158,11 +158,11 @@ name: hello-world
 service:
   ports:
     www:
-      port: 8080
-      hostPort: 80
+      port: 80
+      targetPort: 8080
     admin:
       port: 8080
-
+      protocol: UDP
 # . . .
 ```
 
