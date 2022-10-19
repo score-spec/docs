@@ -58,7 +58,7 @@ Alias: `-v`
 
 {{< tabs name="score-platform run" >}}
 {{< tab name="score-compose run" include="included/score-compose run.md" />}}
-{{< tab name="score-compose run" include="included/score-humanitec run.md" />}}
+{{< tab name="score-humanitec run" include="included/score-humanitec run.md" />}}
 {{< /tabs >}}
 
 ## File defaults

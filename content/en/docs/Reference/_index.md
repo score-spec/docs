@@ -12,15 +12,17 @@ This section of the Score documentation contains references.
 
 <!-- body -->
 
+<!--
 ## API reference
 
 - [score-humanitec]()
 - [score-compose]()
+-->
 
-## CLI reference
+## Score reference
 
-- [score-humanitec]()
-- [score-compose]()
+- [Score Schema reference]({{< ref "score-schema-reference" >}} "Score Schema reference")
+- [Platform CLI reference]({{< ref "score-cli" >}} "Platform CLI reference")
 
 <!-- ## Glossary
 
