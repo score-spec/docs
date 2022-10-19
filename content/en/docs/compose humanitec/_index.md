@@ -10,7 +10,6 @@ description: >
 
 The primary goal of the Score file is to quickly and easily describe how to compose and run {{< glossary_tooltip text="Workloads" term_id="workload" >}}. The following covers what you need to know to compose a Score file and run it in Humanitec application.
 
-
 ## Building blocks
 
 At it's core, the Score file needs a `name` and a `container` to run.
@@ -116,6 +115,77 @@ The output of the `score-humanitec run --env development` command.
 {{% /tab %}}
 {{< /tabs >}}
 
-This variable points a reference to the database resource, username, password, host, port, and name.
+Next, we will want to use a run a draft of our Humanite Delta.
+Next, use the `score-humanitec draft` command to run a draft of our Humanitec Delta.
 
-The values to these variables are stored in a `.env` file. For example, you might have a directory to store these variables like `/tmp/temp-service.env`.
+To do that, we will need to provide an organization name, application name, environment, and a personal token.
+
+```bash
+score-humanitec draft --org organization-name --app application-name  --env env-name --token token-information
+```
+
+Replace `organization-name` with the name of your Organization.
+Replace `application-name` with the name of your application.
+Replace `env-name` with the name of your environment.
+Replace `token-information` with your token.
+
+{{< tabs >}}
+{{% tab name="Score" %}}
+
+```yaml
+name: app-workload
+
+container:
+  image: registry.humanitec.io/public/sample-service
+  command:
+    - /bin/sh
+  variables:
+    CONNECTION_STRING: postgresql://${resources.db.username}:${resources.db.password}@${resources.db.host}:${resources.db.port}/${resources.db.name}
+
+resources:
+  sql:
+    type: postgres
+  storage:
+    type: volume
+    target: /usr/share/humanitec
+```
+
+{{% /tab %}}
+{{% tab name="Humanitec" %}}
+
+The output of `score-humanitec` command.
+
+```json
+{
+  "id": "1234567890",
+  "metadata": {
+    "env_id": "env-name",
+    "name": "Auto-generated (SCORE)",
+    "url": "https://registry.humanitec.io/public/sample-service/envs/test/draft/1234567890",
+    "created_by": "s-1234567890",
+    "created_at": " ",
+    "last_modified_at": " "
+  },
+  "modules": {
+    "add": {
+      "": {
+        "externals": {
+          "sql": {
+            "type": "postgres"
+          },
+          "storage": {
+            "type": "volume"
+          }
+        },
+        "profile": "humanitec/default-module",
+        "spec": {
+          "containers": {}
+        }
+      }
+    }
+  }
+}
+```
+
+{{% /tab %}}
+{{< /tabs >}}

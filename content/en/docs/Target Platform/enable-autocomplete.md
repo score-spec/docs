@@ -4,7 +4,6 @@ linkTitle: "Enable autocomplete"
 weight: 4
 ---
 
-
 By default, Homebrew install the autocompletion script.
 
 If you installed the Platform CLI by downloading the single binary, continue reading.
@@ -12,7 +11,6 @@ If you installed the Platform CLI by downloading the single binary, continue rea
 ## Overview
 
 Score allows you to generate an autocompletion script for each Platform CLI tool for a specified shell.
-
 
 ## Enable autocomplete
 
