@@ -20,7 +20,6 @@ body {
   font-size: $font-heading-sm;
   font-weight: $font-semibold;
 }
-
 .body-lg {
   font-size: $font-body-lg;
   font-weight: $font-regular;
@@ -29,16 +28,16 @@ body {
   font-size: $font-body-md;
   font-weight: $font-regular;
 }
-
 .body-sm {
   font-size: $font-body-sm;
   font-weight: $font-regular;
 }
 
-// Note1: Is added here because couldnt find any way to handle
-// N nested levels (check docs links)
-
-a {
+.td-page-meta a,
+.footer-privacy-policy,
+.td-content a,
+.glossary-term a,
+.glossary-tag-option-all {
   background: linear-gradient(
     89.75deg,
     $primary 0.15%,
@@ -52,13 +51,11 @@ a {
   background-clip: text;
   color: $primary;
 
-  //Is necessary to apply !important. Some other rule may be
-  //avoiding the decoration on hover
   &:hover {
     color: $primary;
-    text-decoration: underline !important;
-    text-underline-position: under !important;
-    text-decoration-color: $primary !important;
+    text-decoration: underline;
+    text-underline-position: under;
+    text-decoration-color: $primary;
   }
   &:hover:not(:has(svg)) {
     text-decoration: underline;
@@ -74,8 +71,7 @@ a {
   }
 }
 
-//This is cryptic, but couldnt find another way to select footer links
-footer > div > div > div > ul > li > a {
+footer a:has(i) {
   background: white;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -92,11 +88,26 @@ footer > div > div > div > ul > li > a {
 }
 
 // New classes
+.glossary-title {
+  font-size: $font-heading-xl;
+  font-weight: $font-bold;
+  margin-bottom: 1rem;
+}
+
 .glossary-tag-container {
-  border-bottom: 1px solid lightgrey;
-  border-top: 1px solid lightgrey;
   padding: 5px 0;
+  margin-top: 40px;
   margin-bottom: 10px;
+}
+
+.glossary-tag-container-header {
+  display: flex;
+}
+
+.glossary-tag-container-header-divider {
+  height: 19px;
+  border-left: 1px solid #d0d0d6;
+  margin: 2px 20px 0;
 }
 
 .glossary-tags {
@@ -115,22 +126,49 @@ footer > div > div > div > ul > li > a {
 }
 
 .glossary-tag-option {
-  background-color: #b7c8e8;
-  padding: 5px;
+  padding: 12px 15px;
+  border-radius: 14px;
+  border: 1.13659px solid #d0d0d6;
   margin: 10px;
+  a {
+    color: black;
+  }
+}
+
+.glossary-tag-option-all {
+  margin-right: 20px;
+  font-weight: 500;
+}
+
+.glossary-tag-option.mixitup-control-active,
+.glossary-tag-option:hover {
+  background: linear-gradient(
+    89.75deg,
+    $primary 0.15%,
+    $primary 0.16%,
+    $third 49.94%,
+    $third 49.95%,
+    $secondary 99.74%
+  );
+  border-color: white;
   a {
     color: white;
   }
 }
 
-.glossary-tag-option-all {
-  padding: 5px;
-  margin: 10px;
-}
+.term-name {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 31px;
+  color: $dark;
+  margin-bottom: 5px;
+  align-items: center;
 
-.glossary-tag-option.mixitup-control-active,
-.glossary-active-tag {
-  background-color: $primary;
+  a {
+    font-weight: 500;
+    font-size: 16px;
+    margin-left: 10px;
+  }
 }
 
 //navbar

@@ -1,7 +1,7 @@
 ---
 title: Glossary
 layout: glossary
-filter_text: Filter terms according to their tags
+filter_text: Filter tags
 noedit: true
 weight: 10
 card:
