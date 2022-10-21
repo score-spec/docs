@@ -35,8 +35,9 @@ body {
   font-weight: $font-regular;
 }
 
-// Is added here because couldnt find any way to handle
+// Note1: Is added here because couldnt find any way to handle
 // N nested levels (check docs links)
+
 a {
   background: linear-gradient(
     89.75deg,
@@ -62,6 +63,7 @@ a {
   &:hover:not(:has(svg)) {
     text-decoration: underline;
   }
+
   &:focus,
   &:active {
     background: $dark;
@@ -69,6 +71,23 @@ a {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     // color: $dark;
+  }
+}
+
+//This is cryptic, but couldnt find another way to select footer links
+footer > div > div > div > ul > li > a {
+  background: white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: $primary;
+
+  &:focus {
+    background: $primary;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: $primary;
   }
 }
 
