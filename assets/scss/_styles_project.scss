@@ -1,0 +1,40 @@
+.glossary-tag-container {
+  border-bottom: 1px solid lightgrey;
+  border-top: 1px solid lightgrey;
+  padding: 5px 0;
+  margin-bottom: 10px;
+}
+
+.glossary-tags {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.glossary-tag-description {
+  text-align: center;
+  visibility: hidden;
+}
+
+.glossary-tag-hidden-description {
+  visibility: collapse;
+}
+
+.glossary-tag-option {
+  background-color: #b7c8e8;
+  padding: 5px;
+  margin: 10px;
+  a {
+    color: white;
+  }
+}
+
+.glossary-tag-option-all {
+  padding: 5px;
+  margin: 10px;
+}
+
+.glossary-tag-option.mixitup-control-active,
+.glossary-active-tag {
+  background-color: $primary;
+}
