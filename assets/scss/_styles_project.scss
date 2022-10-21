@@ -35,20 +35,59 @@ body {
   font-weight: $font-regular;
 }
 
-// Is added here because couldnt find any way to handle
+// Note1: Is added here because couldnt find any way to handle
 // N nested levels (check docs links)
+
 a {
+  background: linear-gradient(
+    89.75deg,
+    $primary 0.15%,
+    $primary 0.16%,
+    $third 49.94%,
+    $third 49.95%,
+    $secondary 99.74%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   color: $primary;
 
+  //Is necessary to apply !important. Some other rule may be
+  //avoiding the decoration on hover
   &:hover {
     color: $primary;
+    text-decoration: underline !important;
+    text-underline-position: under !important;
+    text-decoration-color: $primary !important;
   }
   &:hover:not(:has(svg)) {
     text-decoration: underline;
   }
+
   &:focus,
   &:active {
-    color: $dark;
+    background: $dark;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    // color: $dark;
+  }
+}
+
+//This is cryptic, but couldnt find another way to select footer links
+footer > div > div > div > ul > li > a {
+  background: white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: $primary;
+
+  &:focus {
+    background: $primary;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: $primary;
   }
 }
 
