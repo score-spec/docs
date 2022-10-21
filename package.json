@@ -41,8 +41,7 @@
     "build": "hugo server",
     "draft": "hugo server --buildDrafts",
     "fmt": "dprint fmt",
-    "lint": "vale content/en/docs/**/* && dprint check",
-    "index": "hugo-lunr"
+    "lint": "vale content/en/docs/**/* && dprint check"
   },
   "version": "0.0.1"
 }
