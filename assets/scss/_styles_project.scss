@@ -280,3 +280,16 @@ footer a:has(i) {
     color: $grey-3;
   }
 }
+
+.copy-code-button {
+  position: absolute;
+  cursor: pointer;
+  top: 8px;
+  right: 8px;
+  padding: 8px 10px;
+  border: 0.77px solid $primary;
+  border-radius: 11px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: "%110";
+}

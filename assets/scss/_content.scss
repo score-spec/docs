@@ -85,6 +85,16 @@
     @extend .td-max-width-on-larger-screens;
   }
 
+  .highlight,
+  .highlight pre {
+    border-radius: 14px;
+    position: relative;
+
+    span {
+      font-family: "IBMPlexMono";
+    }
+  }
+
   .alert:not(:first-child) {
     margin-top: 2 * $spacer;
     margin-bottom: 2 * $spacer;
