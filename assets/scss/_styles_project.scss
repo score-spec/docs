@@ -173,3 +173,33 @@ a {
     }
   }
 }
+
+//Sidebar
+.td-sidebar-nav .td-sidebar-link.tree-root {
+  visibility: collapse;
+  height: 0;
+  padding: 0;
+}
+
+.td-sidebar-nav .td-sidebar-link {
+  display: flex;
+}
+
+.td-sidebar-nav-item-icon {
+  margin-top: 2px;
+  margin-right: 5px;
+}
+
+.td-sidebar-nav__section-title {
+  a span {
+    color: $dark;
+    line-height: 31px;
+    font-weight: 400;
+  }
+  a span.td-sidebar-nav-active-item {
+    font-weight: 700;
+  }
+  :hover {
+    color: $grey-3;
+  }
+}
