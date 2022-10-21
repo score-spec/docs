@@ -15,9 +15,25 @@ Use these definitions to describe a single {{< glossary_tooltip text="Workload" 
 - [`resources`](#resources-definition): defines dependencies needed by the Workload.
 - [`service`](#service-definition): defines how an application can expose its resources when executed. Allows one or more `ports` to be exposed.
 
+## Workload definition
+
+Workload definitions are the top
+
+<!--
+`apiversion`: the declared Score Schema version.
+
+- **Valid options**: `score.sh/v1b1`
+
+-->
+
+`metadata`: an optional description of your Workload.
+
+- **Type**: string.
+- **Constraints**: alphanumeric string.
+
 ## Resources definition
 
-The Resource section of the Score Specification allows users to describe the relationship between workloads and their dependent resources in an environment-agnostic way.
+The Resource section of the Score Specification allows users to describe the relationship between Workloads and their dependent resources in an environment-agnostic way.
 
 The resource could be anything. Score doesn't differentiate resources by types.
 
@@ -171,49 +187,43 @@ service:
 The {{< glossary_tooltip text="Workload" term_id="workload" >}} container’s specification describes how the Workload's tasks are executed.
 
 ```yml
-containers:
-  container-id:
-    image: [image-name]
-    command:                                # (Optional)
-    args:                                   # (Optional)
-    variables:                              # (Optional)
-      [variable-name]: [object]
-
-    files:                                  # (Optional) Specifies extra files to mount
-    - target: [path/to/file-name.yaml]
-      mode:                                 #    - Access mode
-      content:                              #    - Inline content (supports templates)
-
-    volumes:                                # (Optional)
-    - source:
-      path:                                 # (Optional)
-      target:
-      read_only: [true | false]             # (Optional)
-
-    resources:                              # (Optional)
-      limits:                               # (Optional)
-        memory:
-        cpu:
-      requests:                             # (Optional)
-        memory:
-        cpu:
-
-    livenessProbe:                          # (Optional)
-      httpGet:
-        path:
-        port:
-    readinessProbe:                         # (Optional)
-      httpGet:
-        path:
-        port:
-        httpHeaders:                        # (Optional
-        - name:
-          value:
+image: string
+command: []string
+args: []string
+variables: map[string]string
+files:
+  target: string
+  mode: string
+  content: []string
+volumes:
+  source: string
+  path: string
+  target: string
+read_only: [true | false]
+resources:
+  limits: map[string]interface{}
+  requests: map[string]interface{}
+livenessProbe: ContainerProbeSpec
+  scheme: string
+  host: string
+  port: int
+  path: string
+  httpHeaders:
+      name: string
+      value: string
+readinessProbe: ContainerProbeSpec
+  scheme: string
+  host: string
+  port: int
+  path: string
+  httpHeaders:
+      name: string
+      value: string
 ```
 
 `container-id`: container’s specification describes how the Workload's tasks are executed.
 
-`image`: Docker image name and tag
+`image`: image name or tag.
 
 `command`: overrides image entry point.
 
@@ -264,6 +274,8 @@ containers:
 
 ### Container example
 
+The following example creates a container with the `busybox` image.
+
 ```yml
 containers:
   container-id:
@@ -271,10 +283,10 @@ containers:
 
     command:                                  # (Optional) Overrides image entry point
     - "/bin/echo"
-    args:                                     # (Optional) Overrides entry point arguments
+    args:                                     # (Optional) Overrides entry point point
     - "Hello $(FRIEND)"
 
-    variables:                                # (Optional) Specifies environment variables
+    variables:                                # (Optional) Specifies environment variable
       FRIEND: World!
 
     files:                                  # (Optional) Specifies extra files to mount
@@ -286,12 +298,12 @@ containers:
 
     volumes:                                # (Optional) Specifies volumes to mount
     - source: ${resources.data}             #    - External volume reference
-      path: sub/path                        #    - (Optionla) Sub path in the volume
+      path: sub/path                        #    - (Optional) Sub path in the volume
       target: /mnt/data                     #    - Target mount path on the container
       read_only: true                       #    - (Optional) Mount as read-only
 
-    resources:                              # (Optional) CPU and mempry resources needed
-      limits:                               #    - (Optional) Maximum alowed
+    resources:                              # (Optional) CPU and memory resources needed
+      limits:                               #    - (Optional) Maximum allowed
         memory: "128Mi"
         cpu: "500m"
       requests:                             #    - (Optional) Minimal required
