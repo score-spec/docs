@@ -35,6 +35,23 @@ body {
   font-weight: $font-regular;
 }
 
+// Is added here because couldnt find any way to handle
+// N nested levels (check docs links)
+a {
+  color: $primary;
+
+  &:hover {
+    color: $primary;
+  }
+  &:hover:not(:has(svg)) {
+    text-decoration: underline;
+  }
+  &:focus,
+  &:active {
+    color: $dark;
+  }
+}
+
 // New classes
 .glossary-tag-container {
   border-bottom: 1px solid lightgrey;
