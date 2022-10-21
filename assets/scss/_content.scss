@@ -8,15 +8,19 @@
   p,
   li,
   td {
-    font-weight: $font-weight-body-text;
+    font-size: $font-body-md;
+    font-weight: $font-regular;
   }
 
   > h1 {
-    font-weight: $font-weight-bold;
+    font-size: $font-heading-xl;
+    font-weight: $font-bold;
     margin-bottom: 1rem;
   }
 
   > h2 {
+    font-size: $font-heading-lg;
+    font-weight: $font-medium;
     margin-bottom: 1rem;
   }
 
@@ -32,6 +36,8 @@
   > h4,
   > h5,
   > h6 {
+    font-size: $font-heading-md;
+    font-weight: $font-regular;
     margin-bottom: 1rem;
     margin-top: 2rem;
   }
@@ -85,6 +91,8 @@
   }
 
   .lead {
+    font-weight: $font-regular;
+    font-size: $font-body-lg;
     margin-bottom: 1.5rem;
   }
 }
@@ -96,4 +104,10 @@
   @include media-breakpoint-up(sm) {
     font-size: 3rem;
   }
+}
+
+.reading-time {
+  color: $grey-3;
+  font-weight: $font-regular;
+  font-size: $font-body-sm;
 }

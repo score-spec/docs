@@ -21,6 +21,9 @@
     a {
         display: block;
         font-weight: $font-weight-medium;
+        &:hover {
+            text-decoration: underline;
+        }
     }
 }
 
@@ -49,7 +52,7 @@
             color: $gray-600;
 
             &:hover {
-                color: $blue;
+                color: $primary;
                 text-decoration: none;
             }
         }
