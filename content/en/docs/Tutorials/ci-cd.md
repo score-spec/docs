@@ -325,4 +325,4 @@ The idea is to provide an open-source GitHub action (for example, `Score -setup`
 
 </aside>
 
-The idea is to import `Score.yaml` alongside with the workload image details and to use it to create a deployment draft when Humanitec auto-deployment is triggered by one of the configured events.
+The idea is to import `Score.yaml` alongside with the Workload image details and to use it to create a deployment draft when Humanitec auto-deployment is triggered by one of the configured events.

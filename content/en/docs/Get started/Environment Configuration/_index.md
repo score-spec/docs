@@ -6,7 +6,7 @@ description: >
   This page demonstrates how to set environment specific configuration.
 ---
 
-Environment specific configuration allows the Score Specification file to be combined with environment specific variables. Use environment specific variables to run workloads in the target environment.
+Environment specific configuration allows the Score Specification file to be combined with environment specific variables. Use environment specific variables to run Workloads in the target environment.
 
 ## Key use
 

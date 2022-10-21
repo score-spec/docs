@@ -66,4 +66,4 @@ resources:
 
 **Humanitec**
 
-When translated by `score-humanitec` two workload resources reference would be created in the deployment delta, one for `dns` and one for `route`. These would be resolved to actual values based on the configuration specified by the DevOps for the target environment.
+When translated by `score-humanitec` two Workload resources reference would be created in the deployment delta, one for `dns` and one for `route`. These would be resolved to actual values based on the configuration specified by the DevOps for the target environment.

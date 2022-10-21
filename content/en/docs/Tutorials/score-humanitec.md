@@ -21,7 +21,7 @@ container:
 Resources referenced in `Score.yaml` should be pre-configured in Humanitec by DevOps (for each resource type). They are picked by the system at a deployment time in accordance with the Matching Criteria (also configured by DevOps).
 
 <aside>
-🚧 **TBD:** When creating a new workload deployment draft `score-humanitec` doesn't add the external (shared) resource to the workload automatically. Thus a manual intervention is needed to complete the deployment draft for brand-new workloads.
+🚧 **TBD:** When creating a new Workload deployment draft `score-humanitec` doesn't add the external (shared) resource to the Workload automatically. Thus a manual intervention is needed to complete the deployment draft for brand-new workloads.
 
 </aside>
 
@@ -134,4 +134,4 @@ curl -v -X POST -H 'Authorization: Bearer qwe...rty' \
 
 ## Working with multiple environments
 
-With Humanitec and Score it is very simple to deploy the same workload into multiple environments. `score-humanitec` CLI tool can create deployments for each target environment, while the rest of the configuration could be set-up once by DevOps.
+With Humanitec and Score it is very simple to deploy the same Workload into multiple environments. `score-humanitec` CLI tool can create deployments for each target environment, while the rest of the configuration could be set-up once by DevOps.

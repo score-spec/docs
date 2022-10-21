@@ -31,7 +31,7 @@ db:
   type: postgres
 ```
 
-2. Add properties.
+1. Add properties.
 
 ```yaml
 properties:
