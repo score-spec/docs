@@ -52,6 +52,10 @@
     @extend .table-responsive;
 
     @extend .table;
+
+    > thead > tr > th {
+      border: none;
+    }
   }
 
   > blockquote {
@@ -59,11 +63,6 @@
     margin-bottom: $spacer;
     color: $gray-600;
     border-left: 6px solid $secondary;
-  }
-
-  > ul li,
-  > ol li {
-    margin-bottom: 0.25rem;
   }
 
   strong {
@@ -104,6 +103,18 @@
     font-weight: $font-regular;
     font-size: $font-body-lg;
     margin-bottom: 1.5rem;
+  }
+
+  .nav-tabs {
+    border-bottom-color: $secondary;
+  }
+
+  .nav-link {
+    border-radius: 14px 14px 0 0;
+  }
+  .nav-tabs .nav-link.active {
+    border-color: $secondary;
+    border-bottom-color: white;
   }
 }
 
