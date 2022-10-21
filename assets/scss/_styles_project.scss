@@ -1,4 +1,7 @@
 // Default text classes
+body {
+  font-family: "Graphik";
+}
 
 //Todo add responsivity?
 .heading-xl {
@@ -75,9 +78,8 @@
 }
 
 //navbar
-
 .td-navbar {
-  background: $black;
+  background: $dark;
   min-height: 4rem;
   margin: 0;
   z-index: 32;
