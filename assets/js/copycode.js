@@ -22,7 +22,7 @@ function copyText(text) {
     function () {
       const highlight = this;
       $(this).append(`
-        <div id='copy-code-button' class="copy-code-button"><i class="fas fa-copy mr-2"></i>Copy</div>
+        <div id='copy-code-button' class="copy-code-button"><i class="far fa-copy mr-2"></i>Copy</div>
       `);
       $("#copy-code-button").click(function () {
         const codeElem = $(highlight).children(":first").children(":first");

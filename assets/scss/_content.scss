@@ -106,15 +106,27 @@
   }
 
   .nav-tabs {
-    border-bottom-color: $secondary;
+    border-bottom-color: $primary;
   }
 
   .nav-link {
     border-radius: 14px 14px 0 0;
+    font-weight: 500;
   }
+
   .nav-tabs .nav-link.active {
-    border-color: $secondary;
+    border-color: $primary;
     border-bottom-color: white;
+    color: $dark;
+  }
+
+  .nav-link:not(.active) {
+    color: $grey-3 !important;
+    border: none;
+  }
+
+  .nav-link:hover {
+    text-decoration: none;
   }
 }
 

@@ -35,7 +35,7 @@ body {
 
 .td-page-meta a,
 .footer-privacy-policy,
-.td-content a,
+.td-content a:not(.nav-link),
 .glossary-term a,
 .glossary-tag-option-all {
   background: linear-gradient(
@@ -153,6 +153,7 @@ footer a:has(i) {
   border-color: white;
   a {
     color: white;
+    font-weight: 500;
   }
 }
 
