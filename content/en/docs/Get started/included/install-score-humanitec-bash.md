@@ -61,4 +61,4 @@ The command returns the following output.
 score-humanitec x.y.z
 ```
 
-**Results** You've successfully installed a Platform CLI.
+**Results** You've successfully installed the Platform CLI.

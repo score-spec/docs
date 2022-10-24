@@ -6,30 +6,47 @@ description: >
   Reference documentation for the Score Specification.
 ---
 
-## Score schema
+## Score schema definitions
 
 The Score Specification is a yaml file that contains the following top-level schema definitions.
 Use these definitions to describe a single {{< glossary_tooltip text="Workload" term_id="workload" >}}.
 
-- [`containers`](#container-definition): defines how the Workload's tasks are executed.
-- [`resources`](#resources-definition): defines dependencies needed by the Workload.
-- [`service`](#service-definition): defines how an application can expose its resources when executed. Allows one or more `ports` to be exposed.
+- [`containers`](#container-definition): (required) defines how the Workload's tasks are executed.
+- [`resources`](#resources-definition): (optional) defines dependencies needed by the Workload.
+- [`service`](#service-definition): (optional) defines how an application can expose its resources when executed.
 
 ## Workload definition
 
-Workload definitions are the top
+```yaml
+apiVersion: string
+metadata:
+  name: string
+```
 
-<!--
 `apiversion`: the declared Score Schema version.
 
 - **Valid options**: `score.sh/v1b1`
 
--->
+`metadata`: an optional metadata description of your Workload.
 
-`metadata`: an optional description of your Workload.
+### Workload example
 
-- **Type**: string.
-- **Constraints**: alphanumeric string.
+The following is a top level description for a Workload.
+
+```yml
+apiVersion: score.sh/v1b1
+metadata:
+  name: hello-world
+service:
+  ports:
+  # . . .
+containers:
+  my-container:
+  # . . .
+resources:
+  env:
+  # . . .
+```
 
 ## Resources definition
 
@@ -45,10 +62,10 @@ It is up to {{< glossary_tooltip text="Platform CLI" term_id="platform-cli" >}} 
 resources:
   [resource-name]:
     type: [resource-type]
-    properties:                   # optional
+    properties:                     # optional
       [property-name]:
-        type: [property-type]     # optional
-        default: [value]          # optional
+        type: string                # optional
+        default: interface{}        # optional
         required: [true | false]    # false by default
         secret: [true | false]      # false by default
 ```

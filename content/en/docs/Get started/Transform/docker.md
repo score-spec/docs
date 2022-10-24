@@ -6,6 +6,10 @@ description: >
   Learn to translate a Score Specification file into a Docker Compose configuration with the target Platform CLI tool.
 ---
 
+{{% alert %}}
+If at any point you need help, `score-compose --help` from your terminal window.
+{{% /alert %}}
+
 In this walkthrough you will:
 
 - 1

@@ -1,0 +1,10 @@
+{
+    "id": "1234567890",
+    "metadata": {
+        "env_id": "development",
+        "name": "Auto-generated (SCORE)",
+        "url": "https://api.humanitec.io/orgs/my-org/my-app/score-test/envs/development/draft/1234567890",
+        "created_by": "s-1234567890",
+        "created_at": "2022-10-20T00:00:00.000000000Z",
+        "last_modified_at": "2022-10-20T00:00:00.000000000Z"
+    },

@@ -1,8 +1,10 @@
 ---
 title: Glossary
 layout: glossary
-noedit: true
 weight: 10
+headless: true
+toc_hide: true
+hide_summary: true
 card:
   name: reference
   weight: 10

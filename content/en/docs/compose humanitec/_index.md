@@ -26,11 +26,13 @@ The `score.yaml` file contains a Workload named `app-workload` and specifies a c
 The minimum configuration needed to run a Workload.
 
 ```yml
-name: app-workload
+apiVersion: score.sh/v1b1
+metadata:
+  name: hello-world
 
 container:
   container-id:
-    image: registry.humanitec.io/public/sample-service
+    image: busybox
 ```
 
 {{% /tab %}}
@@ -40,21 +42,49 @@ The output of the `score-humanitec run --env development` command.
 
 ```json
 {
-  "metadata": {
-    "env_id": "development",
-    "name": "Auto-generated (SCORE)"
-  },
+    "id": "1234567890",
+    "metadata": {
+        "env_id": "development",
+        "name": "Auto-generated (SCORE)",
+        "url": "https://api.humanitec.io/orgs/my-org/my-app/score-test/envs/development/draft/1234567890",
+        "created_by": "s-1234567890",
+        "created_at": "2022-10-20T00:00:00.000000000Z",
+        "last_modified_at": "2022-10-20T00:00:00.000000000Z"
+    },
   "modules": {
     "add": {
-      "": {
+      "hello-world": {
         "profile": "humanitec/default-module",
         "spec": {
-          "containers": {}
+          "containers": {
+            "container-id": {
+              "id": "container-id",
+              "image": "busybox"
+            }
+          }
         }
       }
     }
   }
-}
+```
+
+{{% /tab %}}
+{{% tab name="Docker Compose" %}}
+
+The output of `score-compose run`.
+
+```yml
+services:
+  hello-world:
+    image: busybox
+```
+
+{{% /tab %}}
+{{% tab name="Helm" %}}
+
+The output of `score-helm run`.
+
+```yml
 ```
 
 {{% /tab %}}
@@ -68,7 +98,9 @@ In the following example, we specify two types of resource: a PostGres database 
 {{% tab name="Score" %}}
 
 ```yml
-name: app-workload
+apiVersion: score.sh/v1b1
+metadata:
+  name: hello-world
 
 container:
   image: registry.humanitec.io/public/sample-service
@@ -93,7 +125,7 @@ The output of the `score-humanitec run --env development` command.
   },
   "modules": {
     "add": {
-      "": {
+      "hello-world": {
         "externals": {
           "dba": {
             "type": "postgres"
@@ -133,14 +165,17 @@ Replace `token-information` with your token.
 {{% tab name="Score" %}}
 
 ```yaml
-name: app-workload
+apiVersion: score.sh/v1b1
+metadata:
+  name: hello-world
 
 container:
-  image: registry.humanitec.io/public/sample-service
-  command:
-    - /bin/sh
-  variables:
-    CONNECTION_STRING: postgresql://${resources.db.username}:${resources.db.password}@${resources.db.host}:${resources.db.port}/${resources.db.name}
+  container-id:
+    image: registry.humanitec.io/public/sample-service
+    command:
+      - /bin/sh
+    variables:
+      CONNECTION_STRING: postgresql://${resources.db.username}:${resources.db.password}@${resources.db.host}:${resources.db.port}/${resources.db.name}
 
 resources:
   sql:
@@ -159,16 +194,16 @@ The output of `score-humanitec` command.
 {
   "id": "1234567890",
   "metadata": {
-    "env_id": "env-name",
+    "env_id": "development",
     "name": "Auto-generated (SCORE)",
-    "url": "https://registry.humanitec.io/public/sample-service/envs/test/draft/1234567890",
+    "url": "https://api.humanitec.io/orgs/my-org/my-app/score-test/envs/development/draft/1234567890",
     "created_by": "s-1234567890",
-    "created_at": " ",
-    "last_modified_at": " "
+    "created_at": "2022-10-20T00:00:00.000000000Z",
+    "last_modified_at": "2022-10-20T00:00:00.000000000Z"
   },
   "modules": {
     "add": {
-      "": {
+      "hello-world": {
         "externals": {
           "sql": {
             "type": "postgres"

@@ -1,26 +1,26 @@
 ---
-title: "score-compose install on macOS"
-description: "Installation for score-compose on macOS."
+title: "score-helm install on macOS"
+description: "Installation for score-helm on macOS."
 headless: true
 ---
 
 ### Step 1. Download
 
-1. Open <https://github.com/score-spec/score-compose/releases> in your browser.
+1. Open <https://github.com/score-spec/score-helm/releases> in your browser.
 
 2. Find the current release by scrolling down and looking for the green tag that reads _Latest_.
 
 3. Download the latest compressed Tar file for your operating system.
-   1. The name will be something like `score-compose_x.y_osx-amd64.tar.gz`, where `x.y` is the release number, `osx` is the operating system.
+   1. The name will be something like `score-helm_x.y_osx-amd64.tar.gz`, where `x.y` is the release number, `osx` is the operating system.
 
 4. By default, the tarball will be saved to your `~/Downloads` directory. If you choose to use a different location, you'll need to change that in the following steps.
 
 **Results** You should see something similar to the following output.
 
 ```bash
-Saving to: `score-compose_x.y_osx-amd64.tar.gz`
+Saving to: `score-helm_x.y_osx-amd64.tar.gz`
 
-score-compose_x.y.0 100%[===================>]   2.85M  5.28MB/s    in 0.5s
+score-helm_x.y.0 100%[===================>]   2.85M  5.28MB/s    in 0.5s
 ```
 
 #### Step 2: Install into your `local` directory
@@ -36,7 +36,7 @@ sudo mkdir -pv score-spec
 Extract the compressed Tar file.
 
 ```bash
-sudo tar -xvzf ~/Downloads/score-compose_0.1.0_darwin_arm64.tar.gz
+sudo tar -xvzf ~/Downloads/score-helm_0.1.0_darwin_arm64.tar.gz
 ```
 
 **Results** You should see the following output.
@@ -44,7 +44,7 @@ sudo tar -xvzf ~/Downloads/score-compose_0.1.0_darwin_arm64.tar.gz
 ```bash
 x LICENSE
 x README.md
-x score-compose
+x score-helm
 ```
 
 ### Step 3: Export PATH
@@ -53,12 +53,12 @@ To export `PATH`, run the following, `export PATH=$PATH:/usr/local/score-spec`.
 
 ### Step 4: Verify installation
 
-To verify installation, run the following `score-compose --version`.
+To verify installation, run the following `score-helm --version`.
 
 The command returns the following output.
 
 ```bash
-score-compose x.y.z
+score-helm x.y.z
 ```
 
 **Results** You've successfully installed the Platform CLI.

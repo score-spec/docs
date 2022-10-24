@@ -52,15 +52,19 @@ Score exclusively takes care of translating the Workload requirements specified 
 
 If you are a first-time user of Score, we recommended that you begin by reading the following sections:
 
-- [Getting Started](/docs/getting-started/): Learn how to install and run your first transform.
-- [Examples](/docs/examples/): Check out some example code.
+- [Getting Started](/docs/get-started/): Learn how to install and run your first transform.
+
+<!-- - [Examples](/docs/examples/): Check out some example code. -->
 
 Beyond the Getting started section, you can learn more about Score and it's concepts in the following sections:
 
 - [Concepts](/docs/concepts): Recommended reading for anyone consuming or operating Score.
-- [Tasks](/docs/tasks/): Common tasks.
+- [Tasks](/docs/tasks/): Recommended reading for common tasks associated with the Score tooling.
 
-  For more information, see Core Tasks:
+<!--
+
+For more information, see Core Tasks:
 
 - Define routes as resources
 - Set environmental variables
+-->

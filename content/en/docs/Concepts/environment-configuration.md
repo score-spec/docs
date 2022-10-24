@@ -1,9 +1,8 @@
 ---
 title: "Environment specific configuration"
 linkTitle: "Environment specific configuration"
-weight: 5
-description: >
-  This page demonstrates how to set environment specific configuration.
+weight: 4
+description:
 ---
 
 Environment specific configuration allows the Score Specification file to be combined with environment specific variables. Use environment specific variables to run Workloads in the target environment.
@@ -19,4 +18,4 @@ Score uses environment specific configurations to support a wide range of use ca
 - The environment specific variables include each value for the specific environment.
 - The Score specification declares a container image name and tag. The image pull secret to fetch the image from the registry has to made available by the platform.
 
-For more information see, [Environment variable]({{< ref "/content/en/docs/Target Platform/environmental-variables.md" >}} "Environment variable").
+For more information see, [Environment variables for Score Specification]({{< ref "/content/en/docs/Get started/environmental-variables.md" >}} "Environment variables").

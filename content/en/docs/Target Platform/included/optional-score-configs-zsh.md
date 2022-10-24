@@ -14,11 +14,17 @@ To do so in all your shell sessions, add the following to your `~/.zshrc` file:
 nano ~/.zshrc
 ```
 
-2. Source the completion script in your shell. Replace `<platform>` with the platform of your choice.
+1. Source the completion script in your shell. Replace `<platform>` with the platform of your choice.
 
-```zsh
+```bash
 # adding score-<platform>
 source <(score-<platform> completion zsh)
+```
+
+Replace `score-<platform>` with the name of the Platform CLI you want to use, for example:
+
+```bash
+source <(score-humanitec completion zsh)
 ```
 
 If you have an alias for Score, Score autocompletion will automatically work with it.

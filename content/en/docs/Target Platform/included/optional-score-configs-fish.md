@@ -12,4 +12,10 @@ To do so in all your shell sessions, add the following line to your `~/.config/f
 score-<platform> completion fish | source
 ```
 
+Replace `score-<platform>` with the name of the Platform CLI you want to use, for example:
+
+```bash
+score-humanitec completion fish | source
+```
+
 After reloading your shell, Score autocompletion should be working.
