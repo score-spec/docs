@@ -2,6 +2,7 @@
 title: "Run your first transform"
 linkTitle: "Run your first transform"
 weight: 4
+draft: true
 description: >
   This section contains pages that show how to apply a transformation on your Score Specification file.
 ---
