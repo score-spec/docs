@@ -83,7 +83,7 @@ Service Score configuration is defined in `./backend/Score.yaml`:
 ```yaml
 name: backend
 
-container:
+containers:
   image: registry.humanitec.io/humanitec-demo/Score -demo-backend
   variables:
     PORT: "8080"

@@ -7,6 +7,7 @@ short_description: >
 tags:
 - name
 - fundamental
+- testing
 ---
 
 Score doesn't specify any `dns` or `route` attribute values in the specification file. Those values may change based on the target environment, like `testing`, `integration`, or `production`. For example, route table management is a configuration management task and Score is not a configuration management tool.

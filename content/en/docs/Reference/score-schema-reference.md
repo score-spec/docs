@@ -82,7 +82,7 @@ resources:
 - **Type**: string.
 - **Constraints**: alphanumeric string.
 
-**`properties`**: specifies properties definition that are available to the resource. Set properties that can be referenced in other places in the Score specification file. For more information, see [Referencing Resources](#referencing-resources).
+**`properties`**: specifies properties definition that are available to the resource. Set properties that can be referenced in other places in the Score Specification file. For more information, see [Referencing Resources](#referencing-resources).
 
 **`property-name`**: used to reference the resource property in other places in Score file.
 
@@ -127,16 +127,18 @@ For example, `score-compose` would convert resource properties into environment 
 The following Score file contains a single resource.
 
 ```yaml
-name: backend
+apiVersion: score.sh/v1b1
 
-container:
-  image: busybox
-  command:
-  - /bin/sh
-  - -c
-  - while true; do printenv; echo ...sleeping 10 sec...; sleep 10; done
-  variables:
-    CONNECTION_STRING: postgresql://${resources.db.username}:${resources.db.password}@${resources.db.host}:${resources.db.port}/${resources.db.name}
+metadata:
+  name: backend
+
+containers:
+  container-id:
+    image: busybox
+    command: ["/bin/sh"]
+    args: ["-c", "while true; do echo Hello $${FRIEND}!; sleep 5; done"]
+    variables:
+        CONNECTION_STRING: postgresql://${resources.db.username}:${resources.db.password}@${resources.db.host}:${resources.db.port}/${resources.db.name}
 
 resources:
   db:

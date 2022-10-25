@@ -4,7 +4,9 @@ description: "Optional configuration to enable fish shell auto-completion."
 headless: true
 ---
 
-The Score completion script for Fish can be generated with the command `score-<platform> completion fish`. Sourcing the completion script in your shell enables Score autocompletion.
+The Score completion script for Fish can be generated with the command `score-<platform> completion fish`.
+
+Sourcing the completion script in your shell enables Score autocompletion.
 
 To do so in all your shell sessions, add the following line to your `~/.config/fish/config.fish` file:
 

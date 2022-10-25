@@ -34,7 +34,7 @@ apiVersion: score.sh/v1b1
 metadata:
   name: hello-world
 
-container:
+containers:
   container-id:
     image: busybox
 ```

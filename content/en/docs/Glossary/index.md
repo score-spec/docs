@@ -1,9 +1,9 @@
 ---
 title: Glossary
 layout: glossary
+filter_text: Filter tags
+noedit: true
 weight: 10
-headless: true
-toc_hide: true
 hide_summary: true
 card:
   name: reference

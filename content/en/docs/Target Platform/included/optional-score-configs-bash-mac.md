@@ -6,7 +6,9 @@ headless: true
 
 <!-- https://cobra.dev/#generating-bash-completions -->
 
-The Score completion script for Bash can be generated with `score-<platform> completion bash`. Sourcing this script in your shell enables Score completion.
+The Score completion script for Bash can be generated with `score-<platform> completion bash`.
+
+Sourcing this script in your shell enables Score completion.
 
 ### Prerequisites
 

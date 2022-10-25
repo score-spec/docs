@@ -12,7 +12,7 @@ A minimumn configuration for a Score Specification that will run on Humanitec is
 ```yaml
 name: app-workload
 
-container:
+containers:
  image: registry.humanitec.io/public/sample-service
 ```
 

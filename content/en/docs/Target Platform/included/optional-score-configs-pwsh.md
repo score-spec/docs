@@ -6,6 +6,8 @@ headless: true
 
 The Score completion script for PowerShell can be generated with the command `score-<platform> completion powershell`.
 
+Sourcing the completion script in your shell enables Score autocompletion.
+
 1. To do so in all your shell sessions, add the following line to your `$PROFILE` file.
 
 ```powershell

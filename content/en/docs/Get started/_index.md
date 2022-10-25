@@ -10,11 +10,11 @@ description: >
 
 ## Develop your Score spec
 
-To use Score, you'll do the following:
+To use compose a Score Specification file, you'll do the following:
 
-- Scope: Identify the resources needed for your infrastructure.
-- Compose: compose your resources into the Score spec.
-- Transform: transform your Score spec to the platform of your choice.
+- Scope: identify containers, resources, and services needed for your infrastructure.
+- Compose: compose your resources into the Score Specification file.
+- Transform: transform your Score Specification file to the Platform of your choice.
 
 ## Getting started
 

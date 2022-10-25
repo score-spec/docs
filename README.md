@@ -18,7 +18,7 @@ brew install score-compose
 
 ## Overview
 
-The Score specification file resolves configuration mismanagement between environments. Compose a `score.yaml` file that describes how to run your workload. As a platform-agnostic declaration file, `score.yaml` creates a single source of truth on Workload profiles of requirements and works to integrate with any platform or tooling.
+The Score Specification file resolves configuration mismanagement between environments. Compose a `score.yaml` file that describes how to run your workload. As a platform-agnostic declaration file, `score.yaml` creates a single source of truth on Workload profiles of requirements and works to integrate with any platform or tooling.
 
 ### Use the Platform CLI tool
 

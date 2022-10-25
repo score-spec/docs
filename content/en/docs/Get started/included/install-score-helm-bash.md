@@ -2,6 +2,7 @@
 title: "score-helm install on macOS"
 description: "Installation for score-helm on macOS."
 headless: true
+toc_hide: true
 ---
 
 ### Step 1. Download

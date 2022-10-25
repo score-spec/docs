@@ -2,6 +2,7 @@
 title: "score-humanitec install on macOS"
 description: "Installation for score-humanitec on macOS."
 headless: true
+toc_hide: true
 ---
 
 ### Step 1. Download

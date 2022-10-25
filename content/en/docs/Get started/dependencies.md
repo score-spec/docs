@@ -6,8 +6,6 @@ description: >
   A Hello World application for Score explaining dependencies.
 ---
 
-
-
 Score uses `resources` section to describe workload's dependencies. This mechanism can be used to spin-up multi-service setups with `docker-compose`.
 
 For example, `service-a.yaml` score file describes a service that has two dependencies: `service-b` (another workload) and a PostgreSQL database instance:
@@ -83,7 +81,7 @@ $ score-compose run -f ./service-b.yaml -o ./service-b.compose.yaml
 $ score-compose run -f ./service-a.yaml -o ./service-a.compose.yaml --env-file ./.env
 ```
 
-Resulting output file  `service-a.compose.yaml` would include two dependencies on compose services `db` and `service-b`.
+Resulting output file `service-a.compose.yaml` would include two dependencies on compose services `db` and `service-b`.
 Both should be up and running before `service-a` could start:
 
 ```yaml
@@ -165,9 +163,9 @@ compose-service-a-1  | service-a: Hello World! Connecting to postgresql://postgr
 compose-service-b-1  | service-b: Hello World!
 ```
 
-
 ## More information
 
 For more information, see the following links.
 
+- Review the [Workload dependencies]({{< ref "../concepts/dependencies" >}} "Workload dependencies") page.
 - Review the [resource section]({{< ref "../reference/score-schema-reference.md#resources-definition" >}} "Resource definition") of the Score Schema reference.

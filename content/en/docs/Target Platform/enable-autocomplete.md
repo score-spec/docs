@@ -40,6 +40,7 @@ Below are the procedures to set up autocompletion for Bash, Fish, and Zsh.
 {{< tab name="Bash" include="included/optional-score-configs-bash-mac.md" />}}
 {{< tab name="Fish" include="included/optional-score-configs-fish.md" />}}
 {{< tab name="Zsh" include="included/optional-score-configs-zsh.md" />}}
+{{< tab name="Powershell" include="included/optional-score-configs-pwsh.md" />}}
 {{< /tabs >}}
 
 For help with enabling autocomplete script for the shell, use the `--help` flag on the specified shell, for example:

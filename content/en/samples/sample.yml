@@ -1,6 +1,6 @@
 name: backend
 
-container:
+containers:
   image: busybox
   command:
     - /bin/sh
