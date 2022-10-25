@@ -71,7 +71,7 @@ The output of the `score-humanitec run --env development` command.
 {{% /tab %}}
 {{% tab name="Docker Compose" %}}
 
-The output of `score-compose run`.
+The output of `score-compose run -f score.yaml -o compose.yml`.
 
 ```yml
 services:
@@ -80,6 +80,8 @@ services:
 ```
 
 {{% /tab %}}
+
+<!--
 {{% tab name="Helm" %}}
 
 The output of `score-helm run`.
@@ -88,139 +90,56 @@ The output of `score-helm run`.
 ```
 
 {{% /tab %}}
+-->
+
 {{< /tabs >}}
 
 In the next step, you'll want to think about is to specify resources for your container.
 
-In the following example, we specify two types of resource: a PostGres database and storage.
+In the following example, we'll create a simple service based on `busybox`.
 
 {{< tabs >}}
 {{% tab name="Score" %}}
 
 ```yml
 apiVersion: score.sh/v1b1
+
 metadata:
   name: hello-world
 
-container:
-  image: registry.humanitec.io/public/sample-service
-
-resources:
-  dba:
-    type: postgres
-  volume:
-    type: volume
+containers:
+  hello:
+    image: busybox
+    command: ["/bin/sh"]
+    args: ["-c", "while true; do echo Hello World!; sleep 5; done"]
 ```
 
 {{% /tab %}}
-{{% tab name="Humanitec" %}}
+{{% tab name="Docker Compose" %}}
 
-The output of the `score-humanitec run --env development` command.
+The output of `score-compose run -f score.yaml -o compose.yml`.
 
-```json
-{
-  "metadata": {
-    "env_id": "development",
-    "name": "Auto-generated (SCORE)"
-  },
-  "modules": {
-    "add": {
-      "hello-world": {
-        "externals": {
-          "dba": {
-            "type": "postgres"
-          },
-          "volume": {
-            "type": "volume"
-          }
-        },
-        "profile": "humanitec/default-module",
-        "spec": {
-          "containers": {}
-        }
-      }
-    }
-  }
-}
+```yml
+services:
+  hello-world:
+    command:
+      - -c
+      - while true; do echo Hello World!; sleep 5; done
+    entrypoint:
+      - /bin/sh
+    image: busybox
 ```
 
 {{% /tab %}}
 {{< /tabs >}}
 
-Next, we will want to use a run a draft of our Humanite Delta.
-Next, use the `score-humanitec draft` command to run a draft of our Humanitec Delta.
+Now, you can run `docker-compose run` for the single service definition.
 
-To do that, we will need to provide an organization name, application name, environment, and a personal token.
+The following is the output of the previous command.
 
 ```bash
-score-humanitec draft --org organization-name --app application-name  --env env-name --token token-information
+[+] Running 1/0
+ ⠿ Container score-compose-hello-world-1  Rec...                                         0.1s
+Attaching to score-compose-hello-world-1
+score-compose-hello-world-1  | Hello World!
 ```
-
-Replace `organization-name` with the name of your Organization.
-Replace `application-name` with the name of your application.
-Replace `env-name` with the name of your environment.
-Replace `token-information` with your token.
-
-{{< tabs >}}
-{{% tab name="Score" %}}
-
-```yaml
-apiVersion: score.sh/v1b1
-metadata:
-  name: hello-world
-
-container:
-  container-id:
-    image: registry.humanitec.io/public/sample-service
-    command:
-      - /bin/sh
-    variables:
-      CONNECTION_STRING: postgresql://${resources.db.username}:${resources.db.password}@${resources.db.host}:${resources.db.port}/${resources.db.name}
-
-resources:
-  sql:
-    type: postgres
-  storage:
-    type: volume
-    target: /usr/share/humanitec
-```
-
-{{% /tab %}}
-{{% tab name="Humanitec" %}}
-
-The output of `score-humanitec` command.
-
-```json
-{
-  "id": "1234567890",
-  "metadata": {
-    "env_id": "development",
-    "name": "Auto-generated (SCORE)",
-    "url": "https://api.humanitec.io/orgs/my-org/my-app/score-test/envs/development/draft/1234567890",
-    "created_by": "s-1234567890",
-    "created_at": "2022-10-20T00:00:00.000000000Z",
-    "last_modified_at": "2022-10-20T00:00:00.000000000Z"
-  },
-  "modules": {
-    "add": {
-      "hello-world": {
-        "externals": {
-          "sql": {
-            "type": "postgres"
-          },
-          "storage": {
-            "type": "volume"
-          }
-        },
-        "profile": "humanitec/default-module",
-        "spec": {
-          "containers": {}
-        }
-      }
-    }
-  }
-}
-```
-
-{{% /tab %}}
-{{< /tabs >}}

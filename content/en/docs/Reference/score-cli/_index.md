@@ -9,7 +9,7 @@ description: >
 The _Platform CLI_ is a command-line tool used to interact with a Score Specification. Use the Platform CLI to transform the platform-agnostic specification into multiple configuration files for the platform of your choice.
 
 - [How to install the Platform CLI]({{< ref "/content/en/docs/Get started/install.md" >}} "Install")
-- [Environment variables for Score Specification]({{< ref "/content/en/docs/Get started/environmental-variables.md" >}} "Environment variables")
+- [Environment variables for Score Specification]({{< ref "/content/en/docs/Get started/environmental variables.md" >}} "Environment variables")
 
 ## The Platform CLI
 

@@ -22,13 +22,11 @@ Choose Platform CLI tool you want to install.
 
 ### Windows
 
-Select a Platform CLI too, uncompress, and move the binary to your `PATH`.
+Select a Platform CLI, uncompress the `zip` file, and move the binary to your `PATH`.
 
 - [score-compose](https://github.com/score-spec/score-compose/releases)
 - [score-helm](https://github.com/score-spec/score-helm/releases)
 - [score-humanitec](https://github.com/score-spec/score-humanitec/releases)
-
-
 
 ## Upgrade
 

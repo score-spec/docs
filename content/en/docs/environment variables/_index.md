@@ -1,6 +1,6 @@
 ---
 title: "Set environmental variables"
-linkTitle: "Environmental parameters"
+linkTitle: "Environmental variables"
 weight: 5
 description: >
     This section describes how to set your environmental variables.
@@ -10,9 +10,9 @@ description: >
 
 Environmental variables can only set within the [`container`]({{< ref "../reference/score-schema-reference.md" >}} "Container") section of your Score specification file. These variables translate into environmental variables as if you're deploying a {{< glossary_tooltip text="Workload" term_id="workload" >}} with a platform like Docker.
 
-Values for those variables can be either hard coded (not recommended) or sourced from the resources properties through substitutions (recommended). For example, `${resources.my-db.host}`.
+Values for those variables can be either hard coded (not recommended) or sourced from the resources properties through substitutions (recommended).
 
-Score supports declaring environment variables in an environment file or as a shell value.
+For example, `${resources.my-db.host}`. Score supports declaring environment variables in an [environment file](#environment-variables-in-file) or as a [shell value](#environment-variables-in-your-shell).
 
 ## Substitute environment variables
 
@@ -52,7 +52,7 @@ DATABASE_PORT=5432
 DATABASE_NAME=backend
 ```
 
-1. When running `score-compose run`, you'll want to pass the `--env-file` flag where `backend.env` is the environment variable file.
+2. When running `score-compose run`, you'll want to pass the `--env-file` flag where `backend.env` is the environment variable file.
 
 ```bash
 score-compose run \
@@ -74,8 +74,8 @@ export DATABASE_PORT=5432
 export DATABASE_NAME=backend
 ```
 
-1. Then run your Docker compose command.
+2. Then run your Docker compose command.
 
 ```bash
-docker-compose up compose.yml
+docker-compose up compose.yml --env-file backend.env
 ```
