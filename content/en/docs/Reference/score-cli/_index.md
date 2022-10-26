@@ -34,9 +34,12 @@ The Platform CLI has two distinct parts.
 
 ## Score commands
 
-- [`run`](#platform-cli-run): Translates the Score file to the specified platform.
+- [`run`](#platform-cli): Translates the Score file to the specified platform.
   - Valid options: `score-humanitec` | `score-helm` | `score-compose`
-- [`completion`](): Generates the autocompletion script for the specified shell.
+- [`draft`](#platform-cli): Creates a deployment draft for Humanitec.
+  - Valid options: `score-humanitec`
+- [`completion`]({{< ref "enable-autocomplete" >}}): Generates the autocompletion script for the specified shell.
+  - Valid options: `score-humanitec` | `score-helm` | `score-compose`
 
 ## Global modifiers
 
@@ -54,12 +57,15 @@ Provides version information for the CLI.
 
 Alias: `-v`
 
-## Platform CLI run
+## Platform CLI
 
-{{< tabs name="score-platform run" >}}
+{{< tabs name="score-platform" >}}
 {{< tab name="score-compose run" include="included/score-compose run.md" />}}
 {{< tab name="score-humanitec run" include="included/score-humanitec run.md" />}}
+{{< tab name="score-humanitec draft" include="included/score-humanitec draft.md" />}}
 {{< /tabs >}}
+
+<!--
 
 ## File defaults
 
@@ -72,3 +78,5 @@ The source of the authored Score file location.
 ### `./override.score.yaml`
 
 The override default file location.
+
+-->

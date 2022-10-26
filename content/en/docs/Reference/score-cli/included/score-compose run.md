@@ -10,9 +10,17 @@ The following are configuration details for `score-compose run`.
 
 Replaces the `image` name with Compose' `build` instructions.
 
+```bash
+score-compose run -f ./score.yaml -o ./compose.yaml --build build
+```
+
 ### `--env-file`
 
 Location to store sample `.env` file.
+
+```bash
+score-compose run -f ./score.yaml -o ./compose.yaml --env-file ./backend.env
+```
 
 ### `--file`
 
@@ -23,11 +31,19 @@ Default: `./score.yaml`
 
 Alias: `-f`
 
+```bash
+score-compose run -f ./another-score.yaml
+```
+
 ### `--help`
 
 Help for the `run` command.
 
 Alias: `-h`
+
+```bash
+score-compose run -h
+```
 
 ### `--output`
 
@@ -37,3 +53,7 @@ Uses the default value if the flag isn't specified.
 Default: `./compose.yaml`
 
 Alias: `-o`
+
+```bash
+score-compose run -f ./score.yaml -o ./another-compose.yaml
+```
