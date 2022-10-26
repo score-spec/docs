@@ -9,7 +9,7 @@ description: >
 The _Platform CLI_ is a command-line tool used to interact with a Score Specification. Use the Platform CLI to transform the platform-agnostic specification into multiple configuration files for the platform of your choice.
 
 - [How to install the Platform CLI]({{< ref "/content/en/docs/Get started/install.md" >}} "Install")
-- [Environment variables for Score Specification]({{< ref "/content/en/docs/Get started/Environment Configuration/_index.md" >}} "Environment variables")
+- [Environment variables for Score Specification]({{< ref "/content/en/docs/Get started/environmental variables.md" >}} "Environment variables")
 
 ## The Platform CLI
 
@@ -29,14 +29,17 @@ Currently, supported platforms includes:
 
 The Platform CLI has two distinct parts.
 
-- **Comands**: The commands are tasks you want Score to do. Supply Score with commands and subcommands to execute specific tasks.
+- **Commands**: The commands are tasks you want Score to do. Supply Score with commands and subcommands to execute specific tasks.
 - **Flags**: Flags, also called parameters, are options that modify the result of the _command_ by providing additional configurations. Flags are specific to the command, and each command can have independent flags.
 
 ## Score commands
 
-- [`run`](#platform-cli-run): Translates the Score file to the specified platform.
+- [`run`](#platform-cli): Translates the Score file to the specified platform.
   - Valid options: `score-humanitec` | `score-helm` | `score-compose`
-- [`completion`](): Generates the autocompletion script for the specified shell.
+- [`draft`](#platform-cli): Creates a deployment draft for Humanitec.
+  - Valid options: `score-humanitec`
+- [`completion`]({{< ref "enable-autocomplete" >}}): Generates the autocompletion script for the specified shell.
+  - Valid options: `score-humanitec` | `score-helm` | `score-compose`
 
 ## Global modifiers
 
@@ -54,12 +57,15 @@ Provides version information for the CLI.
 
 Alias: `-v`
 
-## Platform CLI run
+## Platform CLI
 
-{{< tabs name="score-platform run" >}}
+{{< tabs name="score-platform" >}}
 {{< tab name="score-compose run" include="included/score-compose run.md" />}}
 {{< tab name="score-humanitec run" include="included/score-humanitec run.md" />}}
+{{< tab name="score-humanitec draft" include="included/score-humanitec draft.md" />}}
 {{< /tabs >}}
+
+<!--
 
 ## File defaults
 
@@ -72,3 +78,5 @@ The source of the authored Score file location.
 ### `./override.score.yaml`
 
 The override default file location.
+
+-->

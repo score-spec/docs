@@ -2,6 +2,8 @@
 title: "Enable autocomplete for shell"
 linkTitle: "Enable autocomplete"
 weight: 4
+description: >
+  Enable autocomplete for the Platform CLI.
 ---
 
 By default, Homebrew install the autocompletion script.
@@ -12,18 +14,12 @@ If you installed the Platform CLI by downloading the single binary, continue rea
 
 Score allows you to generate an autocompletion script for each Platform CLI tool for a specified shell.
 
-## Enable autocomplete
+Score supports autocompletion of commands in a few shells.
 
-To enable autocomplete, run one of the following:
+## Use cases
 
-```bash
-score-compose completion [shell]
-score-humanitec completion [shell]
-
-# example
-score-compose completion zsh
-score-humanitec completion bash
-```
+- Press the tab key when a command or flag is partially typed and there is one option to complete.
+- Press the tab key when there are multiple candidates and allow you to continue typing.
 
 ## Available shells
 
@@ -46,6 +42,13 @@ Below are the procedures to set up autocompletion for Bash, Fish, and Zsh.
 {{< tab name="Bash" include="included/optional-score-configs-bash-mac.md" />}}
 {{< tab name="Fish" include="included/optional-score-configs-fish.md" />}}
 {{< tab name="Zsh" include="included/optional-score-configs-zsh.md" />}}
+{{< tab name="PowerShell" include="included/optional-score-configs-pwsh.md" />}}
 {{< /tabs >}}
+
+For help with enabling autocomplete script for the shell, use the `--help` flag on the specified shell, for example:
+
+```bash
+score-compose completion bash --help
+```
 
 For more information, see Cobra's documentation on [Generating shell completions](https://github.com/spf13/cobra/blob/main/shell_completions.md).

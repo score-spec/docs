@@ -15,22 +15,23 @@
     padding-top: 0.75rem;
     padding-bottom: 1.5rem;
     vertical-align: top;
-
 }
 
 .td-page-meta {
     a {
         display: block;
         font-weight: $font-weight-medium;
+        &:hover {
+            text-decoration: underline;
+        }
     }
 }
 
 .td-toc {
-
     a {
         display: block;
         font-weight: $font-weight-light;
-        padding-bottom: .25rem;
+        padding-bottom: 0.25rem;
     }
 
     li {
@@ -44,13 +45,14 @@
 
     #TableOfContents {
         // Hugo's ToC is a mouthful, this can be used to style the top level h2 entries.
-        > ul > li > ul > li > a {}
+        > ul > li > ul > li > a {
+        }
 
         a {
             color: $gray-600;
 
             &:hover {
-                color: $blue;
+                color: $primary;
                 text-decoration: none;
             }
         }

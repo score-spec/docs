@@ -3,6 +3,7 @@ title: "Quick Start: CI CD with Score "
 subtitle: "score-compose"
 date: 2017-01-05
 weight: 5
+draft: true
 description: >
   A short lead description about this content page. It can be **bold** or _italic_ and can be split over multiple paragraphs.
 ---
@@ -83,7 +84,7 @@ Service Score configuration is defined in `./backend/Score.yaml`:
 ```yaml
 name: backend
 
-container:
+containers:
   image: registry.humanitec.io/humanitec-demo/Score -demo-backend
   variables:
     PORT: "8080"
@@ -110,7 +111,7 @@ resources:
         required: false
 ```
 
-## Local Environment Setup with Docker-Compose
+## Local environment setup with Docker-Compose
 
 To develop and test the service locally, `./compose.yaml` configuration file is included with the source code:
 
@@ -316,7 +317,7 @@ Once deployed, updated application should report its current configuration prope
 
 </aside>
 
-The idea is to provide an open-source GitHub action (for example, `Score -setup`) that would add `score-humanitec` to the CI toolset and would allow users to create Humanitec deployment drafts and, possibly, trigger deployments from their CI pipelines directly.
+The idea is to provide an open source GitHub action (for example, `Score -setup`) that would add `score-humanitec` to the CI toolset and would allow users to create Humanitec deployment drafts and, possibly, trigger deployments from their CI pipelines directly.
 
 ## Deploying Score -enabled services with Humanitec events
 
@@ -325,4 +326,4 @@ The idea is to provide an open-source GitHub action (for example, `Score -setup`
 
 </aside>
 
-The idea is to import `Score.yaml` alongside with the workload image details and to use it to create a deployment draft when Humanitec auto-deployment is triggered by one of the configured events.
+The idea is to import `Score.yaml` alongside with the Workload image details and to use it to create a deployment draft when Humanitec auto-deployment is triggered by one of the configured events.

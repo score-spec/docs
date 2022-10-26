@@ -2,6 +2,7 @@
 title: "Manage resources"
 linkTitle: "Manage resources"
 weight: 4
+draft: true
 ---
 
 <!--

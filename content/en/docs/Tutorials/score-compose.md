@@ -3,6 +3,7 @@ title: "Quick Start: Resources with score-compose"
 subtitle: "score-compose"
 date: 2017-01-05
 weight: 5
+draft: true
 description: >
   A quick start for score-compose.
 ---
@@ -117,7 +118,7 @@ DB_PASSWORD=
 The user can now update `compose.yaml` file to accommodate for service overrides, produced from `Score.yaml`, and to use the environment variables listed in the `backend.env`:
 
 <aside>
-💡 It is not strictly necessary to change `CONNECTION_STRING` in the final version of `compose.yaml`, as it would be overridden anyway. However, it is better to keep it in sync with `db` service specification, and to remove all sensitive information from the configuration file.
+💡 It isn't strictly necessary to change `CONNECTION_STRING` in the final version of `compose.yaml`, as it would be overridden anyway. However, it is better to keep it in sync with `db` service specification, and to remove all sensitive information from the configuration file.
 
 </aside>
 

@@ -6,7 +6,9 @@ headless: true
 
 <!-- https://cobra.dev/#generating-bash-completions -->
 
-The Score completion script for Bash can be generated with `score-<platform> completion bash`. Sourcing this script in your shell enables Score completion.
+The Score completion script for Bash can be generated with `score-<platform> completion bash`.
+
+Sourcing this script in your shell enables Score completion.
 
 ### Prerequisites
 
@@ -42,6 +44,20 @@ You now have to ensure that the Score completion script gets sourced in all your
 
   ```bash
   echo 'source <(score-<platform> completion bash)' >>~/.bash_profile
+  ```
+
+  Replace `<platform>` with the name of the Platform CLI, for example:
+
+  ```bash
+  echo 'source <(score-humanitec completion bash)' >>~/.bash_profile
+  ```
+
+  ```bash
+  echo 'source <(score-compose completion bash)' >>~/.bash_profile
+  ```
+
+  ```bash
+  echo 'source <(score-helm completion bash)' >>~/.bash_profile
   ```
 
 - Add the completion script to the `/usr/local/etc/bash_completion.d` directory:

@@ -6,14 +6,31 @@ description: >
   This section covers how to install the Platform CLI.
 ---
 
-## Install the Platform CLI
+## Manual method
+
+Download the Platform CLI tool from the project's GitHub page.
+
+### macOS
 
 Choose Platform CLI tool you want to install.
 
 {{< tabs name="score_installation" >}}
 {{< tab name="score-compose" include="included/install-score-compose-bash.md" />}}
+{{< tab name="score-helm" include="included/install-score-helm-bash.md" />}}
 {{< tab name="score-humanitec" include="included/install-score-humanitec-bash.md" />}}
 {{< /tabs >}}
+
+### Windows
+
+Select a Platform CLI, uncompress the `zip` file, and move the binary to your `PATH`.
+
+- [score-compose](https://github.com/score-spec/score-compose/releases)
+- [score-helm](https://github.com/score-spec/score-helm/releases)
+- [score-humanitec](https://github.com/score-spec/score-humanitec/releases)
+
+## Upgrade
+
+To upgrade the Platform CLI, download the latest binary version and follow the [installation instruction](#manual-method).
 
 <!-- ### macOS
 

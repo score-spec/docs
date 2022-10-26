@@ -6,6 +6,10 @@ description: >
   This page is an overview of Score for Humanitec.
 ---
 
+{{% alert %}}
+If at any point you need help, `score-humanitec --help` from your terminal window.
+{{% /alert %}}
+
 Use `score-humanitec` to run the target Platform CLI tool and output the deployment delta details.
 
 To deploy an updated service to the remote environment with `score-humanitec` run the following command.
@@ -57,7 +61,7 @@ The following is the output of the previous command.
 }
 ```
 
-**Results**: You can now view and deploy this preview with the Humantiec Web UI or API.
+**Results**: you can now view and deploy this preview with the Humantiec Web UI or API.
 
 ## Deploy with Humanitec Web UI
 

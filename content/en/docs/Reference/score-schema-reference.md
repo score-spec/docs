@@ -6,20 +6,53 @@ description: >
   Reference documentation for the Score Specification.
 ---
 
-## Score schema
+## Score schema definitions
 
 The Score Specification is a yaml file that contains the following top-level schema definitions.
 Use these definitions to describe a single {{< glossary_tooltip text="Workload" term_id="workload" >}}.
 
-- [`containers`](#container-definition): defines how the Workload's tasks are executed.
-- [`resources`](#resources-definition): defines dependencies needed by the Workload.
-- [`service`](#service-definition): defines how an application can expose its resources when executed. Allows one or more `ports` to be exposed.
+- [`containers`](#container-definition): (required) defines how the Workload's tasks are executed.
+- [`resources`](#resources-definition): (optional) defines dependencies needed by the Workload.
+- [`service`](#service-definition): (optional) defines how an application can expose its resources when executed.
+
+## Workload definition
+
+```yaml
+apiVersion: string
+metadata:
+  name: string
+```
+
+`apiversion`: the declared Score Schema version.
+
+- **Valid options**: `score.sh/v1b1`
+
+`metadata`: an optional metadata description of your Workload.
+
+### Workload example
+
+The following is a top level description for a Workload.
+
+```yml
+apiVersion: score.sh/v1b1
+metadata:
+  name: hello-world
+service:
+  ports:
+  # . . .
+containers:
+  my-container:
+  # . . .
+resources:
+  env:
+  # . . .
+```
 
 ## Resources definition
 
-The Resource section of the Score Specification allows users to describe the relationship between workloads and their dependent resources in an environment-agnostic way.
+The Resource section of the Score Specification allows users to describe the relationship between Workloads and their dependent resources in an environment-agnostic way.
 
-The resource could be anything. Score doesn't differentiate resources by types.
+The resource could be anything. Score doesn't differentiate resources by types. The resource section can be used to provision multi-service setups with platforms like Docker Compose.
 
 It is up to {{< glossary_tooltip text="Platform CLI" term_id="platform-cli" >}} to resolve the resource by name, type, or any other meta information available.
 
@@ -29,10 +62,10 @@ It is up to {{< glossary_tooltip text="Platform CLI" term_id="platform-cli" >}} 
 resources:
   [resource-name]:
     type: [resource-type]
-    properties:                   # optional
+    properties:                     # optional
       [property-name]:
-        type: [property-type]     # optional
-        default: [value]          # optional
+        type: string                # optional
+        default: interface{}        # optional
         required: [true | false]    # false by default
         secret: [true | false]      # false by default
 ```
@@ -49,7 +82,7 @@ resources:
 - **Type**: string.
 - **Constraints**: alphanumeric string.
 
-**`properties`**: specifies properties definition that are available to the resource. Set properties that can be referenced in other places in the Score specification file. For more information, see [Referencing Resources](#referencing-resources).
+**`properties`**: specifies properties definition that are available to the resource. Set properties that can be referenced in other places in the Score Specification file. For more information, see [Referencing Resources](#referencing-resources).
 
 **`property-name`**: used to reference the resource property in other places in Score file.
 
@@ -94,16 +127,18 @@ For example, `score-compose` would convert resource properties into environment 
 The following Score file contains a single resource.
 
 ```yaml
-name: backend
+apiVersion: score.sh/v1b1
 
-container:
-  image: busybox
-  command:
-  - /bin/sh
-  - -c
-  - while true; do printenv; echo ...sleeping 10 sec...; sleep 10; done
-  variables:
-    CONNECTION_STRING: postgresql://${resources.db.username}:${resources.db.password}@${resources.db.host}:${resources.db.port}/${resources.db.name}
+metadata:
+  name: backend
+
+containers:
+  container-id:
+    image: busybox
+    command: ["/bin/sh"]
+    args: ["-c", "while true; do echo Hello $${FRIEND}!; sleep 5; done"]
+    variables:
+        CONNECTION_STRING: postgresql://${resources.db.username}:${resources.db.password}@${resources.db.host}:${resources.db.port}/${resources.db.name}
 
 resources:
   db:
@@ -171,49 +206,43 @@ service:
 The {{< glossary_tooltip text="Workload" term_id="workload" >}} container’s specification describes how the Workload's tasks are executed.
 
 ```yml
-containers:
-  container-id:
-    image: [image-name]
-    command:                                # (Optional)
-    args:                                   # (Optional)
-    variables:                              # (Optional)
-      [variable-name]: [object]
-
-    files:                                  # (Optional) Specifies extra files to mount
-    - target: [path/to/file-name.yaml]
-      mode:                                 #    - Access mode
-      content:                              #    - Inline content (supports templates)
-
-    volumes:                                # (Optional)
-    - source:
-      path:                                 # (Optional)
-      target:
-      read_only: [true | false]             # (Optional)
-
-    resources:                              # (Optional)
-      limits:                               # (Optional)
-        memory:
-        cpu:
-      requests:                             # (Optional)
-        memory:
-        cpu:
-
-    livenessProbe:                          # (Optional)
-      httpGet:
-        path:
-        port:
-    readinessProbe:                         # (Optional)
-      httpGet:
-        path:
-        port:
-        httpHeaders:                        # (Optional
-        - name:
-          value:
+image: string
+command: []string
+args: []string
+variables: map[string]string
+files:
+  target: string
+  mode: string
+  content: []string
+volumes:
+  source: string
+  path: string
+  target: string
+read_only: [true | false]
+resources:
+  limits: map[string]interface{}
+  requests: map[string]interface{}
+livenessProbe: ContainerProbeSpec
+  scheme: string
+  host: string
+  port: int
+  path: string
+  httpHeaders:
+      name: string
+      value: string
+readinessProbe: ContainerProbeSpec
+  scheme: string
+  host: string
+  port: int
+  path: string
+  httpHeaders:
+      name: string
+      value: string
 ```
 
 `container-id`: container’s specification describes how the Workload's tasks are executed.
 
-`image`: Docker image name and tag
+`image`: image name or tag.
 
 `command`: overrides image entry point.
 
@@ -223,7 +252,7 @@ containers:
 
 `files`: specifies extra files to mount.
 
-- `target`: specifies file path and name.
+- `target`: specifies a path and name.
 - `mode`: specifies access mode.
 - `content`: specifies inline content and supports templates.
 
@@ -239,12 +268,12 @@ containers:
 `limits`: maximum allowed memory.
 
 - `memory`: a string value representing the maximum allowed memory.
-- `cpu`: a string value representing the maximum allowed CPUs.
+- `cpu`: a string value representing the maximum allowed CPU.
 
 `requests`: minimum required memory.
 
 - `memory`: a string value representing the minimum required memory.
-- `cpu`: a string value representing the minimum required CPUs.
+- `cpu`: a string value representing the minimum required CPU.
 
 `livenessProbe`: indicates if the container is running.
 
@@ -264,6 +293,8 @@ containers:
 
 ### Container example
 
+The following example creates a container with the `busybox` image.
+
 ```yml
 containers:
   container-id:
@@ -271,10 +302,10 @@ containers:
 
     command:                                  # (Optional) Overrides image entry point
     - "/bin/echo"
-    args:                                     # (Optional) Overrides entry point arguments
+    args:                                     # (Optional) Overrides entry point point
     - "Hello $(FRIEND)"
 
-    variables:                                # (Optional) Specifies environment variables
+    variables:                                # (Optional) Specifies environment variable
       FRIEND: World!
 
     files:                                  # (Optional) Specifies extra files to mount
@@ -286,12 +317,12 @@ containers:
 
     volumes:                                # (Optional) Specifies volumes to mount
     - source: ${resources.data}             #    - External volume reference
-      path: sub/path                        #    - (Optionla) Sub path in the volume
+      path: sub/path                        #    - (Optional) Sub path in the volume
       target: /mnt/data                     #    - Target mount path on the container
       read_only: true                       #    - (Optional) Mount as read-only
 
-    resources:                              # (Optional) CPU and mempry resources needed
-      limits:                               #    - (Optional) Maximum alowed
+    resources:                              # (Optional) CPU and memory resources needed
+      limits:                               #    - (Optional) Maximum allowed
         memory: "128Mi"
         cpu: "500m"
       requests:                             #    - (Optional) Minimal required

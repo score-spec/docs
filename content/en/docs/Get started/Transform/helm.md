@@ -6,6 +6,10 @@ description: >
   Learn to translate a Score Specification file into a Helm configuration with the target Platform CLI tool.
 ---
 
+{{% alert %}}
+If at any point you need help, `score-helm --help` from your terminal window.
+{{% /alert %}}
+
 The Score Specification file configures into Helm values, including containers, dependencies, and other Helm specific values.
 
 These values are combined with a pre-built Helm chart template that are shipped with the application by default.

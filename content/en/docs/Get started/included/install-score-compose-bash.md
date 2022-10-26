@@ -2,6 +2,7 @@
 title: "score-compose install on macOS"
 description: "Installation for score-compose on macOS."
 headless: true
+toc_hide: true
 ---
 
 ### Step 1. Download
@@ -61,4 +62,4 @@ The command returns the following output.
 score-compose x.y.z
 ```
 
-**Results** You've successfully installed a Platform CLI.
+**Results** You've successfully installed the Platform CLI.

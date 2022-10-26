@@ -3,6 +3,7 @@ title: "Quick Start: Resources with score-humanitec"
 subtitle: "score-humanitec"
 date: 2017-01-05
 weight: 5
+draft: true
 description: >
   A quick start for score-humanitec.
 ---
@@ -12,16 +13,16 @@ A minimumn configuration for a Score Specification that will run on Humanitec is
 ```yaml
 name: app-workload
 
-container:
+containers:
  image: registry.humanitec.io/public/sample-service
 ```
 
-# Environment Setup with Humanitec
+# Environment setup with Humanitec
 
 Resources referenced in `Score.yaml` should be pre-configured in Humanitec by DevOps (for each resource type). They are picked by the system at a deployment time in accordance with the Matching Criteria (also configured by DevOps).
 
 <aside>
-🚧 **TBD:** When creating a new workload deployment draft `score-humanitec` doesn't add the external (shared) resource to the workload automatically. Thus a manual intervention is needed to complete the deployment draft for brand-new workloads.
+🚧 **TBD:** When creating a new Workload deployment draft `score-humanitec` doesn't add the external (shared) resource to the Workload automatically. Thus a manual intervention is needed to complete the deployment draft for brand-new workloads.
 
 </aside>
 
@@ -30,7 +31,7 @@ Resources referenced in `Score.yaml` should be pre-configured in Humanitec by De
 The following `Score.yaml` configuration can be used to define the service and its dependencies:
 
 <aside>
-🚧 **TBD:** Humanitec enforces some limitations on the resource IDs. Specifically it should be at least 3 characters long. Thus the resource ID used in the example bellow (for example `db`) is not a valid resource ID. However, Humanitec API gladly accepts it and creates a new draft successfully.
+🚧 **TBD:** Humanitec enforces some limitations on the resource IDs. Specifically it should be at least 3 characters long. Thus the resource ID used in the example bellow (for example `db`) isn't a valid resource ID. However, Humanitec API gladly accepts it and creates a new draft successfully.
 
 </aside>
 
@@ -134,4 +135,4 @@ curl -v -X POST -H 'Authorization: Bearer qwe...rty' \
 
 ## Working with multiple environments
 
-With Humanitec and Score it is very simple to deploy the same workload into multiple environments. `score-humanitec` CLI tool can create deployments for each target environment, while the rest of the configuration could be set-up once by DevOps.
+With Humanitec and Score it is very simple to deploy the same Workload into multiple environments. `score-humanitec` CLI tool can create deployments for each target environment, while the rest of the configuration could be set-up once by DevOps.

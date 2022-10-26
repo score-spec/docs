@@ -2,11 +2,14 @@
 title: "Run your first transform"
 linkTitle: "Run your first transform"
 weight: 4
+draft: true
 description: >
   This section contains pages that show how to apply a transformation on your Score Specification file.
 ---
 
-The walkthroughs in the following sections use the `score.yaml` file defined in `./backend/score.yaml`.
+Throughout the following sections. You will learn how to run a transform in the following formats:
+
+<!--
 
 ```yml
 name: backend
@@ -38,4 +41,4 @@ resources:
         required: false
 ```
 
-Throughout the following sections. You will learn how to run a transform in the following formats:
+-->
