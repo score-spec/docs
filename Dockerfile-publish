@@ -7,4 +7,4 @@ WORKDIR /app/
 RUN npm install --production=false
 RUN git config --global --add safe.directory /app/
 
-CMD ["serve", "--cleanDestinationDir", "--themesDir", "../..", "--baseURL",  "http://localhost:1313/", "--buildDrafts", "--buildFuture", "--disableFastRender", "--ignoreCache", "--watch"]
+CMD ["serve", "--cleanDestinationDir", "--themesDir", "../..", "--disableFastRender", "--ignoreCache", "--watch"]
