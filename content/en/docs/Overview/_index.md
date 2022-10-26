@@ -3,38 +3,55 @@ title: "Overview"
 linkTitle: "Overview"
 weight: 1
 description: >
-  Learn about Score, the Platform CLI tool, and how to eliminate configuration mismanagement.
+  Learn about Score, the Platform CLI, and how to eliminate configuration mismanagement.
 ---
 
 ## What is Score?
 
 _Score_ provides a developer-centric and platform-agnostic Workload specification to improve developer productivity and experience. Score eliminates Configuration mismanagement between local and remote environments.
 
-The _Platform CLI tool_ is a conversion tool for developers and teams to generate an environment specific configurations. Use the Platform CLI tool to generate your target platform from the Score Specification, which can then be combined with environment specific parameters to run the Workload in the target environment.
+The _Platform CLI_ is a conversion tool for developers and teams used to generate an environment specific configurations. Use the Platform CLI tool to generate your target platform from the Score Specification, which can then be combined with environment specific parameters to run the Workload in the target environment.
 
 ### Workload specification
 
-The Score Specification file resolves configuration mismanagement between environments. Compose a `score.yaml` file that describes how to run your workload. As a platform-agnostic declaration file, `score.yaml` creates a single source of truth on Workload profiles of requirements and works to integrate with any platform or tooling.
-
-<!-- Configuration mismanagement -->
-
-### Eliminates configuration mismanagement
-
-_Configuration mismanagement_ is the difference between how your local environment and remote environments are defined. For example, if you're running a testing in environment with Docker Compose and a production environment Kubernetes Cluster, keeping both environments in sync isn't clearly defined. With the Score Specification, you define your environment once, and the target _Platform CLI tool_ will manage the configuration mismanagement.
+The Score Specification resolves configuration mismanagement between environments. Compose a `score.yaml` file that describes how to run your workload. As a platform-agnostic declaration file, `score.yaml` creates a single source of truth on Workload profiles of requirements and works to integrate with any platform or tooling.
 
 ## Who uses Score?
 
-Developers use Score to describe their resources and environment's consistently.
+Developers use Score to describe their resources and environments consistently.
 
-Then they use the {{< glossary_tooltip text="Platform CLI" term_id="platform-cli" >}} to generate their resources in an environment of choice. For example, you might use a PostGres database in a local, development, staging, and production stage. Each stage of the deployment process connects to a different PostGres database. When you compose your Score, you'll describe that resource once, then each environment will connect your PostGres database dynamically.
+Then they use the {{< glossary_tooltip text="Platform CLI" term_id="platform-cli" >}} to generate their resources in an environment of choice.
+
+For example, you might use a PostGres database in a local, development, staging, and production stage. Each stage of the deployment process connects to a different PostGres database. When composing your Score file, describe the PostGres database once and each environment will connect your PostGres database dynamically.
+
+<!-- Configuration mismanagement -->
 
 ## Benefits
 
-Because Score is developer-centric and platform-agnostic way to describe a Workload, the `score.yaml` file is the single source of truth for Workloads profile of requirements and works to utilize any platform or tooling. Because of this, you eliminate configuration mismanagement between environments which reduces:
+Score can be used with any platform or tool that runs containerized Workloads.
+Because of this, Score offers many benefits, including:
 
-- reduces time spent on debugging.
-- reduces time spent on repetitive tasks.
-- reduces cognitive load.
+- [Reduces time spent debugging](#reduces-time-spent-debugging)
+- [Eliminates configuration mismanagement](#eliminates-configuration-mismanagement)
+- [Reduces cognitive load](#reduces-cognitive-load)
+
+### Reduces time spent debugging
+
+The Score Specification file provides a single source of truth on a Workload's profile of requirements. Meaning that there is a clear separation of concerns between developers and their applications, operations and their platform of responsibilities.
+
+Score serves as the main point of reference when wanting to understand what an application requires to run in any environment.
+
+With Score, the specification ensures standardization across all environments.
+
+### Eliminates configuration mismanagement
+
+_Configuration mismanagement_ is the difference between how your local environment and remote environments are defined. For example, if you're running a testing in environment with Docker Compose and a production environment Kubernetes Cluster, keeping both environments in sync isn't clearly defined.
+
+With the Score, define your environment once, and the target _Platform CLI tool_ manages the configuration.
+
+### Reduces cognitive load
+
+The Score Schema provides sensible configuration that cover most common use cases. Because of this, developers can keep their focus when it comes to specifying their application configuration. If needed, these defaults can be overridden.
 
 ## How is Score different from other specs?
 
@@ -59,7 +76,7 @@ If you are a first-time user of Score, we recommended that you begin by reading 
 Beyond the Getting started section, you can learn more about Score and it's concepts in the following sections:
 
 - [Concepts](/docs/concepts): Recommended reading for anyone consuming or operating Score.
-- [Tasks](/docs/tasks/): Recommended reading for common tasks associated with the Score tooling.
+- [Tasks](/docs/extensions): Learn about extension mechanisms.
 
 <!--
 

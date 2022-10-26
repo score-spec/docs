@@ -1,4 +1,0 @@
-name: hello-world
-containers:
-  hello:
-    image: busybox
