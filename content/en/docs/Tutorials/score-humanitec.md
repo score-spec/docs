@@ -3,6 +3,7 @@ title: "Quick Start: Resources with score-humanitec"
 subtitle: "score-humanitec"
 date: 2017-01-05
 weight: 5
+draft: true
 description: >
   A quick start for score-humanitec.
 ---
