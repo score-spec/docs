@@ -22,7 +22,7 @@ score-humanitec completion powershell | Out-String | Invoke-Expression
 
 This command will regenerate the auto-completion script on every PowerShell start up. You can also add the generated script directly to your `$PROFILE` file.
 
-1. To add the generated script to your `$PROFILE` file, run the following line in your Powershell prompt.
+1. To add the generated script to your `$PROFILE` file, run the following line in your PowerShell prompt.
 
 ```powershell
 score-<platform> completion powershell >> $PROFILE

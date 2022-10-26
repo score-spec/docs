@@ -21,7 +21,7 @@ Specifies an Environment ID.
 ### `--file`
 
 The location of the Score file.
-Uses the default value if the flag is not specified.
+Uses the default value if the flag isn't specified.
 
 Default: `./score.yaml`
 

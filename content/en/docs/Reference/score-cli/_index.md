@@ -29,7 +29,7 @@ Currently, supported platforms includes:
 
 The Platform CLI has two distinct parts.
 
-- **Comands**: The commands are tasks you want Score to do. Supply Score with commands and subcommands to execute specific tasks.
+- **Commands**: The commands are tasks you want Score to do. Supply Score with commands and subcommands to execute specific tasks.
 - **Flags**: Flags, also called parameters, are options that modify the result of the _command_ by providing additional configurations. Flags are specific to the command, and each command can have independent flags.
 
 ## Score commands

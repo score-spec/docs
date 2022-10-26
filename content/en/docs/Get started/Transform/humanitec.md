@@ -61,7 +61,7 @@ The following is the output of the previous command.
 }
 ```
 
-**Results**: You can now view and deploy this preview with the Humantiec Web UI or API.
+**Results**: you can now view and deploy this preview with the Humantiec Web UI or API.
 
 ## Deploy with Humanitec Web UI
 

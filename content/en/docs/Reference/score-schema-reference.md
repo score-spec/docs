@@ -252,7 +252,7 @@ readinessProbe: ContainerProbeSpec
 
 `files`: specifies extra files to mount.
 
-- `target`: specifies file path and name.
+- `target`: specifies a path and name.
 - `mode`: specifies access mode.
 - `content`: specifies inline content and supports templates.
 
@@ -268,12 +268,12 @@ readinessProbe: ContainerProbeSpec
 `limits`: maximum allowed memory.
 
 - `memory`: a string value representing the maximum allowed memory.
-- `cpu`: a string value representing the maximum allowed CPUs.
+- `cpu`: a string value representing the maximum allowed CPU.
 
 `requests`: minimum required memory.
 
 - `memory`: a string value representing the minimum required memory.
-- `cpu`: a string value representing the minimum required CPUs.
+- `cpu`: a string value representing the minimum required CPU.
 
 `livenessProbe`: indicates if the container is running.
 

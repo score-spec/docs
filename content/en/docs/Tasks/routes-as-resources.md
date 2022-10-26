@@ -43,7 +43,7 @@ The values of the attributes are available to the Workload at the time of deploy
 ## Routes example
 
 A microservice Workload needs to generate a self-reference in an e-mail that is automatically sends to a user.
-To build such reference, the service needs to know a full domain, subdomain name, and prefix. Then the service would append a dynamically-generated part of the URL that has a unique request IDs to identify the user.
+To build such reference, the service needs to know a full domain, subdomain name, and prefix. Then the service would append a dynamically generated part of the URL that has a unique request IDs to identify the user.
 
 Network configurations may differ depending on the environment setup.
 

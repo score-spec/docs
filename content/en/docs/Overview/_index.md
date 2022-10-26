@@ -30,7 +30,7 @@ Then they use the {{< glossary_tooltip text="Platform CLI" term_id="platform-cli
 
 ## Benefits
 
-Because Score is developer-centric and platform-agnostic way to describe a Workload, the `score.yaml` file is the single source of truth for Workloads profile of requirements and works to utilize any platform or tooling. Because of this, you eliminate specification misconfiguration between environments which reduces:
+Because Score is developer-centric and platform-agnostic way to describe a Workload, the `score.yaml` file is the single source of truth for Workloads profile of requirements and works to utilize any platform or tooling. Because of this, you eliminate configuration mismanagement between environments which reduces:
 
 - reduces time spent on debugging.
 - reduces time spent on repetitive tasks.
@@ -44,7 +44,7 @@ Docker-Compose and Helm Charts are great at running resources regardless of plat
 
 Score exclusively takes care of translating the Workload requirements specified in `score.yaml` into a platform-specific format (such as `docker-compose.yaml`). The platform consuming the generated file (such as Docker Compose) is responsible for processing and resolving each property. This means:
 
-- Score is **not a configuration management tool** for environments. It is not recommended to store configuration values or secrets in `score.yaml`. Instead, it is possible to declare items such as configuration maps or secrets and vaults as a Workload dependency in your Score Specification.
+- Score is **not a configuration management tool** for environments. It isn't recommended to store configuration values or secrets in `score.yaml`. Instead, it is possible to declare items such as configuration maps or secrets and vaults as a Workload dependency in your Score Specification.
 - Score is **not a resource and environment management system**, such as Terraform or an Internal Developer Platform like Humanitec. It won’t spin up or purge physical resources or services defined in `score.yaml`.
 - Score is **not a deployment tool**. It doesn't support you with deploying or promoting Workloads across environments.
 

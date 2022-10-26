@@ -110,7 +110,7 @@ resources:
         required: false
 ```
 
-## Local Environment Setup with Docker-Compose
+## Local environment setup with Docker-Compose
 
 To develop and test the service locally, `./compose.yaml` configuration file is included with the source code:
 
@@ -316,7 +316,7 @@ Once deployed, updated application should report its current configuration prope
 
 </aside>
 
-The idea is to provide an open-source GitHub action (for example, `Score -setup`) that would add `score-humanitec` to the CI toolset and would allow users to create Humanitec deployment drafts and, possibly, trigger deployments from their CI pipelines directly.
+The idea is to provide an open source GitHub action (for example, `Score -setup`) that would add `score-humanitec` to the CI toolset and would allow users to create Humanitec deployment drafts and, possibly, trigger deployments from their CI pipelines directly.
 
 ## Deploying Score -enabled services with Humanitec events
 

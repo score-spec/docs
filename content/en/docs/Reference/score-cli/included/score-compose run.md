@@ -17,7 +17,7 @@ Location to store sample `.env` file.
 ### `--file`
 
 The location of the Score file.
-Uses the default value if the flag is not specified.
+Uses the default value if the flag isn't specified.
 
 Default: `./score.yaml`
 
@@ -32,7 +32,7 @@ Alias: `-h`
 ### `--output`
 
 The output location of the Compose file.
-Uses the default value if the flag is not specified.
+Uses the default value if the flag isn't specified.
 
 Default: `./compose.yaml`
 
