@@ -33,7 +33,7 @@ After reloading your shell, Score autocompletion should be working.
 
 {{% alert %}}
 
-If you get an error like `2: command not found: compdef`, then add the following to the beginning of your `~/.zshrc` file to initialize the completion for the current session.
+> If you get an error like `2: command not found: compdef`, then add the following to the beginning of your `~/.zshrc` file to initialize the completion for the current session.
 
 ```zsh
 autoload -Uz compinit

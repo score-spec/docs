@@ -7,7 +7,9 @@ description: >
 ---
 
 {{% alert %}}
-If at any point you need help, `score-humanitec --help` from your terminal window.
+
+> If at any point you need help, `score-humanitec --help` from your terminal window.
+
 {{% /alert %}}
 
 Use `score-humanitec` to run the target Platform CLI tool and output the deployment delta details.

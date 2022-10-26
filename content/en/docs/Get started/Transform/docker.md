@@ -7,8 +7,9 @@ description: >
 ---
 
 {{% alert %}}
-If at any point you need help, `score-compose --help` from your terminal window.
-{{% /alert %}}
+
+> If at any point you need help, `score-compose --help` from your terminal window.
+> {{% /alert %}}
 
 In this walkthrough you will:
 

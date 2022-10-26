@@ -114,7 +114,7 @@ ${resource.[resource-name].[property-name]}
 
 {{% alert %}}
 
-If the referenced resource or its property has not been defined, the {{< glossary_tooltip text="Platform CLI" term_id="platform-cli" >}} should report a syntax error.
+> If the referenced resource or its property has not been defined, the {{< glossary_tooltip text="Platform CLI" term_id="platform-cli" >}} should report a syntax error.
 
 {{% /alert %}}
 
