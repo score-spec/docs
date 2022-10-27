@@ -36,9 +36,12 @@ containers:
       CONNECTION_STRING: postgresql://${resources.database.username}:${resources.database.password}@${resources.database.host}:${resources.database.port}/${resources.database.name}
 ```
 
-Choose from one of the following options.
+Choose from one of the following options to substitute environment variables.
 
-## Environment variables in file
+- [Environment variables in a .env file](#environment-variables-a-env-file)
+- [Environment variables in your shell](#environment-variables-in-your-shell)
+
+## Environment variables a .env file
 
 Declare default environment variables in file.
 

@@ -8,7 +8,7 @@ Score supports for file overrides as a method of sharing common configurations.
 
 Score looks for the default `score.yaml` file and overrides declared defaults with the `overrides.score.yaml` file.
 
-## Method
+## Overview
 
 If an `overrides.score.yaml` file is found, the {{< glossary_tooltip text="Platform CLI" term_id="platform-cli" >}} checks the default file automatically and applies overrides on the output.
 
@@ -18,7 +18,7 @@ For example, the `score.yaml` file contains a configuration, however, the `overr
 
 If a configuration option is defined in both the default `score.yaml` file and the `overrides.score.yaml` file, the default values are replaced with the overrides.
 
-## Example
+## Overrides example
 
 To override the defaults declared in your `score.yaml` file create a `overrides.score.yaml` file and declare your overrides.
 
