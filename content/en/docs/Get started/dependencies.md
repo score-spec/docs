@@ -6,11 +6,11 @@ description: >
   A Hello World application for Score explaining dependencies.
 ---
 
-Score uses `resources` section to describe workload's dependencies. This mechanism can be used to spin-up multi-service setups with `docker-compose`.
+Score uses `resources` section to describe workload's dependencies. This mechanism can be used to spin-up multiservice setups with `docker-compose`.
 
 For example, `service-a.yaml` score file describes a service that has two dependencies: `service-b` (another workload) and a PostgreSQL database instance:
 
-```yaml
+```yaml {linenos=false,hl_lines=["35-36"]}
 apiVersion: score.sh/v1b1
 
 metadata:
@@ -49,7 +49,7 @@ resources:
     type: workload
 ```
 
-The second workload is described in `service-b.yaml` file and has no any additional dependencies:
+The second workload is described in `service-b.yaml` file and doesn't have additional dependencies.
 
 ```yaml
 apiVersion: score.sh/v1b1
@@ -74,15 +74,15 @@ resources:
         default: World
 ```
 
-To prepare executable `docker-compose` configuration files, convert both score files with `score-compose` CLI tool:
+To prepare the Docker-Compose configuration files, convert both Score files with `score-compose`.
 
-```console
-$ score-compose run -f ./service-b.yaml -o ./service-b.compose.yaml
-$ score-compose run -f ./service-a.yaml -o ./service-a.compose.yaml --env-file ./.env
+```bash
+score-compose run -f ./service-b.yaml -o ./service-b.compose.yaml
+score-compose run -f ./service-a.yaml -o ./service-a.compose.yaml --env-file ./.env
 ```
 
 Resulting output file `service-a.compose.yaml` would include two dependencies on compose services `db` and `service-b`.
-Both should be up and running before `service-a` could start:
+Both should be up and running before `service-a` could start.
 
 ```yaml
 services:
@@ -103,8 +103,8 @@ services:
     image: busybox
 ```
 
-One last step is to ensure there is a compose `db` service definition.
-Common place to store non-score defined configuration and resources is a root `compose.yaml` file:
+Ensure there is a Docker-Compose database service definition.
+A common place to store non-Score defined configuration and resources is a root `compose.yaml` file.
 
 ```yaml
 services:
@@ -116,7 +116,7 @@ services:
       - POSTGRES_PASSWORD=${DB_PASSWORD}
     ports:
       - '5432:5432'
-    volumes: 
+    volumes:
       - db:/var/lib/postgresql/data
 
 volumes:
@@ -124,7 +124,7 @@ volumes:
     driver: local
 ```
 
-Ensure the `.env` file has all the proper configuration values in palace:
+Ensure the `.env` file has all the proper environment variables set.
 
 ```console
 NAME=World
@@ -135,11 +135,15 @@ DB_USER=postgres
 DB_PASSWORD=postgres
 ```
 
-Now all files can be combined together to spin-up the whole application with `docker-compose`:
+Now the files can be combined to build the application with `docker-compose`.
 
-```console
-$ docker-compose -f ./compose.yaml -f ./service-a.yaml -f ./service-b.yaml --env-file ./.env up
+```bash
+docker-compose -f ./compose.yaml -f ./service-a.yaml -f ./service-b.yaml --env-file ./.env up
+```
 
+The following is the output of the previous command.
+
+```bash
 [+] Running 4/4
  ⠿ Network compose_default        Created                                                                                                                          0.0s
  ⠿ Container compose-db-1         Created                                                                                                                          0.1s
@@ -163,7 +167,7 @@ compose-service-a-1  | service-a: Hello World! Connecting to postgresql://postgr
 compose-service-b-1  | service-b: Hello World!
 ```
 
-## More information
+## Learn more
 
 For more information, see the following links.
 

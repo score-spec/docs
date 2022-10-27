@@ -8,7 +8,7 @@ A _container_ is a ready-to-run software package that bundles up an applicationâ
 
 Containers are created from a read-only template thatâ€™s called an _image_ and are immutable by design. If the application code or default configuration changes, a new container image is needed to build.
 
-## More information
+## Learn more
 
 For more information, see the following links.
 
