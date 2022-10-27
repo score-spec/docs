@@ -7,7 +7,7 @@ description:
 
 Environment specific configuration allows the Score Specification file to be combined with environment specific variables. Use environment specific variables to run Workloads in the target environment.
 
-## Key use
+### Key use
 
 Score uses environment specific configurations to support a wide range of use cases, including the following:
 

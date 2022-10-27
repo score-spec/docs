@@ -8,9 +8,9 @@ description: >
 
 ## Manual method
 
-Download the Platform CLI tool from the project's GitHub page.
+The following methods download the Platform CLI tool from the project's GitHub release page.
 
-### macOS
+## macOS
 
 Choose Platform CLI tool you want to install.
 
@@ -20,7 +20,15 @@ Choose Platform CLI tool you want to install.
 {{< tab name="score-humanitec" include="included/install-score-humanitec-bash.md" />}}
 {{< /tabs >}}
 
-### Windows
+## wget (macOS and Linux)
+
+{{< tabs name="score_installation_wget" >}}
+{{< tab name="score-compose" include="included/install-wget-compose.md" />}}
+{{< tab name="score-helm" include="included/install-wget-helm.md" />}}
+{{< tab name="score-humanitec" include="included/install-wget-humanitec.md" />}}
+{{< /tabs >}}
+
+## Windows
 
 Select a Platform CLI, uncompress the `zip` file, and move the binary to your `PATH`.
 
