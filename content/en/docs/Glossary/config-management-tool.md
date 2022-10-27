@@ -5,9 +5,14 @@ full_link: /docs/concepts/score/
 short_description: >
     Score isn't a configuration management tool.
 tags:
-- name
 - fundamental
 - testing
 ---
 
-Score doesn't specify any `dns` or `route` attribute values in the specification file. Those values may change based on the target environment, like `testing`, `integration`, or `production`. For example, route table management is a configuration management task and Score isn't a configuration management tool.
+Score doesn't specify any `dns` or `route` attribute values in the specification file.
+
+<!-- more -->
+
+Those values may change based on the target environment, like `testing`, `integration`, or `production`
+
+For example, route table management is a configuration management task and Score isn't a configuration management tool.

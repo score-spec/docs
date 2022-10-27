@@ -6,7 +6,7 @@ short_description: >
     Configuration mismanagement is the difference between how your local environment and remote environments are defined.
 tags:
 - core
-- fundamental
+- score
 ---
 
 Configuration mismanagement is the difference between how your local environment and remote environments are defined.

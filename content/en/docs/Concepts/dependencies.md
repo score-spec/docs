@@ -4,7 +4,7 @@ linkTitle: "Dependencies"
 weight: 4
 ---
 
-The Score Specification may define one or more dependencies required by the Workload to run. This could include other Workloads, third party services, configuration sets, or external resources such as databases and volumes.
+The Score Specification can define one or more dependencies required by the Workload to run. This could include other Workloads, third party services, configuration sets, or external resources such as databases and volumes.
 
 Workload dependencies are described in a declarative way.
 
