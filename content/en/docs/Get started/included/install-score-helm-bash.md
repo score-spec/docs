@@ -31,13 +31,13 @@ In your terminal, enter the following to create the `score-spec` directory.
 ```bash
 cd /usr/local/
 # create the directory if needed
-sudo mkdir -pv score-spec
+mkdir -pv score-spec
 ```
 
 Extract the compressed Tar file.
 
 ```bash
-sudo tar -xvzf ~/Downloads/score-helm_0.1.0_darwin_arm64.tar.gz
+tar -xvzf ~/Downloads/score-helm_0.1.0_darwin_arm64.tar.gz
 ```
 
 **Results** You should see the following output.
