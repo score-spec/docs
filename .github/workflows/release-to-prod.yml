@@ -1,15 +1,12 @@
-name: Push to Humanitec
+name: Release to Production Environment
 
 on:
-  push:
-    branches: [ main ]
   release:
-    types: [push, released]
+    types: [released]
 
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Build and Push to Humanitec - Github Tag
@@ -19,9 +16,9 @@ jobs:
         organization: humanitec-labs
         file: Dockerfile-publish
         auto-tag: true
+
   docs-build-and-push:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Build and Push to Humanitec - Github Tag
