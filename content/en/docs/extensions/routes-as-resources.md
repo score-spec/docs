@@ -10,7 +10,7 @@ weight: 4
 
 {{% alert %}}
 
-> The `humanitec.score.yaml` extension is used by [`score-humantic` Platform CLI](https://github.com/score-spec/score-humanitec). This is an optional configuration specific for Humanitec's routes as a resource and services accounts.
+> The `humanitec.score.yaml` extension is used by [`score-humantic` Score implementation (CLI)](https://github.com/score-spec/score-humanitec). This is an optional configuration specific for Humanitec's routes as a resource and services accounts.
 
 {{% /alert %}}
 

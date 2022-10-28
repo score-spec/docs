@@ -70,4 +70,4 @@ The command returns the following output.
 score-helm x.y.z
 ```
 
-**Results** You've successfully installed the Platform CLI.
+**Results** You've successfully installed the Score implementation (CLI).

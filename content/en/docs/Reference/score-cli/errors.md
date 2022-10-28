@@ -4,7 +4,7 @@ linkTitle: "CLI errors"
 weight: 9
 draft: true
 description: >
-  Overview and description for common errors in the Platform CLI.
+  Overview and description for common errors in the Score implementation (CLI).
 ---
 
 ## Workload does not have any containers

@@ -3,7 +3,7 @@ title: "Compose"
 linkTitle: "Compose"
 weight: 4
 description: >
-  Learn to translate a Score Specification file into a Docker Compose configuration with the target Platform CLI tool.
+  Learn to translate a Score Specification file into a Docker Compose configuration with the target Score implementation tool.
 ---
 
 {{% alert %}}
@@ -23,7 +23,7 @@ End files
 
 ### Prerequisites: Set up
 
-1. Install the `score-compose` target Platform CLI tool.
+1. Install the `score-compose` target Score implementation tool.
 
 ## Step 1. Author your score file
 
@@ -52,9 +52,9 @@ properties:
 ```
 
 1. Declare your dependencies
-2. Add environmental variables.
+2. Add environment variables.
 
-## Step 2. Run the target Platform CLI
+## Step 2. Run the target Score implementation tool
 
 Choose from one of the following options:
 

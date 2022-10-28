@@ -3,7 +3,7 @@ title: "Helm"
 linkTitle: "Helm"
 weight: 4
 description: >
-  Learn to translate a Score Specification file into a Helm configuration with the target Platform CLI tool.
+  Learn to translate a Score Specification file into a Helm configuration with the target Score implementation tool.
 ---
 
 {{% alert %}}

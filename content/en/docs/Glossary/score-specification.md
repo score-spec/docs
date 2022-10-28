@@ -3,7 +3,7 @@ title: Score Specification
 id: score-spec
 full_link: /docs/concepts/score-spec/
 short_description: >
-    The _Target Platform CLI_, or Platform CLI, is the tooling used to convert the Score Specification into the target platform configuration file of your choice.
+    The Score implementation (CLI), is the tooling used to convert the Score Specification into the target platform configuration file of your choice.
 tags:
 - score
 - fundamental

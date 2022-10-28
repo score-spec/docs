@@ -1,6 +1,6 @@
 ---
-title: "Platform CLI"
-linkTitle: "Platform CLI"
+title: "Score implementation (CLI)"
+linkTitle: "Score implementation"
 weight: 4
 ---
 
@@ -12,9 +12,9 @@ For example, Kubernetes, which typically comes along with an ecosystem of techno
 
 <!-- more -->
 
-The _Target Platform CLI_, or Platform CLI, is the implementation to convert the Score Specification into the target platform configuration file of your choice.
+The Score implementation (CLI), is a tool to convert the Score Specification into the target platform configuration file of your choice.
 
-Following Unix philosophy, each Platform CLI has a distinct and focused purpose.
+Following Unix philosophy, each Score implementation (CLI) has a distinct and focused purpose.
 For example, each of the following tools are used to generate a corresponding configuration.
 
 - `score-compose`, is used to generate Docker Compose files.

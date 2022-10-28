@@ -8,7 +8,7 @@ The Score Specification can define one or more dependencies required by the Work
 
 Workload dependencies are described in a declarative way.
 
-The Score Specification doesn't define how to configure or provision any dependencies but may include additional metadata (name, type, or labels) that allows the Platform CLI to identify and link it to the platform that consumes the output file generated based on `score.yaml` to deploy the Workload at runtime.
+The Score Specification doesn't define how to configure or provision any dependencies but may include additional metadata (name, type, or labels) that allows the Score implementation (CLI) to identify and link it to the platform that consumes the output file generated based on `score.yaml` to deploy the Workload at runtime.
 
 For example, the Score Specification might declare a `postgres` database as a required dependency for the Workload.
 

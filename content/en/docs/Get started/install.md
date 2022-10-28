@@ -1,18 +1,18 @@
 ---
-title: "Install the Platform CLI"
+title: "Install the Score implementation (CLI)"
 linkTitle: "Install"
 weight: 3
 description: >
-  This section covers how to install the Platform CLI.
+  This section covers how to install the Score implementation (CLI).
 ---
 
 ## Manual method
 
-The following methods download the Platform CLI tool from the project's GitHub release page.
+The following methods download the Score implementation (CLI) tool from the project's GitHub release page.
 
 ## macOS
 
-Choose Platform CLI tool you want to install.
+Choose Score implementation tool you want to install.
 
 {{< tabs name="score_installation" >}}
 {{< tab name="score-compose" include="included/install-score-compose-bash.md" />}}
@@ -30,7 +30,7 @@ Choose Platform CLI tool you want to install.
 
 ## Windows
 
-Select a Platform CLI, uncompress the `zip` file, and move the binary to your `PATH`.
+Select a Score implementation (CLI), uncompress the `zip` file, and move the binary to your `PATH`.
 
 - [score-compose](https://github.com/score-spec/score-compose/releases)
 - [score-helm](https://github.com/score-spec/score-helm/releases)
@@ -38,11 +38,11 @@ Select a Platform CLI, uncompress the `zip` file, and move the binary to your `P
 
 ## Upgrade
 
-To upgrade the Platform CLI, download the latest binary version and follow the [installation instruction](#manual-method).
+To upgrade the Score implementation (CLI), download the latest binary version and follow the [installation instruction](#manual-method).
 
 <!-- ### macOS
 
-We recommend installing the {{< glossary_tooltip text="Platform CLI" term_id="platform-cli" >}} with [Homebrew](https://brew.sh/index.html).
+We recommend installing the {{< glossary_tooltip text="Score implementation (CLI)" term_id="platform-cli" >}} with [Homebrew](https://brew.sh/index.html).
 With Homebrew, you can access an extensive selection of libraries and applications, with their dependencies managed for you.
 
 ### Prerequisites
@@ -58,7 +58,7 @@ Install Homebrew according to the [official Homebrew installation instructions](
 
 On the Linux operating systems, use the built-in package manager to install Score:
 
-1. Open a terminal and run these commands to install the latest {{< glossary_tooltip text="Platform CLI" term_id="platform-cli" >}} from the officially maintained package archives:
+1. Open a terminal and run these commands to install the latest {{< glossary_tooltip text="Score implementation (CLI)" term_id="platform-cli" >}} from the officially maintained package archives:
 
    ```shell
    apt-add-repository ppa:score-compose

@@ -10,7 +10,7 @@ Score looks for the default `score.yaml` file and overrides declared defaults wi
 
 ## Overview
 
-If an `overrides.score.yaml` file is found, the {{< glossary_tooltip text="Platform CLI" term_id="platform-cli" >}} checks the default file automatically and applies overrides on the output.
+If an `overrides.score.yaml` file is found, the {{< glossary_tooltip text="Score implementation (CLI)" term_id="platform-cli" >}} checks the default file automatically and applies overrides on the output.
 
 Any property of Score segment can be overridden.
 

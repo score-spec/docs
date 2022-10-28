@@ -21,7 +21,7 @@ nano ~/.zshrc
 source <(score-<platform> completion zsh)
 ```
 
-Replace `score-<platform>` with the name of the Platform CLI you want to use, for example:
+Replace `score-<platform>` with the name of the Score implementation (CLI) you want to use, for example:
 
 ```bash
 source <(score-humanitec completion zsh)

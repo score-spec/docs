@@ -3,16 +3,16 @@ title: "Enable autocomplete for shell"
 linkTitle: "Enable autocomplete"
 weight: 4
 description: >
-  Enable autocomplete for the Platform CLI.
+  Enable autocomplete for the Score implementation (CLI).
 ---
 
 By default, Homebrew install the autocompletion script.
 
-If you installed the Platform CLI by downloading the single binary, continue reading.
+If you installed the Score implementation (CLI) by downloading the single binary, continue reading.
 
 ## Overview
 
-Score allows you to generate an autocompletion script for each Platform CLI tool for a specified shell.
+Score allows you to generate an autocompletion script for each Score implementation tool for a specified shell.
 
 Score supports autocompletion of commands in a few shells.
 

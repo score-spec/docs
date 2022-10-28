@@ -23,7 +23,7 @@ metadata:
   name: string
 ```
 
-`apiversion`: the declared Score Schema version.
+`apiversion`: the declared Score Specification version.
 
 - **Valid options**: `score.sh/v1b1`
 
@@ -54,7 +54,7 @@ The Resource section of the Score Specification allows users to describe the rel
 
 The resource could be anything. Score doesn't differentiate resources by types. The resource section can be used to provision multi-service setups with platforms like Docker Compose.
 
-It is up to {{< glossary_tooltip text="Platform CLI" term_id="platform-cli" >}} to resolve the resource by name, type, or any other meta information available.
+It is up to {{< glossary_tooltip text="Score implementation (CLI)" term_id="platform-cli" >}} to resolve the resource by name, type, or any other meta information available.
 
 ### Resource properties
 
@@ -96,7 +96,7 @@ resources:
 
 ### Reserved resource types
 
-In general, `resource-type` has no meaning for Score, but it can affect how the targeted Platform CLI tool resolves the resource. The following conventions are _reserved_ resource types.
+In general, `resource-type` has no meaning for Score, but it can affect how the targeted Score implementation tool resolves the resource. The following conventions are _reserved_ resource types.
 
 | Resource type | `score-compose`                                                                                                                 | `score-humanitec`                                                                                                               |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
@@ -114,13 +114,13 @@ ${resource.[resource-name].[property-name]}
 
 {{% alert %}}
 
-> If the referenced resource or its property has not been defined, the {{< glossary_tooltip text="Platform CLI" term_id="platform-cli" >}} should report a syntax error.
+> If the referenced resource or its property has not been defined, the {{< glossary_tooltip text="Score implementation (CLI)" term_id="platform-cli" >}} should report a syntax error.
 
 {{% /alert %}}
 
 ### Resource example
 
-It is up to the Platform CLI on how and when the resource reference is resolved, and when the referenced values' substitution occurs.
+It is up to the Score implementation (CLI) on how and when the resource reference is resolved, and when the referenced values' substitution occurs.
 
 For example, `score-compose` would convert resource properties into environment variables references in resulting `compose.yaml` configuration file, and produce a reference `.env` file that the user can then populate. For more information, see [the.env file](https://docs.docker.com/compose/environment-variables/#the-env-file).
 

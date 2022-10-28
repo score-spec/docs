@@ -3,17 +3,17 @@ title: "Target Platform command reference overview"
 linkTitle: "CLI reference"
 weight: 9
 description: >
-  Overview and description for the Platform CLI.
+  Overview and description for the Score implementation (CLI).
 ---
 
-The _Platform CLI_ is a command-line tool used to interact with a Score Specification. Use the Platform CLI to transform the platform-agnostic specification into multiple configuration files for the platform of your choice.
+The _Score implementation (CLI)_ is a command-line tool used to interact with a Score Specification. Use the Score implementation (CLI) to transform the platform-agnostic specification into multiple configuration files for the platform of your choice.
 
-- [How to install the Platform CLI]({{< ref "/content/en/docs/Get started/install.md" >}} "Install")
-- [Environment variables for Score Specification]({{< ref "/content/en/docs/Get started/environmental variables.md" >}} "Environment variables")
+- [How to install the Score implementation (CLI)]({{< ref "/content/en/docs/Get started/install.md" >}} "Install")
+- [Environment variables for Score Specification]({{< ref "/content/en/docs/Get started/environment variables.md" >}} "Environment variables")
 
-## The Platform CLI
+## The Score implementation (CLI)
 
-Construct your Platform CLI command such that the command options precede its path and arguments when provided.
+Construct your Score implementation (CLI) commands such that the command options precede its path and arguments when provided.
 
 ```bash
 score-[platform] [command] [flag]
@@ -27,7 +27,7 @@ Currently, supported platforms includes:
 
 ## Command reference
 
-The Platform CLI has two distinct parts.
+The Score implementation (CLI) has two distinct parts.
 
 - **Commands**: The commands are tasks you want Score to do. Supply Score with commands and subcommands to execute specific tasks.
 - **Flags**: Flags, also called parameters, are options that modify the result of the _command_ by providing additional configurations. Flags are specific to the command, and each command can have independent flags.
@@ -57,7 +57,7 @@ Provides version information for the CLI.
 
 Alias: `-v`
 
-## Platform CLI
+## Score implementation (CLI)
 
 {{< tabs name="score-platform" >}}
 {{< tab name="score-compose run" include="included/score-compose run.md" />}}
@@ -69,7 +69,7 @@ Alias: `-v`
 
 ## File defaults
 
-The following are defaults for the Platform CLI.
+The following are defaults for the Score implementation (CLI).
 
 ### `./score.yaml`
 

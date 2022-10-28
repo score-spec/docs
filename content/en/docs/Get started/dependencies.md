@@ -172,4 +172,4 @@ compose-service-b-1  | service-b: Hello World!
 For more information, see the following links.
 
 - Review the [Workload dependencies]({{< ref "../concepts/dependencies" >}} "Workload dependencies") page.
-- Review the [resource section]({{< ref "../reference/score-schema-reference.md#resources-definition" >}} "Resource definition") of the Score Schema reference.
+- Review the [resource section]({{< ref "../reference/score-schema-reference.md#resources-definition" >}} "Resource definition") of the Score Specification reference.

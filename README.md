@@ -2,11 +2,13 @@
 
 _Score_ is a platform-agnostic specification for defining environment configuration for cloud based workloads
 
-The _Platform CLI_ is a tool to synchronize your specification against your platform specific environment.
+<!-- Score implementation (CLI) -->
+
+The _Score implementation (CLI)_ is a tool to synchronize your specification against your platform specific environment.
 
 ## Installation
 
-Use the homebrew formula to install the _Platform CLI_.
+Use the homebrew formula to install the _Score implementation (CLI)_.
 
 **score-compose**
 

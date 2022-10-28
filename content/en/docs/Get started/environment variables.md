@@ -1,9 +1,9 @@
 ---
-title: "Set environmental variables"
-linkTitle: "Environmental variables"
+title: "Set environment variables"
+linkTitle: "Environment variables"
 weight: 5
 description: >
-    This section describes how to set environmental variables for Score.
+    This section describes how to set environment variables for Score.
 ---
 
 When `docker-compose` runs a service, it is possible to pass some information from the host to the container through environment variables.
@@ -126,4 +126,4 @@ For more information, see the following links.
 
 - The [score-compose environment README.md](https://github.com/score-spec/score-compose/edit/main/examples/02-environment/README.md) file.
 - The [`.env`](https://docs.docker.com/compose/environment-variables/#using-the---env-file--option) option in the Docker Compose documentation.
-- The [Score Specification reference]({{< ref "../reference/score-schema-reference" >}} "Score Schema")
+- The [Score Specification reference]({{< ref "../reference/score-schema-reference" >}} "Score Specification")

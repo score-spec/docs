@@ -1,14 +1,14 @@
 ---
-title: "Set environmental variables"
-linkTitle: "Environmental variables"
+title: "Set environment variables"
+linkTitle: "Environment variables"
 weight: 5
 description: >
-    This section describes how to set your environmental variables.
+    This section describes how to set your environment variables.
 ---
 
 ## Overview
 
-Environmental variables can only set within the [`container`]({{< ref "../reference/score-schema-reference.md" >}} "Container") section of your Score Specification file. These variables translate into environmental variables as if you're deploying a {{< glossary_tooltip text="Workload" term_id="workload" >}} with a platform like Docker.
+Environment variables can only set within the [`container`]({{< ref "../reference/score-schema-reference.md" >}} "Container") section of your Score Specification file. These variables translate into environment variables as if you're deploying a {{< glossary_tooltip text="Workload" term_id="workload" >}} with a platform like Docker.
 
 Values for those variables can be either hard coded (not recommended) or sourced from the resources properties through substitutions (recommended).
 

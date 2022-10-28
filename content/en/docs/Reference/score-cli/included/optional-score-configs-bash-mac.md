@@ -46,7 +46,7 @@ You now have to ensure that the Score completion script gets sourced in all your
   echo 'source <(score-<platform> completion bash)' >>~/.bash_profile
   ```
 
-  Replace `<platform>` with the name of the Platform CLI, for example:
+  Replace `<platform>` with the name of the Score implementation (CLI), for example:
 
   ```bash
   echo 'source <(score-humanitec completion bash)' >>~/.bash_profile
@@ -73,4 +73,4 @@ You now have to ensure that the Score completion script gets sourced in all your
   echo 'complete -o default -F __start_score-<platform> k' >>~/.bash_profile
   ```
 
-  Replace `score-<platform>` with the name of the Platform CLI you want to use.
+  Replace `score-<platform>` with the name of the Score implementation (CLI) you want to use.

@@ -21,8 +21,8 @@ This section of the Score documentation contains references.
 
 ## Score reference
 
-- [Score Schema reference]({{< ref "score-schema-reference" >}} "Score Schema reference")
-- [Platform CLI reference]({{< ref "score-cli" >}} "Platform CLI reference")
+- [Score Specification reference]({{< ref "score-schema-reference" >}} "Score Specification reference")
+- [Score implementation (CLI) reference]({{< ref "score-cli" >}} "Score implementation (CLI) reference")
 
 <!-- ## Glossary
 

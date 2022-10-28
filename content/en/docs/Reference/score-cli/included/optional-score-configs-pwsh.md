@@ -14,7 +14,7 @@ Sourcing the completion script in your shell enables Score autocompletion.
 score-<platform> completion powershell | Out-String | Invoke-Expression
 ```
 
-Replace `score-<platform>` with the name of the Platform CLI you want to use, for example:
+Replace `score-<platform>` with the name of the Score implementation (CLI) you want to use, for example:
 
 ```bash
 score-humanitec completion powershell | Out-String | Invoke-Expression

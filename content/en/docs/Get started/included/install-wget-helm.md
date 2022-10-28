@@ -13,7 +13,7 @@ Download with the CLI `wget` command.
 wget https://github.com/score-spec/<score-platform>/releases/download/<x.y.z>/<score-platform>_<x.y.z>_<os_system>.tar.gz
 ```
 
-- Replace `<score-platform>` with the Platform CLI tool.
+- Replace `<score-platform>` with the name of the Score implementation tool.
 - Replace `<x.y.z>` with the version number.
 - Replace `<os_system>` with your operating system.
 
@@ -69,4 +69,4 @@ The command returns the following output.
 score-helm 0.1.0
 ```
 
-**Results** You've successfully installed the Platform CLI.
+**Results** You've successfully installed the Score implementation tool.
