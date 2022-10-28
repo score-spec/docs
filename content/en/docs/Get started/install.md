@@ -61,9 +61,9 @@ On the Linux operating systems, use the built-in package manager to install Scor
 1. Open a terminal and run these commands to install the latest {{< glossary_tooltip text="Platform CLI" term_id="platform-cli" >}} from the officially maintained package archives:
 
    ```shell
-   sudo apt-add-repository ppa:score-compose
-   sudo apt-get update
-   sudo apt-get install score-compose
+   apt-add-repository ppa:score-compose
+   apt-get update
+   apt-get install score-compose
    ```
 
 1. To verify that Score works on your computer, run:

@@ -50,11 +50,19 @@ x score-compose
 
 ### Step 3: Export PATH
 
-To export `PATH`, run the following, `export PATH=$PATH:/usr/local/score-spec`.
+To export `PATH`, run the following command.
+
+```bash
+export PATH=$PATH:/usr/local/score-spec
+```
 
 ### Step 4: Verify installation
 
-To verify installation, run the following `score-compose --version`.
+To verify installation, run the following command.
+
+```bash
+score-compose --version
+```
 
 The command returns the following output.
 
