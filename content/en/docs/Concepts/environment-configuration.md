@@ -5,7 +5,7 @@ weight: 4
 description:
 ---
 
-Environment specific configuration allows the Score Specification file to be combined with environment specific variables. Use environment specific variables to run Workloads in the target environment.
+Environment specific configuration allows the Score Specification file to be combined with variables to run Workloads in the target environment.
 
 ### Key use
 
