@@ -13,6 +13,17 @@ The following section describes configuration details for the `score-humanitec d
 
 Translates the Score file into a deployment draft for Humanitec.
 
+### Example
+
+The following is an example that translates a Score file into a deployment draft for Humanitec.
+
+```bash
+score-humanitec draft --org organization_name \
+  --app application_name \
+  --env environment_type \
+  --token humanitec_api_token
+```
+
 ## Flags
 
 The following are configuration details for `score-humanitec draft`.
@@ -31,7 +42,7 @@ Required: true
 
 ### `--deploy`
 
-Trigger a new draft deployment at the end
+Trigger a new draft deployment at the end.
 
 ### `--env`
 
@@ -88,3 +99,5 @@ Required: true
 ### `--verbose`
 
 Enables a stream to which error messages are sent.
+
+Alias: `v`

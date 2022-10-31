@@ -53,6 +53,8 @@ containers:
     image: busybox
 ```
 
+`container-id` is an example name and can be updated with anything you want.
+
 ## Duplicated key
 
 If you receive an error similar to the following, you may have a duplicated key in your `score.yaml` file.

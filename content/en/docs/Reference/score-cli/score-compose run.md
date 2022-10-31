@@ -13,6 +13,16 @@ The following section describes configuration details for the `score-compose run
 
 Translates the Score file into a Docker Compose file.
 
+### Example
+
+The following is an example that translates a Score file into a Docker Compose file.
+
+```bash
+score-compose run --file ./score.yaml \
+  --output ./compose.yaml \
+  --env-file ./backend.env
+```
+
 ## Flags
 
 The following are configuration details for `score-compose run`.

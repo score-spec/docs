@@ -13,6 +13,15 @@ The following section describes configuration details for the `score-humanitec r
 
 Translates the Score file into a deployment delta for Humanitec.
 
+### Example
+
+The following is an example that translates a Score file into a deployment delta for Humanitec.
+
+```bash
+score-humanitec run --file ./score.yaml \
+  --env development
+```
+
 ## Flags
 
 The following are configuration details for `score-humanitec run`.

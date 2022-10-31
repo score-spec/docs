@@ -100,7 +100,7 @@ The following is the output of the previous command.
 
 ```bash
 [+] Running 1/0
- ⠿ Container score-compose-hello-world-1  Rec...                                         0.1s
+⠿ Container score-compose-hello-world-1  Rec...                                         0.1s
 Attaching to score-compose-hello-world-1
 score-compose-hello-world-1  | Hello World!
 ```
