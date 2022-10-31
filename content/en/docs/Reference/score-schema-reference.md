@@ -240,7 +240,7 @@ readinessProbe: ContainerProbeSpec
       value: string
 ```
 
-`container-id`: container’s specification describes how the Workload's tasks are executed.
+`container-id`: container’s specification describes how the Workload's tasks are executed. This value is
 
 `image`: image name or tag.
 

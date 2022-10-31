@@ -16,14 +16,6 @@ toc_hide: true
 
 4. By default, the tarball will be saved to your `~/Downloads` directory. If you choose to use a different location, you'll need to change that in the following steps.
 
-**Results** You should see something similar to the following output.
-
-```bash
-Saving to: `score-humanitec_x.y_osx-amd64.tar.gz`
-
-score-humanitec_x.y.0 100%[===================>]   2.85M  5.28MB/s    in 0.5s
-```
-
 #### Step 2: Install into your `local` directory
 
 In your terminal, enter the following to create the `score-spec` directory.

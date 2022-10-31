@@ -1,8 +1,19 @@
 ---
 title: "score-compose run"
-description: "Configuration details for score-compose run."
-headless: true
+linkTitle: "compose run"
+description: "Translates the Score file into a Docker Compose file."
+weight: 4
 ---
+
+## Commands
+
+The following section describes configuration details for the `score-compose run` command.
+
+### `run`
+
+Translates the Score file into a Docker Compose file.
+
+## Flags
 
 The following are configuration details for `score-compose run`.
 

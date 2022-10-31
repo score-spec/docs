@@ -83,8 +83,8 @@ style = "tango"
 section = ["HTML", "print", "RSS"]
 
 [params]
-copyright = "Score"
-privacy_policy = "https://policies.google.com/privacy"
+# copyright = "Score"
+# privacy_policy = "https://policies.google.com/privacy"
 
 # First one is picked as the Twitter card image if not set on page.
 # images = ["images/project-illustration.png"]
@@ -168,33 +168,33 @@ disableSearch = true
 # End user relevant links. These will show up on left side of footer and in the community page if you have one.
 [[params.links.user]]
 name = "User mailing list"
-url = "https://example.org/mail"
+url = "team@score.dev"
 icon = "fa fa-envelope"
 desc = "Discussion and help from your fellow users"
 [[params.links.user]]
 name = "Twitter"
-url = "https://example.org/twitter"
+url = "https://twitter.com/score_dev"
 icon = "fab fa-twitter"
 desc = "Follow us on Twitter to get the latest news!"
 [[params.links.user]]
-name = "Stack Overflow"
-url = "https://example.org/stack"
-icon = "fab fa-stack-overflow"
+# name = "Stack Overflow"
+# url = "https://example.org/stack"
+# icon = "fab fa-stack-overflow"
 desc = "Practical questions and curated answers"
 # Developer relevant links. These will show up on right side of footer and in the community page if you have one.
 [[params.links.developer]]
 name = "GitHub"
-url = "https://github.com/google/docsy"
+url = "https://github.com/score-spec"
 icon = "fab fa-github"
 desc = "Development takes place here!"
 [[params.links.developer]]
 name = "Slack"
-url = "https://example.org/slack"
+url = "https://join.slack.com/t/scorecommunity/shared_invite/zt-1i2glkqkl-EnjSWSCgYUyaEGwmDYBZZQ"
 icon = "fab fa-slack"
 desc = "Chat with other project developers"
 [[params.links.developer]]
 name = "Developer mailing list"
-url = "https://example.org/mail"
+url = "team@score.dev"
 icon = "fa fa-envelope"
 desc = "Discuss development issues around the project"
 

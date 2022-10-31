@@ -10,7 +10,7 @@ description: >
 
 ## Develop your Score spec
 
-To use compose a Score Specification file, you'll do the following:
+To compose a Score Specification file, you'll do the following:
 
 - Scope: identify containers, resources, and services needed for your infrastructure.
 - Compose: compose your resources into the Score Specification file.

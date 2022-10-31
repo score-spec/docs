@@ -1,10 +1,19 @@
 ---
 title: "score-humanitec draft"
-description: "Configuration details for score-humanitec draft."
-headless: true
+linkTitle: "humanitec draft"
+description: "Translates the Score file into a deployment draft for Humanitec."
+weight: 4
 ---
 
-The `draft` command creates a deployment draft for Humanitec from the Score file.
+## Commands
+
+The following section describes configuration details for the `score-humanitec draft` command.
+
+### `draft`
+
+Translates the Score file into a deployment draft for Humanitec.
+
+## Flags
 
 The following are configuration details for `score-humanitec draft`.
 

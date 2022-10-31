@@ -1,8 +1,19 @@
 ---
 title: "score-humanitec run"
-description: "Configuration details for score-humanitec run."
-headless: true
+linkTitle: "humanitec run"
+description: "Translates the Score file into a deployment delta for Humanitec."
+weight: 4
 ---
+
+## Commands
+
+The following section describes configuration details for the `score-humanitec run` command.
+
+### `run`
+
+Translates the Score file into a deployment delta for Humanitec.
+
+## Flags
 
 The following are configuration details for `score-humanitec run`.
 
