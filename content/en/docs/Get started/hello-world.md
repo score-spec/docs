@@ -30,7 +30,7 @@ The `score.yaml` file contains a Workload named `hello-world` and specifies a co
 The following is the minimum configuration needed to run a Workload.
 
 ```yml
-apiVersion: score.sh/v1b1
+apiVersion: score.dev/v1b1
 metadata:
   name: hello-world
 
@@ -63,7 +63,7 @@ In the following example, we'll create a simple service based on `busybox` using
 {{% tab name="Score" %}}
 
 ```yml
-apiVersion: score.sh/v1b1
+apiVersion: score.dev/v1b1
 
 metadata:
   name: hello-world
