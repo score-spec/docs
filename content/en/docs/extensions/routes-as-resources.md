@@ -31,7 +31,7 @@ Routes convert into resource definitions, so proper routes can be provisioned at
 
 > The Score Specification file has a concept of a {{< glossary_tooltip text="Workload specification" term_id="workload-spec" >}} that defines the requirements to run a Workload, but isn't used to manage Target Configuration or to provision any of the dependencies.
 
-For more information, see [Score Specification]({{< ref "../concepts/score-spec.md" >}} "Score Specification").
+For more information, see [Score Specification]({{< relref"../concepts/score-spec.md" >}} "Score Specification").
 
 {{% /alert %}}
 

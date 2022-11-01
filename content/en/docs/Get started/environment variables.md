@@ -126,4 +126,4 @@ For more information, see the following links.
 
 - The [score-compose environment README.md](https://github.com/score-spec/score-compose/edit/main/examples/02-environment/README.md) file.
 - The [`.env`](https://docs.docker.com/compose/environment-variables/#using-the---env-file--option) option in the Docker Compose documentation.
-- The [Score Specification reference]({{< ref "../reference/score-schema-reference" >}} "Score Specification")
+- The [Score Specification reference]({{< relref"../reference/score-schema-reference" >}} "Score Specification")
