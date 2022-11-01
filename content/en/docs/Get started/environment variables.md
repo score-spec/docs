@@ -2,6 +2,7 @@
 title: "Set environment variables"
 linkTitle: "Environment variables"
 weight: 5
+draft: true
 description: >
     This section describes how to set environment variables for Score.
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Set environment variables"
-linkTitle: "Environment variables"
+linkTitle: "Set environment variables"
 weight: 5
 description: >
     This section describes how to set your environment variables.
@@ -12,7 +12,7 @@ Environment variables can only set within the [`container`]({{< ref "../referenc
 
 Values for those variables can be either hard coded (not recommended) or sourced from the resources properties through substitutions (recommended).
 
-For example, `${resources.my-db.host}`. Score supports declaring environment variables in an [environment file](#environment-variables-in-file) or as a [shell value](#environment-variables-in-your-shell).
+For example, `${resources.my-db.host}`. Score supports declaring environment variables in an [environment file](#environment-variables-a-env-file) or as a [shell value](#environment-variables-in-your-shell).
 
 ## Substitute environment variables
 

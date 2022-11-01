@@ -14,7 +14,7 @@ enableRobotsTXT = true
 enableGitInfo = false
 
 # Comment out to enable taxonomies in Docsy
-disableKinds = ["taxonomy", "taxonomyTerm"]
+disableKinds = []
 
 # You can add your own taxonomies
 [taxonomies]

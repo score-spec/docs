@@ -146,7 +146,7 @@ error Command failed with exit code 255.
 info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
 ```
 
-To resolve this issue, delete the temporary Hugo cache directory. On most systems this found at `$TMPDIR/hugo_cache`.
+To resolve this issue, delete the temporary Hugo cache directory. By default, [`-cacheDir`](https://gohugo.io/commands/hugo_server/) is stored at `$TMPDIR/hugo_cache`.
 
 ```bash
 rm -rf $TMPDIR/hugo_cache

@@ -50,7 +50,7 @@ resources:
 
 ## Resources definition
 
-The Resource section of the Score Specification allows users to describe the relationship between Workloads and their dependent resources in an environment-agnostic way.
+The Resource section of the Score Specification allows users to describe the relationship between Workloads and their dependent resources in an environment-agnostic way. The purpose of the Resource section is to validate resource references in the same Score file.
 
 The resource could be anything. Score doesn't differentiate resources by types. The resource section can be used to provision multi-service setups with platforms like Docker Compose.
 
@@ -92,7 +92,7 @@ resources:
   - `default`: specifies a value that can be defined for the property.
   - `type`: specifies a property type.
   - `required`: specifies a property as required.
-  - `secret`: specifies a property value as a secret.
+  - `secret`: specifies a property value as a case-sensitive secret.
 
 ### Reserved resource types
 

@@ -1,6 +1,6 @@
 ---
-title: "Override extension"
-linkTitle: "Override extension"
+title: "Manage overrides"
+linkTitle: "Manage overrides"
 weight: 4
 ---
 

@@ -1,9 +1,9 @@
 ---
-title: "Hello world"
-linkTitle: "Hello world"
+title: "Run a Hello World program with score-compose"
+linkTitle: "score-compose"
 weight: 4
 description: >
-  A Hello World application for Score.
+  Run your first Score implementation with a  Hello World application for `score-compose`.
 ---
 
 ## Overview
@@ -91,6 +91,12 @@ services:
     image: busybox
 ```
 
+The following is a description of the previous command.
+
+- `run` tells the CLI to translate the Score file to a Docker Compose file.
+- `-f` is the path to the Score file.
+- `-o` specifies the path to the output file
+
 {{% /tab %}}
 {{< /tabs >}}
 
@@ -100,9 +106,9 @@ The following is the output of the previous command.
 
 ```bash
 [+] Running 1/0
-⠿ Container score-compose-hello-world-1  Rec...                                         0.1s
+⠿ Container score-compose-hello-world-1  Rec... 0.1s
 Attaching to score-compose-hello-world-1
 score-compose-hello-world-1  | Hello World!
 ```
 
-**Results** You've successfully created a hello world application in Score and provisioned it through Docker.
+**Results** You've successfully created your first Score implementation with a Hello World application and provisioned it through Docker.

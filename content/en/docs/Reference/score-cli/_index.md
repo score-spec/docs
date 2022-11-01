@@ -9,7 +9,7 @@ description: >
 The _Score implementation (CLI)_ is a command-line tool used to interact with a Score Specification. Use the Score implementation (CLI) to transform the platform-agnostic specification into multiple configuration files for the platform of your choice.
 
 - [How to install the Score implementation (CLI)]({{< ref "/content/en/docs/Get started/install.md" >}} "Install")
-- [Environment variables for Score Specification]({{< ref "/content/en/docs/Get started/environment variables.md" >}} "Environment variables")
+- [Environment variables for Score Specification]({{< ref "/content/en/docs/environment variables/_index.md" >}} "Environment variables")
 
 ## The Score implementation (CLI)
 

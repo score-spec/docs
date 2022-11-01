@@ -1,12 +1,15 @@
 ---
-title: "Dependencies"
-linkTitle: "Dependencies"
+title: "Set dependent Workloads"
+linkTitle: "Declare Dependencies"
 weight: 6
 description: >
-  A Hello World application for Score explaining dependencies.
+  Describes how to set dependent Workloads.
 ---
 
-Score uses `resources` section to describe workload's dependencies. This mechanism can be used to spin-up multiservice setups with `docker-compose`.
+Dependencies are user-defined resources that describe the relationship between Workloads.
+
+
+Score uses `resources` section to describe Workload's dependencies. This mechanism can be used to spin-up multiservice setups with `docker-compose`.
 
 For example, `service-a.yaml` score file describes a service that has two dependencies: `service-b` (another workload) and a PostgreSQL database instance:
 
@@ -74,7 +77,7 @@ resources:
         default: World
 ```
 
-To prepare the Docker-Compose configuration files, convert both Score files with `score-compose`.
+To prepare the Docker Compose configuration files, convert both Score files with `score-compose`.
 
 ```bash
 score-compose run -f ./service-b.yaml -o ./service-b.compose.yaml
@@ -103,7 +106,7 @@ services:
     image: busybox
 ```
 
-Ensure there is a Docker-Compose database service definition.
+Ensure there is a Docker Compose database service definition.
 A common place to store non-Score defined configuration and resources is a root `compose.yaml` file.
 
 ```yaml
