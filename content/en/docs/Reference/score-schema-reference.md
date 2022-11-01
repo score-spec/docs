@@ -25,7 +25,7 @@ metadata:
 
 `apiversion`: the declared Score Specification version.
 
-- **Valid options**: `score.sh/v1b1`
+- **Valid options**: `score.dev/v1b1`
 
 `metadata`: an optional metadata description of your Workload.
 
@@ -34,7 +34,7 @@ metadata:
 The following is a top level description for a Workload.
 
 ```yml
-apiVersion: score.sh/v1b1
+apiVersion: score.dev/v1b1
 metadata:
   name: hello-world
 service:
@@ -127,7 +127,7 @@ For example, `score-compose` would convert resource properties into environment 
 The following Score file contains a single resource.
 
 ```yaml
-apiVersion: score.sh/v1b1
+apiVersion: score.dev/v1b1
 
 metadata:
   name: backend

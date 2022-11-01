@@ -11,7 +11,7 @@ Score uses `resources` section to describe workload's dependencies. This mechani
 For example, `service-a.yaml` score file describes a service that has two dependencies: `service-b` (another workload) and a PostgreSQL database instance:
 
 ```yaml {linenos=false,hl_lines=["35-36"]}
-apiVersion: score.sh/v1b1
+apiVersion: score.dev/v1b1
 
 metadata:
   name: service-a
@@ -52,7 +52,7 @@ resources:
 The second workload is described in `service-b.yaml` file and doesn't have additional dependencies.
 
 ```yaml
-apiVersion: score.sh/v1b1
+apiVersion: score.dev/v1b1
 
 metadata:
   name: service-b

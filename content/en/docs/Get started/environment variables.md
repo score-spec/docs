@@ -18,7 +18,7 @@ This _hello world_ example provides and [Overview](#overview) section and two op
 The Score Specification uses a special `environment` property type that is specified in the `containers` section.
 
 ```yaml {linenos=false,hl_lines=["16"]}
-apiVersion: score.sh/v1b1
+apiVersion: score.dev/v1b1
 
 metadata:
   name: hello-world
