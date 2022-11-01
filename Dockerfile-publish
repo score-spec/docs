@@ -7,4 +7,4 @@ WORKDIR /app/
 RUN npm install --production=false
 RUN git config --global --add safe.directory /app/
 
-CMD ["serve", "--cleanDestinationDir", "--themesDir", "../..", "--baseURL",  "https://docs.score.dev/docs/", "--disableFastRender", "--appendPort", "false", "--ignoreCache", "--watch"]
+CMD ["serve", "--cleanDestinationDir", "--themesDir", "../..", "--baseURL",  "https://docs.score.dev/docs/", "--disableFastRender", "--ignoreCache", "--watch"]
