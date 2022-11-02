@@ -57,26 +57,15 @@ The Score Specification provides sensible configuration that cover most common u
 
 Docker-Compose and Helm Charts are great at running resources regardless of platform, but when you use Docker in testing and Helm in development, ensuring your code runs in both environment can cause friction. Score abstracts the complexity by providing a language agnostic layer that can describe your resources without the specifying the platform.
 
+<!--
 ## What Score isn't
 
-Score exclusively takes care of translating the Workload requirements specified in `score.yaml` into a platform-specific format (such as `docker-compose.yaml`). The platform consuming the generated file is responsible for processing and resolving each property. This means:
+Score exclusively takes care of translating the Workload requirements specified in `score.yaml` into a platform-specific format. The platform consuming the generated file is responsible for processing and resolving each property. This means:
 
 - Score is **not a configuration management tool** for environments. It isn't recommended to store configuration values or secrets in `score.yaml`. Instead, it is possible to declare items such as configuration maps, secrets, or vaults as a Workload dependency in your Score Specification.
 - Score is **not a resource and environment management system**, such as Terraform or an Internal Developer Platform like Humanitec. It won’t spin up or purge physical resources or services defined in `score.yaml`.
 - Score is **not a deployment tool**. It doesn't support you with deploying or promoting Workloads across environments.
-
-## Where should I go next?
-
-If you are a first-time user of Score, we recommended that you begin by reading the following sections:
-
-- [Getting Started](/docs/get-started/): Learn how to install and run your first transform.
-
-<!-- - [Examples](/docs/examples/): Check out some example code. -->
-
-Beyond the Getting started section, you can learn more about Score and it's concepts in the following sections:
-
-- [Concepts](/docs/concepts): Recommended reading for anyone consuming or operating Score.
-- [Tasks](/docs/extensions): Learn about extension mechanisms.
+-->
 
 <!--
 

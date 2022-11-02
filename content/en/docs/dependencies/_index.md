@@ -3,7 +3,7 @@ title: "Set dependent Workloads"
 linkTitle: "Declare dependencies"
 weight: 6
 description: >
-  Describes how to set dependent Workloads.
+  Describes how to set Workloads that are dependent on additional resources.
 ---
 
 Dependencies are user-defined resources that describe the relationship between Workloads.
@@ -140,7 +140,10 @@ DB_PASSWORD=postgres
 Now the files can be combined to build the application with `docker-compose`.
 
 ```bash
-docker-compose -f ./compose.yaml -f ./service-a.yaml -f ./service-b.yaml --env-file ./.env up
+docker-compose -f ./compose.yaml \
+  -f ./service-a.yaml \
+  -f ./service-b.yaml \
+  --env-file ./.env up
 ```
 
 The following is the output of the previous command.

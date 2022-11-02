@@ -2,6 +2,8 @@
 title: "Add an override configuration"
 linkTitle: "Add override configuration"
 weight: 5
+description: >
+  Use overrides as a method of sharing common configurations across environments.
 ---
 
 Some Score implementations support file overrides as a method of sharing common configurations.

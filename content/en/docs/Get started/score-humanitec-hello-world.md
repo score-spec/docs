@@ -120,5 +120,4 @@ The output of `score-humanitec run -f ./score.yaml --env test-env`.
 {{% /tab %}}
 {{< /tabs >}}
 
-
 **Results** You've successfully created a Hello World application in Score and created a Humanitec draft.

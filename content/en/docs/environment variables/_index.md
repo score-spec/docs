@@ -69,7 +69,6 @@ For more information, see the [Resource section]({{< relref "/content/en/docs/re
 
 {{% /alert %}}
 
-
 Choose from one of the following options to substitute environment variables.
 
 - [Environment variables in a .env file](#environment-variables-a-env-file)

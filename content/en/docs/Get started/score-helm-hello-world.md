@@ -46,14 +46,14 @@ containers:
 The output of `score-helm run -f ./score.yaml -o ./values.yaml`.
 
 ```yaml
-  hello:
-    args:
-      - -c
-      - while true; do echo Hello World!; sleep 5; done
-    command:
-      - /bin/sh
-    image:
-      name: busybox
+hello:
+  args:
+    - -c
+    - while true; do echo Hello World!; sleep 5; done
+  command:
+    - /bin/sh
+  image:
+    name: busybox
 ```
 
 The following is a description of the previous command.

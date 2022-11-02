@@ -3,7 +3,7 @@ title: "Run a Hello World program with score-compose"
 linkTitle: "score-compose"
 weight: 4
 description: >
-  Run your first Score implementation with a  Hello World application for `score-compose`.
+  Run your first Score implementation with a Hello World application for `score-compose`.
 ---
 
 ## Overview

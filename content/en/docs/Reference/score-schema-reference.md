@@ -172,11 +172,11 @@ The `port` specification can include `public port` and should include `container
 ```yaml
 service:
   ports:
-    port-name: string                  # (required)
-      port: integer                    # (required)
-      protocol: string                 # (optional)
-      hostIP: integer                  # (optional)
-      targetPort: integer              # (optional)
+    port-name: string        # (required)
+      port: integer          # (required)
+      protocol: string       # (optional)
+      hostIP: integer        # (optional)
+      targetPort: integer    # (optional)
 ```
 
 `port-name`: describes the name of the port.

@@ -3,7 +3,7 @@ title: "Reference"
 linkTitle: "Reference"
 weight: 9
 description: >
-  Low level reference docs for your project.
+  Reference docs for the Score implementation and Specification.
 ---
 
 <!-- overview -->
