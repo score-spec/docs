@@ -33,7 +33,7 @@ metadata:
 
 The following is a top level description for a Workload.
 
-```yml
+```yaml
 apiVersion: score.dev/v1b1
 
 metadata:
@@ -105,12 +105,20 @@ In general, `resource-type` has no meaning for Score, but it can affect how the 
 | `volume`      | Translates into a reference to the external volume. This reference is usually used in a container’s volume mount specification. | Translates into a reference to the external volume. This reference is usually used in a container’s volume mount specification. |
 | `workload`    | N/A                                                                                                                             | Translates to the module properties references. For example: `${modules.workload-name.property-name}`.                          |
 
-### Referencing Resources
+### Referencing resources
 
-Declared resources and their properties can be referenced in other places in Score file with the following template.
+Resources are declared in the `containers` section of the Score file and must map to the YAML structure defined in the `resources` section to properly resolve.
+
+For example the following resource would map to the structure of the resource section.
 
 ```yaml
-${resource.[resource-name].[property-name]}
+${resources.resource-name.property-name}
+```
+
+```yml
+resources:
+  resource-name:
+    property-name: my-property-name
 ```
 
 {{% alert %}}
@@ -123,7 +131,7 @@ ${resource.[resource-name].[property-name]}
 
 It is up to the Score implementation (CLI) on how and when the resource reference is resolved, and when the referenced values' substitution occurs.
 
-For example, `score-compose` would convert resource properties into environment variables references in resulting `compose.yaml` configuration file, and produce a reference `.env` file that the user can then populate. For more information, see [the.env file](https://docs.docker.com/compose/environment-variables/#the-env-file).
+For example, `score-compose` would convert resource properties into environment variables references in resulting `compose.yaml` configuration file, and produce a reference `.env` file that the user can then populate. For more information, see the [.env file](https://docs.docker.com/compose/environment-variables/#the-env-file).
 
 The following Score file contains a single resource.
 
@@ -161,7 +169,7 @@ A `service` contains one or more networks ports that can be exposed to external 
 
 The `port` specification can include `public port` and should include `container port`.
 
-```yml
+```yaml
 service:
   ports:
     port-name: string                  # (required)
@@ -188,7 +196,7 @@ service:
 
 The following example advertises two public ports `80`, which points to the container's port `8080`, and `8080`, which also points to the container's port.
 
-```yml
+```yaml
 apiVersion: score.dev/v1b1
 
 metadata:
@@ -209,7 +217,7 @@ service:
 
 The {{< glossary_tooltip text="Workload" term_id="workload" >}} container’s specification describes how the Workload's tasks are executed.
 
-```yml
+```yaml
 image: string
 command: []string
 args: []string
@@ -245,6 +253,8 @@ readinessProbe: ContainerProbeSpec
 ```
 
 <!-- string workload containers -->
+
+`container-id`: specifies a name of the container image.
 
 `image`: image name or tag.
 
@@ -299,7 +309,7 @@ readinessProbe: ContainerProbeSpec
 
 The following example creates a container with the `busybox` image.
 
-```yml
+```yaml
 containers:
   container-id:
     image: busybox                            # Docker image name and tag

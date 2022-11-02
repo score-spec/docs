@@ -3,7 +3,7 @@ title: "Run your first Hello World program with score-humanitec"
 linkTitle: "score-humanitec"
 weight: 4
 description: >
-  Run your first Score implementation with a  Hello World application for `score-humanitec`.
+  Run your first Score implementation with a Hello World application for `score-humanitec`.
 ---
 
 ## Overview
@@ -12,7 +12,7 @@ The primary goal of the Score file is to quickly and easily describe how to comp
 
 {{% alert %}}
 
-> If at any point you need help, run `score-compose --help` from your terminal window.
+> If at any point you need help, run `score-humanitec --help` from your terminal window.
 
 {{% /alert %}}
 
@@ -20,7 +20,7 @@ The primary goal of the Score file is to quickly and easily describe how to comp
 
 At it's core, the Score file needs a `name` and a `container` to run.
 
-In the following example, the Score tab shows the minimum configuration needed to run a Workload and the Docker Compose tab shows the output of the `score-compose run` command.
+In the following example, the Score tab shows the minimum configuration needed to run a Workload and the Docker Compose tab shows the output of the `score-humanitec run` command.
 
 The `score.yaml` file contains a Workload named `hello-world` and specifies a container image for Docker as `busybox`.
 
@@ -29,7 +29,7 @@ The `score.yaml` file contains a Workload named `hello-world` and specifies a co
 
 The following is the minimum configuration needed to run a Workload.
 
-```yml
+```yaml
 apiVersion: score.dev/v1b1
 metadata:
   name: hello-world
@@ -44,7 +44,7 @@ containers:
 
 The output of `score-humanitec run -f ./score.yaml --env test-env`.
 
-```yml
+```yaml
 services:
   hello-world:
     image: busybox
@@ -68,7 +68,7 @@ In the following example, we'll create a simple service based on `busybox` using
 {{< tabs >}}
 {{% tab name="Score" %}}
 
-```yml
+```yaml
 apiVersion: score.dev/v1b1
 
 metadata:
@@ -84,31 +84,41 @@ containers:
 {{% /tab %}}
 {{% tab name="Docker Compose" %}}
 
-The output of `score-compose run -f score.yaml -o compose.yml`.
+The output of `score-humanitec run -f ./score.yaml --env test-env`.
 
-```yml
-services:
-  hello-world:
-    command:
-      - -c
-      - while true; do echo Hello World!; sleep 5; done
-    entrypoint:
-      - /bin/sh
-    image: busybox
+```yaml
+{
+  "metadata": {
+    "env_id": "test-env",
+    "name": "Auto-generated (SCORE)"
+  },
+  "modules": {
+    "add": {
+      "hello-world": {
+        "profile": "humanitec/default-module",
+        "spec": {
+          "containers": {
+            "hello": {
+              "args": [
+                "-c",
+                "while true; do echo Hello World!; sleep 5; done"
+              ],
+              "command": [
+                "/bin/sh"
+              ],
+              "id": "hello",
+              "image": "busybox"
+            }
+          }
+        }
+      }
+    }
+  }
+}
 ```
 
 {{% /tab %}}
 {{< /tabs >}}
 
-Now, you can run `docker-compose run` for the single service definition.
-
-The following is the output of the previous command.
-
-```bash
-[+] Running 1/0
-⠿ Container score-compose-hello-world-1  Rec...                                         0.1s
-Attaching to score-compose-hello-world-1
-score-compose-hello-world-1  | Hello World!
-```
 
 **Results** You've successfully created a Hello World application in Score and created a Humanitec draft.

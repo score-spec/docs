@@ -52,9 +52,9 @@ Network configurations may differ depending on the environment setup.
 In the following example, `DOMAIN_NAME` and `URL_PREFIX` are configured through the environment variables for the microservice and `dns` and `route` are two resources that act as dependencies essential for the service's functionality.
 
 ```yaml
-version: ...
+version: score.dev/v1b1
 metadata:
-  name: ...
+  name: resource-example
 
 containers:
   my-service:
@@ -75,6 +75,7 @@ resources:
       prefix:
       ...
 ```
+
 
 ## Humanitec Workload implementation
 

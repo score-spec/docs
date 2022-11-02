@@ -17,7 +17,7 @@ building docker-compose configuration: workload does not have any containers to 
 
 To resolve this error, declare a container.
 
-```yml
+```yaml
 containers:
   container-id:
     image: busybox
@@ -38,7 +38,7 @@ For example, you may have your containers declared like the following.
 ``bash
 To resolve this error, declare a container.
 
-```yml
+```yaml
 # snippet does not work.
 # do not copy
 containers:
@@ -47,7 +47,7 @@ containers:
 
 To resolve this error, use the following.
 
-```yml
+```yaml
 containers:
   container-id:
     image: busybox

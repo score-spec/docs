@@ -23,7 +23,7 @@ To override the defaults declared in your `score.yaml` file create a `overrides.
 
 1. Create a `score.yaml` file.
 
-```yml
+```yaml
 apiVersion: score.dev/v1b1
 metadata:
   name: run-python-app
@@ -38,7 +38,7 @@ services:
 
 2. Create an `overrides.score.yaml` file and declare an override.
 
-```yml
+```yaml
 containers:
   container-id:
     args: ["python prod-app.py"]

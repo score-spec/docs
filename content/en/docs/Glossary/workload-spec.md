@@ -16,7 +16,7 @@ A Workload Specification file, or Workload Spec, is a single Workload specificat
 
 For example, the following file is a YAML file for Humanitec defining routes as a service.
 
-```yml
+```yaml
 apiVersion: humanitec.org/v1b1
 service:
   routes:

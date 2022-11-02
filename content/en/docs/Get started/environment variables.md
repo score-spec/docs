@@ -44,12 +44,12 @@ resources:
 Use the `run` command to generate a Docker Compose file from Score.
 
 ```bash
-score-compose run -f score.yaml -o compose.yaml
+score-compose run -f ./score.yaml -o ./compose.yaml
 ```
 
-The `compose.yml` file contains a single service definition and utilizes a host environment variable called `NAME`.
+The `compose.yaml` file contains a single service definition and utilizes a host environment variable called `NAME`.
 
-The following `compose.yml` file is the output of previous.
+The following `compose.yaml` file is the output of previous.
 
 ```yaml
 services:

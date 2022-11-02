@@ -29,7 +29,7 @@ The `score.yaml` file contains a Workload named `hello-world` and specifies a co
 
 The following is the minimum configuration needed to run a Workload.
 
-```yml
+```yaml
 apiVersion: score.dev/v1b1
 metadata:
   name: hello-world
@@ -42,9 +42,9 @@ containers:
 {{% /tab %}}
 {{% tab name="Docker Compose" %}}
 
-The output of `score-compose run -f score.yaml -o compose.yml`.
+The output of `score-compose run -f ./score.yaml -o ./compose.yaml`.
 
-```yml
+```yaml
 services:
   hello-world:
     image: busybox
@@ -62,7 +62,7 @@ In the following example, we'll create a simple service based on `busybox` using
 {{< tabs >}}
 {{% tab name="Score" %}}
 
-```yml
+```yaml
 apiVersion: score.dev/v1b1
 
 metadata:
@@ -78,9 +78,9 @@ containers:
 {{% /tab %}}
 {{% tab name="Docker Compose" %}}
 
-The output of `score-compose run -f score.yaml -o compose.yml`.
+The output of `score-compose run -f ./score.yaml -o ./compose.yaml`.
 
-```yml
+```yaml
 services:
   hello-world:
     command:

@@ -21,12 +21,13 @@ For example, the following `wget` command downloads `score-helm` for macOS.
 
 ```bash
 wget https://github.com/score-spec/score-helm/releases/download/0.1.0/score-helm_0.1.0_darwin_arm64.tar.gz
+
 ```
 
 **Results** You should see something similar to the following output.
 
 ```bash
-Saving to: `score-helm_0.1.0_darwin_arm64.tar.gz`
+Saving to: `<score-platform>_<x.y.z>_<os_system>.tar.gz`
 
 score-helm_0.1.0 100%[===================>]   2.85M  5.28MB/s    in 0.5s
 ```
@@ -42,9 +43,10 @@ mkdir -pv score-spec
 ```
 
 Extract the compressed Tar file.
+Update the following example to include the path to your file.
 
 ```bash
-tar -xvzf ~/Downloads/score-helm_0.1.0_darwin_arm64.tar.gz
+tar -xvzf ~/<your-path>/score-helm_<x.y.z>_<os_system>.tar
 ```
 
 **Results** You should see the following output.
@@ -66,7 +68,7 @@ To verify installation, run the following `score-helm --version`.
 The command returns the following output.
 
 ```bash
-score-helm 0.1.0
+score-helm <x.y.z>
 ```
 
 **Results** You've successfully installed the Score implementation tool.
