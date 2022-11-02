@@ -17,4 +17,4 @@ Score supports environment-specific configurations. The following list describes
 1. The environment specific variables include a value for each of the environments.
 1. The Score Spec declares a container image name and tag. The image pull secret to fetch the image from the registry has to made available by the platform.
 
-For more information see, [Environment variables for Score Specification]({{< relref "/content/en/docs/Get started/environment variables.md" >}} "Environment variables").
+For more information see, [Environment variables for Score Specification]({{< relref "/docs/environment%20variables/_index.md" >}} "Environment variables").

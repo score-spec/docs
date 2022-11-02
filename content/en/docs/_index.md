@@ -18,9 +18,9 @@ To compose a Score Specification file, you'll do the following:
 
 To get started, you'll want to:
 
-- Read through the [Overview page]({{< ref "/overview" >}} "Overview").
-- Learn how to [install the Score implementation (CLI)]({{< ref "/install" >}} "Learn to install").
-- Review the [reference material]({{< ref "reference" >}} "Reference content").
+- Read through the [Overview page]({{< relref "/overview" >}} "Overview").
+- Learn how to [install the Score implementation (CLI)]({{< relref "/install" >}} "Learn to install").
+- Review the [reference material]({{< relref "reference" >}} "Reference content").
 
 Beyond the Getting started section, you can learn more about Score and how to implement it into your own workflows.
 

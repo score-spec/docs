@@ -13,7 +13,7 @@ The primary goal of the Score file is to quickly and easily describe how to comp
 
 {{% alert %}}
 
-> If at any point you need help, run `score-helm --help` from your terminal window.
+> If at any point you need help, run `score-helm --help` from your terminal.
 
 {{% /alert %}}
 
