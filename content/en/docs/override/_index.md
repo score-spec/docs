@@ -1,11 +1,11 @@
 ---
 title: "Add an override configuration"
 linkTitle: "Add override configuration"
-weight: 4
+weight: 5
 ---
 
 Some Score implementations support file overrides as a method of sharing common configurations.
-By default, Score looks for the `score.yaml` file and overrides the declared defaults with in that file, if `overrides.score.yaml` exits. 
+By default, Score looks for the `score.yaml` file and overrides the declared defaults with in that file, if `overrides.score.yaml` exits.
 
 ## Overview
 

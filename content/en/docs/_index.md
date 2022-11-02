@@ -6,7 +6,6 @@ abstract = "Score is an open source Workload Specification and CLI conversion to
 
 ## Develop your Score Spec
 
-
 To compose a Score Specification file, you'll do the following:
 
 - Scope: identify containers, resources, and services needed for your infrastructure.

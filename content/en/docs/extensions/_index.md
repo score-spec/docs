@@ -8,8 +8,6 @@ description: >
 
 Score supports extension files.
 
-
-
 ## Overview
 
 {{% alert %}}

@@ -5,17 +5,16 @@ weight: 4
 description:
 ---
 
-Environment specific configuration allows the Score Specification file to be combined with variables to run Workloads in the target environment.
+Environment-specific configuration allows the Score Specification file to be combined with variables to run Workloads in the target environment.
 
-### Key use
+### Use case
 
-Score uses environment specific configurations to support a wide range of use cases, including the following:
+Score supports environment-specific configurations. The following list describes a use case for Score's support of environment configuration.
 
-- The Score Specification declares that a Workload is available on a TCP port.
-- The configuration value is sourced from the target environment's application settings.
-- The Score Specification declares that the Workload is deployed in multiple replicas so that the application can scale up.
-- The exact number of replicas can differ given the environment.
-- The environment specific variables include each value for the specific environment.
-- The Score Specification declares a container image name and tag. The image pull secret to fetch the image from the registry has to made available by the platform.
+1. The Score Spec declares that a Workload is available on a TCP port.
+1. The configuration value is then sourced from the target's environment application settings.
+1. The Score Spec declares that the Workload is deployed in multiple replicas so that the application can scale up. The exact number of replicas can differ given the environment.
+1. The environment specific variables include a value for each of the environments.
+1. The Score Spec declares a container image name and tag. The image pull secret to fetch the image from the registry has to made available by the platform.
 
-For more information see, [Environment variables for Score Specification]({{< ref "/content/en/docs/environment variables/_index.md" >}} "Environment variables").
+For more information, see [Environment variables for Score Specification]({{< ref "/content/en/docs/environment variables/_index.md" >}} "Environment variables").

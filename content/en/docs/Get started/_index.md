@@ -16,7 +16,6 @@ To get started with Score, we recommend choice from one of the following Score i
 
 The following table describes a path you can follow to learn more about Score.
 
-
 | Step           | Link            | Description                                         |
 | -------------- | --------------- | --------------------------------------------------- |
 | 0. Install     | Install the CLI | Methods to download the Score implementation (CLI). |
@@ -26,8 +25,7 @@ The following table describes a path you can follow to learn more about Score.
 
 To get started with Score first install the Score implementation (CLI).
 
-
-Next, run a Hello-World example. 
+Next, run a Hello-World example.
 
 - score-compose
 - score-helm

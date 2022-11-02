@@ -35,6 +35,7 @@ The following is a top level description for a Workload.
 
 ```yml
 apiVersion: score.dev/v1b1
+
 metadata:
   name: hello-world
 service:
@@ -188,7 +189,10 @@ service:
 The following example advertises two public ports `80`, which points to the container's port `8080`, and `8080`, which also points to the container's port.
 
 ```yml
-name: hello-world
+apiVersion: score.dev/v1b1
+
+metadata:
+  name: web-app
 
 service:
   ports:

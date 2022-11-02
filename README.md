@@ -36,7 +36,7 @@ score-compose -f /tmp/compose.yaml up backend
 
 - Enable local development without risk of configuration inconsistencies in remote environments.
 - Establish a single source of truth for application configuration.
-- Separate environment specific from environment agnostic configuration.
+- Separate environment-specific from environment agnostic configuration.
 - Enable agnostic declaration of infrastructure dependencies.
 - Abstract away complexity without sacrificing transparency.
 - Make each program do one thing well. Build afresh rather than complicate old programs by adding new features.
