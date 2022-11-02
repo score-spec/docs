@@ -66,3 +66,14 @@ footer {
 
 @import "rtl/main";
 @import "styles_project";
+
+.breadcrumb {
+  padding: 0;
+  align-items: baseline;
+  background-color: white;
+}
+
+.breadcrumb li + li:before {
+  content: "/";
+  padding-left: 0.3rem;
+}
