@@ -1,6 +1,6 @@
 ---
 title: "Set dependent Workloads"
-linkTitle: "Declare Dependencies"
+linkTitle: "Declare dependencies"
 weight: 6
 description: >
   Describes how to set dependent Workloads.

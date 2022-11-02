@@ -1,12 +1,11 @@
 ---
-title: "Manage overrides"
-linkTitle: "Manage overrides"
+title: "Add an override configuration"
+linkTitle: "Add override configuration"
 weight: 4
 ---
 
-Score supports for file overrides as a method of sharing common configurations.
-
-Score looks for the default `score.yaml` file and overrides declared defaults with the `overrides.score.yaml` file.
+Some Score implementations support file overrides as a method of sharing common configurations.
+By default, Score looks for the `score.yaml` file and overrides the declared defaults with in that file, if `overrides.score.yaml` exits. 
 
 ## Overview
 
@@ -18,18 +17,24 @@ For example, the `score.yaml` file contains a configuration, however, the `overr
 
 If a configuration option is defined in both the default `score.yaml` file and the `overrides.score.yaml` file, the default values are replaced with the overrides.
 
-## Overrides example
+## Override a command
 
 To override the defaults declared in your `score.yaml` file create a `overrides.score.yaml` file and declare your overrides.
 
 1. Create a `score.yaml` file.
 
 ```yml
+apiVersion: score.dev/v1b1
+metadata:
+  name: run-python-app
+
 services:
   my-service:
     command:
       - python app.py
 ```
+
+<!-- https://docs.docker.com/compose/extends/#adding-and-overriding-configuration -->
 
 2. Create an `overrides.score.yaml` file and declare an override.
 
@@ -39,15 +44,19 @@ containers:
     args: ["python prod-app.py"]
 ```
 
-3. Run `score-compose run -f score.yaml` and the default arguments will be overridden by the `overrides.score.yaml` file.
-
-The following is an example output.
+3. Run the following command and the default arguments will be overridden by the `overrides.score.yaml` in the output.
 
 ```bash
+score-compose run -f ./score.yaml -o ./compose.yaml --overrides ./overrides.score.yaml
+```
+
+The following is an example output of the previous command.
+
+```yaml {linenos=false,hl_lines=["4"]}
 services:
   backend:
     command:
-      - python3 prod-app.py
+      - python prod-app.py
 ```
 
 **Results** You've successfully overridden the default configuration file with a command described in your `overrides.score.yaml` file.
