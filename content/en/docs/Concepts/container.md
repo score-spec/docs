@@ -12,4 +12,4 @@ Containers are created from read-only templates called an _image_. Images are im
 
 For more information, see the following links.
 
-- Review the [reference material]({{< ref "reference" >}} "Reference content").
+- Review the [reference material]({{< relref "reference" >}} "Reference content").

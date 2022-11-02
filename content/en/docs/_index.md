@@ -26,4 +26,4 @@ Beyond the Getting started section, you can learn more about Score and how to im
 
 - [Concepts](/docs/concepts): Recommended reading for anyone consuming or operating Score.
 - [Manage extensions](/docs/extensions): Learn about extension mechanisms.
-- [Set environment variables]({{< relref"environment%20variables/_index.md" >}}) Learn how to set and manage environment specific variables.
+- [Set environment variables]({{< relref "environment%20variables/_index.md" >}}) Learn how to set and manage environment specific variables.

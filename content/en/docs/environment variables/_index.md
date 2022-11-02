@@ -8,7 +8,7 @@ description: >
 
 ## Overview
 
-Environment variables can only set within the [`container`]({{< ref "../reference/score-schema-reference.md" >}} "Container") section of your Score Specification file. These variables translate into environment variables as if you're deploying a {{< glossary_tooltip text="Workload" term_id="workload" >}} with a platform like Docker.
+Environment variables can only set within the [`container`]({{< relref "../reference/score-schema-reference.md" >}} "Container") section of your Score Specification file. These variables translate into environment variables as if you're deploying a {{< glossary_tooltip text="Workload" term_id="workload" >}} with a platform like Docker.
 
 Values for those variables can be either hard coded (not recommended) or sourced from the resources properties through substitutions (recommended).
 
