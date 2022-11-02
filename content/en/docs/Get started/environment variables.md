@@ -2,6 +2,7 @@
 title: "Set environment variables"
 linkTitle: "Environment variables"
 weight: 5
+draft: true
 description: >
     This section describes how to set environment variables for Score.
 ---
@@ -43,12 +44,12 @@ resources:
 Use the `run` command to generate a Docker Compose file from Score.
 
 ```bash
-score-compose run -f score.yaml -o compose.yaml
+score-compose run -f ./score.yaml -o ./compose.yaml
 ```
 
-The `compose.yml` file contains a single service definition and utilizes a host environment variable called `NAME`.
+The `compose.yaml` file contains a single service definition and utilizes a host environment variable called `NAME`.
 
-The following `compose.yml` file is the output of previous.
+The following `compose.yaml` file is the output of previous.
 
 ```yaml
 services:
@@ -126,4 +127,4 @@ For more information, see the following links.
 
 - The [score-compose environment README.md](https://github.com/score-spec/score-compose/edit/main/examples/02-environment/README.md) file.
 - The [`.env`](https://docs.docker.com/compose/environment-variables/#using-the---env-file--option) option in the Docker Compose documentation.
-- The [Score Specification reference]({{< relref"../reference/score-schema-reference" >}} "Score Specification")
+- The [Score Specification reference]({{< relref "reference/score-schema-reference" >}} "Score Specification")

@@ -8,7 +8,7 @@ description: >
 
 {{% alert %}}
 
-> If at any point you need help, `score-helm --help` from your terminal window.
+> If at any point you need help, `score-helm --help` from your terminal.
 > {{% /alert %}}
 
 The Score Specification file configures into Helm values, including containers, dependencies, and other Helm specific values.

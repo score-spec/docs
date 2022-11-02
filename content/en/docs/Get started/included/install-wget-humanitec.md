@@ -42,9 +42,10 @@ mkdir -pv score-spec
 ```
 
 Extract the compressed Tar file.
+Update the following example to include the path to your file.
 
 ```bash
-tar -xvzf ~/Downloads/score-humanitec_0.1.0_darwin_arm64.tar.gz
+tar -xvzf ~/<your-path>/<score-platform>_<x.y.z>_<os_system>.tar
 ```
 
 **Results** You should see the following output.
@@ -57,16 +58,25 @@ x score-humanitec
 
 ### Step 3: Export PATH
 
-To export `PATH`, run the following, `export PATH=$PATH:/usr/local/score-spec`.
+To export `PATH`, run the following command.
+
+```bash
+export PATH=$PATH:/usr/local/score-spec
+```
+
 
 ### Step 4: Verify installation
 
-To verify installation, run the following `score-humanitec --version`.
+To verify installation, run the following command.
+
+```bash
+score-humanitec --version
+```
 
 The command returns the following output.
 
 ```bash
-score-humanitec 0.1.0
+score-humanitec <x.y.z>
 ```
 
 **Results** You've successfully installed the Score implementation tool.

@@ -26,9 +26,9 @@ wget https://github.com/score-spec/score-compose/releases/download/0.1.0/score-c
 **Results** You should see something similar to the following output.
 
 ```bash
-Saving to: `score-compose_0.1.0_darwin_arm64.tar.gz`
+Saving to: `<score-platform>_<x.y.z>_<os_system>.tar.gz`
 
-score-compose_0.1.0 100%[===================>]   2.85M  5.28MB/s    in 0.5s
+score-compose_<x.y.z> 100%[===================>]   2.85M  5.28MB/s    in 0.5s
 ```
 
 #### Step 2: Install into your `local` directory
@@ -44,7 +44,7 @@ mkdir -pv score-spec
 Extract the compressed Tar file.
 
 ```bash
-tar -xvzf ~/Downloads/score-compose_0.1.0_darwin_arm64.tar.gz
+tar -xvzf ~/<your-path>/<score-platform>_<x.y.z>_<os_system>.tar
 ```
 
 **Results** You should see the following output.
@@ -57,16 +57,24 @@ x score-compose
 
 ### Step 3: Export PATH
 
-To export `PATH`, run the following, `export PATH=$PATH:/usr/local/score-spec`.
+To export `PATH`, run the following command.
+
+```bash
+export PATH=$PATH:/usr/local/score-spec
+```
 
 ### Step 4: Verify installation
 
-To verify installation, run the following `score-compose --version`.
+To verify installation, run the following command.
+
+```bash
+score-compose --version
+```
 
 The command returns the following output.
 
 ```bash
-score-compose 0.1.0
+score-compose <x.y.z>
 ```
 
 **Results** You've successfully installed the Score implementation tool.

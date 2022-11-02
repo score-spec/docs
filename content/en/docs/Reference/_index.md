@@ -3,7 +3,7 @@ title: "Reference"
 linkTitle: "Reference"
 weight: 9
 description: >
-  Low level reference docs for your project.
+  Reference docs for the Score implementation and Specification.
 ---
 
 <!-- overview -->
@@ -21,8 +21,8 @@ This section of the Score documentation contains references.
 
 ## Score reference
 
-- [Score Specification reference]({{< relref"score-schema-reference" >}} "Score Specification reference")
-- [Score implementation (CLI) reference]({{< relref"score-cli" >}} "Score implementation (CLI) reference")
+- [Score Specification reference]({{< relref "score-schema-reference" >}} "Score Specification reference")
+- [Score implementation (CLI) reference]({{< relref "score-cli" >}} "Score implementation (CLI) reference")
 
 <!-- ## Glossary
 

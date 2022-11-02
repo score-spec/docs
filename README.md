@@ -36,7 +36,7 @@ score-compose -f /tmp/compose.yaml up backend
 
 - Enable local development without risk of configuration inconsistencies in remote environments.
 - Establish a single source of truth for application configuration.
-- Separate environment specific from environment agnostic configuration.
+- Separate environment-specific from environment agnostic configuration.
 - Enable agnostic declaration of infrastructure dependencies.
 - Abstract away complexity without sacrificing transparency.
 - Make each program do one thing well. Build afresh rather than complicate old programs by adding new features.
@@ -146,7 +146,7 @@ error Command failed with exit code 255.
 info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
 ```
 
-To resolve this issue, delete the temporary Hugo cache directory. On most systems this found at `$TMPDIR/hugo_cache`.
+To resolve this issue, delete the temporary Hugo cache directory. By default, [`-cacheDir`](https://gohugo.io/commands/hugo_server/) is stored at `$TMPDIR/hugo_cache`.
 
 ```bash
 rm -rf $TMPDIR/hugo_cache

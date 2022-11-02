@@ -18,7 +18,8 @@ Translates the Score file into a deployment draft for Humanitec.
 The following is an example that translates a Score file into a deployment draft for Humanitec.
 
 ```bash
-score-humanitec draft --org organization_name \
+score-humanitec draft -f score.yaml \
+  --org organization_name \
   --app application_name \
   --env environment_type \
   --token humanitec_api_token
@@ -30,7 +31,7 @@ The following are configuration details for `score-humanitec draft`.
 
 {{% alert %}}
 
-> `--app`, `--env`, `org`, and `--token` are required flags for the `score-humanitec draft` command.
+> `--app`, `--env`, `--org`, and `--token` are required flags for the `score-humanitec draft` command.
 
 {{% /alert %}}
 

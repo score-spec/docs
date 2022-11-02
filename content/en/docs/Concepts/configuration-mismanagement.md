@@ -8,9 +8,9 @@ description: >
 
 _Configuration mismanagement_, also known as configuration drift, is the difference between how your local environment and remote environments are defined.
 
-In modern software development, applications are typically deployed as microservices, each part is packaged into its own container and promoted across different cloud environments. To run containerized Workloads, teams make use of container orchestration platforms. As a developer you might be using Docker Compose or Minikube for local development and deploy to remote environments that are based on systems such as Kubernetes, OpenShift, Nomad, or Mesos.
+In modern software development, applications are typically deployed as microservices, each part is packaged into its own container and promoted across different cloud environments. To run containerized Workloads, teams make use of container orchestration platforms. As a developer you might be using Docker Compose or Minikube for local development and deploy to remote environments that are based on systems such as Kubernetes, OpenShift, Nomad, or AWS ECS.
 
-To successfully develop, test, deploy, and run a Workload, you not only have to be familiar with the platform and related tooling your team makes use of, but also keep each Workload's specification in sync. If entities are configured differently across platforms, the risk of configuration mismanagement increases.
+To successfully develop, test, deploy, and run a Workload, you should not only have to be familiar with the platform and related tooling your team makes use of, but also keep each Workload's specification in sync. If entities are configured differently across platforms, the risk of configuration mismanagement increases.
 
 For example, a Workload with a dependency on a database might point to a Postgres image or mock server in lower environments. On its way to production; however, a database has to be provisioned and allocated by Terraform. Such _translation gaps_ between environments exist for all kinds of items - volumes, external services (for example Vault or RabbitMQ), ports, DNS records, or routes.
 

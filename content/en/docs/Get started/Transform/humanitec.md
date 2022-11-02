@@ -8,7 +8,7 @@ description: >
 
 {{% alert %}}
 
-> If at any point you need help, `score-humanitec --help` from your terminal window.
+> If at any point you need help, `score-humanitec --help` from your terminal.
 
 {{% /alert %}}
 

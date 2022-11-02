@@ -23,7 +23,7 @@
 		{{ range $sorted_tags }}
 			{{ $full_tag_name := printf "tag-%s" .id }}
 			{{ $hoveredTagDescription := printf .description}}
-			<span 
+			<span
 				id="{{ $full_tag_name  }}"
 				class="glossary-tag-option"
 				data-target="{{ $full_tag_name }}"
@@ -54,10 +54,7 @@
 				{{ T "layouts_docs_glossary_aka" }}:<i>{{ delimit . ", " }}</i>
 				<br>
 				{{ end }}
-				<span class="preview-text">{{ .Summary }} <a href="javascript:void(0)" class="click-controller no-underline" data-target="{{ .Params.id }}">[+]</a></span>
-				<div id="{{ .Params.id }}" class="hide">
-					{{ .Content | strings.TrimPrefix .Summary | safeHTML }}
-				</div>
+				<span class="preview-text">{{ .Content | safeHTML }} </span>
 			</div>
 		</li>
 	{{ end }}

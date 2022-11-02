@@ -1,9 +1,9 @@
 ---
-title: "Hello world"
-linkTitle: "Hello world"
+title: "Run a Hello World program with score-compose"
+linkTitle: "score-compose"
 weight: 4
 description: >
-  A Hello World application for Score.
+  Run your first Score implementation with a Hello World application for `score-compose`.
 ---
 
 ## Overview
@@ -12,7 +12,7 @@ The primary goal of the Score file is to quickly and easily describe how to comp
 
 {{% alert %}}
 
-> If at any point you need help, run `score-compose --help` from your terminal window.
+> If at any point you need help, run `score-compose --help` from your terminal.
 
 {{% /alert %}}
 
@@ -29,7 +29,7 @@ The `score.yaml` file contains a Workload named `hello-world` and specifies a co
 
 The following is the minimum configuration needed to run a Workload.
 
-```yml
+```yaml
 apiVersion: score.dev/v1b1
 metadata:
   name: hello-world
@@ -42,9 +42,9 @@ containers:
 {{% /tab %}}
 {{% tab name="Docker Compose" %}}
 
-The output of `score-compose run -f score.yaml -o compose.yml`.
+The output of `score-compose run -f ./score.yaml -o ./compose.yaml`.
 
-```yml
+```yaml
 services:
   hello-world:
     image: busybox
@@ -62,7 +62,7 @@ In the following example, we'll create a simple service based on `busybox` using
 {{< tabs >}}
 {{% tab name="Score" %}}
 
-```yml
+```yaml
 apiVersion: score.dev/v1b1
 
 metadata:
@@ -78,9 +78,9 @@ containers:
 {{% /tab %}}
 {{% tab name="Docker Compose" %}}
 
-The output of `score-compose run -f score.yaml -o compose.yml`.
+The output of `score-compose run -f ./score.yaml -o ./compose.yaml`.
 
-```yml
+```yaml
 services:
   hello-world:
     command:
@@ -91,6 +91,12 @@ services:
     image: busybox
 ```
 
+The following is a description of the previous command.
+
+- `run` tells the CLI to translate the Score file to a Docker Compose file.
+- `-f` is the path to the Score file.
+- `-o` specifies the path to the output file
+
 {{% /tab %}}
 {{< /tabs >}}
 
@@ -100,9 +106,9 @@ The following is the output of the previous command.
 
 ```bash
 [+] Running 1/0
-⠿ Container score-compose-hello-world-1  Rec...                                         0.1s
+⠿ Container score-compose-hello-world-1  Rec... 0.1s
 Attaching to score-compose-hello-world-1
 score-compose-hello-world-1  | Hello World!
 ```
 
-**Results** You've successfully created a hello world application in Score and provisioned it through Docker.
+**Results** You've successfully created your first Score implementation with a Hello World application and provisioned it through Docker.

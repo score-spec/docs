@@ -14,7 +14,7 @@ enableRobotsTXT = true
 enableGitInfo = false
 
 # Comment out to enable taxonomies in Docsy
-disableKinds = ["taxonomy", "taxonomyTerm"]
+disableKinds = []
 
 # You can add your own taxonomies
 [taxonomies]
@@ -134,7 +134,7 @@ prism_syntax_highlighting = false
 # User interface configuration
 [params.ui]
 #  Set to true to disable breadcrumb navigation.
-breadcrumb_disable = false
+breadcrumb_disable = true
 # Set to true to disable the About link in the site footer
 footer_about_disable = false
 # Set to false if you don't want to display a logo (/assets/icons/logo.svg) in the top navbar
