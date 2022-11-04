@@ -6,12 +6,17 @@ description: >
   Use overrides as a method of sharing common configurations across environments.
 ---
 
-Some Score implementations support file overrides as a method of sharing common configurations.
 By default, Score looks for the `score.yaml` file and overrides the declared defaults with in that file, if `overrides.score.yaml` exits.
+
+The following Score implementations support passing an override file as an argument.
+
+- `score-compose`
+- `score-helm`
+- `score-humanitec`
 
 ## Overview
 
-If an `overrides.score.yaml` file is found, the {{< glossary_tooltip text="Score implementation (CLI)" term_id="platform-cli" >}} checks the default file automatically and applies overrides on the output.
+If an `overrides.score.yaml` file is found, the {{< glossary_tooltip text="Score implementation (CLI)" term_id="platform-cli" >}} applies overrides on the output.
 
 Any property of Score segment can be overridden.
 
@@ -49,7 +54,9 @@ containers:
 3. Run the following command and the default arguments will be overridden by the `overrides.score.yaml` in the output.
 
 ```bash
-score-compose run -f ./score.yaml -o ./compose.yaml --overrides ./overrides.score.yaml
+score-compose run -f ./score.yaml \
+  -o ./compose.yaml \
+  --overrides ./overrides.score.yaml
 ```
 
 The following is an example output of the previous command.

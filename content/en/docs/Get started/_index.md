@@ -20,7 +20,8 @@ The following table describes a path you can follow to learn more about Score.
 | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | All                                | [Install the CLI]({{< relref "/docs/get%20started/install.md" >}}): Methods to download the Score implementation (CLI).                                                 |
 | `score-compose`                    | [Hello World]({{< relref "/docs/get%20started/score-compose-hello-world" >}}): A Hello World application for `score-compose`.                                           |
-| `score-humanitec`                  | [Hello World]({{< relref "/docs/get%20started/score-humanitec-hello-world" >}}): A Hello World application for `score-humanitec`                                        |
+| `score-helm`                       | [Hello World]({{< relref "/docs/get%20started/score-helm-hello-world" >}}): A Hello World application for `score-helm`.                                                 |
+| `score-humanitec`                  | [Hello World]({{< relref "/docs/get%20started/score-humanitec-hello-world" >}}): A Hello World application for `score-humanitec`.                                       |
 | `score-compose`, `score-humanitec` | [Manage overrides]({{< relref "/docs/override/_index.md" >}}): Methods to set and manage overrides.                                                                     |
 | `score-humanitec`                  | [Manage Extensions]({{< relref "/docs/extensions/_index.md" >}}): Manage routes and resources in your application.                                                      |
 | `score-compose`                    | [Declare dependencies]({{< relref "/docs/dependencies/_index.md" >}}): Describe how to set Workloads that are dependent on additional resources.                        |

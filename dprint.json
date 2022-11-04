@@ -16,6 +16,7 @@
     "proseWrap": "always"
   },
   "includes": [
+    "content/en/docs/*.{md,mdx}",
     "content/**/*.{md,mdx}",
     "*.md"
   ],
