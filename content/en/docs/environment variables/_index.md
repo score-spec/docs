@@ -14,4 +14,4 @@ Environment variables can only set within the [`container`]({{< relref "../refer
 
 Values for those variables can be either hard coded (not recommended) or sourced from the resources properties through substitutions (recommended).
 
-For example, `${resources.my-db.host}`. Score supports declaring environment variables in an [environment file](#environment-variables-a-env-file) or as a [shell value](#environment-variables-in-your-shell).
+For example, `${resources.my-db.host}`. Score supports declaring environment variables in an environment file or as a shell value.

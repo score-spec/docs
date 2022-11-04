@@ -18,10 +18,10 @@ Score supports extension files.
 
 <!-- Routes Management in Applications -->
 
-Applications that consist of multiple microservices typically need a {{< glossary_tooltip text="routing controller" term_id="routing-controller" >}} routing controller that redirects incoming requests to a proper {{< glossary_tooltip text="Workload" term_id="workload" >}} at run time.
+Applications that consist of multiple microservices typically need a routing controller that redirects incoming requests to a proper {{< glossary_tooltip text="Workload" term_id="workload" >}} at run time.
 
 For example, a common scenario is to deploy an API Gateway, Ingress controller, or Service mesh as part of your application.
-Maintaining and updating {{< glossary_tooltip text="routing tables" term_id="routing-table" >}} after new service deployments is a point of friction as the application scales.
+Maintaining and updating routing tables after new service deployments is a point of friction as the application scales.
 
 ## Routing details
 
