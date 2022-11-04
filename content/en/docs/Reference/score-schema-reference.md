@@ -18,6 +18,8 @@ Use these definitions to describe a single Workload.
 
 ## Workload definition
 
+Describes the Score Specification API version and metadata.
+
 ```yaml
 apiVersion: string
 metadata:
@@ -28,9 +30,9 @@ metadata:
 
 - **Valid options**: `score.dev/v1b1`
 
-`metadata`: an optional metadata description of your Workload.
+`metadata`: the metadata description of your Workload.
 
-- `name`: specifies a string.
+- `name`: specifies a string that can describe your Workload.
 
 ### Workload example
 

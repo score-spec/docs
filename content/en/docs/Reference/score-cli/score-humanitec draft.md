@@ -2,6 +2,7 @@
 title: "score-humanitec delta"
 linkTitle: "humanitec draft"
 description: "Translates the Score file into a deployment delta for Humanitec."
+draft: true
 weight: 4
 ---
 

@@ -6,7 +6,7 @@ description: >
   Use overrides as a method of sharing common configurations across environments.
 ---
 
-By default, Score looks for the `score.yaml` file and overrides the declared defaults with in that file, if `overrides.score.yaml` exits.
+By default, the Score implementation tool looks for a `score.yaml` file and overrides the declared defaults with in that file, if `overrides.score.yaml` exits.
 
 The following Score implementations support passing an override file as an argument.
 
@@ -51,7 +51,7 @@ containers:
     args: ["python prod-app.py"]
 ```
 
-3. Run the following command and the default arguments will be overridden by the `overrides.score.yaml` in the output.
+1. Run the following command to override the default arguments by the `overrides.score.yaml` file.
 
 ```bash
 score-compose run -f ./score.yaml \

@@ -44,7 +44,8 @@ resources:
 Use the `run` command to generate a Docker Compose file from Score.
 
 ```bash
-score-compose run -f ./score.yaml -o ./compose.yaml
+score-compose run -f ./score.yaml \
+  -o ./compose.yaml
 ```
 
 The `compose.yaml` file contains a single service definition and utilizes a host environment variable called `NAME`.
@@ -73,7 +74,9 @@ Score has an optional `--env-file` flag which makes it easy to manage your envir
 Use the `--env-file` flag from the `score-compose` platform tool to produce a template variables declared in your `score.yaml` file.
 
 ```bash
-score-compose run -f score.yaml -o compose.yaml --env-file hello.env
+score-compose run -f score.yaml \
+  -o compose.yaml \
+  --env-file hello.env
 ```
 
 The `--env-file` flag will create a file that can be used in combination with the Docker platform.
@@ -116,7 +119,7 @@ The following is the output of the previous command.
 
 ```bash
 [+] Running 1/0
- ⠿ Container score-compose-hello-world-1  Rec...                                         0.1s
+⠿ Container score-compose-hello-world-1  Rec...       0.1s
 Attaching to score-compose-hello-world-1
 score-compose-hello-world-1  | Hello Hello!
 ```

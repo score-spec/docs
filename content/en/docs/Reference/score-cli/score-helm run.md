@@ -19,8 +19,7 @@ The following is an example that translates a Score file into a Helm Chart.
 
 ```bash
 score-helm run --file ./score.yaml \
-  --output ./values.yaml \
-  --env-file ./backend.env
+  --output ./values.yaml
 ```
 
 ## Flags
@@ -77,7 +76,7 @@ score-helm run -f ./score.yaml \
 
 ### `--values`
 
-Specifies the Helm values path.
+Specifies the path that declares reference dependencies, or resource property, values that are environment-specific.
 
 ```bash
 score-helm run -f ./score.yaml --values ./env.yaml -o ./values.yaml

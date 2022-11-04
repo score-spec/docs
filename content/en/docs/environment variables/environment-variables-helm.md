@@ -3,14 +3,14 @@ title: "Set environment variables in score-helm"
 linkTitle: "score-helm"
 weight: 5
 description: >
-    This section describes how to set your environment variables.
+    This section describes how to pass dynamic environment-specific configuration to the Workload during deployment.
 ---
 
 ## Substitute environment variables
 
 To substitute environment variables, declare an environment variable in your `score.yaml` file.
 
-In the following example, the `FRIEND` property declares the following environment variable.
+In the following example, the `FRIEND` property sources its value from the `NAME` property in the `resources` section.
 
 - `NAME`
 
@@ -46,28 +46,23 @@ For more information, see the [Resource section]({{< relref "/content/en/docs/re
 
 {{% /alert %}}
 
-Choose from one of the following options to substitute environment variables.
-
-- [Environment variables in a .env file](#environment-variables-a-env-file)
-- [Environment variables in your shell](#environment-variables-in-your-shell)
-
-## Environment variables a .env file
+## Environment variables
 
 Declare default environment variables in file.
 
-1. In a `.env` file, add your environment variables. The following uses settings from Docker Compose.
+1. In a `env.yaml` file, add your environment variables.
 
 ```yaml
 env:
   NAME: John
 ```
 
-2. When running `score-helm run`, you'll want to pass the `--values` flag where `env.yaml` is the environment variable file.
+2. When running `score-helm run`, you'll want to pass the `--values` flag where `env.yaml` imported values file.
 
 ```bash
-$ score-helm run -f ./score.yaml \
- --values ./env.yaml \
- -o ./values.yaml
+score-helm run -f ./score.yaml \
+  --values ./env.yaml \
+  -o ./values.yaml
 ```
 
 The following is the output of the previous command.
@@ -106,7 +101,7 @@ REVISION: 1
 TEST SUITE: None
 ```
 
-The following is the genrated Kubernetes deployment object.
+The following is the generated Kubernetes deployment object.
 
 ```yaml
 # Source: hello/templates/deployment.yaml
