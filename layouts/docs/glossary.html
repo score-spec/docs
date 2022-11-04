@@ -9,12 +9,12 @@
 		<div class="glossary-tag-container-header-divider"></div>
 		<span class="glossary-tag-option-all" data-filter="all">
 			<a id="select-all-tags" href="javascript:void(0)">
-				{{ T "Select all" }}
+				{{ "Select all" }}
 			</a>
 		</span>
 		<span class="glossary-tag-option-all" data-filter="none">
 			<a id="deselect-all-tags" href="javascript:void(0)">
-				{{ T "Deselect all" }}
+				{{ "Deselect all" }}
 			</a>
 		</span>
 	</div>
@@ -49,7 +49,17 @@
 		<li class="glossary-term {{ $.Scratch.Get "tag_classes" }} hide mix {{ range .Params.tags }}{{ printf "mixitupcat-%s " (lower (replace . " " "-")) }}{{ end }}" data-show-count="0">
 			<div id="{{ $term_identifier }}" class="term-anchor"></div>
 			<div>
-				<div class="term-name">{{ .Title }}<a href="{{ printf "#%s" $term_identifier }}" class="permalink hide">LINK</a></div>
+				<div class="term-name">{{ .Title }}<a href="{{ printf "#%s" $term_identifier }}" class="permalink hide">
+				<!-- link to the the concept page described in full_link -->
+				{{ if .Params.full_link }}
+					<a class="term-full-link">
+						<a  href="{{ .Params.full_link }}" target="_blank" rel="noopener noreferrer">{{  "Link to concept page" }}</a>
+					</a>
+				
+				</div>
+			
+			
+				{{ end }}
 				{{ with .Params.aka }}
 				{{ T "layouts_docs_glossary_aka" }}:<i>{{ delimit . ", " }}</i>
 				<br>

@@ -1,7 +1,7 @@
 ---
 title: Resource
 id: resource
-full_link: /docs/concepts/score-specification/
+full_link: /docs/concepts/dependencies/
 short_description: >
     The `resource` section describes a Workload's dependencies.
 aka:

@@ -57,11 +57,11 @@ The Score Specification provides sensible configuration that cover most common u
 
 Docker-Compose and Helm Charts are great for running resources regardless of platform, but when you use Docker in testing and Helm in development, ensuring your code runs in both environments can cause friction. Score abstracts the complexity by providing a language-agnostic layer that can describe your resources without the specifying the platform.
 
-## Why Score not a configuration management tool
+## Why Score is not a configuration management tool
 
 Score exclusively takes care of translating the Workload requirements specified in `score.yaml` into a platform-specific format. The platform consuming the generated file is responsible for processing and resolving each property. This means:
 
-- Score is **not a configuration management tool** for environments. It isn't recommended to store configuration values or secrets in `score.yaml`. Instead, it is possible to declare items such as configuration maps, secrets, or vaults as a Workload dependency in your Score Specification.
+- Score is **not a configuration management tool** for environments. It isn't recommended to store configuration values or secrets in `score.yaml`. Instead, use dynamic environment-specific configurations to declare items such as configuration maps, secrets, or vaults as a Workload dependency in your Score Specification.
 - Score is **not a resource and environment management system**, such as Terraform or an Internal Developer Platform like Humanitec. It won’t spin up or purge physical resources or services defined in `score.yaml`.
 - Score is **not a deployment tool**. It doesn't support you with deploying or promoting Workloads across environments.
 

@@ -1,7 +1,7 @@
 ---
 title: Workload
 id: workload
-full_link: /docs/concepts/score-spec/
+full_link: /docs/concepts/score/
 short_description: >
     A Workload is the code that will run in a Kubernetes cluster.
 aka:

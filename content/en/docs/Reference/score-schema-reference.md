@@ -8,8 +8,9 @@ description: >
 
 ## Score schema definitions
 
-The Score Specification is a yaml file that contains the following top-level schema definitions.
-Use these definitions to describe a single {{< glossary_tooltip text="Workload" term_id="workload" >}}.
+The Score Specification is a YAML file that contains the following top-level schema definitions.
+
+Use these definitions to describe a single Workload.
 
 - [`containers`](#container-definition): (required) defines how the Workload's tasks are executed.
 - [`resources`](#resources-definition): (optional) defines dependencies needed by the Workload.
@@ -23,11 +24,13 @@ metadata:
   name: string
 ```
 
-`apiversion`: the declared Score Specification version.
+`apiVersion`: the declared Score Specification version.
 
 - **Valid options**: `score.dev/v1b1`
 
 `metadata`: an optional metadata description of your Workload.
+
+- `name`: specifies a string.
 
 ### Workload example
 

@@ -7,6 +7,10 @@ description:
 
 Environment-specific configuration allows the Score Specification file to be combined with variables to run Workloads in the target environment.
 
+## Overview
+
+You can pass dynamic environment-specific configurations to the container during a deployment. The Score Specification enables a special environment resource type to be used to support such use cases.
+
 ### Use case
 
 Score supports environment-specific configurations. The following list describes a use case for Score's support of environment configuration.
