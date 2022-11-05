@@ -4,10 +4,10 @@ linkTitle: "Environment variables"
 weight: 5
 draft: true
 description: >
-    This section describes how to set environment variables for Score.
+    This section describes how to set environment variables for score-compose.
 ---
 
-When `docker-compose` runs a service, it is possible to pass some information from the host to the container through environment variables.
+When `docker compose` runs a service, it is possible to pass some information from the host to the container through environment variables.
 
 This _hello world_ example provides and [Overview](#overview) section and two options to resolve your variable name:
 
@@ -69,9 +69,7 @@ services:
 
 It is recommended to declare your environment variables in a `.env` file.
 
-Score has an optional `--env-file` flag which makes it easy to manage your environment variables needed for running Workloads.
-
-Use the `--env-file` flag from the `score-compose` platform tool to produce a template variables declared in your `score.yaml` file.
+Use the `--env-file` flag with the `score-compose` CLI tool to additionally produce a `.env` file that can be used alongside the generated compose file.
 
 ```bash
 score-compose run -f score.yaml \
@@ -87,10 +85,10 @@ The following is the output of the previous command in the `hello.env` file.
 NAME=Hello
 ```
 
-Run the `docker-compose` command with the `--env-file` flag, specify the path to your `.env` file.
+Run the `docker compose` command with the `--env-file` flag, specify the path to your `.env` file.
 
 ```bash
-docker-compose -f compose.yaml --env-file hello.env up
+docker compose -f compose.yaml --env-file hello.env up
 ```
 
 The following is the output of the previous command.
@@ -112,7 +110,7 @@ The following example sets the environment variable to `Hello`.
 
 ```bash
 export NAME=Hello
-docker-compose -f ./compose.yaml up
+docker compose -f ./compose.yaml up
 ```
 
 The following is the output of the previous command.

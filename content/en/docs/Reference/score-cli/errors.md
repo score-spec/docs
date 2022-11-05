@@ -14,7 +14,7 @@ When debugging errors, use the `--help` flag or turn on diagnostic message with 
 If you receive the following error, you may not have specified a container in your `score.yaml` file.
 
 ```bash
-building docker-compose configuration: workload does not have any containers to convert into a compose service
+building docker compose configuration: workload does not have any containers to convert into a compose service
 ```
 
 To resolve this error, declare a container.

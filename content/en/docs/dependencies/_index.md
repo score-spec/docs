@@ -8,7 +8,7 @@ description: >
 
 Dependencies are user-defined resources that describe the relationship between Workloads.
 
-Score uses `resources` section to describe Workload's dependencies. This mechanism can be used to spin-up multiservice setups with `docker-compose`.
+The Score Specification has a `resources` section that is used to describe Workload's dependencies. This mechanism can be used to spin-up multiservice setups with `docker compose`.
 
 For example, `service-a.yaml` score file describes a service that has two dependencies: `service-b` (another workload) and a PostgreSQL database instance:
 
@@ -22,7 +22,7 @@ containers:
   service-a:
     image: busybox
     command: ["/bin/sh"]
-    args: ["-c", "while true; do echo service-a: Hello $${FRIEND}! Connecting to $${CONNECTION_STRING}...; sleep 10; done"]
+    args: ["-c", "while true; do echo service-a: Hello $${FRIEND}! Connecting to ${CONNECTION_STRING}...; sleep 10; done"]
     variables:
       FRIEND: ${resources.env.NAME}
       CONNECTION_STRING: postgresql://${resources.db.user}:${resources.db.password}@${resources.db.host}:${resources.db.port}/${resources.db.name}
@@ -51,7 +51,7 @@ resources:
     type: workload
 ```
 
-The second workload is described in `service-b.yaml` file and doesn't have additional dependencies.
+The second workload is described in the `service-b.yaml` file and doesn't have additional dependencies.
 
 ```yaml
 apiVersion: score.dev/v1b1
@@ -91,7 +91,7 @@ services:
   service-a:
     command:
       - -c
-      - 'while true; do echo service-a: Hello $${FRIEND}! Connecting to $${CONNECTION_STRING}...; sleep 10; done'
+      - 'while true; do echo service-a: Hello $${FRIEND}! Connecting to ${CONNECTION_STRING}...; sleep 10; done'
     depends_on:
       db:
         condition: service_started
@@ -137,10 +137,10 @@ DB_USER=postgres
 DB_PASSWORD=postgres
 ```
 
-Now the files can be combined to build the application with `docker-compose`.
+Now the files can be combined to build the application with `docker compose`.
 
 ```bash
-docker-compose -f ./compose.yaml \
+docker compose -f ./compose.yaml \
   -f ./service-a.yaml \
   -f ./service-b.yaml \
   --env-file ./.env up

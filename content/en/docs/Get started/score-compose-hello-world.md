@@ -100,7 +100,7 @@ The following is a description of the previous command.
 {{% /tab %}}
 {{< /tabs >}}
 
-Now, you can run `docker-compose run` for the single service definition.
+Now, you can run `docker compose run` for the single service definition.
 
 The following is the output of the previous command.
 

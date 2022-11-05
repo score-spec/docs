@@ -13,5 +13,5 @@ The Score Specification doesn't define how to configure or provision any depende
 
 For example, the Score Specification might declare a `postgres` database as a required dependency for the Workload.
 
-- When using `docker-compose`, a `postgres` service should be defined in an external `compose.yaml` file and started with `compose up` command before the Workload is run.
+- When using `docker compose`, a `postgres` service should be defined in an external `compose.yaml` file and started with `compose up` command before the Workload is run.
 - When using `Humanitec`, a `postgres` resource should be configured for the target environment so that the `Humanitec` controller can match and provision it before the Workload is deployed into the according Kubernetes cluster.

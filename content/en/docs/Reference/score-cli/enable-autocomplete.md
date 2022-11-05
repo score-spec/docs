@@ -6,7 +6,7 @@ description: >
   Enables autocomplete for the Score implementation (CLI).
 ---
 
-By default, Homebrew install the autocompletion script.
+<!-- By default, Homebrew install the autocompletion script. -->
 
 If you installed the Score implementation (CLI) by downloading the single binary, continue reading.
 

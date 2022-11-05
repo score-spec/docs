@@ -181,7 +181,10 @@ DATABASE_HOST=localhost
 The developer can now run the service locally with `Docker Compose`:
 
 ```bash
-docker-compose -f compose.yaml -f backend.yaml --env-file backend.env up --build
+docker compose -f compose.yaml \
+  -f backend.yaml \
+  --env-file backend.env \
+  up --build
 ```
 
 The Docker Compose command output:
