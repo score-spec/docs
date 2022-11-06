@@ -1,17 +1,18 @@
 ---
-title: "Score schema reference"
-linkTitle: "Score schema"
+title: "Score Specification reference"
+linkTitle: "Score reference"
 weight: 9
 description: >
   Reference documentation for the Score Specification.
 ---
 
-## Score schema definitions
+## Score Specification definitions
 
-The Score Specification is a YAML file that contains the following top-level schema definitions.
+The Score Specification is a YAML file that contains the following top-level reference definitions.
 
 Use these definitions to describe a single Workload.
 
+- [Workload definition](#workload-definition): (required) defines the metadata and `apiVersion`.
 - [`containers`](#container-definition): (required) defines how the Workload's tasks are executed.
 - [`resources`](#resources-definition): (optional) defines dependencies needed by the Workload.
 - [`service`](#service-definition): (optional) defines how an application can expose its resources when executed.
@@ -22,6 +23,7 @@ Describes the Score Specification API version and metadata.
 
 ```yaml
 apiVersion: string
+
 metadata:
   name: string
 ```
