@@ -40,7 +40,7 @@ containers:
 ```
 
 {{% /tab %}}
-{{% tab name="Docker Compose" %}}
+{{% tab name="Humanitec Delta" %}}
 
 The output of `score-humanitec run -f ./score.yaml --env test-env`.
 
@@ -52,7 +52,7 @@ services:
 
 The following is a description of the previous command.
 
-- `run` tells the CLI to translate the Score file to Humanitec deployment delta.
+- `run` tells the CLI to translate the Score file to Humanitec deployment.
 - `-f` is the path to the Score file.
 - `--env` specifies the environment ID.
 
@@ -82,7 +82,7 @@ containers:
 ```
 
 {{% /tab %}}
-{{% tab name="Docker Compose" %}}
+{{% tab name="Humanitec Delta" %}}
 
 The output of `score-humanitec run -f ./score.yaml --env test-env`.
 
@@ -120,4 +120,4 @@ The output of `score-humanitec run -f ./score.yaml --env test-env`.
 {{% /tab %}}
 {{< /tabs >}}
 
-**Results** You've successfully created a Hello World application in Score and created a Humanitec draft.
+**Results** You've successfully created a Hello World application in Score and created a Humanitec Delta.

@@ -1,7 +1,8 @@
 ---
-title: "score-humanitec draft"
+title: "score-humanitec delta"
 linkTitle: "humanitec draft"
-description: "Translates the Score file into a deployment draft for Humanitec."
+description: "Translates the Score file into a deployment delta for Humanitec."
+draft: true
 weight: 4
 ---
 
@@ -11,7 +12,7 @@ The following section describes configuration details for the `score-humanitec d
 
 ### `draft`
 
-Translates the Score file into a deployment draft for Humanitec.
+Translates the Score file into a deployment delta for Humanitec.
 
 ### Example
 

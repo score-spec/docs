@@ -6,12 +6,17 @@ description: >
   Use overrides as a method of sharing common configurations across environments.
 ---
 
-Some Score implementations support file overrides as a method of sharing common configurations.
-By default, Score looks for the `score.yaml` file and overrides the declared defaults with in that file, if `overrides.score.yaml` exits.
+By default, the Score implementation tool looks for a `score.yaml` file and overrides the declared defaults with in that file, if `overrides.score.yaml` exits.
+
+The following Score implementations support passing an override file as an argument.
+
+- `score-compose`
+- `score-helm`
+- `score-humanitec`
 
 ## Overview
 
-If an `overrides.score.yaml` file is found, the {{< glossary_tooltip text="Score implementation (CLI)" term_id="platform-cli" >}} checks the default file automatically and applies overrides on the output.
+If an `overrides.score.yaml` file is found, the {{< glossary_tooltip text="Score implementation (CLI)" term_id="platform-cli" >}} applies overrides on the output. This occurs whether a flag is provided or not.
 
 Any property of Score segment can be overridden.
 
@@ -30,10 +35,12 @@ apiVersion: score.dev/v1b1
 metadata:
   name: run-python-app
 
-services:
+containers:
   my-service:
+    image: python3
     command:
-      - python app.py
+      - python
+      - --version
 ```
 
 <!-- https://docs.docker.com/compose/extends/#adding-and-overriding-configuration -->
@@ -42,23 +49,29 @@ services:
 
 ```yaml
 containers:
-  container-id:
-    args: ["python prod-app.py"]
+  my-service:
+    command:
+      - python
+      - --help
 ```
 
-3. Run the following command and the default arguments will be overridden by the `overrides.score.yaml` in the output.
+1. Run the following command to override the default arguments by the `overrides.score.yaml` file.
 
 ```bash
-score-compose run -f ./score.yaml -o ./compose.yaml --overrides ./overrides.score.yaml
+score-compose run -f ./score.yaml \
+  -o ./compose.yaml \
+  --overrides ./overrides.score.yaml
 ```
 
 The following is an example output of the previous command.
 
-```yaml {linenos=false,hl_lines=["4"]}
+```yaml {linenos=false,hl_lines=["4-5"]}
 services:
-  backend:
-    command:
-      - python prod-app.py
+  run-python-app:
+    entrypoint:
+      - python
+      - --help
+    image: python3
 ```
 
 **Results** You've successfully overridden the default configuration file with a command described in your `overrides.score.yaml` file.

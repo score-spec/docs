@@ -16,8 +16,7 @@ function copyText(text) {
     document.body.removeChild(textArea);
   }
 }
-
-(function ($) {
++(function ($) {
   $(".highlight").hover(
     function () {
       const highlight = this;

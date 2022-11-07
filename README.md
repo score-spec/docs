@@ -28,8 +28,8 @@ The Score Specification file resolves configuration mismanagement between enviro
 # Generate compose.yaml with caws-compose
 score-compose run -f /tmp/caws.yaml -o /tmp/compose.yaml
 
-# Run the service with docker-compose
-score-compose -f /tmp/compose.yaml up backend
+# Run the service with docker compose
+docker compose -f /tmp/compose.yaml up backend
 ```
 
 ## Score manifesto

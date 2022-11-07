@@ -10,11 +10,11 @@ description: >
 
 _Score_ provides a developer-centric and platform-agnostic Workload specification to improve developer productivity and experience. Score eliminates configuration mismanagement between local and remote environments.
 
-The _Score implementation (CLI)_ is a conversion tool for developers and teams used to generate an environment specific configurations. Use the Score implementation tool to generate your target platform configurations from the Score Specification, which can then be combined with environment specific parameters to run the Workload in the target environment.
+The _Score implementation (CLI)_ is a conversion tool for developers and teams used to generate environment-specific configurations. Use the Score implementation tool to generate your target platform configurations from the Score Specification, which can then be combined with environment-specific parameters to run the Workload in the target environment.
 
 ### Workload specification
 
-The Score Specification resolves configuration mismanagement between environments. Compose a `score.yaml` file that describes how to run your workload. As a platform-agnostic declaration file, score.yaml creates a single source of truth for Workload profiles and requirements which is used to integrate with any platform or tooling.
+The Score Specification resolves configuration mismanagement between environments. Compose a `score.yaml` file that describes how to run your workload. As a platform-agnostic declaration file, score.yaml creates a single source of truth for Workload profiles and requirements, which is used to integrate with any platform or tooling.
 
 ## Who uses Score?
 
@@ -22,7 +22,7 @@ Developers use Score to describe their resources and environments consistently.
 
 Then they use the {{< glossary_tooltip text="Score implementation tool" term_id="platform-cli" >}} to generate their resources in an environment of choice.
 
-For example, you might use a Postgres database in a local, development, staging, and production stage. Each stage of the deployment process connects to a different Postgres database. When composing your Score file, describe the Postgres database once and each environment will connect the appropriate Postgres database dynamically.
+For example, you might use a Postgres database in a local, development, staging, and production stage. Each stage of the deployment process connects to a different Postgres database. When composing your Score file, describe the Postgres database once, and each environment will connect the appropriate Postgres database dynamically.
 
 <!-- Configuration mismanagement -->
 
@@ -55,17 +55,15 @@ The Score Specification provides sensible configuration that cover most common u
 
 ## How is Score different from other specs?
 
-Docker-Compose and Helm Charts are great at running resources regardless of platform, but when you use Docker in testing and Helm in development, ensuring your code runs in both environment can cause friction. Score abstracts the complexity by providing a language agnostic layer that can describe your resources without the specifying the platform.
+Docker-Compose and Helm Charts are great for running resources regardless of platform, but when you use Docker in testing and Helm in development, ensuring your code runs in both environments can cause friction. Score abstracts the complexity by providing a language-agnostic layer that can describe your resources without the specifying the platform.
 
-<!--
-## What Score isn't
+## Why Score is not a configuration management tool
 
 Score exclusively takes care of translating the Workload requirements specified in `score.yaml` into a platform-specific format. The platform consuming the generated file is responsible for processing and resolving each property. This means:
 
-- Score is **not a configuration management tool** for environments. It isn't recommended to store configuration values or secrets in `score.yaml`. Instead, it is possible to declare items such as configuration maps, secrets, or vaults as a Workload dependency in your Score Specification.
+- Score is **not a configuration management tool** for environments. It isn't recommended to store configuration values or secrets in `score.yaml`. Instead, use dynamic environment-specific configurations to declare items such as configuration maps, secrets, or vaults as a Workload dependency in your Score Specification.
 - Score is **not a resource and environment management system**, such as Terraform or an Internal Developer Platform like Humanitec. It won’t spin up or purge physical resources or services defined in `score.yaml`.
 - Score is **not a deployment tool**. It doesn't support you with deploying or promoting Workloads across environments.
--->
 
 <!--
 

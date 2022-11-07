@@ -2,17 +2,19 @@
 title: "CLI error reference"
 linkTitle: "CLI errors"
 weight: 9
-draft: true
+draft: false
 description: >
   Overview and description for common errors in the Score implementation (CLI).
 ---
+
+When debugging errors, use the `--help` flag or turn on diagnostic message with the `--verbose` flag on the CLI.
 
 ## Workload does not have any containers
 
 If you receive the following error, you may not have specified a container in your `score.yaml` file.
 
 ```bash
-building docker-compose configuration: workload does not have any containers to convert into a compose service
+building docker compose configuration: workload does not have any containers to convert into a compose service
 ```
 
 To resolve this error, declare a container.
@@ -65,3 +67,86 @@ Error: yaml: unmarshal errors:
 ```
 
 To resolve, remove the duplicated key.
+
+## Resource variable names not resolving
+
+If your score.yaml template contains resource variables, and they do not resolve in your platform template, you may have indented incorrectly.
+
+```yml {linenos=false,hl_lines=["13-14"]}
+# snippet does not work
+# do not copy
+apiVersion: score.dev/v1b1
+
+metadata:
+  name: hello-world
+
+containers:
+  hello:
+    image: busybox
+    command: ["/bin/sh"]
+    args: ["-c", "while true; do echo Hello $${FRIEND}!; sleep 5; done"]
+  variables:
+    FRIEND: ${resources.env.NAME}
+
+resources:
+  env:
+    type: environment
+    properties:
+      NAME:
+        type: string
+        default: World
+```
+
+In the previous code snippet, the `variables` parameter is adjusted too far left. It should be aligned with the `image`, `command`, and `args` parameters.
+
+```yml {linenos=false,hl_lines=["11-12"]}
+apiVersion: score.dev/v1b1
+
+metadata:
+  name: hello-world
+
+containers:
+  hello:
+    image: busybox
+    command: ["/bin/sh"]
+    args: ["-c", "while true; do echo Hello $${FRIEND}!; sleep 5; done"]
+    variables:
+      FRIEND: ${resources.env.NAME}
+
+resources:
+  env:
+    type: environment
+    properties:
+      NAME:
+        type: string
+        default: World
+```
+
+Alternatively, you could have the map of the variables set incorrectly.
+
+```yml {linenos=false,hl_lines=["13-14"]}
+# snippet does not work
+# do not copy
+apiVersion: score.dev/v1b1
+
+metadata:
+  name: hello-world
+
+containers:
+  hello:
+    image: busybox
+    command: ["/bin/sh"]
+    args: ["-c", "while true; do echo Hello $${FRIEND}!; sleep 5; done"]
+    variables:
+      FRIEND: ${resources.friend.NAME}
+
+resources:
+  env:
+    type: environment
+    properties:
+      NAME:
+        type: string
+        default: World
+```
+
+The `FRIEND` parameter is set to, `resources.friend.NAME`, but that is not a valid path in the `resources` section.

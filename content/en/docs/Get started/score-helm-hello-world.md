@@ -1,10 +1,9 @@
 ---
-title: "Run your first Hello World program with score-humanitec"
-linkTitle: "score-humanitec"
+title: "Run your first Hello World program with score-helm"
+linkTitle: "score-helm"
 weight: 4
-draft: true
 description: >
-  Run your first Score implementation with a Hello World application for `score-humanitec`.
+  Run your first Score implementation with a Hello World application for `score-helm`.
 ---
 
 ## Overview
@@ -41,19 +40,15 @@ containers:
 ```
 
 {{% /tab %}}
-{{% tab name="Docker Compose" %}}
+{{% tab name="Helm Chart" %}}
 
 The output of `score-helm run -f ./score.yaml -o ./values.yaml`.
 
 ```yaml
-hello:
-  args:
-    - -c
-    - while true; do echo Hello World!; sleep 5; done
-  command:
-    - /bin/sh
-  image:
-    name: busybox
+containers:
+  container-id:
+    image:
+      name: busybox
 ```
 
 The following is a description of the previous command.
@@ -88,27 +83,55 @@ containers:
 ```
 
 {{% /tab %}}
-{{% tab name="Docker Compose" %}}
+{{% tab name="Helm Chart" %}}
 
 The output of `score-helm run -f ./score.yaml -o ./values.yaml`.
 
 ```yaml
-services:
-  hello-world:
-    command:
+containers:
+  hello:
+    args:
       - -c
       - while true; do echo Hello World!; sleep 5; done
-    entrypoint:
+    command:
       - /bin/sh
-    image: busybox
+    image:
+      name: busybox
 ```
 
 {{% /tab %}}
 {{< /tabs >}}
 
-Now, you can run `helm install --values ./values.yaml hello ./hello` for the single service definition.
+## Deploy to Helm
 
-The following is the output of the previous command.
+The following steps are specific to deploying to Helm.
+
+### Create Chart Template
+
+Now that the `values.yaml` file is ready, create a generic chart template.
+
+```bash
+helm create -p /examples/chart/ hello
+```
+
+### Deploy Helm Chart
+
+Run the following command to deploy the Helm Chart.
+
+```bash
+helm install --values ./values.yaml hello ./hello
+```
+
+The following are the outputs of the previous command.
+
+```bash
+NAME: hello
+LAST DEPLOYED: Thu Nov  01 00:00:00 2022
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+```
 
 ```bash
 # Source: hello/templates/deployment.yaml

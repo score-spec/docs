@@ -33,12 +33,13 @@ taxonomyPageHeader = []
 
 # Highlighting config
 pygmentsCodeFences = true
-pygmentsUseClasses = false
+pygmentsUseClasses = true
 # Use the new Chroma Go highlighter in Hugo.
-pygmentsUseClassic = false
+pygmentsUseClassic = true
 # pygmentsOptions = "linenos=table"
 # See https://help.farbox.com/pygments.html
-pygmentsStyle = "tango"
+pygmentsStyle = "manni"
+
 
 # Configure how URLs look like per section.
 [permalinks]

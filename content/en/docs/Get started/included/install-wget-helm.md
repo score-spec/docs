@@ -64,7 +64,6 @@ To export `PATH`, run the following command.
 export PATH=$PATH:/usr/local/score-spec
 ```
 
-
 ### Step 4: Verify installation
 
 To verify installation, run the following command.

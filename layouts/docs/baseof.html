@@ -3,6 +3,11 @@
   <head>
     {{ partial "head.html" . }}
   </head>
+  {{- if .IsHome -}}
+  <meta name="description" content="{{ site.Params.Description }}" />
+{{- else -}}
+  <meta name="description" content="{{ .Params.Description }}" />
+{{- end }}
   <body class="td-{{ .Kind }}{{ with .Page.Params.body_class }} {{ . }}{{ end }}">
     <header>
       {{ partial "navbar.html" . }}
