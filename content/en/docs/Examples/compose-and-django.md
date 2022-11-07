@@ -19,8 +19,6 @@ Before starting, install Compose.
 
 This guide relates to the Samples Repo from Docker.
 
-
-
 ## Score file
 
 ```yml
@@ -42,7 +40,6 @@ service:
       port: 8000
       # `targetPort` defaults to the port value.
       # `protocol` defaults to `TCP`.
-
 ```
 
 ## Compose file
