@@ -1,5 +1,12 @@
-{{ define "main" }}
-{{ with .Content }}
-{{ . }}
-{{ end }}
-{{ end }}
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{{ .Page.Title }}</title>
+    <meta name="description" content="{{ .Page.Summary }}">
+</head>
+
+<body>
+  {{ .Content }}
+</body>
+</html>
