@@ -35,7 +35,6 @@ resources:
         default: World
 ```
 
-
 {{% alert %}}
 
 > Resources need to map to the resource structure.

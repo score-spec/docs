@@ -54,7 +54,6 @@ You may need to run the previous command with elevated permissions.
 
 {{% /alert %}}
 
-
 **Results** You should see the following output.
 
 ```bash

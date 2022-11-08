@@ -15,7 +15,6 @@ Humanitec ensures Workload dependencies are available during deployment.
 
 Dependencies could be other Workloads, Services, Resources like: databases or DNS records, or environments.
 
-
 The following `score.yaml` file describes the following Workload.
 
 - `backend` that describes another Workload
