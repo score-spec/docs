@@ -1,5 +1,6 @@
 baseURL = "https://docs.score.dev"
 title = "Score"
+description = "Score provides a developer-centric and platform-agnostic Workload specification to improve developer productivity and experience. Score eliminates configuration mismanagement between local and remote environments."
 
 # Language settings
 contentDir = "content/en"
@@ -214,4 +215,7 @@ disable = false
 path = "github.com/google/docsy/dependencies"
 disable = false
 
-
+[sitemap]
+  changefreq = 'monthly'
+  filename = 'sitemap.xml'
+  priority = 0.5

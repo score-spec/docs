@@ -1,8 +1,7 @@
 ---
-title: "Set environment variables"
-linkTitle: "Environment variables"
+title: "Pass dynamic environment-specific configurations in score-compose"
+linkTitle: "score-compose"
 weight: 5
-draft: true
 description: >
     This section describes how to set environment variables for score-compose.
 ---
@@ -11,8 +10,10 @@ When `docker compose` runs a service, it is possible to pass some information fr
 
 This _hello world_ example provides and [Overview](#overview) section and two options to resolve your variable name:
 
-- [Environment variables in file](#environment-variables-in-file)
-- [Environment variables in your shell](#environment-variables-in-your-shell)
+- [Overview](#overview)
+- [Environment configuration in file](#environment-configuration-in-file)
+- [Environment configuration in your shell](#environment-configuration-in-your-shell)
+- [Learn more](#learn-more)
 
 ## Overview
 
@@ -65,9 +66,9 @@ services:
     image: busybox
 ```
 
-## Environment variables in file
+## Environment configuration in file
 
-It is recommended to declare your environment variables in a `.env` file.
+It is recommended to declare your environment configuration in a `.env` file.
 
 Use the `--env-file` flag with the `score-compose` CLI tool to additionally produce a `.env` file that can be used alongside the generated compose file.
 
@@ -82,7 +83,7 @@ The `--env-file` flag will create a file that can be used in combination with th
 The following is the output of the previous command in the `hello.env` file.
 
 ```yaml
-NAME=Hello
+NAME=World
 ```
 
 Run the `docker compose` command with the `--env-file` flag, specify the path to your `.env` file.
@@ -102,9 +103,9 @@ score-compose-hello-world-1  | Hello Hello!
 
 **Results** you've successfully passed an environment variable through an `.env` file.
 
-## Environment variables in your shell
+## Environment configuration in your shell
 
-To use environment variables in your shell, assign a value to your variable using your shell's built-in `export` command.
+To use environment configurations in your shell, assign a value to a variable using your shell's built-in `export` command.
 
 The following example sets the environment variable to `Hello`.
 
@@ -128,4 +129,4 @@ For more information, see the following links.
 
 - The [score-compose environment README.md](https://github.com/score-spec/score-compose/edit/main/examples/02-environment/README.md) file.
 - The [`.env`](https://docs.docker.com/compose/environment-variables/#using-the---env-file--option) option in the Docker Compose documentation.
-- The [Score Specification reference]({{< relref "reference/score-spec-reference" >}} "Score Specification")
+- The [Score Specification reference]({{< relref "../reference/score-spec-reference" >}} "Score Specification")

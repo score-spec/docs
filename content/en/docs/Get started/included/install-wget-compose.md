@@ -47,6 +47,12 @@ Extract the compressed Tar file.
 tar -xvzf ~/<your-path>/<score-platform>_<x.y.z>_<os_system>.tar
 ```
 
+{{% alert %}}
+
+You may need to run the previous command with elevated permissions.
+
+{{% /alert %}}
+
 **Results** You should see the following output.
 
 ```bash

@@ -32,6 +32,12 @@ Extract the compressed Tar file.
 tar -xvzf ~/Downloads/score-compose_0.1.0_darwin_arm64.tar.gz
 ```
 
+{{% alert %}}
+
+You may need to run the previous command with elevated permissions.
+
+{{% /alert %}}
+
 **Results** You should see the following output.
 
 ```bash

@@ -1,17 +1,19 @@
 ---
-title: "Set dynamic environment-specific configurations"
-linkTitle: "Set environment variables"
+title: "Pass dynamic environment-specific configurations"
+linkTitle: "Pass environment configurations"
 weight: 5
 description: >
-    This section describes how to set your environment variables.
+    This section describes how to pass environment configurations.
 ---
 
 ## Overview
 
 You can pass dynamic environment-specific configurations to the container during a deployment. The Score Specification enables a special environment resource type to be used to support such use cases.
 
-Environment variables are set within the [`container`]({{< relref "../reference/score-spec-reference.md" >}} "Container") section of your Score Specification file. These variables translate into environment variables as if you're deploying a {{< glossary_tooltip text="Workload" term_id="workload" >}} with a platform like Docker.
+Environment configurations are set within the [`container`]({{< relref "../reference/score-spec-reference.md" >}} "Container") section of your Score Specification file. These configurations act as environment variables when you're deploying a {{< glossary_tooltip text="Workload" term_id="workload" >}}.
 
 Values for those variables can be either hard coded (not recommended) or sourced from the resources properties through substitutions (recommended).
 
-For example, `${resources.my-db.host}`. Score supports declaring environment variables in an environment file or as a shell value.
+For example, `${resources.my-db.host}`. The Score Specification supports declaring environment variables in a configurations files or as a shell value.
+
+For more information, see [Environment specific configuration]({{< relref "../concepts/environment-configuration" >}})

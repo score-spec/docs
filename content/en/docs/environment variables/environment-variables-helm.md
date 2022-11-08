@@ -1,16 +1,16 @@
 ---
-title: "Set environment variables in score-helm"
+title: "Pass dynamic environment-specific configurations in score-helm"
 linkTitle: "score-helm"
 weight: 5
 description: >
     This section describes how to pass dynamic environment-specific configuration to the Workload during deployment.
 ---
 
-## Substitute environment variables
+## Substitute environment configurations
 
-To substitute environment variables, declare an environment variable in your `score.yaml` file.
+To use environment configurations, declare your variable names in your `score.yaml` file.
 
-In the following example, the `FRIEND` property sources its value from the `NAME` property in the `resources` section.
+In the following example, the `FRIEND` variable sources its value from the `NAME` property in the `resources` section.
 
 - `NAME`
 
@@ -40,17 +40,17 @@ resources:
 {{% alert %}}
 
 > Resources need to map to the resource structure.
-> To declare match resource in the Score file, the variable name, `resources.env.NAME` must map to the structure in `resource` section.
+> To declare environment variables in a Score file, the variable name, `resources.env.NAME` must map to the structure in `resource` section.
 
-For more information, see the [Resource section]({{< relref "/content/en/docs/reference/score-spec-reference.md#referencing-resources" >}}) in the Score reference.
+For more information, see the [Resource section]({{< relref "/content/en/docs/reference/score-spec-reference.md#referencing-resources" >}}) in the Score Specification reference.
 
 {{% /alert %}}
 
-## Environment variables
+## environment configurations file
 
-Declare default environment variables in file.
+Declare your environment configurations.
 
-1. In a `env.yaml` file, add your environment variables.
+1. Create a `env.yaml` file and add your environment variables.
 
 ```yaml
 env:
@@ -87,7 +87,7 @@ containers:
 Generate a Helm Chart and specify the name or absolute path to Helm starter scaffold.
 
 ```path
-helm create -p ../examples/chart hello
+helm create -p ../path-to-your/chart hello
 ```
 
 The following is the results from the previous command.

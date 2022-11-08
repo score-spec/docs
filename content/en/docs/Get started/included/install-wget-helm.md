@@ -48,6 +48,13 @@ Update the following example to include the path to your file.
 tar -xvzf ~/<your-path>/score-helm_<x.y.z>_<os_system>.tar
 ```
 
+{{% alert %}}
+
+You may need to run the previous command with elevated permissions.
+
+{{% /alert %}}
+
+
 **Results** You should see the following output.
 
 ```bash
