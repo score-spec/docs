@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Humanitec/score-docs.git"
+    "url": "git+https://github.com/score-spec/docs.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Humanitec/score-docs/issues"
+    "url": "https://github.com/score-spec/docs/issues"
   },
-  "homepage": "https://github.com/Humanitec/score-docs#readme",
+  "homepage": "https://github.com/score-spec/docs#readme",
   "devDependencies": {
     "autoprefixer": "^10.4.0",
     "hugo-extended": "^0.103.1",

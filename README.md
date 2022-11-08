@@ -1,61 +1,54 @@
-# Score
+![Score banner](/images/banner.png)
 
-_Score_ is a platform-agnostic specification for defining environment configuration for cloud based workloads
+# ![Score](/images/logo.svg) Score overview
 
-<!-- Score implementation (CLI) -->
+_Score_ provides a developer-centric and platform-agnostic workload specification to improve developer productivity and experience. Score eliminates configuration inconsistencies between local and remote environments.
 
-The _Score implementation (CLI)_ is a tool to synchronize your specification against your platform specific environment.
+The _Platform CLI_ is a conversion tool for application developers to generate an environment specific configuration. In combination with environment specific parameters, The Platform CLI tool can run your Workload in the target environment by generating the target platform's configuration file.
 
-## Installation
+## ![Installation](/images/install.svg) Installation
 
-Use the homebrew formula to install the _Score implementation (CLI)_.
+Read the docs on how to install the [Score implementation CLI](https://docs.score.dev/docs/get-started/install/).
 
-**score-compose**
+## ![Overview](/images/overview.svg) Overview
 
-```bash
-brew install score-compose
-```
+The Score Specification file resolves configuration inconsistencies between environments. Compose a `score.yaml` file that describes how to run your Workload. As a platform-agnostic declaration file, `score.yaml` creates a single source of truth on Workload profiles and works to integrate with any platform or tooling.
 
-## Repositories
-
-## Overview
-
-The Score Specification file resolves configuration mismanagement between environments. Compose a `score.yaml` file that describes how to run your workload. As a platform-agnostic declaration file, `score.yaml` creates a single source of truth on Workload profiles of requirements and works to integrate with any platform or tooling.
-
-### Use the Platform command-line tool
+### Use the Platform CLI tool
 
 ```bash
-# Generate compose.yaml with caws-compose
-score-compose run -f /tmp/caws.yaml -o /tmp/compose.yaml
+# Generate compose.yaml with score-compose
+score-compose run -f /tmp/score.yaml -o /tmp/compose.yaml
 
-# Run the service with docker compose
-docker compose -f /tmp/compose.yaml up backend
+# Run the service with docker-compose
+docker-compose -f /tmp/compose.yaml up backend
 ```
 
-## Score manifesto
+## ![Manifesto](/images/manifesto.svg) Score manifesto
 
 - Enable local development without risk of configuration inconsistencies in remote environments.
+- Offer default configuration while allowing for a large degree of customization.
 - Establish a single source of truth for application configuration.
-- Separate environment-specific from environment agnostic configuration.
-- Enable agnostic declaration of infrastructure dependencies.
-- Abstract away complexity without sacrificing transparency.
-- Make each program do one thing well. Build afresh rather than complicate old programs by adding new features.
-- Make each program do one thing well. Build afresh rather than complicate old programs by adding new features.
-- Offer sensible defaults while allowing for a large degree of customization.
-- As a developer, you shouldn’t have to worry about where your code is running.
+- Separate environment specific from environment agnostic configuration.
+- Enable environment agnostic declaration of infrastructure dependencies.
+- Enable application centric rather than infrastructure centric development.
+- Abstract away infrastructural complexity without sacrificing transparency.
 
-For more information, see the [Score manifesto]().
+For more information, see the [Score manifesto](https://score.dev/manifesto).
 
-## Get involved
+## ![Get involved](/images/get-involved.svg) Get involved
 
 - Give the project a star!
-- Write a [blog](score.dev/blog).
-- Our community channel on Slack.
-- Contact us via Email.
-- Provide feedback on our [road map and releases board](https://github.com/orgs/score-spec/projects).
-- See our [documentation](https://github.com/orgs/docs).
+- Contact us via Email:
+  - team@score.dev
+  - abuse@score.dev
+- See our [documentation](https://docs.score.dev).
 
-## Contributing
+## ![Contributing](/images/contributing.svg) Contributing
+
+<!-- - Write a [blog](score.dev/blog). -->
+- Provide feedback on our [road map and releases board](https://github.com/orgs/score-spec/projects).
+- Contribute.
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
 
@@ -67,17 +60,16 @@ If you have a suggestion that would make this better, please fork the repo and c
 4. Push to the Branch. `git push origin feature/feature-name`
 5. Open a Pull Request.
 
-Score is licensed under [Apache 2.0](LICENSE) and accepts contribution through GitHub pull requests.
-
 Read [CONTRIBUTING](CONTRIBUTING.md) for more information.
 
-## License
+## ![License](/images/license.svg) License
 
-[Apache 2.0](LICENSE)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-## Code of conduct
+## ![Code of conduct](/images/code-of-conduct.svg) Code of conduct
 
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
+
 
 ## Running the website locally
 

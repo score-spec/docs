@@ -1,7 +1,7 @@
 {
   "author": "",
   "bugs": {
-    "url": "https://github.com/Humanitec/score-docs/issues"
+    "url": "https://github.com/score-spec/docs/issues"
   },
   "comments": {
     "dependencies": {
@@ -29,13 +29,13 @@
     "postcss": "^8.4.16",
     "postcss-cli": "^10.0.0"
   },
-  "homepage": "https://github.com/Humanitec/score-docs#readme",
+  "homepage": "https://github.com/score-spec/docs#readme",
   "license": "Apache-2.0",
   "main": "none.js",
   "name": "score-technical-documentation",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Humanitec/score-docs.git"
+    "url": "git+https://github.com/score-spec/docs.git"
   },
   "scripts": {
     "build": "hugo server",
