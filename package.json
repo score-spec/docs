@@ -1,0 +1,47 @@
+{
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/score-spec/docs/issues"
+  },
+  "comments": {
+    "dependencies": {
+      "html-hint": "project",
+      "hugo-cli": "project"
+    },
+    "devDependencies": {
+      "autoprefixer": "project",
+      "hugo-extended": "project",
+      "postcss": "project",
+      "postcss-cli": "project"
+    }
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.6",
+    "html-hint": "^0.2.4",
+    "hugo-cli": "^0.11.0",
+    "hugo-lunr": "^0.0.4"
+  },
+  "description": "Score technical documentation.",
+  "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "hugo-extended": "^0.103.1",
+    "lunr": "^2.3.9",
+    "postcss": "^8.4.16",
+    "postcss-cli": "^10.0.0"
+  },
+  "homepage": "https://github.com/score-spec/docs#readme",
+  "license": "Apache-2.0",
+  "main": "none.js",
+  "name": "score-technical-documentation",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/score-spec/docs.git"
+  },
+  "scripts": {
+    "build": "hugo server",
+    "draft": "hugo server --buildDrafts",
+    "fmt": "dprint fmt",
+    "lint": "vale content/en/docs/**/* && dprint check"
+  },
+  "version": "0.0.1"
+}

@@ -1,0 +1,10 @@
+FROM klakegg/hugo:0.101.0-ext-alpine as docsy
+
+RUN apk update
+RUN apk add git
+COPY . /app/
+WORKDIR /app/
+RUN npm install --production=false
+RUN git config --global --add safe.directory /app/
+
+CMD ["serve", "--cleanDestinationDir", "--themesDir", "../..", "--disableFastRender", "--ignoreCache", "--watch"]

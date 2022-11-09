@@ -1,0 +1,3 @@
+User-agent: *
+
+SITEMAP: {{ "sitemap.xml" | absLangURL }}

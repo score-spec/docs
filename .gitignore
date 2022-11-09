@@ -1,0 +1,7 @@
+/public
+resources/
+node_modules/
+package-lock.json
+.hugo_build.lock
+.cspell/
+.vscode/ltex.dictionary.en-US.txt
