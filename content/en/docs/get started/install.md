@@ -6,7 +6,17 @@ description: >
   This section covers how to install the Score implementation (CLI).
 ---
 
-## Manual method
+## Fetch from GitHub
+
+The following method will fetch, compile, and install the Score implementation from GitHub.
+
+{{< tabs name="fetch_github" >}}
+{{< tab name="score-compose" include="included/fetch-score-compose-gh.md" />}}
+{{< tab name="score-helm" include="included/fetch-score-helm-gh.md" />}}
+{{< tab name="score-humanitec" include="included/fetch-score-humanitec-gh.md" />}}
+{{< /tabs >}}
+
+## Install through the manual method
 
 The following methods download the Score implementation (CLI) tool from the project's GitHub release page.
 
@@ -36,7 +46,7 @@ Select a Score implementation (CLI), uncompress the `zip` file, and move the bin
 - [score-helm](https://github.com/score-spec/score-helm/releases)
 - [score-humanitec](https://github.com/score-spec/score-humanitec/releases)
 
-## Upgrade
+## Upgrade the Score implementation CLI
 
 To upgrade the Score implementation (CLI), download the latest binary version and follow the [installation instruction](#manual-method).
 

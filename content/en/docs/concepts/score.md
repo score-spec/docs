@@ -2,6 +2,8 @@
 title: "Score"
 linkTitle: "Score"
 weight: 4
+description: >
+    Score is made up of two components, the Score Specification file and the Score implementation CLI tool.
 ---
 
 Score is made up of two components, the Score Specification file and the Score implementation CLI tool.

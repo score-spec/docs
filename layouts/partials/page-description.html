@@ -1,7 +1,13 @@
 {{ if .IsPage -}}
-  {{ .Summary | plainify | chomp -}}
-{{ else -}}
-  {{ with .Site.Params.description | plainify -}}
-    {{ . -}}
+{{ with .Description }}
+{{ . }}
+  {{ else }}
+  {{if .IsPage}}
+  {{ .Summary }}
+    {{ else }}
+      {{ with .Site.Params.description }}{{ . }}
+    {{ end }}
+  {{ end }}
+{{ end }}
   {{ end -}}
-{{ end -}}
+

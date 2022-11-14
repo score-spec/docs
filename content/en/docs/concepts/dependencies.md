@@ -2,6 +2,8 @@
 title: "Dependencies"
 linkTitle: "Dependencies"
 weight: 4
+description: >
+    The Score Specification can define one or more dependencies required by the Workload to run.
 ---
 
 The Score Specification can define one or more dependencies required by the Workload to run.
