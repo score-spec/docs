@@ -3,13 +3,7 @@
   <head>
     {{ partial "head.html" . }}
 
-  {{- if .IsHome -}}
-  <meta name="description"
-  content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}{{ .Site.Params.description }}{{end }}{{ end }} ">
-{{- else -}}
-<meta name="description"
-content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}{{ .Site.Params.description }}{{end }}{{ end }} ">
-{{- end }}
+
 </head>
 <title>
   {{- if .IsHome -}}

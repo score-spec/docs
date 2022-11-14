@@ -70,7 +70,7 @@ To resolve, remove the duplicated key.
 
 ## Resource variable names not resolving
 
-If your score.yaml template contains resource variables, and they do not resolve in your platform template, you may have indented incorrectly.
+If your `score.yaml` template contains resource variables, and they do not resolve in your platform template, you may have indented incorrectly.
 
 ```yml {linenos=false,hl_lines=["13-14"]}
 # snippet does not work
