@@ -13,7 +13,7 @@ description: >
 
 The Score Specification file configures into Helm values, including containers, dependencies, and other Helm specific values.
 
-These values are combined with a pre-built Helm chart template that are shipped with the application by default.
-This produces a valid Helm chart folder that can be distributed or deployed.
+These values are combined with a pre-built Helm directory that are shipped with the application by default.
+The `score-helm run` command produces a valid `values.yaml` file that can be distributed or deployed.
 
 <!-- Helm is a package manager for Kubernetes. >

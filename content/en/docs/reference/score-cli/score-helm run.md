@@ -1,7 +1,7 @@
 ---
 title: "score-helm run"
 linkTitle: "helm run"
-description: "Translates the Score file into a Helm Chart."
+description: "Translates the Score file into a Helm file."
 weight: 4
 ---
 
@@ -11,11 +11,11 @@ The following section describes configuration details for the `score-helm run` c
 
 ### `run`
 
-Translates the Score file into a Helm Chart.
+Translates the Score file into a Helm `values.yaml` file.
 
 ### Example
 
-The following is an example that translates a Score file into a Helm Chart.
+The following is an example that translates a Score file into a Helm `values.yaml` file.
 
 ```bash
 score-helm run --file ./score.yaml \

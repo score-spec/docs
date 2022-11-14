@@ -22,7 +22,7 @@ score-[platform] [command] [flag]
 Currently, supported platforms includes:
 
 - `score-compose` the implementation of a Docker Compose configuration.
-- `score-helm` the implementation of a Helm Chart configuration.
+- `score-helm` the implementation of a Helm `values.yaml` configuration.
 - `score-humanitec` the implementation of a Humanitec configuration.
 
 ## Command reference

@@ -82,12 +82,12 @@ containers:
       name: busybox
 ```
 
-### Generate a Helm Chart
+### Generate a Helm file
 
-Generate a Helm Chart and specify the name or absolute path to Helm starter scaffold.
+Generate a Helm `values.yaml` file and specify the name or absolute path to Helm starter scaffold.
 
 ```path
-helm create -p ../path-to-your/chart hello
+helm create -p ../path-to-your/values.yaml hello
 ```
 
 The following is the results from the previous command.
