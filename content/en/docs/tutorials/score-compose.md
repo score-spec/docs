@@ -37,7 +37,7 @@ services:
       POSTGRES_PASSWORD: PassW0rd
 ```
 
-## Score Configuration
+## Score configuration
 
 The following `Score.yaml` configuration can be used to define the service and its dependencies:
 

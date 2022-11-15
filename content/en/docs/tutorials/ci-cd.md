@@ -77,7 +77,7 @@ WORKDIR /opt/Score -demo
 ENTRYPOINT ["/opt/Score -demo/backend"]
 ```
 
-## Score Configuration
+## Score configuration
 
 Service Score configuration is defined in `./backend/Score.yaml`:
 
