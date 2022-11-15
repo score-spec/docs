@@ -12,8 +12,9 @@ The primary goal of the Score file is to quickly and easily describe how to comp
 
 ## Getting started
 
-To get started with Score, we recommend choice from one of the following Score implantation CLIs.
+To get started with Score, we recommend choosing from one of the following Score implantation CLIs.
 
+<!--
 The following table describes a path you can follow to learn more about Score.
 
 | Score Implementation               | Description                                                                                                                                                             |
@@ -26,3 +27,5 @@ The following table describes a path you can follow to learn more about Score.
 | `score-humanitec`                  | [Manage Extensions]({{< relref "/docs/extensions/_index.md" >}}): Manage routes and resources in your application.                                                      |
 | `score-compose`                    | [Declare dependencies]({{< relref "/docs/dependencies/_index.md" >}}): Describe how to set Workloads that are dependent on additional resources.                        |
 | `score-compose`                    | [Set environment variables]({{< relref "/docs/environment%20variables/_index.md" >}}): Set environment-specific configuration to run Workloads in a target environment. |
+
+-->
