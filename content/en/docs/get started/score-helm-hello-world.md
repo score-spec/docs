@@ -40,7 +40,7 @@ containers:
 ```
 
 {{% /tab %}}
-{{% tab name="Helm Chart" %}}
+{{% tab name="Helm file" %}}
 
 The output of `score-helm run -f ./score.yaml -o ./values.yaml`.
 
@@ -53,7 +53,7 @@ containers:
 
 The following is a description of the previous command.
 
-- `run` tells the CLI to translate the Score file to a Helm Chart.
+- `run` tells the CLI to translate the Score file to a Helm `values.yaml` file.
 - `-f` is the path to the Score file.
 - `-o` specifies the path to the `values.yaml` file.
 
@@ -83,7 +83,7 @@ containers:
 ```
 
 {{% /tab %}}
-{{% tab name="Helm Chart" %}}
+{{% tab name="Helm file" %}}
 
 The output of `score-helm run -f ./score.yaml -o ./values.yaml`.
 
@@ -106,17 +106,17 @@ containers:
 
 The following steps are specific to deploying to Helm.
 
-### Create Chart Template
+### Create `values.yaml` template
 
-Now that the `values.yaml` file is ready, create a generic chart template.
+Now that the `values.yaml` file is ready, create a generic values template.
 
 ```bash
-helm create -p /examples/chart/ hello
+helm create -p /examples/values.yaml hello
 ```
 
-### Deploy Helm Chart
+### Deploy Helm file
 
-Run the following command to deploy the Helm Chart.
+Run the following command to deploy the Helm `values.yaml` file.
 
 ```bash
 helm install --values ./values.yaml hello ./hello

@@ -29,7 +29,7 @@ mkdir -pv score-spec
 Extract the compressed Tar file.
 
 ```bash
-tar -xvzf ~/Downloads/score-helm_0.1.0_darwin_arm64.tar.gz
+tar -xvzf ~/Downloads/score-helm_0.1.0_darwin_arm64.tar.gz -C /usr/local/bin/
 ```
 
 {{% alert %}}
@@ -53,6 +53,8 @@ To export `PATH`, run the following command.
 ```bash
 export PATH=$PATH:/usr/local/bin/score-spec
 ```
+
+Future terminal sessions may require you add this path to your `~/.zshrc` or `~/.bashrc` file, if it isn’t there already.
 
 ### Step 4: Verify installation
 

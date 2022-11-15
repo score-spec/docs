@@ -1,11 +1,13 @@
-{{ with .Description | plainify -}}
-  {{ . -}}
-{{ else -}}
-  {{ if .IsPage -}}
-    {{ .Summary | plainify | chomp -}}
-  {{ else -}}
-    {{ with .Site.Params.description | plainify -}}
-      {{ . -}}
-    {{ end -}}
+{{ if .IsPage -}}
+{{ with .Description }}
+{{ . }}
+  {{ else }}
+  {{if .IsPage}}
+  {{ .Summary }}
+    {{ else }}
+      {{ with .Site.Params.description }}{{ . }}
+    {{ end }}
+  {{ end }}
+{{ end }}
   {{ end -}}
-{{ end -}}
+

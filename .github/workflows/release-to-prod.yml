@@ -15,6 +15,7 @@ jobs:
           humanitec-token: ${{ secrets.HUMANITEC_TOKEN_HUMANITEC_LABS }}
           organization: humanitec-labs
           file: Dockerfile-publish
+          image-name: score-docs
           auto-tag: true
 
   docs-build-and-push:
@@ -27,4 +28,5 @@ jobs:
           humanitec-token: ${{ secrets.HUMANITEC_TOKEN }}
           organization: documentation
           file: Dockerfile-publish
+          image-name: score-docs
           auto-tag: true
