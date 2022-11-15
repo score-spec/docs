@@ -36,7 +36,7 @@ score-helm_0.1.0 100%[===================>]   2.85M  5.28MB/s    in 0.5s
 In your terminal, enter the following to create the `score-spec` directory.
 
 ```bash
-cd /usr/local/
+cd /usr/local/bin/
 # create the directory if needed
 mkdir -pv score-spec
 ```
@@ -67,7 +67,7 @@ x score-helm
 To export `PATH`, run the following command.
 
 ```bash
-export PATH=$PATH:/usr/local/score-spec
+export PATH=$PATH:/usr/local/bin/score-spec
 ```
 
 ### Step 4: Verify installation
