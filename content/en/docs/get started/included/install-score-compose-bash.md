@@ -21,7 +21,7 @@ toc_hide: true
 In your terminal, enter the following to create the `score-spec` directory.
 
 ```bash
-cd /usr/local/
+cd /usr/local/bin/
 # create the directory if needed
 mkdir -pv score-spec
 ```
@@ -29,7 +29,7 @@ mkdir -pv score-spec
 Extract the compressed Tar file.
 
 ```bash
-tar -xvzf ~/Downloads/score-compose_0.1.0_darwin_arm64.tar.gz
+tar -xvzf ~/Downloads/score-compose_0.1.0_darwin_arm64.tar.gz -C /usr/local/bin/
 ```
 
 {{% alert %}}
@@ -51,8 +51,10 @@ x score-compose
 To export `PATH`, run the following command.
 
 ```bash
-export PATH=$PATH:/usr/local/score-spec
+export PATH=$PATH:/usr/local/bin/score-spec
 ```
+
+Future terminal sessions may require you add this path to your `~/.zshrc` or `~/.bashrc` file, if it isn’t there already.
 
 ### Step 4: Verify installation
 

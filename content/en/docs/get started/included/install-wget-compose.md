@@ -36,7 +36,7 @@ score-compose_<x.y.z> 100%[===================>]   2.85M  5.28MB/s    in 0.5s
 In your terminal, enter the following to create the `score-spec` directory.
 
 ```bash
-cd /usr/local/
+cd /usr/local/bin/
 # create the directory if needed
 mkdir -pv score-spec
 ```
@@ -44,7 +44,7 @@ mkdir -pv score-spec
 Extract the compressed Tar file.
 
 ```bash
-tar -xvzf ~/<your-path>/<score-platform>_<x.y.z>_<os_system>.tar
+tar -xvzf ~/<your-path>/<score-platform>_<x.y.z>_<os_system>.tar.gz
 ```
 
 {{% alert %}}
@@ -66,8 +66,11 @@ x score-compose
 To export `PATH`, run the following command.
 
 ```bash
-export PATH=$PATH:/usr/local/score-spec
+export PATH=$PATH:/usr/local/bin/score-spec
 ```
+
+Future terminal sessions may require you add this path to your `~/.zshrc` or `~/.bashrc` file, if it isn’t there already.
+
 
 ### Step 4: Verify installation
 

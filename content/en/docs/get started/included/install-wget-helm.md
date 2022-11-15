@@ -36,7 +36,7 @@ score-helm_0.1.0 100%[===================>]   2.85M  5.28MB/s    in 0.5s
 In your terminal, enter the following to create the `score-spec` directory.
 
 ```bash
-cd /usr/local/
+cd /usr/local/bin/
 # create the directory if needed
 mkdir -pv score-spec
 ```
@@ -45,7 +45,7 @@ Extract the compressed Tar file.
 Update the following example to include the path to your file.
 
 ```bash
-tar -xvzf ~/<your-path>/score-helm_<x.y.z>_<os_system>.tar
+tar -xvzf ~/<your-path>/score-helm_<x.y.z>_<os_system>.tar -C /usr/local/bin/
 ```
 
 {{% alert %}}
@@ -67,8 +67,10 @@ x score-helm
 To export `PATH`, run the following command.
 
 ```bash
-export PATH=$PATH:/usr/local/score-spec
+export PATH=$PATH:/usr/local/bin/score-spec
 ```
+
+Future terminal sessions may require you add this path to your `~/.zshrc` or `~/.bashrc` file, if it isn’t there already.
 
 ### Step 4: Verify installation
 

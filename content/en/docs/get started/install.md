@@ -8,6 +8,8 @@ description: >
 
 ## Fetch from GitHub
 
+Prerequisites: [Go](https://go.dev/dl/)
+
 The following method will fetch, compile, and install the Score implementation from GitHub.
 
 {{< tabs name="fetch_github" >}}
