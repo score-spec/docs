@@ -17,7 +17,7 @@ curl -L0 "https://github.com/score-spec/score-helm/releases/download/0.1.0/score
 tar xvzf score-helm.tgz
 ```
 
-The following the expected output.
+The following is the output of the previous command.
 
 ```bash
 x LICENSE
@@ -27,11 +27,13 @@ x score-helm
 
 ## Step 3. Clean up the tar file
 
+Clean up any unwanted files.
+
 ```bash
 rm score-helm.tgz README.md LICENSE
 ```
 
-# Step 4. Move the binary to PATH
+### Step 4. Move the binary to PATH
 
 Move the score-helm binary to a file location on your system `PATH`.
 
@@ -40,8 +42,4 @@ sudo mv ./score-helm /usr/local/bin/score-helm
 sudo chown root: /usr/local/bin/score-helm
 ```
 
-Results: Test to ensure you've installed the tool.
-
-```bash
-score-helm --help
-```
+**Results** You've successfully installed the Score implementation (CLI).

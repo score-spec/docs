@@ -17,7 +17,7 @@ curl -L0 "https://github.com/score-spec/score-compose/releases/download/0.1.0/sc
 tar xvzf score-compose.tgz
 ```
 
-The following the expected output.
+The following is the output of the previous command.
 
 ```bash
 x LICENSE
@@ -27,11 +27,13 @@ x score-compose
 
 ## Step 3. Clean up the tar file
 
+Clean up any unwanted files.
+
 ```bash
 rm score-compose.tgz README.md LICENSE
 ```
 
-# Step 4. Move the binary to PATH
+### Step 4. Move the binary to PATH
 
 Move the score-compose binary to a file location on your system `PATH`.
 
@@ -40,8 +42,4 @@ sudo mv ./score-compose /usr/local/bin/score-compose
 sudo chown root: /usr/local/bin/score-compose
 ```
 
-Results: Test to ensure you've installed the tool.
-
-```bash
-score-compose --help
-```
+**Results** You've successfully installed the Score implementation (CLI).

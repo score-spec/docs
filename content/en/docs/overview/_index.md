@@ -24,7 +24,7 @@ The Score Specification resolves configuration mismanagement between environment
 
 Developers use the Score Specification to describe their resources and environments consistently.
 
-Then they use the {{< glossary_tooltip text="Score implementation tool" term_id="platform-cli" >}} to generate their resources in an environment of choice.
+Then they use the {{< glossary_tooltip text="Score implementation tool" term_id="score" >}} to generate their resources in an environment of choice.
 
 For example, you might use a Postgres database in a local, development, staging, and production stage. Each stage of the deployment process connects to a different Postgres database. When composing your Score Specification file, describe the Postgres database once, and each environment will connect the appropriate Postgres database dynamically.
 
