@@ -18,7 +18,7 @@ Choose one of the following methods to continue.
   - [Install the binary on Windows](#install-the-binary-on-windows)
 - [Upgrade the Score implementation CLI](#upgrade-the-score-implementation-cli)
 
-## Install using Go
+## Install the binary using Go
 
 Using Go, you can fetch, compile, and install the Score implementation (CLI).
 
@@ -64,7 +64,7 @@ Choose Score implementation tool you want to install.
 {{< tab name="score-humanitec" include="included/install-score-humanitec-bash.md" />}}
 {{< /tabs >}}
 
-### Install the binary with on Windows
+### Install the binary on Windows
 
 Select a Score implementation (CLI), uncompress the `zip` file, and move the binary to your `PATH`.
 
