@@ -15,7 +15,7 @@ Choose one of the following methods to continue.
   - [Install the binary with curl on macOS](#install-the-binary-with-curl-on-macos)
   - [Install the binary with wget on macOS and Linux](#install-the-binary-with-wget-on-macos-and-linux)
   - [Install the binary through the GitHub downloads page on macOS and Linux](#install-the-binary-through-the-github-downloads-page-on-macos-and-linux)
-  - [Install the binary with on Windows](#install-the-binary-with-on-windows)
+  - [Install the binary on Windows](#install-the-binary-on-windows)
 - [Upgrade the Score implementation CLI](#upgrade-the-score-implementation-cli)
 
 ## Install using Go
