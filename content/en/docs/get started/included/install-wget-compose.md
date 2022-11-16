@@ -5,7 +5,7 @@ headless: true
 toc_hide: true
 ---
 
-### Step 1. Download
+### Step 1. Download the latest release
 
 Download with the CLI `wget` command.
 
@@ -31,7 +31,7 @@ Saving to: `<score-platform>_<x.y.z>_<os_system>.tar.gz`
 score-compose_<x.y.z> 100%[===================>]   2.85M  5.28MB/s    in 0.5s
 ```
 
-#### Step 2: Install into your `local` directory
+### Step 2: Install into your `local` directory
 
 In your terminal, enter the following to create the `score-spec` directory.
 
@@ -66,11 +66,10 @@ x score-compose
 To export `PATH`, run the following command.
 
 ```bash
-export PATH=$PATH:/usr/local/bin/score-spec
+export PATH=$PATH:/usr/local/bin/
 ```
 
 Future terminal sessions may require you add this path to your `~/.zshrc` or `~/.bashrc` file, if it isn’t there already.
-
 
 ### Step 4: Verify installation
 

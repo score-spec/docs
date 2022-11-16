@@ -5,7 +5,7 @@ headless: true
 toc_hide: true
 ---
 
-### Step 1. Download
+### Step 1. Download the latest release
 
 1. Open <https://github.com/score-spec/score-helm/releases> in your browser.
 
@@ -16,7 +16,7 @@ toc_hide: true
 
 4. By default, the tarball will be saved to your `~/Downloads` directory. If you choose to use a different location, you'll need to change that in the following steps.
 
-#### Step 2: Install into your `local` directory
+### Step 2: Install into your `local` directory
 
 In your terminal, enter the following to create the `score-spec` directory.
 
@@ -51,7 +51,7 @@ x score-helm
 To export `PATH`, run the following command.
 
 ```bash
-export PATH=$PATH:/usr/local/bin/score-spec
+export PATH=$PATH:/usr/local/bin/
 ```
 
 Future terminal sessions may require you add this path to your `~/.zshrc` or `~/.bashrc` file, if it isn’t there already.
