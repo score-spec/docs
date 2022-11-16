@@ -16,7 +16,7 @@ The following Score implementations support passing an override file as an argum
 
 ## Overview
 
-If an `overrides.score.yaml` file is found, the {{< glossary_tooltip text="Score implementation (CLI)" term_id="platform-cli" >}} applies overrides on the output. This occurs whether a flag is provided or not.
+If an `overrides.score.yaml` file is found, the {{< glossary_tooltip text="Score implementation (CLI)" term_id="score" >}} applies overrides on the output. This occurs whether a flag is provided or not.
 
 Any property of Score segment can be overridden.
 

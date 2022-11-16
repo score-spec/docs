@@ -10,7 +10,7 @@ You can install the Score implementation (CLI) in a variety of ways.
 
 Choose one of the following methods to continue.
 
-- [Install using Go](#install-the-binary-using-go)
+- [Install the binary using Go](#install-the-binary-using-go)
 - [Install using a manual method](#install-using-a-manual-method)
   - [Install the binary with curl on macOS](#install-the-binary-with-curl-on-macos)
   - [Install the binary with wget on macOS and Linux](#install-the-binary-with-wget-on-macos-and-linux)
@@ -78,7 +78,7 @@ To upgrade the Score implementation (CLI), download the latest binary version an
 
 <!-- ### macOS
 
-We recommend installing the {{< glossary_tooltip text="Score implementation (CLI)" term_id="platform-cli" >}} with [Homebrew](https://brew.sh/index.html).
+We recommend installing the {{< glossary_tooltip text="Score implementation (CLI)" term_id="score" >}} with [Homebrew](https://brew.sh/index.html).
 With Homebrew, you can access an extensive selection of libraries and applications, with their dependencies managed for you.
 
 ### Prerequisites
@@ -94,7 +94,7 @@ Install Homebrew according to the [official Homebrew installation instructions](
 
 On the Linux operating systems, use the built-in package manager to install Score:
 
-1. Open a terminal and run these commands to install the latest {{< glossary_tooltip text="Score implementation (CLI)" term_id="platform-cli" >}} from the officially maintained package archives:
+1. Open a terminal and run these commands to install the latest {{< glossary_tooltip text="Score implementation (CLI)" term_id="score" >}} from the officially maintained package archives:
 
    ```shell
    apt-add-repository ppa:score-compose
