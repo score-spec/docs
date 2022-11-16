@@ -10,7 +10,7 @@ You can install the Score implementation (CLI) in a variety of ways.
 
 Choose one of the following methods to continue.
 
-- [Install using Go](#install-using-go)
+- [Install using Go](#install-the-binary-using-go)
 - [Install using a manual method](#install-using-a-manual-method)
   - [Install the binary with curl on macOS](#install-the-binary-with-curl-on-macos)
   - [Install the binary with wget on macOS and Linux](#install-the-binary-with-wget-on-macos-and-linux)
