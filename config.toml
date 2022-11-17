@@ -122,7 +122,7 @@ github_project_repo = "https://github.com/score-spec/docs"
 github_branch = "main"
 
 # Google Custom Search Engine ID. Remove or comment out to disable search.
-gcs_engine_id = "d72aa9b2712488cc3"
+# gcs_engine_id = "d72aa9b2712488cc3"
 
 # Enable Algolia DocSearch
 algolia_docsearch = false
@@ -164,7 +164,7 @@ no = 'Sorry to hear that. Please <a href="https://github.com/USERNAME/REPOSITORY
 # add "hide_readingtime: true" to the page's front matter
 [params.ui.readingtime]
 enable = true
-disableSearch = true
+disableSearch = false
 
 [params.links]
 # End user relevant links. These will show up on left side of footer and in the community page if you have one.

@@ -1,10 +1,9 @@
 <!doctype html>
 <html lang="{{ .Site.Language.Lang }}" class="no-js">
-  <head>
+</head>
+<head>
     {{ partial "head.html" . }}
 
-
-</head>
 <title>
   {{- if .IsHome -}}
     Home | {{ .Site.Title }}
@@ -16,6 +15,9 @@
     {{ .Site.Title }}
   {{- end -}}
 </title>
+
+
+
   <body class="td-{{ .Kind }}{{ with .Page.Params.body_class }} {{ . }}{{ end }}">
     <header>
       {{ partial "navbar.html" . }}
