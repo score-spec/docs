@@ -2,9 +2,11 @@
 
 # ![Score](/images/logo.svg) Score overview
 
-_Score_ provides a developer-centric and platform-agnostic workload specification to improve developer productivity and experience. Score eliminates configuration inconsistencies between local and remote environments.
+Score is an open source, platform-agnostic, container-based workload specification. This means you can define your workload once with the _Score Specification_ and then use a _Score Implementation_ CLI to translate it to multiple platforms, such as Helm, Docker Compose or Google Cloud Run.
 
-The _Platform CLI_ is a conversion tool for application developers to generate an environment specific configuration. In combination with environment specific parameters, The Platform CLI tool can run your Workload in the target environment by generating the target platform's configuration file.
+In the example below, a `score.yaml` file is executed via [score-compose](https://github.com/score-spec/score-compose/tree/main/examples) to generate a `compose.yaml` file, which allows to spins up a container via Docker Compose. The same `score.yaml` file is then used to generate a helm `values.yaml` file to be installed onto Kubernetes.
+
+![demo.gif](/images/demo.gif)
 
 ## ![Installation](/images/install.svg) Installation
 
@@ -24,30 +26,32 @@ score-compose run -f /tmp/score.yaml -o /tmp/compose.yaml
 docker-compose -f /tmp/compose.yaml up backend
 ```
 
-## ![Manifesto](/images/manifesto.svg) Score manifesto
+## ![Why Score?](/images/manifesto.svg) Why Score?
 
-- Enable local development without risk of configuration inconsistencies in remote environments.
-- Offer default configuration while allowing for a large degree of customization.
-- Establish a single source of truth for application configuration.
-- Separate environment specific from environment agnostic configuration.
-- Enable environment agnostic declaration of infrastructure dependencies.
-- Enable application centric rather than infrastructure centric development.
-- Abstract away infrastructural complexity without sacrificing transparency.
+Cloud-native developers often struggle with configuration inconsistencies between environments. This gets even more complicated when the technology stack in each environment is different. What if you use Docker Compose for local development, but Helm Charts to deploy to the Kubernetes based development environment? Not only do you have to figure out Docker Compose and Helm, but you need to keep them in sync!
+This results in various bottlenecks along the application delivery lifecycle.
 
-For more information, see the [Score manifesto](https://score.dev/manifesto).
+  🎵 Tech & tools that require specialized knowledge and operational expertise are imposed on developers.
+
+  🎵 Different configuration rules, constructs and values between local and remote environments increase the risk of configuration inconsistencies.
+
+  🎵 Keeping a multitude of platform- and environment-specific configuration files in sync leads to repetitive configuration work.
+
+Score provides a single, easy to understand specification for each workload that describes its runtime requirements in a declarative manner. The `score.yaml` file allows to generate configuration in an automated, standardized and one directional way. By reducing the risk of wrongly specified or inconsistent configuration between environments are we hoping to foster focus and joy for developers in their day-to-day work.
+
+For more information, see [Why Score](https://score.dev/why-score).
 
 ## ![Get involved](/images/get-involved.svg) Get involved
 
 - Give the project a star!
-- Contact us via Email:
+- Contact us via email:
   - team@score.dev
   - abuse@score.dev
 - See our [documentation](https://docs.score.dev).
 
 ## ![Contributing](/images/contributing.svg) Contributing
 
-<!-- - Write a [blog](score.dev/blog). -->
-
+- Write a [blog](https://score.dev/blog).
 - Provide feedback on our [road map and releases board](https://github.com/orgs/score-spec/projects).
 - Contribute.
 

@@ -3,21 +3,7 @@
 </head>
 <head>
     {{ partial "head.html" . }}
-
-<title>
-  {{- if .IsHome -}}
-    Home | {{ .Site.Title }}
-  {{- else if .Params.hide_site_title -}}
-    {{ .Page.Title }}
-  {{- else if .Page.Title -}}
-    {{ .Page.Title }} | {{ .Site.Title }}
-  {{- else -}}
-    {{ .Site.Title }}
-  {{- end -}}
-</title>
-
-
-
+</head>
   <body class="td-{{ .Kind }}{{ with .Page.Params.body_class }} {{ . }}{{ end }}">
     <header>
       {{ partial "navbar.html" . }}
