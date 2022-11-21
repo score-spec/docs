@@ -99,8 +99,8 @@ resources:
 
   - `default`: specifies a value that can be defined for the property.
   - `type`: specifies a property type.
-  - `required`: specifies a property as required.
-  - `secret`: specifies a property value as a case-sensitive secret.
+  - `required`: specifies a property as required. If specified, but the value is missing or empty, the deployment will fail.
+  - `secret`: specifies a property value as a case-sensitive secret. Values can be sourced from Vaults.
 
 ### Reserved resource types
 
