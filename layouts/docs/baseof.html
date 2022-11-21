@@ -1,13 +1,13 @@
 <!doctype html>
 <html lang="{{ .Site.Language.Lang }}" class="no-js">
-</head>
-<head>
-    {{ partial "head.html" . }}
-</head>
+
+{{ partial "head.html" . }}
+
   <body class="td-{{ .Kind }}{{ with .Page.Params.body_class }} {{ . }}{{ end }}">
     <header>
       {{ partial "navbar.html" . }}
     </header>
+    
     <div class="container-fluid td-outer">
       <div class="td-main">
         <i class="far fa-search"></i>
