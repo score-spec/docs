@@ -24,7 +24,7 @@
     {{ .Site.Title }}
   {{- end -}}
 </title>
-<meta name="description" content="{{ template \"partials/page-description.html\" . }}">
+<meta name="description" content="{{ template "partials/page-description.html" . }}">
 
 {{ template "_internal/schema.html" . -}}
 
@@ -42,7 +42,7 @@
 {{ end -}}
 
 {{ if .Site.Params.prism_syntax_highlighting -}}
-<link rel="stylesheet" href="{{ \"css/prism.css\" | relURL }}"/>
+<link rel="stylesheet" href="{{ "css/prism.css" | relURL }}"/>
 {{ end -}}
 
 {{ partial "hooks/head-end.html" . -}}
