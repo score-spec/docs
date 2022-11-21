@@ -6,5 +6,6 @@ COPY . /app/
 WORKDIR /app/
 RUN npm install --production=false
 RUN git config --global --add safe.directory /app/
+RUN npm_config_yes=true npx pagefind --source "." --bundle-dir ../static/_pagefind
 
 CMD ["serve", "--cleanDestinationDir", "--themesDir", "../..", "--disableFastRender", "--ignoreCache", "--watch"]
