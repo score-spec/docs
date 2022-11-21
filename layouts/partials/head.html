@@ -25,7 +25,7 @@
   {{- end -}}
 </title>
 
-<meta name="description" content="{{ template "partials/page-description.html" . }}">
+<meta name="description" content="{{ .Site.Params.Description }}" /> 
 
 {{ template "_internal/schema.html" . -}}
 

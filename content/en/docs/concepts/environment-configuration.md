@@ -17,11 +17,10 @@ Score supports environment-specific configurations. The following list describes
 
 1. The Score Spec declares that a Workload is available on a TCP port.
 1. The configuration value is then sourced from the target's environment application settings.
-1. The Score Spec declares that the Workload is deployed in multiple replicas so that the application can scale up. 
+1. The Score Spec declares that the Workload is deployed in multiple replicas so that the application can scale up.
    1. The exact number of replicas can differ given the environment.
 1. The environment specific variables include a value for each of the environments.
-1. The Score Spec declares a container image, `name` and `tag`. 
+1. The Score Spec declares a container image, `name` and `tag`.
    1. The image pulls a `secret` to fetch the image from that registry, which is made available by the platform.
-
 
 For implementation details, see [Environment variables for Score Specification]({{< relref "/docs/environment%20variables/_index.md" >}} "Environment variables").
