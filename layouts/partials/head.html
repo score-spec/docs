@@ -15,13 +15,16 @@
 {{ partialCached "favicons.html" . }}
 <title>
   {{- if .IsHome -}}
-    {{ .Site.Title -}}
-  {{ else -}}
-    {{ with .Title }}{{ . }} | {{ end -}}
-    {{ .Site.Title -}}
-  {{ end -}}
+    Home | {{ .Site.Title }}
+  {{- else if .Params.hide_site_title -}}
+    {{ .Page.Title }}
+  {{- else if .Page.Title -}}
+    {{ .Page.Title }} | {{ .Site.Title }}
+  {{- else -}}
+    {{ .Site.Title }}
+  {{- end -}}
 </title>
-<meta name="description" content="{{ template "partials/page-description.html" . }}">
+<meta name="description" content="{{ template \"partials/page-description.html\" . }}">
 
 {{ template "_internal/schema.html" . -}}
 
@@ -39,7 +42,7 @@
 {{ end -}}
 
 {{ if .Site.Params.prism_syntax_highlighting -}}
-<link rel="stylesheet" href="{{ "css/prism.css" | relURL }}"/>
+<link rel="stylesheet" href="{{ \"css/prism.css\" | relURL }}"/>
 {{ end -}}
 
 {{ partial "hooks/head-end.html" . -}}
