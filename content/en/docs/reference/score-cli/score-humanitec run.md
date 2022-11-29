@@ -32,7 +32,7 @@ Specifies the application ID.
 
 ### `--deploy`
 
-Initiates a new draft deployment.
+Initiates a new delta deployment.
 
 ### `--env`
 
