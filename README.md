@@ -48,6 +48,7 @@ For more information, see [Why Score](https://score.dev/why-score).
   - team@score.dev
   - abuse@score.dev
 - See our [documentation](https://docs.score.dev).
+  - Build the [documentation site locally](content/en/README.md).
 
 ## ![Contributing](/images/contributing.svg) Contributing
 
@@ -65,12 +66,18 @@ If you have a suggestion that would make this better, please fork the repo and c
 4. Push to the Branch. `git push origin feature/feature-name`
 5. Open a Pull Request.
 
-Read [CONTRIBUTING](CONTRIBUTING.md) for more information.
+### Documentation
 
-## ![License](/images/license.svg) License
+You can find our documentation at [docs.score.dev](https://docs.score.dev/docs/).
+
+### Roadmap
+
+See [Roadmap](roadmap.md). You can [submit an idea](https://github.com/score-spec/spec/issues/new) anytime.
+
+### License
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-## ![Code of conduct](/images/code-of-conduct.svg) Code of conduct
+### Code of conduct
 
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
