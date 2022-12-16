@@ -5,7 +5,7 @@ weight: 1
 Victor_Hugo: "true"
 Focus_Keyword: "Learn about the Score Specification"
 description: >
-  Learn about Score, the Score implementation (CLIs), and how to eliminate configuration mismanagement.
+  Learn about Score, the Score implementation (CLI), and how to eliminate configuration mismanagement.
 ---
 
 ## What is Score?
