@@ -60,7 +60,7 @@ resources:
 
 The Resource section of the Score Specification allows users to describe the relationship between Workloads and their dependent resources in an environment-agnostic way. The purpose of the Resource section is to validate resource references in the same Score file.
 
-The resource could be anything. Score doesn't differentiate resources by types. The resource section can be used to provision multi-service setups with platforms like Docker Compose.
+Resources can be anything and Score doesn't differentiate resources by types. The resource section can be used to provision multi-service setups with platforms like Docker Compose.
 
 It is up to {{< glossary_tooltip text="Score implementation (CLI)" term_id="score" >}} to resolve the resource by name, type, or any other meta information available.
 
