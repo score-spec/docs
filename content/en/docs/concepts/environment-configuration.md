@@ -13,7 +13,7 @@ The Score Specification is defined in an environment-agnostic way, meaning it ca
 
 ### Use case
 
-Score supports dynamic configuration management. The following list describes a use case for Score's support of environment configuration.
+Score supports dynamic configuration management. For example:
 
 1. The Score Spec declares that a Workload is available on a TCP port.
 1. The configuration value is then sourced from the target's environment application settings.
