@@ -16,8 +16,6 @@ The _Score Specification_ is a developer-centric definition that describes how t
 
 The _Score implementation (CLI)_ is a conversion tool (such as score-compose or score-helm) for developers and teams used to generate platform-specific configuration (such as `docker-compose.yaml` or Helm `values.yaml`) from the Score Specification.
 
-![How Score works](/images/how-score-works.png)
-
 ## Who uses Score?
 
 Developers use the Score Specification to describe their Workload, including its resource and service dependencies.
