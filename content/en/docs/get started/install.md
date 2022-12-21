@@ -2,11 +2,9 @@
 title: "Install the Score implementation (CLI)"
 linkTitle: "Install"
 weight: 3
-description: >
-  This section covers how to install the Score implementation (CLI).
 ---
 
-You can install the Score implementation (CLI) in a variety of ways.
+You can install a Score implementation (CLI) in a variety of ways.
 
 Choose one of the following methods to continue.
 
@@ -32,11 +30,11 @@ Prerequisites: You must have [Go](https://go.dev/dl/) installed.
 
 ## Install using a manual method
 
-The following methods download the Score implementation (CLI) tool from the project's GitHub release page.
+The following methods download a Score Implementation (CLI) from the project's GitHub release page.
 
 ### Install the binary with curl on macOS
 
-Choose Score implementation tool you want to install.
+Choose the Score Implementation you want to install.
 
 {{< tabs name="curl_download" >}}
 {{< tab name="score-compose" include="included/install-score-compose-curl-mac.md" />}}
@@ -46,7 +44,7 @@ Choose Score implementation tool you want to install.
 
 ### Install the binary with wget on macOS and Linux
 
-Choose Score implementation tool you want to install.
+Choose the Score Implementation you want to install.
 
 {{< tabs name="wget_download" >}}
 {{< tab name="score-compose" include="included/install-wget-compose.md" />}}
@@ -56,7 +54,7 @@ Choose Score implementation tool you want to install.
 
 ### Install the binary through the GitHub downloads page on macOS and Linux
 
-Choose Score implementation tool you want to install.
+Choose the Score Implementation you want to install.
 
 {{< tabs name="github_download" >}}
 {{< tab name="score-compose" include="included/install-score-compose-bash.md" />}}
@@ -66,7 +64,7 @@ Choose Score implementation tool you want to install.
 
 ### Install the binary on Windows
 
-Select a Score implementation (CLI), uncompress the `zip` file, and move the binary to your `PATH`.
+Select a Score Implementation, uncompress the `zip` file, and move the binary to your `PATH`.
 
 - [score-compose](https://github.com/score-spec/score-compose/releases)
 - [score-helm](https://github.com/score-spec/score-helm/releases)

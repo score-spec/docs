@@ -1,14 +1,12 @@
 ---
-title: "Run your first Hello World program with score-helm"
+title: "Hello World with score-helm"
 linkTitle: "score-helm"
 weight: 4
-description: >
-  Run your first Score implementation with a Hello World application for `score-helm`.
 ---
 
 ## Overview
 
-The primary goal of the Score file is to quickly and easily describe how to compose and run {{< glossary_tooltip text="Workloads" term_id="workload" >}}. The following covers what you need to know to compose a Score file and run an application.
+The primary goal of the Score Specification is to quickly and easily describe how run a Workload. The following covers what you need to know to compose your first `score.yaml` file and run it with score-helm.
 
 {{% alert %}}
 
@@ -22,7 +20,7 @@ At it's core, the Score file needs a `name` and a `container` to run.
 
 In the following example, the Score tab shows the minimum configuration needed to run a Workload and the Docker Compose tab shows the output of the `score-helm run` command.
 
-The `score.yaml` file contains a Workload named `hello-world` and specifies a container image for Docker as `busybox`.
+The `score.yaml` file contains a Workload named `hello-world` and specifies a container image as `busybox`.
 
 {{< tabs >}}
 {{% tab name="Score" %}}
@@ -59,8 +57,6 @@ The following is a description of the previous command.
 
 {{% /tab %}}
 {{< /tabs >}}
-
-In the next step, you'll want to think about how to specify resources for your container.
 
 ## Containers
 
@@ -104,17 +100,17 @@ containers:
 
 ## Deploy to Helm
 
-The following steps are specific to deploying to Helm.
+The following steps are specific to deploying via Helm.
 
-### Create `values.yaml` template
+### Create a Helm chart
 
-Now that the `values.yaml` file is ready, create a generic values template.
+Now that the `values.yaml` file is ready, create a generic Helm chart.
 
 ```bash
 helm create -p /examples/values.yaml hello
 ```
 
-### Deploy Helm file
+### Install Helm `values.yaml`
 
 Run the following command to deploy the Helm `values.yaml` file.
 
@@ -166,4 +162,4 @@ spec:
             - while true; do echo Hello World!; sleep 5; done
 ```
 
-**Results** You've successfully created a Hello World application in Score and created a `deployment.yaml` file for Kubernetes.
+**Results** You've successfully defined a Hello World Workload in `score.yaml` and created a `deployment.yaml` file for Kubernetes via the score-helm Implementation.

@@ -1,14 +1,12 @@
 ---
-title: "Run your first Hello World program with score-humanitec"
+title: "Hello World with score-humanitec"
 linkTitle: "score-humanitec"
 weight: 4
-description: >
-  Run your first Score implementation with a Hello World application for `score-humanitec`.
 ---
 
 ## Overview
 
-The primary goal of the Score file is to quickly and easily describe how to compose and run {{< glossary_tooltip text="Workloads" term_id="workload" >}}. The following covers what you need to know to compose a Score file and run an application.
+The primary goal of the Score Specification is to quickly and easily describe how run a Workload. The following covers what you need to know to compose your first `score.yaml` file and run it with score-humanitec.
 
 {{% alert %}}
 
@@ -22,7 +20,7 @@ At it's core, the Score file needs a `name` and a `container` to run.
 
 In the following example, the Score tab shows the minimum configuration needed to run a Workload and the Docker Compose tab shows the output of the `score-humanitec run` command.
 
-The `score.yaml` file contains a Workload named `hello-world` and specifies a container image for Docker as `busybox`.
+The `score.yaml` file contains a Workload named `hello-world` and specifies a container image as `busybox`.
 
 {{< tabs >}}
 {{% tab name="Score" %}}
@@ -58,8 +56,6 @@ The following is a description of the previous command.
 
 {{% /tab %}}
 {{< /tabs >}}
-
-In the next step, you'll want to think about how to specify resources for your container.
 
 ## Containers
 
@@ -120,4 +116,4 @@ The output of `score-humanitec run -f ./score.yaml --env test-env`.
 {{% /tab %}}
 {{< /tabs >}}
 
-**Results** You've successfully created a Hello World application in Score and created a Humanitec Delta.
+**Results** You've successfully defined a Hello World Workload in `score.yaml` and created a Humanitec Delta via the score-humanitec Implementation.
