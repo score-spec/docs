@@ -162,4 +162,4 @@ spec:
             - while true; do echo Hello World!; sleep 5; done
 ```
 
-**Results** You've successfully defined a Hello World Workload in `score.yaml` and created a `deployment.yaml` file for Kubernetes via the score-helm Implementation.
+**Results** You've successfully defined a Hello World Workload in `score.yaml` and created a `deployment.yaml` file for Kubernetes through the score-helm Implementation.
