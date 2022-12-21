@@ -116,4 +116,4 @@ The output of `score-humanitec run -f ./score.yaml --env test-env`.
 {{% /tab %}}
 {{< /tabs >}}
 
-**Results** You've successfully defined a Hello World Workload in `score.yaml` and created a Humanitec Delta via the score-humanitec Implementation.
+**Results** You've successfully defined a Hello World Workload in `score.yaml` and created a Humanitec Delta through the score-humanitec Implementation.
