@@ -6,7 +6,7 @@ description: >
     A _Workload_ is a deployable application made up of one or more containers that runs in the same context and share resources, dependencies and networks.
 ---
 
-A _Workload_ is a deployable application made up of one or more containers that runs in the same context and share resources, dependencies and networks.
+A _Workload_ is a deployable application made up of one or more containers that run in the same context and share resources, dependencies and networks.
 
 <!-- more -->
 
