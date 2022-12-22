@@ -6,6 +6,8 @@ description: >
   Use overrides as a method of sharing common configurations across environments.
 ---
 
+An override is a way for you to customize or modify certain aspects the `score.yaml` file. Overrides can be used to make changes to directly to the Workload Definition without having to set up numerous files and Environment Profiles containing the same static values.
+
 By default, the Score implementation tool looks for a `score.yaml` file and overrides the declared defaults with in that file, if `overrides.score.yaml` exits.
 
 The following Score implementations support passing an override file as an argument.

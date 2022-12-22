@@ -1,14 +1,12 @@
 ---
-title: "Run a Hello World program with score-compose"
+title: "Hello World with score-compose"
 linkTitle: "score-compose"
 weight: 4
-description: >
-  Run your first Score implementation with a Hello World application for `score-compose`.
 ---
 
 ## Overview
 
-The primary goal of the Score file is to quickly and easily describe how to compose and run {{< glossary_tooltip text="Workloads" term_id="workload" >}}. The following covers what you need to know to compose a Score file and run an application.
+The primary goal of the Score Specification is to quickly and easily describe how run a Workload. The following covers what you need to know to compose your first `score.yaml` file and run it with score-compose.
 
 {{% alert %}}
 
@@ -22,7 +20,7 @@ At it's core, the Score file needs a `name` and a `container` to run.
 
 In the following example, the Score tab shows the minimum configuration needed to run a Workload and the Docker Compose tab shows the output of the `score-compose run` command.
 
-The `score.yaml` file contains a Workload named `hello-world` and specifies a container image for Docker as `busybox`.
+The `score.yaml` file contains a Workload named `hello-world` and specifies a container image as `busybox`.
 
 {{< tabs >}}
 {{% tab name="Score" %}}
@@ -52,8 +50,6 @@ services:
 
 {{% /tab %}}
 {{< /tabs >}}
-
-In the next step, you'll want to think about how to specify resources for your container.
 
 ## Containers
 
@@ -95,12 +91,12 @@ The following is a description of the previous command.
 
 - `run` tells the CLI to translate the Score file to a Docker Compose file.
 - `-f` is the path to the Score file.
-- `-o` specifies the path to the output file
+- `-o` specifies the path to the output file.
 
 {{% /tab %}}
 {{< /tabs >}}
 
-Now, you can run `docker compose up` for the single service definition.
+Now, you can run `docker compose up` to run the Workload as usual.
 
 The following is the output of the previous command.
 
@@ -111,4 +107,4 @@ Attaching to score-compose-hello-world-1
 score-compose-hello-world-1  | Hello World!
 ```
 
-**Results** You've successfully created your first Score implementation with a Hello World application and provisioned it through Docker.
+**Results** You've successfully run your first Score Implementation with a Hello World Workload and provisioned it through Docker.

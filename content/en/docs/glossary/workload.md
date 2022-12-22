@@ -3,15 +3,11 @@ title: Workload
 id: workload
 full_link: /docs/concepts/score/
 short_description: >
-    A Workload is the code that runs in a Kubernetes cluster.
+    A Workload is a deployable application made up of one or more containers that runs in the same context and share resources, dependencies and networks.
 aka:
 tags:
 - workload
 - fundamental
 ---
 
-A Workload is the code that runs in a Kubernetes cluster.
-
-<!--more-->
-
-It is commonly made up of one (or more) container and any configuration that is required.
+A Workload is a deployable application made up of one or more containers that runs in the same context and share resources, dependencies and networks.

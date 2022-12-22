@@ -1,25 +1,24 @@
 ---
 title: "score-humanitec delta"
-linkTitle: "humanitec draft"
+linkTitle: "humanitec delta"
 description: "Translates the Score file into a deployment delta for Humanitec."
-draft: true
 weight: 4
 ---
 
 ## Commands
 
-The following section describes configuration details for the `score-humanitec draft` command.
+The following section describes configuration details for the `score-humanitec delta` command.
 
-### `draft`
+### `delta`
 
 Translates the Score file into a deployment delta for Humanitec.
 
 ### Example
 
-The following is an example that translates a Score file into a deployment draft for Humanitec.
+The following is an example that translates a Score file into a deployment delta for Humanitec.
 
 ```bash
-score-humanitec draft -f score.yaml \
+score-humanitec delta -f score.yaml \
   --org organization_name \
   --app application_name \
   --env environment_type \
@@ -28,13 +27,17 @@ score-humanitec draft -f score.yaml \
 
 ## Flags
 
-The following are configuration details for `score-humanitec draft`.
+The following are configuration details for `score-humanitec delta`.
 
 {{% alert %}}
 
-> `--app`, `--env`, `--org`, and `--token` are required flags for the `score-humanitec draft` command.
+> `--app`, `--env`, `--org`, and `--token` are required flags for the `score-humanitec delta` command.
 
 {{% /alert %}}
+
+### `--api-url`
+
+Specifies a Humanitec API endpoint.
 
 ### `--app`
 
@@ -44,7 +47,7 @@ Required: true
 
 ### `--deploy`
 
-Trigger a new draft deployment at the end.
+Trigger a new delta deployment at the end.
 
 ### `--env`
 
@@ -68,7 +71,7 @@ Alias: `-f`
 
 ### `--help`
 
-Help for the `draft` command.
+Help for the `delta` command.
 
 Alias: `-h`
 
@@ -90,13 +93,11 @@ Specifies a Humanitec API authentication token.
 
 Required: true
 
-### `--url`
+### `--ui-url`
 
 Specifies a Humanitec API endpoint.
 
 Default: `https://api.humanitec.io`
-
-Required: true
 
 ### `--verbose`
 

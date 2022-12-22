@@ -2,18 +2,18 @@
 title: "Environment specific configuration"
 linkTitle: "Environment specific configuration"
 weight: 4
-description: Pass dynamic environment-specific configurations to the container during a deployment.
+description: Pass environment-specific configurations to the Workload during a deployment.
 ---
 
-Environment-specific configuration allows the Score Specification file to be combined with variables to run Workloads in the target environment.
+Environment-specific configuration is configuration that is expected to vary between environments. For example, a production Workload that uses managed service like Twillio might use a production API key to access the service. In the dev environment, a development API key might be used to avoid incurring cost with test traffic. We would not be surprised to see different API keys in different environments.
 
 ## Overview
 
-You can pass dynamic environment-specific configurations to the container during a deployment. The Score Specification enables a special environment resource type to be used to support such use cases.
+The Score Specification is defined in an environment-agnostic way, meaning it can be combined with environment-specific values to run Workloads in the target environment. For example: Your Score spec might specify a parameterised database connection string such as `postgres://${postgres.userna me}:postgres.password}@${postgres.host}:${postgres.port}/${postgres.name}` which is resolved in each environment the Workload is deployed to by injecting the according credentials.
 
 ### Use case
 
-Score supports environment-specific configurations. The following list describes a use case for Score's support of environment configuration.
+Score supports dynamic configuration management. For example:
 
 1. The Score Spec declares that a Workload is available on a TCP port.
 1. The configuration value is then sourced from the target's environment application settings.
