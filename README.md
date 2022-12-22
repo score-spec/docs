@@ -69,6 +69,7 @@ Formatted 1 file.
 ✨  Done in 0.13s.
 ```
 
+
 This project uses the [Vale](https://vale.sh) with a [Vale-compatible implementation of the Google Developer Documentation Style Guide](https://github.com/errata-ai/Google).
 
 To lint your doc run:
@@ -165,10 +166,16 @@ To resolve this issue, delete the `package-lock.json` file.
 rm package-lock.json
 ```
 
-## ![License](/images/license.svg) License
+You can find our documentation at [docs.score.dev](https://docs.score.dev/docs/).
+
+### Roadmap
+
+See [Roadmap](roadmap.md). You can [submit an idea](https://github.com/score-spec/spec/issues/new) anytime.
+
+### License
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-## ![Code of conduct](/images/code-of-conduct.svg) Code of conduct
+### Code of conduct
 
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
