@@ -1,9 +1,7 @@
 ---
 title: "Score Specification reference"
-linkTitle: "Score reference"
+linkTitle: "Score specification"
 weight: 9
-description: >
-  Reference documentation for the Score Specification.
 ---
 
 ## Score Specification definitions

@@ -1,6 +1,6 @@
 ---
 title: "score-humanitec run"
-linkTitle: "humanitec run"
+linkTitle: "score-humanitec run"
 description: "Translates the Score file into a deployment delta for Humanitec."
 weight: 4
 ---

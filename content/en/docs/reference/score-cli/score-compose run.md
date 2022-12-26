@@ -1,6 +1,6 @@
 ---
 title: "score-compose run"
-linkTitle: "compose run"
+linkTitle: "score-compose run"
 description: "Translates the Score file into a Docker Compose file."
 weight: 4
 ---

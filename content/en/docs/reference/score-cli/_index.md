@@ -1,12 +1,12 @@
 ---
 title: "Target Platform command reference overview"
-linkTitle: "CLI reference"
+linkTitle: "Score CLI"
 weight: 9
 description: >
   Overview and description for the Score implementation (CLI).
 ---
 
-The _Score implementation (CLI)_ is a command-line tool used to interact with a Score Specification. Use the Score implementation (CLI) to transform the platform-agnostic specification into multiple configuration files for the platform of your choice.
+The _Score implementation (CLI)_ is a command-line tool used to interact with a Score Specification. Use a Score implementation (CLI) to transform your `score.yaml` file into multiple configuration files for the platform of your choice.
 
 - [How to install the Score implementation (CLI)]({{< relref "/content/en/docs/Get started/install.md" >}} "Install")
 - [Set environment-specific configuration to run Workloads in a target environment]({{< relref "/docs/environment%20variables/_index.md" >}} "Set environment-specific configuration to run Workloads in a target environment.")
@@ -19,11 +19,10 @@ Construct your Score implementation (CLI) commands such that the command options
 score-[platform] [command] [flag]
 ```
 
-Currently, supported platforms includes:
+Available reference implementations include:
 
-- `score-compose` the implementation of a Docker Compose configuration.
-- `score-helm` the implementation of a Helm `values.yaml` configuration.
-- `score-humanitec` the implementation of a Humanitec configuration.
+- [score-compose](https://github.com/score-spec/score-compose) to generate a Docker Compose file.
+- [score-helm](https://github.com/score-spec/score-helm) to generate `values.yaml` file for your Helm chart.
 
 ## Command reference
 

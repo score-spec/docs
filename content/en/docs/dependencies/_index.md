@@ -6,11 +6,11 @@ description: >
   Describes how to set Workloads that are dependent on additional resources.
 ---
 
-Dependencies are user-defined resources that describe the relationship between Workloads.
+The Score Specification has a `resources` section that is used to describe Workload's dependencies. This mechanism can be used to spin-up multiservice setups.
 
-The Score Specification has a `resources` section that is used to describe Workload's dependencies. This mechanism can be used to spin-up multiservice setups with `docker compose`.
+## Example with score-compose
 
-For example, `service-a.yaml` score file describes a service that has two dependencies: `service-b` (another workload) and a PostgreSQL database instance:
+The `service-a.yaml` Score file below describes a service that has two dependencies: `service-b` (another workload) and a PostgreSQL database:
 
 ```yaml {linenos=false,hl_lines=["35-36"]}
 apiVersion: score.dev/v1b1
