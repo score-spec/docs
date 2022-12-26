@@ -1,16 +1,16 @@
 ---
-title: "Pass dynamic environment-specific configurations in score-humanitec"
+title: "Pass environment-specific configuration in score-humanitec"
 linkTitle: "score-humanitec"
 weight: 5
 description: >
-    This section describes how to pass dynamic environment-specific configuration to the Workload during deployment.
+    This section describes how to pass environment-specific configuration to the Workload during deployment.
 ---
 
 Humanitec provides a dynamic application configuration mechanism through the [Shared Application Values](https://docs.humanitec.com/using-humanitec/work-with-apps/define-app-values-and-secrets).
 
 ## Overview
 
-The Score Specification uses a special `environment` property type that is specified in the `containers` section.
+The Score Specification uses a special `environment` property type that is specified in the `resources` section.
 
 ```yaml
 apiVersion: score.sh/v1b1

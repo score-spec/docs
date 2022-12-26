@@ -1,9 +1,9 @@
 ---
-title: "Pass dynamic environment-specific configurations in score-helm"
+title: "Pass environment-specific configuration in score-helm"
 linkTitle: "score-helm"
 weight: 5
 description: >
-    This section describes how to pass dynamic environment-specific configuration to the Workload during deployment.
+    This section describes how to pass environment-specific configuration to the Workload during deployment.
 ---
 
 ## Substitute environment configurations
@@ -82,7 +82,7 @@ containers:
       name: busybox
 ```
 
-### Generate a Helm file
+### Generate a Helm values file
 
 Generate a Helm `values.yaml` file and specify the name or absolute path to Helm starter scaffold.
 

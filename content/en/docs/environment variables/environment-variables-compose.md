@@ -1,14 +1,14 @@
 ---
-title: "Pass dynamic environment-specific configurations in score-compose"
+title: "Pass environment-specific configuration in score-compose"
 linkTitle: "score-compose"
 weight: 5
 description: >
     This section describes how to set environment variables for score-compose.
 ---
 
-When `docker compose` runs a service, it is possible to pass some information from the host to the container through environment variables.
+When `docker compose` runs a service, it is possible to pass information from the host to the container through environment variables.
 
-This _hello world_ example provides and [Overview](#overview) section and two options to resolve your variable name:
+This _hello world_ example provides an [Overview](#overview) section and two options to resolve your variable name:
 
 - [Overview](#overview)
 - [Environment configuration in file](#environment-configuration-in-file)
@@ -17,7 +17,7 @@ This _hello world_ example provides and [Overview](#overview) section and two op
 
 ## Overview
 
-The Score Specification uses a special `environment` property type that is specified in the `containers` section.
+The Score Specification uses a special `environment` property type that is specified in the `resources` section.
 
 ```yaml {linenos=false,hl_lines=["16"]}
 apiVersion: score.dev/v1b1
@@ -66,7 +66,7 @@ services:
     image: busybox
 ```
 
-## Environment configuration in file
+## Environment configuration file
 
 It is recommended to declare your environment configuration in a `.env` file.
 
