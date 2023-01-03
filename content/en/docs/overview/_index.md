@@ -22,7 +22,7 @@ Developers use the Score Specification to describe their Workload, including its
 
 Then they run a {{< glossary_tooltip text="Score Implementation (CLI)" term_id="score" >}} to generate required resources in an environment of choice.
 
-For example, the same Score spec can be used to generate a docker-compose file for local development, Kubernetes manifests for deployment to a shared development environment and to a serverless platform such as Google Cloud Run for integration tests.
+For example, the same Score Specification can be used to generate a docker compose file for local development, Kubernetes manifests for deployment to a shared development environment and to a serverless platform such as Google Cloud Run for integration tests.
 
 ## Benefits
 
