@@ -2,6 +2,8 @@
 title: "Score Specification reference"
 linkTitle: "Score specification"
 weight: 9
+description: >
+    Reference implementation for the Score Specification.
 ---
 
 ## Score Specification definitions
@@ -242,19 +244,21 @@ resources:
 livenessProbe: ContainerProbeSpec
   scheme: string
   host: string
-  port: int
-  path: string
-  httpHeaders:
-      name: string
-      value: string
+  httpGet: map[string]interface{}
+      port: int
+      path: string
+      httpHeaders:        
+          name: string
+          value: string
 readinessProbe: ContainerProbeSpec
   scheme: string
   host: string
-  port: int
-  path: string
-  httpHeaders:
-      name: string
-      value: string
+  httpGet: map[string]interface{}
+      port: int
+      path: string
+      httpHeaders:        
+          name: string
+          value: string
 ```
 
 <!-- string workload containers -->
