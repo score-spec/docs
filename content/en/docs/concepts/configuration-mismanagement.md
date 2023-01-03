@@ -1,5 +1,5 @@
 ---
-title: "Platform-agnostic configuration management"
+title: "Configuration management"
 linkTitle: "Configuration mismanagement"
 weight: 4
 description: >

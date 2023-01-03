@@ -69,7 +69,6 @@ Formatted 1 file.
 ✨  Done in 0.13s.
 ```
 
-
 This project uses the [Vale](https://vale.sh) with a [Vale-compatible implementation of the Google Developer Documentation Style Guide](https://github.com/errata-ai/Google).
 
 To lint your doc run:

@@ -4,7 +4,7 @@ linkTitle: "CLI errors"
 weight: 9
 draft: false
 description: >
-  Overview and description for common errors in the Score implementation (CLI).
+  Overview and description for common errors in the Score reference implementation CLIs (score-compose, score-helm)
 ---
 
 When debugging errors, use the `--help` flag or turn on diagnostic message with the `--verbose` flag on the CLI.
@@ -37,9 +37,6 @@ validating workload spec: 1 error(s) decoding:
 
 For example, you may have your containers declared like the following.
 
-``bash
-To resolve this error, declare a container.
-
 ```yaml
 # snippet does not work.
 # do not copy
@@ -47,7 +44,7 @@ containers:
   image: busybox
 ```
 
-To resolve this error, use the following.
+To resolve this error, declare a container.
 
 ```yaml
 containers:
@@ -70,7 +67,7 @@ To resolve, remove the duplicated key.
 
 ## Resource variable names not resolving
 
-If your `score.yaml` template contains resource variables, and they do not resolve in your platform template, you may have indented incorrectly.
+If your `score.yaml` file contains variables that don't resolve, you may have indented incorrectly.
 
 ```yml {linenos=false,hl_lines=["13-14"]}
 # snippet does not work
@@ -149,4 +146,4 @@ resources:
         default: World
 ```
 
-The `FRIEND` parameter is set to, `resources.friend.NAME`, but that is not a valid path in the `resources` section.
+The `FRIEND` parameter is set to `resources.friend.NAME`, but that is not a valid path in the `resources` section.

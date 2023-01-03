@@ -6,5 +6,5 @@ toc_hide: true
 ---
 
 ```bash
-go install -v github.com/score-spec/score-helm/cli@latest
+go get -u github.com/score-spec/score-helm/cmd/score-helm@latest
 ```

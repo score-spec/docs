@@ -1,7 +1,7 @@
 ---
 title: "score-helm run"
-linkTitle: "helm run"
-description: "Translates the Score file into a Helm file."
+linkTitle: "score-helm run"
+description: "Translates the Score file into a Helm values file."
 weight: 4
 ---
 
