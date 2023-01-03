@@ -9,6 +9,7 @@ You can install a Score implementation (CLI) in a variety of ways.
 Choose one of the following methods to continue.
 
 - [Install the binary using Go](#install-the-binary-using-go)
+- [Install using Docker](#install-using-docker)
 - [Install using a manual method](#install-using-a-manual-method)
   - [Install the binary with curl on macOS](#install-the-binary-with-curl-on-macos)
   - [Install the binary with wget on macOS and Linux](#install-the-binary-with-wget-on-macos-and-linux)
@@ -26,6 +27,16 @@ Prerequisites: You must have [Go](https://go.dev/dl/) installed.
 {{< tab name="score-compose" include="included/fetch-score-compose-gh.md" />}}
 {{< tab name="score-helm" include="included/fetch-score-helm-gh.md" />}}
 {{< tab name="score-humanitec" include="included/fetch-score-humanitec-gh.md" />}}
+{{< /tabs >}}
+
+## Install using Docker
+
+This method will start and run a new Docker container based on the image provided.
+
+{{< tabs name="docker" >}}
+{{< tab name="score-compose" include="included/docker-score-compose.md" />}}
+{{< tab name="score-helm" include="included/docker-score-helm.md" />}}
+{{< tab name="score-humanitec" include="included/docker-score-humanitec.md" />}}
 {{< /tabs >}}
 
 ## Install using a manual method
