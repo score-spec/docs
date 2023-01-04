@@ -10,7 +10,7 @@ An override is a way for you to customize or modify certain aspects the `score.y
 
 By default, the Score implementation tool looks for a `score.yaml` file and overrides the declared defaults with in that file, if `overrides.score.yaml` exits.
 
-The following Score implementations support passing an override file as an argument.
+The following Score implementation CLIs support passing an override file as an argument.
 
 - `score-compose`
 - `score-helm`
