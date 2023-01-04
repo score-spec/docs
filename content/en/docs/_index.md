@@ -1,10 +1,10 @@
 +++
 title = "Score overview"
 linkTitle = "Score"
-abstract = "Score is an open source Workload Specification and CLI conversion tool used to eliminate configuration mismanagement between local and remote environments."
+abstract = "Score is an open source Workload Specification and CLI conversion tool used to eliminate configuration management between local and remote environments."
 +++
 
-_Score_ provides a developer-centric and platform-agnostic Workload specification to improve developer productivity and experience. Score eliminates configuration mismanagement between local and remote environments.
+_Score_ provides a developer-centric and platform-agnostic Workload specification to improve developer productivity and experience. Score eliminates configuration management between local and remote environments.
 
 ## Develop your Score Spec
 
