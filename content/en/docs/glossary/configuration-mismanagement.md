@@ -1,9 +1,9 @@
 ---
-title: Configuration mismanagement
+title: Configuration management
 id: config-drift
-full_link: /docs/concepts/configuration-mismanagement/
+full_link: /docs/concepts/configuration-management/
 short_description: >
-    Configuration mismanagement is the difference between how your local environment and remote environments are defined.
+    Configuration management is the difference between how your local environment and remote environments are defined.
 tags:
 - core
 - score
@@ -11,4 +11,4 @@ tags:
 
 <!-- short -->
 
-Configuration mismanagement is the difference between how your local environment and remote environments are defined.
+Configuration management is the difference between how your local environment and remote environments are defined.

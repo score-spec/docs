@@ -5,6 +5,8 @@ description: "Translates the Score file into a deployment delta for Humanitec."
 weight: 4
 ---
 
+The `score-humanitec delta` command prepares your Workload for deployment with Humanitec.
+
 ## Commands
 
 The following section describes configuration details for the `score-humanitec delta` command.
@@ -18,7 +20,7 @@ Translates the Score file into a deployment delta for Humanitec.
 The following is an example that translates a Score file into a deployment delta for Humanitec.
 
 ```bash
-score-humanitec delta -f score.yaml \
+score-humanitec delta -f ./score.yaml \
   --org organization_name \
   --app application_name \
   --env environment_type \

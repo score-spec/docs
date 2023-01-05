@@ -1,6 +1,6 @@
 baseURL = "https://docs.score.dev"
 title = "Score"
-description = "Score provides a developer-centric and platform-agnostic Workload specification to improve developer productivity and experience. Score eliminates configuration mismanagement between local and remote environments."
+description = "Score provides a developer-centric and platform-agnostic Workload specification to improve developer productivity and experience. Score eliminates configuration management between local and remote environments."
 
 # Language settings
 contentDir = "content/en"
