@@ -3,7 +3,7 @@ title: "Configuration management"
 linkTitle: "Configuration management"
 weight: 4
 description: >
- This section covers some concepts that are important to understand for day to day Score usage and operation.
+ _Configuration management_, also known as configuration drift, is the difference between how your environments are defined.
 ---
 
 _Configuration management_, also known as configuration drift, is the difference between how your environments are defined.
