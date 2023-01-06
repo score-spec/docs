@@ -3,10 +3,10 @@ title: "Configuration management"
 linkTitle: "Configuration management"
 weight: 4
 description: >
- This section covers some concepts that are important to understand for day to day Score usage and operation.
+ _Configuration management_, also known as configuration drift, is the difference between how your environments are defined.
 ---
 
-_Configuration management, also known as configuration drift, is the difference between how your environments are defined.
+_Configuration management_, also known as configuration drift, is the difference between how your environments are defined.
 
 In modern software development, applications are typically deployed as microservices, each part is packaged into its own container and promoted across different cloud environments. To run containerized Workloads, teams make use of container orchestration platforms. As a developer you might be using Docker Compose or Minikube for local development and deploy to remote environments that are based on systems such as Kubernetes, OpenShift, Nomad, or AWS ECS.
 
