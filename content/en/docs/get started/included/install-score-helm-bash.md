@@ -29,7 +29,7 @@ mkdir -pv score-spec
 Extract the compressed Tar file.
 
 ```bash
-tar -xvzf ~/Downloads/score-helm_0.1.0_darwin_arm64.tar.gz -C /usr/local/bin/
+tar -xvzf ~/Downloads/score-helm_0.2.0_darwin_arm64.tar.gz -C /usr/local/bin/
 ```
 
 {{% alert %}}

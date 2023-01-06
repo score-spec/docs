@@ -20,7 +20,7 @@ wget https://github.com/score-spec/<score-platform>/releases/download/<x.y.z>/<s
 For example, the following `wget` command downloads `score-helm` for macOS.
 
 ```bash
-wget https://github.com/score-spec/score-helm/releases/download/0.1.0/score-helm_0.1.0_darwin_arm64.tar.gz
+wget https://github.com/score-spec/score-helm/releases/download/0.1.0/score-helm_0.2.0_darwin_arm64.tar.gz
 ```
 
 **Results** You should see something similar to the following output.
@@ -28,7 +28,7 @@ wget https://github.com/score-spec/score-helm/releases/download/0.1.0/score-helm
 ```bash
 Saving to: `<score-platform>_<x.y.z>_<os_system>.tar.gz`
 
-score-helm_0.1.0 100%[===================>]   2.85M  5.28MB/s    in 0.5s
+score-helm_0.2.0 100%[===================>]   2.85M  5.28MB/s    in 0.5s
 ```
 
 ### Step 2: Install into your `local` directory
