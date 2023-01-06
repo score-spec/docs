@@ -9,7 +9,7 @@ Environment-specific configuration is configuration that is expected to vary bet
 
 ## Overview
 
-The Score Specification is defined in an environment-agnostic way, meaning it can be combined with environment-specific values to run Workloads in the target environment. For example: Your Score spec might specify a parameterised database connection string such as `postgres://${postgres.userna me}:postgres.password}@${postgres.host}:${postgres.port}/${postgres.name}` which is resolved in each environment the Workload is deployed to by injecting the according credentials.
+The Score Specification is defined in an environment-agnostic way, meaning it can be combined with environment-specific values to run Workloads in the target environment. For example: Your Score spec might specify a parameterised database connection string such as `postgres://${postgres.userna me}:postgres.password}@${postgres.host}:${postgres.port}/${postgres.name}` which is resolved in each environment the Workload is deployed to, by injecting the according credentials.
 
 ### Use case
 
