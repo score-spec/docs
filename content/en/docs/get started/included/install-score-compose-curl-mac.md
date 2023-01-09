@@ -8,7 +8,7 @@ toc_hide: true
 ### Step 1. Download the latest release
 
 ```bash
-curl -L0 "https://github.com/score-spec/score-compose/releases/download/0.1.0/score-compose_0.1.0_darwin_arm64.tar.gz" -o score-compose.tgz
+curl -L0 "https://github.com/score-spec/score-compose/releases/download/0.2.0/score-compose_0.2.0_darwin_arm64.tar.gz" -o score-compose.tgz
 ```
 
 ### Step 2. Unpack the latest release
