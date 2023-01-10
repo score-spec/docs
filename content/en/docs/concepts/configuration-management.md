@@ -2,6 +2,7 @@
 title: "Configuration management"
 linkTitle: "Configuration management"
 weight: 4
+draft: true
 description: >
  _Configuration management_, also known as configuration drift, is the difference between how your environments are defined.
 ---

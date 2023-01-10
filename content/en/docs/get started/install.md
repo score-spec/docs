@@ -8,7 +8,8 @@ You can install a Score implementation (CLI) in a variety of ways.
 
 Choose one of the following methods and a Score implementation tool to continue.
 
-- [Install the binary using Go](#install-the-binary-using-go)
+- [Install the Score CLI with brew](#install-the-score-cli-with-brew)
+- [Install the Score CLI using Go](#install-the-score-cli-using-go)
 - [Install using Docker](#install-using-docker)
 - [Install using a manual method](#install-using-a-manual-method)
   - [Install the binary with curl on macOS](#install-the-binary-with-curl-on-macos)
@@ -17,7 +18,19 @@ Choose one of the following methods and a Score implementation tool to continue.
   - [Install the binary on Windows](#install-the-binary-on-windows)
 - [Upgrade the Score implementation CLI](#upgrade-the-score-implementation-cli)
 
-## Install the binary using Go
+## Install the Score CLI with brew
+
+Using brew, you can install the Score implementation (CLI).
+
+Prerequisites: You must have [brew](https://brew.sh) installed.
+
+{{< tabs name="fetch_github" >}}
+{{< tab name="score-compose" include="included/install-score-compose-brew.md" />}}
+{{< tab name="score-helm" include="included/install-score-helm-brew.md" />}}
+{{< tab name="score-humanitec" include="included/install-score-humanitec-brew.md" />}}
+{{< /tabs >}}
+
+## Install the Score CLI using Go
 
 Using Go, you can fetch, compile, and install the Score implementation (CLI).
 

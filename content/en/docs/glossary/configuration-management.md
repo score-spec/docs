@@ -1,7 +1,7 @@
 ---
 title: Configuration management
 id: config-drift
-full_link: /docs/concepts/configuration-management/
+full_link: /docs/concepts/score/
 short_description: >
     Configuration management is the difference between how your local environment and remote environments are defined.
 tags:
