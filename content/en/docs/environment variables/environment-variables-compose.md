@@ -78,7 +78,7 @@ score-compose run -f score.yaml \
   --env-file hello.env
 ```
 
-The `--env-file` flag will create a file that can be used in combination with the Docker platform.
+The `--env-file` flag will create a file that can be used with the Docker platform.
 
 The following is the output of the previous command in the `hello.env` file.
 

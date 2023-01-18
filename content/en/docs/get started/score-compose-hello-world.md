@@ -6,7 +6,7 @@ weight: 4
 
 ## Overview
 
-The primary goal of the Score Specification is to quickly and easily describe how run a Workload. The following covers what you need to know to compose your first `score.yaml` file and run it with score-compose.
+The primary goal of the Score Specification is to quickly and easily describe how to run a Workload. The following covers what you need to know to compose your first `score.yaml` file and run it with score-compose.
 
 {{% alert %}}
 

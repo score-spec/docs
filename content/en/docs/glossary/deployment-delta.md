@@ -13,4 +13,4 @@ A Deployment Delta describes the changes that must be applied to one Deployment 
 
 <!--more-->
 
-Deployment Deltas can be created fully formed or combined through a PATCH method. They can also be generated from the difference between two Deployment Sets.
+Deployment Deltas can be created fully formed or combined through a `PATCH` method. They can also be generated from the difference between two Deployment Sets.

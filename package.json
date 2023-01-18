@@ -43,7 +43,6 @@
     "fmt": "dprint fmt",
     "lint": "vale content/en/docs/**/* && dprint check",
     "search": "hugo && npm_config_yes=true npx pagefind --public \"public\""
-    
   },
   "version": "0.0.1"
 }

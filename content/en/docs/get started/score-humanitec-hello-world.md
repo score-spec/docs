@@ -6,7 +6,7 @@ weight: 4
 
 ## Overview
 
-The primary goal of the Score Specification is to quickly and easily describe how run a Workload. The following covers what you need to know to compose your first `score.yaml` file and run it with score-humanitec.
+The primary goal of the Score Specification is to quickly and easily describe how to run a Workload. The following covers what you need to know to compose your first `score.yaml` file and run it with score-humanitec.
 
 {{% alert %}}
 
@@ -116,6 +116,6 @@ The output of `score-humanitec run -f ./score.yaml --env test-env`.
 {{% /tab %}}
 {{< /tabs >}}
 
-**Results** You've successfully defined a Hello World Workload in `score.yaml` and created a Humanitec Delta through the score-humanitec Implementation.
+**Results** You've successfully defined a Hello World Workload in `score.yaml` and created a Humanitec Delta through the `score-humanitec` Implementation.
 
-For information on how to deploy the Delta, see the [`score-humantiec delta`]({{< relref "docs/reference/score-cli/score-humanitec%20delta.md" >}}) reference.
+For information on how to deploy the Delta, see the [`score-humanitec delta`]({{< relref "docs/reference/score-cli/score-humanitec%20delta.md" >}}) reference.

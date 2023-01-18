@@ -12,7 +12,7 @@ In this tutorial, you'll learn to create a simple service based on the `busybox`
 
 ## Score file
 
-To prepare your Workload for Humaitec, compose a Score file.
+To prepare your Workload for Humanitec, compose a Score file.
 
 ```yaml
 apiVersion: score.dev/v1b1

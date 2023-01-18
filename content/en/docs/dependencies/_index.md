@@ -83,7 +83,7 @@ score-compose run -f ./service-b.yaml -o ./service-b.compose.yaml
 score-compose run -f ./service-a.yaml -o ./service-a.compose.yaml --env-file ./.env
 ```
 
-Resulting output file `service-a.compose.yaml` would include two dependencies on compose services `db` and `service-b`.
+The resulting output file `service-a.compose.yaml` would include two dependencies on compose services `db` and `service-b`.
 Both should be up and running before `service-a` could start.
 
 ```yaml
@@ -137,7 +137,7 @@ DB_USER=postgres
 DB_PASSWORD=postgres
 ```
 
-Now the files can be combined to build the application with `docker compose`.
+Now, the files can be combined to build the application with `docker compose`.
 
 ```bash
 docker compose -f ./compose.yaml \

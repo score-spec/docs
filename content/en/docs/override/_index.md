@@ -6,11 +6,11 @@ description: >
   Use overrides as a method of sharing common configurations across environments.
 ---
 
-An override is a way for you to customize or modify certain aspects the `score.yaml` file. Overrides can be used to make changes to directly to the Workload Definition without having to set up numerous files and Environment Profiles containing the same static values.
+An override is a way for you to customize or modify certain aspects of the `score.yaml` file. Overrides can be used to introduce changes directly to the Workload Definition without having to set up numerous files and Environment Profiles containing the same static values.
 
-By default, the Score implementation tool looks for a `score.yaml` file and overrides the declared defaults with in that file, if `overrides.score.yaml` exits.
+By default, the Score implementation tool looks for a `score.yaml` file and overrides the declared defaults within that file, if `overrides.score.yaml` exits.
 
-The following Score implementation CLIs support passing an override file as an argument.
+The following Score implementation CLI's support passing an override file as an argument.
 
 - `score-compose`
 - `score-helm`
@@ -28,7 +28,7 @@ If a configuration option is defined in both the default `score.yaml` file and t
 
 ## Override a command
 
-To override the defaults declared in your `score.yaml` file create a `overrides.score.yaml` file and declare your overrides.
+To override the defaults declared in your `score.yaml` file, create a `overrides.score.yaml` file and declare your overrides.
 
 1. Create a `score.yaml` file.
 

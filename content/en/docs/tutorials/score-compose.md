@@ -8,7 +8,7 @@ description: >
   A quick start for score-compose.
 ---
 
-# Local Setup with Docker Compose
+## Local Setup with Docker Compose
 
 Sample `compose.yaml` configuration for the backend microservice that uses PostgreSQL database:
 
