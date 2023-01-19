@@ -39,7 +39,7 @@ For more information, see [Score Specification]({{< relref "../concepts/score.md
 
 Because of this, define routes as a dependency, or as a resource, that can be referenced in other parts of the Score Specification file.
 
-Routes are just like any other resources. For example, a `route` would have the name `id` and a set of attributes like: `proto`, `port`, `prefix`, and `type`.
+Routes are just like any other resources. For example, a `route` would have the name `id` and a set of attributes like `proto`, `port`, `prefix`, and `type`.
 The values of the attributes are available to the Workload at the time of deployment, after the provision of resources takes place.
 
 ## Routes example

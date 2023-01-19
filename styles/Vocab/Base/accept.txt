@@ -1,5 +1,5 @@
 Humanitec
 glossary_tooltip
-score-humantiec
+score-humanitec
 score-helm
 score-compose

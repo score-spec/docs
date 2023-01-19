@@ -4,7 +4,7 @@ linkTitle: "CLI errors"
 weight: 9
 draft: false
 description: >
-  Overview and description for common errors in the Score reference implementation CLIs (score-compose, score-helm)
+  Overview and description of common errors in the Score reference implementation CLI's (score-compose, score-helm)
 ---
 
 When debugging errors, use the `--help` flag or turn on diagnostic message with the `--verbose` flag on the CLI.

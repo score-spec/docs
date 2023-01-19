@@ -8,4 +8,4 @@ description: >
 
 This section is recommended reading for anyone consuming or operating Score.
 
-Use the navigation menu or the items listed bellow to learn more about a topic.
+Use the navigation menu or the items listed below to learn more about a topic.

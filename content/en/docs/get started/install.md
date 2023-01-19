@@ -24,7 +24,7 @@ Using brew, you can install the Score implementation (CLI).
 
 Prerequisites: You must have [brew](https://brew.sh) installed.
 
-{{< tabs name="fetch_github" >}}
+{{< tabs name="brew" >}}
 {{< tab name="score-compose" include="included/install-score-compose-brew.md" />}}
 {{< tab name="score-helm" include="included/install-score-helm-brew.md" />}}
 {{< tab name="score-humanitec" include="included/install-score-humanitec-brew.md" />}}
@@ -36,7 +36,7 @@ Using Go, you can fetch, compile, and install the Score implementation (CLI).
 
 Prerequisites: You must have [Go](https://go.dev/dl/) installed.
 
-{{< tabs name="fetch_github" >}}
+{{< tabs name="go" >}}
 {{< tab name="score-compose" include="included/fetch-score-compose-go.md" />}}
 {{< tab name="score-helm" include="included/fetch-score-helm-go.md" />}}
 {{< tab name="score-humanitec" include="included/fetch-score-humanitec-go.md" />}}
@@ -88,7 +88,7 @@ Choose the Score Implementation you want to install.
 
 ### Install the binary on Windows
 
-Select a Score Implementation, uncompress the `zip` file, and move the binary to your `PATH`.
+Select a Score Implementation, decompress the `zip` file, and move the binary to your `PATH`.
 
 - [score-compose](https://github.com/score-spec/score-compose/releases)
 - [score-helm](https://github.com/score-spec/score-helm/releases)

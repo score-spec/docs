@@ -33,11 +33,11 @@ The Score implementation (CLI) has two distinct parts.
 
 ## Global modifiers
 
-The following are a list of global modifiers.
+The following is a list of global modifiers.
 
 ### `--help`
 
-Provides more information from the CLI.
+Provides additional information from the CLI.
 
 Alias: `-h`
 

@@ -13,12 +13,12 @@ description: >
 
 Humanitec ensures Workload dependencies are available during deployment.
 
-Dependencies could be other Workloads, Services, Resources like: databases or DNS records, or environments.
+Dependencies could be other Workloads, Services, Resources like databases or DNS records, or environments.
 
 The following `score.yaml` file describes the following Workload.
 
 - `backend` that describes another Workload
-- PostgresSQL database instance
+- Postgres SQL database instance
 - Shared DNS record
 
 ```yaml

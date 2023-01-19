@@ -1,7 +1,7 @@
 +++
 title = "Score overview"
 linkTitle = "Score"
-abstract = "Score is an open source Workload Specification and CLI conversion tool used to eliminate configuration management between local and remote environments."
+abstract = "Score is an open-source Workload Specification and CLI conversion tool used to eliminate configuration management between local and remote environments."
 +++
 
 _Score_ provides a developer-centric and platform-agnostic Workload specification to improve developer productivity and experience. Score eliminates configuration management between local and remote environments.
@@ -22,8 +22,8 @@ To get started, you'll want to:
 - Learn how to [install the Score implementation (CLI)]({{< relref "/install" >}} "Learn to install").
 - Review the [reference material]({{< relref "reference" >}} "Reference content").
 
-Beyond the Getting started section, you can learn more about Score and how to implement it into your own workflows.
+Beyond the getting started section, you can learn more about Score and how to implement it into your own workflows.
 
 - [Concepts](/docs/concepts): Recommended reading for anyone consuming or operating Score.
 - [Manage extensions](/docs/extensions): Learn about extension mechanisms.
-- [Set environment variables]({{< relref "environment%20variables/_index.md" >}}) Learn how to set and manage environment specific variables.
+- [Set environment variables]({{< relref "environment%20variables/_index.md" >}}) Learn how to set and manage environment-specific variables.

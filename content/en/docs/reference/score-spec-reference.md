@@ -62,7 +62,7 @@ resources:
 
 The Resource section of the Score Specification allows users to describe the relationship between Workloads and their dependent resources in an environment-agnostic way. The purpose of the Resource section is to validate resource references in the same Score file.
 
-Resources can be anything and Score doesn't differentiate resources by types. The resource section can be used to provision multi-service setups with platforms like Docker Compose.
+Resources can be anything and Score doesn't differentiate resources by types. The resource section can be used to provision multiservice setups with platforms like Docker Compose.
 
 It is up to {{< glossary_tooltip text="Score implementation (CLI)" term_id="score" >}} to resolve the resource by name, type, or any other meta information available.
 
@@ -118,7 +118,7 @@ In general, `resource-type` has no meaning for Score, but it can affect how the 
 
 Resources are declared in the `containers` section of the Score file and must map to the YAML structure defined in the `resources` section to properly resolve.
 
-For example the following resource would map to the structure of the resource section.
+For example, the following resource would map to the structure of the resource section.
 
 ```yaml
 ${resources.resource-name.property-name}
@@ -140,7 +140,7 @@ resources:
 
 It is up to the Score implementation (CLI) on how and when the resource reference is resolved, and when the referenced values' substitution occurs.
 
-For example, `score-compose` would convert resource properties into environment variables references in resulting `compose.yaml` configuration file, and produce a reference `.env` file that the user can then populate. For more information, see the [.env file](https://docs.docker.com/compose/environment-variables/#the-env-file).
+For example, `score-compose` would convert resource properties into environment variables references in a resulting `compose.yaml` configuration file, and produce a reference `.env` file that the user can then populate. For more information, see the [.env file](https://docs.docker.com/compose/environment-variables/#the-env-file).
 
 The following Score file contains a single resource.
 
@@ -366,3 +366,4 @@ containers:
         - name: Custom-Header
           value: Awesome
 ```
+
