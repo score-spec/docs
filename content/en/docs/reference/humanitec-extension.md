@@ -60,8 +60,10 @@ spec:
             type: prefix
             port: 80
 resources:
-  db:
-    scope: external
   dns:
+    type: dns
     scope: shared
+  db:
+    type: mysql
+    ...
 ```
