@@ -2,7 +2,7 @@ name: Release to Dev Environment
 
 on:
   push:
-    branches: [**]
+    branches: [main, dev]
 
 jobs:
   build-and-push:
