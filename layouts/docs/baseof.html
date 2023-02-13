@@ -5,11 +5,9 @@
   >
     <header>
       {{ partial "head.html" . }} {{ partial "navbar.html" . }}
-      <br />
-      <br />
-      <br />
+      {{ partial "hooks/head-end.html" . }}
     </header>
-    {{ partial "hooks/head-end.html" . }}
+
 
     <div class="container-fluid td-outer">
       <div class="td-main">
