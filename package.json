@@ -16,6 +16,7 @@
     }
   },
   "dependencies": {
+    "@docsearch/js": "3",
     "@popperjs/core": "^2.11.6",
     "html-hint": "^0.2.4",
     "hugo-cli": "^0.11.0",
