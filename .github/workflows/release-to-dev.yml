@@ -2,7 +2,9 @@ name: Release to Dev Environment
 
 on:
   push:
-    branches: [main]
+    branches: [main, dev]
+  release:
+    types: [push, released]
 
 jobs:
   build-and-push:
