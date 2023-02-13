@@ -1,8 +1,8 @@
 name: Release to Dev Environment
 
 on:
-  pull_request_target:
-     types:  [opened]
+  push:
+    branches: [**]
 
 jobs:
   build-and-push:
