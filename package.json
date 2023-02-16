@@ -41,8 +41,7 @@
     "build": "hugo server",
     "draft": "hugo server --buildDrafts",
     "fmt": "dprint fmt",
-    "lint": "vale content/en/docs/**/* && dprint check",
-    "search": "hugo && npm_config_yes=true npx pagefind --public \"public\""
+    "lint": "vale content/en/docs/**/* && dprint check"
   },
   "version": "0.0.1"
 }

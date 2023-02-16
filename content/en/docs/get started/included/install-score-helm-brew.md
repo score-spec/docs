@@ -5,6 +5,6 @@ headless: true
 toc_hide: true
 ---
 
-```brew
+```bash
 brew install score-spec/tap/score-helm
 ```
