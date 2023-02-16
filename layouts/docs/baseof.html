@@ -1,18 +1,14 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.Language.Lang }}" class="no-js">
+  {{ partial "head.html" . }}
+
   <body
     class="td-{{ .Kind }}{{ with .Page.Params.body_class }} {{ . }}{{ end }}"
   >
-    <header>
-      {{ partial "head.html" . }} {{ partial "navbar.html" . }}
-      {{ partial "hooks/head-end.html" . }}
-    </header>
-
+    <header>{{ partial "navbar.html" . }} {{ partial "head.html" . }}</header>
 
     <div class="container-fluid td-outer">
       <div class="td-main">
-        <div class="book-sticky-banner__container"></div>
-
         <div class="row flex-xl-nowrap mt-3">
           <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
             {{ partial "sidebar.html" . }}
@@ -30,6 +26,6 @@
       </div>
       {{ partial "footer.html" . }}
     </div>
-    {{ partial "scripts.html" . }} {{ partial "hooks/body-end" . }}
+    {{ partial "hooks/body-end" . }} {{ partial "scripts.html" . }}
   </body>
 </html>

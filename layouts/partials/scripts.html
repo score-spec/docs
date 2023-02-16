@@ -52,7 +52,6 @@ window.markmap = {
     {{ printf "onload='renderMathInElement(%s, %s);'" (( .Site.Params.katex.html_dom_element | default "document.body" ) | safeJS ) ( printf "%s" ( $.Site.Params.katex.options | jsonify )) | safeHTMLAttr }}></script>
 {{ end }}
 
-
 {{ $jsBase := resources.Get "js/base.js" }}
 {{ $jsAnchor := resources.Get "js/anchor.js" }}
 {{ $jsCopycode := resources.Get "js/copycode.js" }}
@@ -75,5 +74,4 @@ window.markmap = {
 <!-- scripts for prism -->
 <script src='{{ "/js/prism.js" | relURL }}'></script>
 {{ end }}
-
 
