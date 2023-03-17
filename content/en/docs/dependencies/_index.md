@@ -10,7 +10,7 @@ The Score Specification has a `resources` section that is used to describe Workl
 
 ## Example with score-compose
 
-The `service-a.yaml` Score file below describes a service that has two dependencies: `service-b` (another workload) and a PostgreSQL database:
+The `service-a.yaml` Score file below describes a service that has two dependencies: `service-b` (another Workload) and a PostgreSQL database:
 
 ```yaml {linenos=false,hl_lines=["35-36"]}
 apiVersion: score.dev/v1b1
@@ -51,7 +51,7 @@ resources:
     type: workload
 ```
 
-The second workload is described in the `service-b.yaml` file and doesn't have additional dependencies.
+The second Workload is described in the `service-b.yaml` file and doesn't have additional dependencies.
 
 ```yaml
 apiVersion: score.dev/v1b1
