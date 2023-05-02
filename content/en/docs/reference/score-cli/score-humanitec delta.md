@@ -47,6 +47,10 @@ Specifies the application ID.
 
 Required: true
 
+### `--delta`
+
+The ID of an existing delta in Humanitec, you want to merge the generated delta to.
+
 ### `--deploy`
 
 Trigger a new delta deployment at the end.
