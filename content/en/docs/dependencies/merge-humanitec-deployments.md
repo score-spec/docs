@@ -7,17 +7,17 @@ description: >
   Describes how to set merge Deployment Deltas.
 ---
 
-As a developer, you may need to deploy multiple Workloads for your application simultaneously. Deploying multiple Workloads can be a complex process, as it requires you to manage the dependencies between the different Workloads. To simplify this process, you can use the --delta flag to deploy multiple Workloads as a single release.
+As a developer, you may need to deploy multiple Workloads for your application simultaneously. Deploying multiple Workloads can be a complex process, as it requires you to manage the dependencies between the different Workloads. To simplify this process, you can use the `--delta` flag to deploy multiple Workloads as a single release.
 
-In this tutorial, we will show you how to merge two workload deployments together using the --delta flag. We will use the Score implementation as an example to demonstrate the process, and you can follow along with the steps to merge your workload deployments seamlessly.
+In this tutorial, we will show you how to merge two workload deployments together using the `--delta` flag, but creating two Score files and then merging the deployment deltas.
 
 Before we dive into the tutorial, it's important to understand what a deployment delta is. A deployment delta is a representation of the changes made to your application deployment. It's a small, lightweight file that captures the changes between two deployments. By using deployment deltas, you can apply incremental changes to your application deployments, which makes it easier to manage and track changes.
 
-Now, let's get started with merging two workload deployments together using the --delta flag.
+Now, let's get started with merging two workload deployments together using the `--delta` flag.
 
 ## Example
 
-First, create a sample Score implementation, for example, `score-one.yaml`. This Score implementation contains one Workload with one container that runs an Ubuntu image.
+First, create a Score file, for example, `score-one.yaml`. This file contains one Workload with one container that runs an Ubuntu image.
 
 ```yml
 apiVersion: score.dev/v1b1
@@ -30,7 +30,6 @@ containers:
 ```
 
 Next, generate and upload the deployment delta to Humanitec using the following command:
-
 
 ```bash
 score-humanitec delta -f ./score-one.yaml \
@@ -77,9 +76,7 @@ score-humanitec delta -f ./score-one.yaml \
   --delta <you-delta-string>
 ```
 
-The output of the command will be a deployment delta file that contains the changes made to your application deployment. This deployment delta file can be used to apply the changes to your application deployment.
-
-
+The output of the command will be a delta file that contains the changes made to your application. This delta can be used to apply the changes to the target environment.
 
 ```json
 {
