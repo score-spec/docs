@@ -89,6 +89,12 @@ Specifies the path to the override file.
 
 Default: `./overrides.score.yaml`
 
+### `--retry`
+
+If set, the command will retry the deployment if it fails.
+
+Default: `false`
+
 ### `--token`
 
 Specifies a Humanitec API authentication token.
