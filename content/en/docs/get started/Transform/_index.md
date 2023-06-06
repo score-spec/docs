@@ -24,10 +24,6 @@ container:
 resources:
   database:
     type: postgres
-    properties:
-      host:
-        required: true
-        default: localhost
       port:
         required: true
         default: 5432

@@ -43,9 +43,6 @@ containers:
 resources:
   db:
     type: postgres
-    properties:
-      host:
-        default: localhost
       port:
         default: 5432
       name:
@@ -56,12 +53,8 @@ resources:
         secret: true
   dns:
     type: dns
-    properties:
-      domain:
   backend:
     type: workload
-    properties:
-      name:
 ```
 
 This example also uses an extensions file, called `humanitec.yaml`, that contains additional hints for `score-humanitec` CLI tool. This information would help the CLI tool to resolve the resources properly.

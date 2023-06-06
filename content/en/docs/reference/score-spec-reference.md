@@ -66,18 +66,12 @@ Resources can be anything and Score doesn't differentiate resources by types. Th
 
 It is up to {{< glossary_tooltip text="Score implementation (CLI)" term_id="score" >}} to resolve the resource by name, type, or any other meta information available.
 
-### Resource properties
+### Resources
 
 ```yaml
 resources:
   [resource-name]:
     type: [resource-type]
-    properties:                     # optional
-      [property-name]:
-        type: string                # optional
-        default: interface{}        # optional
-        required: [true | false]    # false by default
-        secret: [true | false]      # false by default
 ```
 
 **`resources`**: defines dependencies needed by the Workload.
@@ -92,29 +86,16 @@ resources:
 - **Type**: string.
 - **Constraints**: alphanumeric string.
 
-**`properties`**: specifies properties definition that are available to the resource. Set properties that can be referenced in other places in the Score Specification file. For more information, see [Referencing Resources](#referencing-resources).
-
-**`property-name`**: used to reference the resource property in other places in Score file.
-
-- **Type**: string.
-- **Constraints**: alphanumeric string.
-
-  - `default`: specifies a value that can be defined for the property.
-  - `type`: specifies a property type.
-  - `required`: specifies a property as required. If specified, but the value is missing or empty, the deployment will fail.
-  - `secret`: specifies a property value as a case-sensitive secret. Values can be sourced from Vaults.
-
 ### Reserved resource types
 
 In general, `resource-type` has no meaning for Score, but it can affect how the targeted Score implementation tool resolves the resource. The following conventions are _reserved_ resource types.
 
-| Resource type | `score-compose`                                                                                                                 | `score-humanitec`                                                                                                               |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| `environment` | Translates to the environment variables references. For example: `${PROPERTY-NAME}`.                                            | Translates to the application values references. For example: `${values.property-name}`.                                        |
-| `volume`      | Translates into a reference to the external volume. This reference is usually used in a container’s volume mount specification. | Translates into a reference to the external volume. This reference is usually used in a container’s volume mount specification. |
-| `service`     | N/A                                                                                                                             | Translates to the module properties references. For example: `${modules.service-name.property-name}`.                           |
-| `workload`    | N/A                                                                                                                             | Reserved resource type. Its usage may lead to compatibility issues with future releases of [score-humanitec](https://github.com/score-spec/score-humanitec).|
-
+| Resource type | `score-compose`                                                                                                                 | `score-humanitec`                                                                                                                                            |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `environment` | Translates to the environment variables references. For example: `${PROPERTY-NAME}`.                                            | Translates to the application values references. For example: `${values.property-name}`.                                                                     |
+| `volume`      | Translates into a reference to the external volume. This reference is usually used in a container’s volume mount specification. | Translates into a reference to the external volume. This reference is usually used in a container’s volume mount specification.                              |
+| `service`     | N/A                                                                                                                             | Translates to the module properties references. For example: `${modules.service-name.property-name}`.                                                        |
+| `workload`    | N/A                                                                                                                             | Reserved resource type. Its usage may lead to compatibility issues with future releases of [score-humanitec](https://github.com/score-spec/score-humanitec). |
 
 ### Referencing resources
 
@@ -142,7 +123,7 @@ resources:
 
 It is up to the Score implementation (CLI) on how and when the resource reference is resolved, and when the referenced values' substitution occurs.
 
-For example, `score-compose` would convert resource properties into environment variables references in a resulting `compose.yaml` configuration file, and produce a reference `.env` file that the user can then populate. For more information, see the [.env file](https://docs.docker.com/compose/environment-variables/#the-env-file).
+For example, `score-compose` would convert resources into environment variables references in a resulting `compose.yaml` configuration file, and produce a reference `.env` file that the user can then populate. For more information, see the [.env file](https://docs.docker.com/compose/environment-variables/#the-env-file).
 
 The following Score file contains a single resource.
 
@@ -163,15 +144,6 @@ containers:
 resources:
   db:
     type: postgres
-    properties:
-      host:
-      port:
-        default: 5432
-      name:
-      username:
-        secret: true
-      password:
-        secret: true
 ```
 
 ## Service definition
@@ -368,4 +340,3 @@ containers:
         - name: Custom-Header
           value: Awesome
 ```
-

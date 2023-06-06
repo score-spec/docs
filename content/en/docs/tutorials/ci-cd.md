@@ -94,21 +94,6 @@ containers:
 resources:
   database:
     type: postgres
-    properties:
-      host:
-        required: true
-        default: localhost
-      port:
-        required: true
-        default: 5432
-      name:
-        required: true
-      username:
-        secret: true
-        required: false
-      password:
-        secret: true
-        required: false
 ```
 
 ## Local environment setup with Docker-Compose

@@ -36,21 +36,6 @@ db:
   type: postgres
 ```
 
-1. Add properties.
-
-```yaml
-properties:
-      host:
-        default: localhost
-      port:
-        default: 5432
-      name:
-      username:
-        secret: true
-      password:
-        secret: true
-```
-
 1. Declare your dependencies
 2. Add environment variables.
 

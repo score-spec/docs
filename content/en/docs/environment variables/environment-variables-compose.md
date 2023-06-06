@@ -36,10 +36,6 @@ containers:
 resources:
   env:
     type: environment
-    properties:
-      NAME:
-        type: string
-        default: World
 ```
 
 Use the `run` command to generate a Docker Compose file from Score.

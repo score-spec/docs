@@ -62,16 +62,6 @@ container:
 resources:
   db:
     type: postgres
-    properties:
-      host:
-        default: localhost
-      port:
-        default: 5432
-      name:
-      username:
-        secret: true
-      password:
-        secret: true
 ```
 
 ## Executing `score-compose`
