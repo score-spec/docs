@@ -3,7 +3,7 @@ title: "Environment variables in score-helm"
 linkTitle: "score-helm"
 weight: 5
 description: >
-    This section describes how to set define environment variables for score-helm.
+    This section describes how to define environment variables for score-helm.
 ---
 
 ## Substitute environment configurations

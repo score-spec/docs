@@ -3,7 +3,7 @@ title: "Environment variables in score-compose"
 linkTitle: "score-compose"
 weight: 5
 description: >
-    This section describes how to set define environment variables for score-compose.
+    This section describes how to define environment variables for score-compose.
 ---
 
 When `docker compose` runs a service, it is possible to pass information from the host to the container through environment variables.

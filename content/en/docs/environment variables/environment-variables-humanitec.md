@@ -3,7 +3,7 @@ title: "Environment variables in score-humanitec"
 linkTitle: "score-humanitec"
 weight: 5
 description: >
-   This section describes how to set define environment variables for score-humanitec.
+   This section describes how to define environment variables for score-humanitec.
 ---
 
 Humanitec provides a dynamic application configuration mechanism through the [Shared Application Values](https://docs.humanitec.com/using-humanitec/work-with-apps/define-app-values-and-secrets).
