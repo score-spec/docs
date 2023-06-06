@@ -1,9 +1,9 @@
 ---
-title: "Pass environment-specific configuration"
-linkTitle: "Pass environment configurations"
+title: "Define environment variables"
+linkTitle: "Define environment variables"
 weight: 5
 description: >
-    This section describes how to pass environment configurations.
+    This section describes how to define environment variables.
 ---
 
 ## Overview
