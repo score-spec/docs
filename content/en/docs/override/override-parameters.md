@@ -1,12 +1,14 @@
 ---
 title: "Override a property through the CLI"
-linkTitle: "Override a property"
+linkTitle: "Override properties"
 weight: 6
 description: >
   Override properties with the CLI.
 ---
 
 You can use inline arguments to override declared values in your Score configuration file.
+
+This is an alternative approach to using a `overrides.score.yaml` file.
 
 ## Overview
 
@@ -32,3 +34,5 @@ Set the path of the property to an empty value to remove the property.
 ```bash
 score-compose run -f score.yaml --property metadata.my-service=
 ```
+
+For more information, see the [Score CLI reference]({{< relref "docs/reference/score-cli/" >}}).
