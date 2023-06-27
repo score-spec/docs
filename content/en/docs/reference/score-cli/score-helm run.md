@@ -74,6 +74,12 @@ score-helm run -f ./score.yaml \
   --overrides ./overrides.score.yaml
 ```
 
+### `--property`
+
+Overrides selected property value.
+
+Alias: `-p`
+
 ### `--values`
 
 Specifies the path that declares reference dependencies, or resource property, values that are environment-specific.

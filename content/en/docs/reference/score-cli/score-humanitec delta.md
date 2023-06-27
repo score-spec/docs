@@ -93,6 +93,12 @@ Specifies the path to the override file.
 
 Default: `./overrides.score.yaml`
 
+### `--property`
+
+Overrides selected property value.
+
+Alias: `-p`
+
 ### `--retry`
 
 If set, the command will retry the deployment if it fails.
