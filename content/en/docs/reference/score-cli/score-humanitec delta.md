@@ -33,7 +33,7 @@ The following are configuration details for `score-humanitec delta`.
 
 {{% alert %}}
 
-> `--app`, `--env`, `--org`, and `--token` are required flags for the `score-humanitec delta` command.
+`--app`, `--env`, `--org`, and `--token` are required flags for the `score-humanitec delta` command.
 
 {{% /alert %}}
 
