@@ -247,21 +247,21 @@ resources:
 livenessProbe: ContainerProbeSpec
   scheme: string
   host: string
+  httpHeaders:
+      name: string
+      value: string
   httpGet: map[string]interface{}
       port: int
       path: string
-      httpHeaders:        
-          name: string
-          value: string
 readinessProbe: ContainerProbeSpec
   scheme: string
   host: string
+  httpHeaders:
+      name: string
+      value: string
   httpGet: map[string]interface{}
       port: int
       path: string
-      httpHeaders:        
-          name: string
-          value: string
 ```
 
 <!-- string workload containers -->
@@ -291,14 +291,14 @@ readinessProbe: ContainerProbeSpec
 
 <!-- Optional CPU and memory resources needed -->
 
-`limits`: maximum allowed memory.
+`limits`: maximum allowed CPU memory.
 
-- `memory`: a string value representing the maximum allowed memory.
+- `memory`: a string value representing the maximum allowed CPU memory.
 - `cpu`: a string value representing the maximum allowed CPU.
 
-`requests`: minimum required memory.
+`requests`: minimum required CPU memory.
 
-- `memory`: a string value representing the minimum required memory.
+- `memory`: a string value representing the minimum required CPU memory.
 - `cpu`: a string value representing the minimum required CPU.
 
 `livenessProbe`: indicates if the container is running.
@@ -307,15 +307,15 @@ readinessProbe: ContainerProbeSpec
   - `path`: specifies a path for the HTTP `Get` method.
   - `port`: specifies a port for the HTTP `Get` method.
 
+  - `httpHeaders`: headers to set in the request. Allows repeated headers.
+    - `name`: custom header to set in the request.
+    - `value`: specifies a value.
+
 `readinessProbe`: indicates if the container is ready to respond to requests.
 
 - `httpGet`: performs an HTTP `Get` on a specified path and port.
   - `path`: specifies a path for the HTTP `Get` method.
   - `port`: specifies a port for the HTTP `Get` method.
-
-  - `httpHeaders`: headers to set in the request. Allows repeated headers.
-    - `name`: custom header to set in the request.
-    - `value`: specifies a value.
 
 ### Container example
 
