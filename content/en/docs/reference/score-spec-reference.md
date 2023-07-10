@@ -94,34 +94,22 @@ In general, `resource-type` has no meaning for Score, but it can affect how the 
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `environment` | Translates to the environment variables references. For example: `${PROPERTY-NAME}`.                                            | Translates to the application values references. For example: `${values.property-name}`.                                                                     |
 | `volume`      | Translates into a reference to the external volume. This reference is usually used in a container’s volume mount specification. | Translates into a reference to the external volume. This reference is usually used in a container’s volume mount specification.                              |
-| `service`     | N/A                                                                                                                             | Translates to the module properties references. For example: `${modules.service-name.property-name}`.                                                        |
+| `service`     | N/A                                                                                                                             | Translates to the module properties references.                                                                                                              |
 | `workload`    | N/A                                                                                                                             | Reserved resource type. Its usage may lead to compatibility issues with future releases of [score-humanitec](https://github.com/score-spec/score-humanitec). |
 
 ### Referencing resources
 
-Resources are declared in the `containers` section of the Score file and must map to the YAML structure defined in the `resources` section to properly resolve.
-
-For example, the following resource would map to the structure of the resource section.
-
-```yaml
-${resources.resource-name.property-name}
-```
-
-```yml
-resources:
-  resource-name:
-    property-name: my-property-name
-```
+Resources declared in the resources section of a Score file can be used in substitution patterns in different places
 
 {{% alert %}}
 
-> If the referenced resource or its property has not been defined, the {{< glossary_tooltip text="Score implementation (CLI)" term_id="score" >}} should report a syntax error.
+> If the referenced resource or its property aren't defined, the {{< glossary_tooltip text="Score implementation (CLI)" term_id="score" >}} should report a syntax error.
 
 {{% /alert %}}
 
 ### Resource example
 
-It is up to the Score implementation (CLI) on how and when the resource reference is resolved, and when the referenced values' substitution occurs.
+It's up to the Score implementation (CLI) on how and when the resource reference is resolved, and when the referenced values' substitution occurs.
 
 For example, `score-compose` would convert resources into environment variables references in a resulting `compose.yaml` configuration file, and produce a reference `.env` file that the user can then populate. For more information, see the [.env file](https://docs.docker.com/compose/environment-variables/#the-env-file).
 
