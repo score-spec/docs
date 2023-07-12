@@ -71,6 +71,9 @@ It is up to {{< glossary_tooltip text="Score implementation (CLI)" term_id="scor
 ```yaml
 resources:
   [resource-name]:
+    metadata:                       # optional
+      annotations:                  # optional
+        [annotation-name]: [value]
     type: [resource-type]
     properties:                     # optional
       [property-name]:
@@ -86,6 +89,13 @@ resources:
 
 - **Type**: string.
 - **Constraints**: alphanumeric string.
+
+**`metadata`**: an optional property that specifies additional resource metadata.
+
+- **`Type`**: object.
+  - **`annotations`**: an optional property that specifies metadata annotations.
+    - **`Type`**: object.
+    - **`Constraints`**: alphanumeric string key-value pairs.
 
 `resource-type`: specifies the resource in the target environment.
 
