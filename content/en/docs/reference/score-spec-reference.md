@@ -245,23 +245,21 @@ resources:
   limits: map[string]interface{}
   requests: map[string]interface{}
 livenessProbe: ContainerProbeSpec
-  scheme: string
-  host: string
-  httpHeaders:
+  httpGet:
+    schema: string
+    path: string
+    port: int
+    httpHeaders:
       name: string
       value: string
-  httpGet: map[string]interface{}
-      port: int
-      path: string
-readinessProbe: ContainerProbeSpec
-  scheme: string
-  host: string
-  httpHeaders:
+readinessProbe:
+  httpGet:
+    schema: string
+    path: string
+    port: int
+    httpHeaders:
       name: string
       value: string
-  httpGet: map[string]interface{}
-      port: int
-      path: string
 ```
 
 <!-- string workload containers -->
@@ -316,6 +314,10 @@ readinessProbe: ContainerProbeSpec
 - `httpGet`: performs an HTTP `Get` on a specified path and port.
   - `path`: specifies a path for the HTTP `Get` method.
   - `port`: specifies a port for the HTTP `Get` method.
+
+  - `httpHeaders`: headers to set in the request. Allows repeated headers.
+    - `name`: custom header to set in the request.
+    - `value`: specifies a value.
 
 ### Container example
 
