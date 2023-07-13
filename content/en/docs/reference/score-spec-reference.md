@@ -99,19 +99,14 @@ In general, `resource-type` has no meaning for Score, but it can affect how the 
 
 ### Referencing resources
 
-Resources declared in the resources section of a Score file can be used in substitution patterns in different places
-
-{{% alert %}}
-
-> If the referenced resource or its property aren't defined, the {{< glossary_tooltip text="Score implementation (CLI)" term_id="score" >}} should report a syntax error.
-
-{{% /alert %}}
+Resources declared in the resources section of a Score file can be used in substitution patterns in different places.
 
 ### Resource example
 
-It's up to the Score implementation (CLI) on how and when the resource reference is resolved, and when the referenced values' substitution occurs.
+The Score implementation (CLI) resolves resource references and performs value substitution in a specific manner.
 
-For example, `score-compose` would convert resources into environment variables references in a resulting `compose.yaml` configuration file, and produce a reference `.env` file that the user can then populate. For more information, see the [.env file](https://docs.docker.com/compose/environment-variables/#the-env-file).
+For example, when using the `score-compose` command, resource references within substitution patterns are replaced with corresponding environment variable references in the resulting `compose.yaml` configuration file. To gather all the required environment variables, you can utilize the `--env-file` command line parameter to generate a reference `.env` file. This file can be populated with the necessary values by the user.
+For more instructions, see to the [.env file documentation](https://docs.docker.com/compose/environment-variables/#the-env-file).
 
 The following Score file contains a single resource.
 

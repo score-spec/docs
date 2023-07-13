@@ -43,8 +43,6 @@ containers:
 resources:
   db:
     type: postgres
-      port:
-        default: 5432
       name:
         default: postgres
       user:
