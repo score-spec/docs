@@ -305,10 +305,6 @@ readinessProbe:
   - `path`: specifies a path for the HTTP `Get` method.
   - `port`: specifies a port for the HTTP `Get` method.
 
-  - `httpHeaders`: headers to set in the request. Allows repeated headers.
-    - `name`: custom header to set in the request.
-    - `value`: specifies a value.
-
 `readinessProbe`: indicates if the container is ready to respond to requests.
 
 - `httpGet`: performs an HTTP `Get` on a specified path and port.
@@ -359,10 +355,12 @@ containers:
 
     livenessProbe:                          # (Optional) Liveness probe
       httpGet:                              #    - Only HTTP GET is supported
+        schema: http                        #    - Specify the schema (http or https)
         path: /alive
         port: 8080
-    readinessProbe:                         # (Optional) Liveness probe
+    readinessProbe:                         # (Optional) Readiness probe
       httpGet:                              #    - Only HTTP GET is supported
+        schema: http                        #    - Specify the schema (http or https)
         path: /ready
         port: 8080
         httpHeaders:                        #    - (Optional) HTTP Headers to include
