@@ -246,7 +246,6 @@ resources:
   requests: map[string]interface{}
 livenessProbe: ContainerProbeSpec
   httpGet:
-    schema: string
     path: string
     port: int
     httpHeaders:
@@ -254,7 +253,6 @@ livenessProbe: ContainerProbeSpec
       value: string
 readinessProbe:
   httpGet:
-    schema: string
     path: string
     port: int
     httpHeaders:
