@@ -32,12 +32,6 @@ resources:
     type: environment
   db:
     type: postgres
-      name:
-        default: postgres
-      user:
-        secret: true
-      password:
-        secret: true
   service-b:
     type: workload
 ```

@@ -43,12 +43,6 @@ containers:
 resources:
   db:
     type: postgres
-      name:
-        default: postgres
-      user:
-        secret: true
-      password:
-        secret: true
   dns:
     type: dns
   backend:
