@@ -61,6 +61,12 @@ Specifies an override for the `/container/image` property from the source Score 
 
 Specifies the Organization ID.
 
+### `--property`
+
+Overrides selected property value.
+
+Alias: `-p`
+
 ### `--token`
 
 Specifies a Humanitec API authentication token.

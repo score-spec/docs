@@ -1,6 +1,6 @@
 ---
 title: "Add an override configuration"
-linkTitle: "Add override configuration"
+linkTitle: "Overrides"
 weight: 5
 description: >
   Use overrides as a method of sharing common configurations across environments.
@@ -15,6 +15,12 @@ The following Score implementation CLI's support passing an override file as an 
 - `score-compose`
 - `score-helm`
 - `score-humanitec`
+
+{{% alert %}}
+
+Alternatively, use the `--property` flag to specify individual properties to override. For more information, see [Override properties]({{< relref "docs/override/override-parameters" >}}).
+
+{{% /alert %}}
 
 ## Overview
 

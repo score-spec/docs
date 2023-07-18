@@ -1,10 +1,15 @@
 ---
 title: "Manage extension files"
 linkTitle: "Manage extensions"
-weight: 4
+weight: 6
 description: >
   Manage routes as resources, in your Humanitec applications.
 ---
+
+{{% alert %}}
+
+> It is recommned to use [annotations]({{< relref "../annotations/_index.md" >}} "Annotations") instead of extension files, as annotations help ensure consistency across your enviroments and deployments, since your Workload information is stored in one file.
+> {{% /alert %}}
 
 Score supports extension files.
 
@@ -13,8 +18,7 @@ Score supports extension files.
 {{% alert %}}
 
 > The `humanitec.score.yaml` extension is used by [`score-humantic` Score implementation (CLI)](https://github.com/score-spec/score-humanitec). This is an optional configuration specific for Humanitec's routes as a resource and services accounts.
-
-{{% /alert %}}
+> {{% /alert %}}
 
 <!-- Routes Management in Applications -->
 

@@ -78,3 +78,9 @@ Alias: `-o`
 ```bash
 score-compose run -f ./score.yaml -o ./another-compose.yaml
 ```
+
+### `--property`
+
+Overrides selected property value.
+
+Alias: `-p`
