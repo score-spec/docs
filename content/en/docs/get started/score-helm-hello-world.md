@@ -131,27 +131,30 @@ REVISION: 1
 TEST SUITE: None
 ```
 
+The following is the generated Kubernetes deployment object.
+
 ```bash
-# Source: hello/templates/deployment.yaml
+---
+# Source: workload/templates/deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hello
   labels:
-    helm.sh/chart: hello-0.1.0
-    app.kubernetes.io/name:
+    helm.sh/chart: workload-0.3.0
+    app.kubernetes.io/name: hello
     app.kubernetes.io/instance: hello
-    app.kubernetes.io/version: "0.1.0"
+    app.kubernetes.io/version: "0.3.0"
     app.kubernetes.io/managed-by: Helm
 spec:
   selector:
     matchLabels:
-      app.kubernetes.io/name:
+      app.kubernetes.io/name: hello
       app.kubernetes.io/instance: hello
   template:
     metadata:
       labels:
-        app.kubernetes.io/name:
+        app.kubernetes.io/name: hello
         app.kubernetes.io/instance: hello
     spec:
       containers:
