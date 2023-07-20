@@ -102,20 +102,22 @@ containers:
 
 The following steps are specific to deploying via Helm.
 
-### Create a Helm chart
+### Initialize the Workload Helm Chart Repository
 
-Now that the `values.yaml` file is ready, create a generic Helm chart.
+Run the following command to initialize the Workload Helm chart repository.
 
 ```bash
-helm create -p /examples/values.yaml hello
+helm repo add score-helm-charts https://score-spec.github.io/score-helm-charts
 ```
+
+Once this is installed, you will be able to use the default `score-helm-charts/workload` Helm chart (you can adapt it for your own use case, find the source code [here](https://github.com/score-spec/score-helm-charts)).
 
 ### Install Helm `values.yaml`
 
-Run the following command to deploy the Helm `values.yaml` file.
+Run the following command to deploy the `score-helm-charts/workload` Helm chart with the Helm `values.yaml` file generated previously.
 
 ```bash
-helm install --values ./values.yaml hello ./hello
+helm install hello score-helm-charts/workload --values ./values.yaml
 ```
 
 The following are the outputs of the previous command.
