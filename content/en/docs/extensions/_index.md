@@ -70,14 +70,8 @@ containers:
 resources:
   dns:
     type: dns
-    properties:
-      domain:
-      ...
   api-route:
     type: route
-    properties:
-      prefix:
-      ...
 ```
 
 ## Humanitec Workload implementation

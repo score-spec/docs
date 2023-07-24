@@ -29,10 +29,6 @@ containers:
 resources:
   env:
     type: environment
-    properties:
-      NAME:
-        type: string
-        default: World
 ```
 
 {{% alert %}}

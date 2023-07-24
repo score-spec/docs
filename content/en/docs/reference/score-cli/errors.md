@@ -88,10 +88,6 @@ containers:
 resources:
   env:
     type: environment
-    properties:
-      NAME:
-        type: string
-        default: World
 ```
 
 In the previous code snippet, the `variables` parameter is adjusted too far left. It should be aligned with the `image`, `command`, and `args` parameters.
@@ -113,10 +109,6 @@ containers:
 resources:
   env:
     type: environment
-    properties:
-      NAME:
-        type: string
-        default: World
 ```
 
 Alternatively, you could have the map of the variables set incorrectly.
@@ -140,10 +132,6 @@ containers:
 resources:
   env:
     type: environment
-    properties:
-      NAME:
-        type: string
-        default: World
 ```
 
 The `FRIEND` parameter is set to `resources.friend.NAME`, but that is not a valid path in the `resources` section.

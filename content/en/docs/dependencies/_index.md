@@ -30,23 +30,8 @@ containers:
 resources:
   env:
     type: environment
-    properties:
-      NAME:
-        type: string
-        default: World
   db:
     type: postgres
-    properties:
-      host:
-        default: localhost
-      port:
-        default: 5432
-      name:
-        default: postgres
-      user:
-        secret: true
-      password:
-        secret: true
   service-b:
     type: workload
 ```
@@ -70,10 +55,6 @@ containers:
 resources:
   env:
     type: environment
-    properties:
-      NAME:
-        type: string
-        default: World
 ```
 
 To prepare the Docker Compose configuration files, convert both Score files with `score-compose`.
