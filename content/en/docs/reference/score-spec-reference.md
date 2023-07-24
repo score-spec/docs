@@ -211,23 +211,19 @@ resources:
   limits: map[string]interface{}
   requests: map[string]interface{}
 livenessProbe: ContainerProbeSpec
-  scheme: string
-  host: string
-  httpGet: map[string]interface{}
-      port: int
-      path: string
-      httpHeaders:        
-          name: string
-          value: string
-readinessProbe: ContainerProbeSpec
-  scheme: string
-  host: string
-  httpGet: map[string]interface{}
-      port: int
-      path: string
-      httpHeaders:        
-          name: string
-          value: string
+  httpGet:
+    path: string
+    port: int
+    httpHeaders:
+      name: string
+      value: string
+readinessProbe:
+  httpGet:
+    path: string
+    port: int
+    httpHeaders:
+      name: string
+      value: string
 ```
 
 <!-- string workload containers -->
@@ -257,14 +253,14 @@ readinessProbe: ContainerProbeSpec
 
 <!-- Optional CPU and memory resources needed -->
 
-`limits`: maximum allowed memory.
+`limits`: maximum allowed CPU memory.
 
-- `memory`: a string value representing the maximum allowed memory.
+- `memory`: a string value representing the maximum allowed CPU memory.
 - `cpu`: a string value representing the maximum allowed CPU.
 
-`requests`: minimum required memory.
+`requests`: minimum required CPU memory.
 
-- `memory`: a string value representing the minimum required memory.
+- `memory`: a string value representing the minimum required CPU memory.
 - `cpu`: a string value representing the minimum required CPU.
 
 `livenessProbe`: indicates if the container is running.
@@ -323,10 +319,12 @@ containers:
 
     livenessProbe:                          # (Optional) Liveness probe
       httpGet:                              #    - Only HTTP GET is supported
+        schema: http                        #    - Specify the schema (http or https)
         path: /alive
         port: 8080
-    readinessProbe:                         # (Optional) Liveness probe
+    readinessProbe:                         # (Optional) Readiness probe
       httpGet:                              #    - Only HTTP GET is supported
+        schema: http                        #    - Specify the schema (http or https)
         path: /ready
         port: 8080
         httpHeaders:                        #    - (Optional) HTTP Headers to include
