@@ -102,20 +102,22 @@ containers:
 
 The following steps are specific to deploying via Helm.
 
-### Create a Helm chart
+### Initialize the Workload Helm Chart Repository
 
-Now that the `values.yaml` file is ready, create a generic Helm chart.
+Run the following command to initialize the Workload Helm chart repository.
 
 ```bash
-helm create -p /examples/values.yaml hello
+helm repo add score-helm-charts https://score-spec.github.io/score-helm-charts
 ```
+
+Once this is installed, you will be able to use the default `score-helm-charts/workload` Helm chart (you can adapt it for your own use case, find the source code [here](https://github.com/score-spec/score-helm-charts)).
 
 ### Install Helm `values.yaml`
 
-Run the following command to deploy the Helm `values.yaml` file.
+Run the following command to deploy the `score-helm-charts/workload` Helm chart with the Helm `values.yaml` file generated previously.
 
 ```bash
-helm install --values ./values.yaml hello ./hello
+helm install hello score-helm-charts/workload --values ./values.yaml
 ```
 
 The following are the outputs of the previous command.
@@ -129,27 +131,30 @@ REVISION: 1
 TEST SUITE: None
 ```
 
+The following is the generated Kubernetes deployment object.
+
 ```bash
-# Source: hello/templates/deployment.yaml
+---
+# Source: workload/templates/deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hello
   labels:
-    helm.sh/chart: hello-0.1.0
-    app.kubernetes.io/name:
+    helm.sh/chart: workload-0.3.0
+    app.kubernetes.io/name: hello
     app.kubernetes.io/instance: hello
-    app.kubernetes.io/version: "0.1.0"
+    app.kubernetes.io/version: "0.3.0"
     app.kubernetes.io/managed-by: Helm
 spec:
   selector:
     matchLabels:
-      app.kubernetes.io/name:
+      app.kubernetes.io/name: hello
       app.kubernetes.io/instance: hello
   template:
     metadata:
       labels:
-        app.kubernetes.io/name:
+        app.kubernetes.io/name: hello
         app.kubernetes.io/instance: hello
     spec:
       containers:

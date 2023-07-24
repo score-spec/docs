@@ -42,7 +42,7 @@ For more information, see the [Resource section]({{< relref "/content/en/docs/re
 
 {{% /alert %}}
 
-## environment configurations file
+## Generate a Helm values file
 
 Declare your environment configurations.
 
@@ -78,15 +78,25 @@ containers:
       name: busybox
 ```
 
-### Generate a Helm values file
+### Initialize the Workload Helm Chart Repository
 
-Generate a Helm `values.yaml` file and specify the name or absolute path to Helm starter scaffold.
+Run the following command to initialize the Workload Helm chart repository.
 
-```path
-helm create -p ../path-to-your/values.yaml hello
+```bash
+helm repo add score-helm-charts https://score-spec.github.io/score-helm-charts
 ```
 
-The following is the results from the previous command.
+Once this is installed, you will be able to use the default `score-helm-charts/workload` Helm chart (you can adapt it for your own use case, find the source code [here](https://github.com/score-spec/score-helm-charts)).
+
+### Install Helm `values.yaml`
+
+Run the following command to deploy the `score-helm-charts/workload` Helm chart with the Helm `values.yaml` file generated previously.
+
+```bash
+helm install hello score-helm-charts/workload --values ./values.yaml
+```
+
+The following are the outputs of the previous command.
 
 ```yml
 NAME: hello
@@ -100,26 +110,27 @@ TEST SUITE: None
 The following is the generated Kubernetes deployment object.
 
 ```yaml
-# Source: hello/templates/deployment.yaml
+---
+# Source: workload/templates/deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hello
   labels:
-    helm.sh/chart: hello-0.1.0
-    app.kubernetes.io/name:
+    helm.sh/chart: workload-0.3.0
+    app.kubernetes.io/name: hello
     app.kubernetes.io/instance: hello
-    app.kubernetes.io/version: "0.1.0"
+    app.kubernetes.io/version: "0.3.0"
     app.kubernetes.io/managed-by: Helm
 spec:
   selector:
     matchLabels:
-      app.kubernetes.io/name:
+      app.kubernetes.io/name: hello
       app.kubernetes.io/instance: hello
   template:
     metadata:
       labels:
-        app.kubernetes.io/name:
+        app.kubernetes.io/name: hello
         app.kubernetes.io/instance: hello
     spec:
       containers:
