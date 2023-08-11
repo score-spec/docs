@@ -7,12 +7,11 @@ description: >
     A tutorial on how to set up Score with GitHub Actions.
 ---
 
-You can use `score-humanitec` in your GitHub Action workflows, for example, when you make a code change and you want the Humanitec Platform Orchestator to deploy your code to a new environment.
+You can use `score-humanitec` in your GitHub Action workflows, for example, when you make a code change, and you want the Humanitec Platform Orchestrator to deploy your code to a new environment.
 
 The following is a guide to setting up the Score implementation CLI in your GitHub Action workflows.
 
 For the Score GitHub Action, see [Setup Score](https://github.com/score-spec/setup-score)
-
 
 ## Usage
 
