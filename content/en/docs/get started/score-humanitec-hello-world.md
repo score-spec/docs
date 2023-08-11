@@ -10,7 +10,7 @@ The primary goal of the Score Specification is to quickly and easily describe ho
 
 {{% alert %}}
 
-> If at any point you need help, run `score-humanitec --help` from your terminal.
+If at any point you need help, run `score-humanitec --help` from your terminal.
 
 {{% /alert %}}
 
