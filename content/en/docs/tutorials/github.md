@@ -49,7 +49,7 @@ jobs:
     steps:
       - uses: score-spec/setup-score@v2
         with:
-          file: score-humanitec
+          file: score-compose
           version: '0.6.0'
       - run: score-humanitec --version
 ```
