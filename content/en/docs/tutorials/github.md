@@ -51,7 +51,7 @@ jobs:
         with:
           file: score-compose
           version: '0.6.0'
-      - run: score-humanitec --version
+      - run: score-compose --version
 ```
 
 This installs version `0.6.0` of `score-compose`, adds it to `$PATH`, and runs `score-compose --version` to verify it is set up correctly.
