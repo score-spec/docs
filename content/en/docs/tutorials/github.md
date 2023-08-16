@@ -19,10 +19,11 @@ To use the Score GitHub Action, add the following step to your workflow:
 
 ```yaml
 steps:
-  - uses: actions/setup-score@v2
+  - uses: score-spec/setup-score@v2
     with:
       file: score-humanitec
-      version: '0.1.0'
+      version: '0.6.0'
+  - run: score-humanitec --version
 ```
 
 This will download and cache the specified version of the `score-humanitec` CLI and add it to PATH.
