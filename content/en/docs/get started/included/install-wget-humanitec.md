@@ -45,7 +45,7 @@ Extract the compressed Tar file.
 Update the following example to include the path to your file.
 
 ```bash
-tar -xvzf ~/<your-path>/<score-platform>_<x.y.z>_<os_system>.tar -C /usr/local/bin/
+tar -xvzf ~/<your-path>/<score-platform>_<x.y.z>_<os_system>.tar.gz -C /usr/local/bin/
 ```
 
 {{% alert %}}
