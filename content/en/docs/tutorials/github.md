@@ -7,7 +7,7 @@ description: >
     A tutorial on how to set up Score with GitHub Actions.
 ---
 
-You can use `score-humanitec` in your GitHub Action workflows, for example, when you make a code change, and you want the Humanitec Platform Orchestrator to deploy your code to a new environment.
+You can use any Score implementation CLI in your GitHub Action workflows, for example, when you make a code change, and you want the Humanitec Platform Orchestrator to deploy your code to a new environment.
 
 The following is a guide to setting up the Score implementation CLI in your GitHub Action workflows.
 
@@ -23,10 +23,10 @@ steps:
     with:
       file: score-humanitec
       version: '0.6.0'
-  - run: score-humanitec --version
+  - run: score-compose --version
 ```
 
-This will download and cache the specified version of the `score-humanitec` CLI and add it to PATH.
+This will download and cache the specified version of the `score-compose` CLI and add it to PATH.
 
 The action accepts the following inputs:
 
@@ -47,18 +47,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: score-spec/setup-score@v2
-
-    - name: Set up Score
-      uses: actions/setup-score@v2
-      with:
-        file: score-humanitec
-        version: '0.6.0'
-
-    - name: Check version
-      run: score-humanitec --version
+      - uses: score-spec/setup-score@v2
+        with:
+          file: score-humanitec
+          version: '0.6.0'
+      - run: score-humanitec --version
 ```
 
-This installs version `0.1.0` of `score-humanitec`, adds it to `$PATH`, and runs `score-humanitec --version` to verify it is set up correctly.
+This installs version `0.6.0` of `score-compose`, adds it to `$PATH`, and runs `score-compose --version` to verify it is set up correctly.
 
 The action caches the Score binary, so it won't need to download it each run.
