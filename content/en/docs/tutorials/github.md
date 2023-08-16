@@ -15,7 +15,7 @@ For the Score GitHub Action, see [Setup Score](https://github.com/score-spec/set
 
 ## Usage
 
-To use the Score GitHub Action, add the following step to your workflow:
+To use the Score GitHub Action, add the following step to your [workflow](https://docs.github.com/en/actions/using-workflows/about-workflows):
 
 ```yaml
 steps:
