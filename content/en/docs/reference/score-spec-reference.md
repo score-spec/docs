@@ -319,12 +319,10 @@ containers:
 
     livenessProbe:                          # (Optional) Liveness probe
       httpGet:                              #    - Only HTTP GET is supported
-        schema: http                        #    - Specify the schema (http or https)
         path: /alive
         port: 8080
     readinessProbe:                         # (Optional) Readiness probe
       httpGet:                              #    - Only HTTP GET is supported
-        schema: http                        #    - Specify the schema (http or https)
         path: /ready
         port: 8080
         httpHeaders:                        #    - (Optional) HTTP Headers to include
