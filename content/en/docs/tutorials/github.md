@@ -21,7 +21,7 @@ To use the Score GitHub Action, add the following step to your [workflow](https:
 steps:
   - uses: score-spec/setup-score@v2
     with:
-      file: score-humanitec
+      file: score-compose
       version: '0.6.0'
   - run: score-compose --version
 ```
