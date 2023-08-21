@@ -10,6 +10,8 @@ description: >
 
 If you installed the Score implementation (CLI) by downloading the single binary, continue reading.
 
+If you'd like to install the Score implementation (CLI) using Homebrew, see [Install Score CLI]({{< relref "/docs/get started/install#install-the-score-cli-with-brew" >}}).
+
 ## Overview
 
 Score allows you to generate an autocompletion script for each Score implementation tool for a specified shell.
@@ -52,3 +54,5 @@ score-compose completion bash --help
 ```
 
 For more information, see Cobra's documentation on [Generating shell completions](https://github.com/spf13/cobra/blob/main/shell_completions.md).
+
+For information on use setting up your IDE's autocomplete for `score.yaml`` files, see [IDE linter and autocomplete for Score's JSON schema]({{< relref "/docs/reference/score-schema-reference" >}}).
