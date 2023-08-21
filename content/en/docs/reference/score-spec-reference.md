@@ -219,6 +219,7 @@ livenessProbe: ContainerProbeSpec
       value: string
 readinessProbe:
   httpGet:
+    scheme: string
     path: string
     port: int
     httpHeaders:
@@ -265,11 +266,19 @@ readinessProbe:
 
 `livenessProbe`: indicates if the container is running.
 
+- `scheme`: specifies the identifier used for connecting to the host.
+  - Defaults: `HTTP`
+  - Valid values: `HTTP` | `HTTPS`
+
 - `httpGet`: performs an HTTP `Get` on a specified path and port.
   - `path`: specifies a path for the HTTP `Get` method.
   - `port`: specifies a port for the HTTP `Get` method.
 
 `readinessProbe`: indicates if the container is ready to respond to requests.
+
+- `scheme`: specifies the identifier used for connecting to the host.
+  - Defaults: `HTTP`
+  - Valid values: `HTTP` | `HTTPS`
 
 - `httpGet`: performs an HTTP `Get` on a specified path and port.
   - `path`: specifies a path for the HTTP `Get` method.
@@ -319,12 +328,12 @@ containers:
 
     livenessProbe:                          # (Optional) Liveness probe
       httpGet:                              #    - Only HTTP GET is supported
-        schema: http                        #    - Specify the schema (http or https)
+        scheme: http                        #    - Specify the schema (http or https)
         path: /alive
         port: 8080
     readinessProbe:                         # (Optional) Readiness probe
       httpGet:                              #    - Only HTTP GET is supported
-        schema: http                        #    - Specify the schema (http or https)
+        scheme: http                        #    - Specify the schema (http or https)
         path: /ready
         port: 8080
         httpHeaders:                        #    - (Optional) HTTP Headers to include
