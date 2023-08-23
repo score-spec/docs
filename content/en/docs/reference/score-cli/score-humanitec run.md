@@ -57,6 +57,14 @@ Alias: `-h`
 
 Specifies an override for the `/container/image` property from the source Score file.
 
+### `--message`
+
+Provides a description for the delta.
+
+Default: `Auto-deployment (SCORE)`
+
+Alias: `-m`
+
 ### `--org`
 
 Specifies the Organization ID.

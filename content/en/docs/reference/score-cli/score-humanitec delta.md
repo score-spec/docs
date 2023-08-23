@@ -81,6 +81,14 @@ Help for the `delta` command.
 
 Alias: `-h`
 
+### `--message`
+
+Provides a description for the delta.
+
+Default: `Auto-deployment (SCORE)`
+
+Alias: `-m`
+
 ### `--org`
 
 Specifies the Organization ID.
