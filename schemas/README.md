@@ -1,7 +1,7 @@
 # JSON schemas for Score files
 
-| version | file |
-| --- | --- |
+| version  | file            |
+| -------- | --------------- |
 | v1-beta1 | score-v1b1.json |
 
 ## Embed schemas into project
@@ -31,4 +31,3 @@ git subtree pull \
 ## Contribute changes to upstream
 
 All changes to `score-spec/schema` should be done via pull requests and comply with the review and sign-off policies.
-
