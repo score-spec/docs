@@ -36,3 +36,7 @@ score-compose run -f score.yaml --property metadata.my-service=
 ```
 
 For more information, see the [Score CLI reference]({{< relref "docs/reference/score-cli/" >}}).
+
+### Substitute a property
+
+Use the `--property` flag to specify a placeholder substitution in resource references section.
