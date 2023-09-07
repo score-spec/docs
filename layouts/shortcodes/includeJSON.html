@@ -1,0 +1,9 @@
+{{/* Read the file and save its content to a variable */}}
+{{ $content := readFile (printf "%s" (.Get 0)) }}
+
+{{/* Display the file content, you can add more styling or process it further if needed */}}
+<pre>
+<code>
+{{ $content | safeHTML }}
+</code>
+</pre>

@@ -1,27 +1,29 @@
-{{/* This will try to find a resource in the "includes"  bundle */}}
+{{/* Get the resource name. If missing, throw an error. */}}
 {{- $name := .Get 0 -}}
-{{- if $name -}}
-	{{- $bundle := site.GetPage "page" "includes" -}}
-	{{- with $bundle -}}
-	{{- $pattern := printf "%s*" $name -}}
-	{{- range $bundle.Resources -}}
-	{{- end -}}
-	{{- $resource := $bundle.Resources.GetMatch $pattern -}}
-	{{- with $resource -}}
-	{{- .Content | safeHTML -}}
-	{{- else -}}
-	{{/* It is not a resource in the includes bundle. Try to find the page relative to the current. */}}
-	{{- $path := path.Join $.Page.File.Dir $name -}}
-	{{- $page := site.GetPage "page" $path -}}
-	{{- with $page }}
-	{{ .Content }}
-	{{- else -}}
-	{{ errorf "[%s] no Resource or Page matching %q." $.Page.Lang ($pattern | safeHTML ) }}
-	{{- end -}}
-	{{- end -}}
-	{{- else -}}
-	{{ errorf "[%s] the 'includes' bundle was not found." $.Page.Lang }}
-	{{- end -}}
+{{- if not $name -}}
+    {{- errorf "[%s] missing resource name in include for page %q" $.Page.Lang $.Page.Path -}}
+    {{- return -}}
+{{- end -}}
+
+{{/* Define the pattern for matching resources. */}}
+{{- $pattern := printf "%s*" $name -}}
+
+{{/* Try to find the resource in the "includes" bundle. */}}
+{{- $bundle := site.GetPage "page" "includes" -}}
+{{- if $bundle -}}
+    {{- $resource := $bundle.Resources.GetMatch $pattern -}}
+    {{- with $resource -}}
+        {{- .Content | safeHTML -}}
+        {{- return -}}
+    {{- end -}}
+{{- end -}}
+
+{{/* If not in the "includes" bundle, try to find a relative page. */}}
+{{- $path := path.Join $.Page.File.Dir $name -}}
+{{- $page := site.GetPage "page" $path -}}
+{{- with $page -}}
+    {{ .Content }}
+    {{- return -}}
 {{- else -}}
-	{{- errorf "[%s] missing resource name in include for page %q" $.Page.Lang $.Page.Path -}}
+    {{- errorf "[%s] no Resource or Page matching %q." $.Page.Lang ($pattern | safeHTML ) -}}
 {{- end -}}
