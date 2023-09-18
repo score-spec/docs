@@ -20,7 +20,7 @@ When you open a YAML file that matches the pattern you specified, VSCode will pr
 
 Consult your IDE or IDE's extension for specific details on how to do this.
 
-Generally, you need to add the following line to your IDE's settings:
+Generally, you need to add the following lines to your IDE's settings:
 
 ```json
 "json.schemas": [
@@ -29,7 +29,7 @@ Generally, you need to add the following line to your IDE's settings:
       "score.yaml",
       "score.yml"
     ],
-    "url": "https://raw.githubusercontent.com/score-spec/schema/score-v1b1.json"
+    "url": "https://raw.githubusercontent.com/score-spec/schema/main/score-v1b1.json"
   }
 ]
 ```
