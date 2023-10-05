@@ -26,7 +26,8 @@ containers:
     files:
       - target: /usr/share/nginx/html/index.html
         mode: "644"
-        content: ["${resources.env.MESSAGE}"]
+        content: |
+          ${resources.env.MESSAGE}
 
 resources:
   env:

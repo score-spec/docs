@@ -65,6 +65,10 @@ Default: `Auto-deployment (SCORE)`
 
 Alias: `-m`
 
+### `--workload-source-url`
+
+URL of the Score file that is managing the Humanitec workload.
+
 ### `--org`
 
 Specifies the Organization ID.

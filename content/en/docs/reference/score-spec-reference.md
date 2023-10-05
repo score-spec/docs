@@ -201,7 +201,9 @@ variables: map[string]string
 files:
   target: string
   mode: string
-  content: []string
+  content: string
+  source: string
+  noExpand: boolean
 volumes:
   source: string
   path: string
@@ -244,6 +246,8 @@ readinessProbe:
 - `target`: specifies a path and name.
 - `mode`: specifies access mode.
 - `content`: specifies inline content and supports templates.
+- `source`: specifies a path to a file to make available.
+- `noExpand`: If true, placeholder expansion will not occur in the `content`.
 
 `volumes`: specifies volumes to mount.
 
@@ -308,9 +312,9 @@ containers:
     files:                                  # (Optional) Specifies extra files to mount
     - target: /etc/hello-world/config.yaml  #    - Target file path and name
       mode: "666"                           #    - Access mode
-      content:                              #    - Inline content (supports templates)
-      - "---"
-      - ${resources.env.APP_CONFIG}
+      content: |                            #    - Inline content (supports templates)
+        "---"
+        ${resources.env.APP_CONFIG}
 
     volumes:                                # (Optional) Specifies volumes to mount
     - source: ${resources.data}             #    - External volume reference
