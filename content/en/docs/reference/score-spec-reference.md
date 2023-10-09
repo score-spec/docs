@@ -245,9 +245,9 @@ readinessProbe:
 
 - `target`: specifies a path and name.
 - `mode`: specifies access mode.
-- `content`: specifies inline content and supports templates.
-- `source`: specifies a path to a file to make available.
-- `noExpand`: If true, placeholder expansion will not occur in the `content`.
+- `content`: specifies inline content and supports templates. Exactly one of content or source must be defined.
+- `source`: specifies a path to a file to make available. Exactly one of content or source must be defined.
+- `noExpand`:  If true, the content or file referenced in source will be used literally with no placeholder expansion in the running container.
 
 `volumes`: specifies volumes to mount.
 
