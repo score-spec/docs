@@ -75,6 +75,7 @@ resources:
       annotations:                  # optional
         [annotation-name]: [value]
     type: [resource-type]
+    class: [resource-class]
 ```
 
 **`resources`**: defines dependencies needed by the Workload.
@@ -91,7 +92,12 @@ resources:
     - **`Type`**: object.
     - **`Constraints`**: alphanumeric string key-value pairs.
 
-`resource-type`: specifies the resource in the target environment.
+`type`: specifies the resource type.
+
+- **Type**: string.
+- **Constraints**: alphanumeric string.
+
+`class`: a specialisation of the resource type.
 
 - **Type**: string.
 - **Constraints**: alphanumeric string.
