@@ -97,7 +97,7 @@ resources:
 - **Type**: string.
 - **Constraints**: alphanumeric string.
 
-`class`: a specialisation of the resource type.
+`class`: a specialisation of the resource type. For example, a workload that needs an externally accessible resource might set the class to external while the workload that requires an encrypted resource might have a class of sensitive.
 
 - **Type**: string.
 - **Constraints**: alphanumeric string.
