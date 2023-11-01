@@ -75,6 +75,7 @@ resources:
       annotations:                  # optional
         [annotation-name]: [value]
     type: [resource-type]
+    class: [resource-class]
 ```
 
 **`resources`**: defines dependencies needed by the Workload.
@@ -82,19 +83,24 @@ resources:
 **`resource-name`**: a required property that specifies the resource name.
 
 - **Type**: string.
-- **Constraints**: alphanumeric string.
+- **Constraints**: alphanumeric characters and dashes "-".
 
 **`metadata`**: an optional property that specifies additional resource metadata.
 
 - **`Type`**: object.
   - **`annotations`**: an optional property that specifies metadata annotations.
     - **`Type`**: object.
-    - **`Constraints`**: alphanumeric string key-value pairs.
+    - **`Constraints`**: key-value pairs with alphanumeric characters and dashes "-".
 
-`resource-type`: specifies the resource in the target environment.
+`type`: specifies the resource type.
 
 - **Type**: string.
-- **Constraints**: alphanumeric string.
+- **Constraints**: alphanumeric characters and dashes "-".
+
+`class`: a specialisation of the resource type. For example, a workload that needs an externally accessible storage bucket might set the class to external while the workload that requires an encrypted resource might have a class of sensitive.
+
+- **Type**: string.
+- **Constraints**: alphanumeric characters and dashes "-".
 
 ### Reserved resource types
 
