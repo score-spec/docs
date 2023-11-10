@@ -157,7 +157,6 @@ service:
     port-name: string        # (required)
       port: integer          # (required)
       protocol: string       # (optional)
-      hostIP: integer        # (optional)
       targetPort: integer    # (optional)
 ```
 
@@ -169,8 +168,6 @@ service:
 
 - Defaults: `TCP`
 - Valid values: `SCTP` | `TCP` | `UDP`
-
-`hostIP`: describes the host IP to bind to.
 
 `targetPort`: describes the port to expose on the host. If the `targetPort` isn't specified, then it defaults to the required `port` property in the container.
 
