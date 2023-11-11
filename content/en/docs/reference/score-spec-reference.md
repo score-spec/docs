@@ -273,27 +273,17 @@ readinessProbe:
 
 `livenessProbe`: indicates if the container is running.
 
-- `scheme`: specifies the identifier used for connecting to the host.
-  - Defaults: `HTTP`
-  - Valid values: `HTTP` | `HTTPS`
-
 - `httpGet`: performs an HTTP `Get` on a specified path and port.
+  - `scheme`: specifies the identifier used for connecting to the host.
+    - Defaults: `HTTP`
+    - Valid values: `HTTP` | `HTTPS`
   - `path`: specifies a path for the HTTP `Get` method.
   - `port`: specifies a port for the HTTP `Get` method.
-
-`readinessProbe`: indicates if the container is ready to respond to requests.
-
-- `scheme`: specifies the identifier used for connecting to the host.
-  - Defaults: `HTTP`
-  - Valid values: `HTTP` | `HTTPS`
-
-- `httpGet`: performs an HTTP `Get` on a specified path and port.
-  - `path`: specifies a path for the HTTP `Get` method.
-  - `port`: specifies a port for the HTTP `Get` method.
-
   - `httpHeaders`: headers to set in the request. Allows repeated headers.
     - `name`: custom header to set in the request.
     - `value`: specifies a value.
+
+`readinessProbe`: indicates if the container is ready to respond to requests. This has the same format as `livenessProbe`.
 
 ### Container example
 
