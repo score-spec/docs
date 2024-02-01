@@ -44,24 +44,45 @@ resources:
 
 ### Extension example
 
-The following example would help score-humanitec add proper routes to the Deployment Delta, so that the service is available to the outside world.
+The following example shows a Score file and a corresponding extension file. The Score file declares a `container` and a `service`, while the extension file declares annotations on both elements.
+
+`score.yaml`:
+
+```yaml
+apiVersion: score.dev/v1b1
+metadata:
+  name: my-workload
+
+containers:
+  demo:
+    image: registry/my-image:1.0.0
+service:
+  ports:
+    http:
+      port: 80
+      targetPort: 8080
+
+resources:
+  api-dns:
+    type: dns
+  users-route:
+    type: route
+    params:
+      host: ${resources.api-dns.host}
+      path: "/"
+      port: 80
+```
+
+`humanitec.score.yaml`:
 
 ```yaml
 apiVersion: humanitec.org/v1b1
-profile: "humanitec/default-module"
+profile: humanitec/default-module
+
 spec:
-  "labels":
-    "tags.datadoghq.com/env": "${resources.env.DATADOG_ENV}"
-  "ingress":
-    rules:
-      "${resources.dns}":
-        http:
-          "/":
-            type: prefix
-            port: 80
-resources:
-  db:
-    scope: external
-  dns:
-    scope: shared
+  annotations:
+    annotationkey: annotationvalue
+  service:
+    annotations:
+      serviceannotationkey: serviceannotationvalue
 ```
