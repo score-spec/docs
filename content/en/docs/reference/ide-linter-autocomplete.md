@@ -1,12 +1,12 @@
 ---
-title: "IDE linter and autocomplete for Score's JSON schema"
-linkTitle: "JSON schema autocomplete"
+title: "IDE linter for Score's JSON schema"
+linkTitle: "JSON schema IDE linter"
 weight: 10
 description: >
-  Reference documentation for the IDE linter and autocomplete for Score's JSON schema.
+  IDE linter for Score's JSON schema
 ---
 
-With the introduction of the JSON schema for Score, developers can now benefit from linter and autocomplete functionalities in their Integrated Development Environments (IDEs). IDEs like Visual Studio Code, JetBrains IDEs, and others support JSON schema validation and autocomplete out of the box or with extensions like [YAML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) for VS Code.
+With the introduction of the JSON schema for Score, developers can now benefit from linter functionalities in their Integrated Development Environments (IDEs). IDEs like Visual Studio Code, JetBrains IDEs, and others support JSON schema validation and autocomplete out of the box or with extensions like [YAML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) for VS Code.
 
 <!--
 ## JSON schema
@@ -20,18 +20,18 @@ When you open a YAML file that matches the pattern you specified, VSCode will pr
 
 Consult your IDE or IDE's extension for specific details on how to do this.
 
-Generally, you need to add the following lines to your IDE's settings:
+For instance, configuring Visual Studio Code (VSC) involves the following steps:
+
+* Open your editor's Settings.
+* Navigate to "Extensions" tab and select "YAML".
+* Under the "Yaml: Custom Tags" section, click on "Edit in settings.json."
+* Add the following JSON snippet:
 
 ```json
-"json.schemas": [
-  {
-    "fileMatch": [
-      "score.yaml",
-      "score.yml"
-    ],
-    "url": "https://raw.githubusercontent.com/score-spec/schema/main/score-v1b1.json"
-  }
-]
+
+ "yaml.schemas": {
+        "https://raw.githubusercontent.com/score-spec/schema/main/score-v1b1.json": "score.yaml"
+    }
 ```
 
-For information on setting up autocompletion script for the shell, see [Enable autocomplete for shell]({{< relref "score-cli/enable-autocomplete" >}}).
+![VSC instructions](/static/images/VSC%20Score%20schema%20linting.png)
