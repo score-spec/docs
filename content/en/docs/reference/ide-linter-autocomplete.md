@@ -6,7 +6,7 @@ description: >
   IDE linter for Score's JSON schema
 ---
 
-With the introduction of the JSON schema for Score, developers can now benefit from linter functionalities in their Integrated Development Environments (IDEs). IDEs like Visual Studio Code, JetBrains IDEs, and others support JSON schema validation and autocomplete out of the box or with extensions like [YAML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) for VS Code.
+With the introduction of the JSON schema for Score, developers can benefit from linter functionalities in their Integrated Development Environments (IDEs). IDEs like Visual Studio Code, JetBrains IDEs, and others support JSON schema validation out of the box or with extensions like [YAML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) for VS Code.
 
 <!--
 ## JSON schema
@@ -23,7 +23,7 @@ Consult your IDE or IDE's extension for specific details on how to do this.
 For instance, configuring Visual Studio Code (VSC) involves the following steps:
 
 * Open your editor's Settings.
-* Navigate to "Extensions" tab and select "YAML".
+* Navigate to "Extensions" and select "YAML".
 * Under the "Yaml: Custom Tags" section, click on "Edit in settings.json."
 * Add the following JSON snippet:
 
@@ -33,5 +33,7 @@ For instance, configuring Visual Studio Code (VSC) involves the following steps:
         "https://raw.githubusercontent.com/score-spec/schema/main/score-v1b1.json": "score.yaml"
     }
 ```
+
+For reference:
 
 ![VSC instructions](/static/images/VSC%20Score%20schema%20linting.png)
