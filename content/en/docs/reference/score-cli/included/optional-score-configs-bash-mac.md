@@ -49,10 +49,6 @@ You now have to ensure that the Score completion script gets sourced in all your
   Replace `<platform>` with the name of the Score implementation (CLI), for example:
 
   ```bash
-  echo 'source <(score-humanitec completion bash)' >>~/.bash_profile
-  ```
-
-  ```bash
   echo 'source <(score-compose completion bash)' >>~/.bash_profile
   ```
 

@@ -14,7 +14,6 @@ The following Score implementation CLI's support passing an override file as an 
 
 - `score-compose`
 - `score-helm`
-- `score-humanitec`
 
 {{% alert %}}
 

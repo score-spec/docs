@@ -24,7 +24,7 @@ source <(score-<platform> completion zsh)
 Replace `score-<platform>` with the name of the Score implementation (CLI) you want to use, for example:
 
 ```bash
-source <(score-humanitec completion zsh)
+source <(score-compose completion zsh)
 ```
 
 If you have an alias for Score, Score autocompletion will automatically work with it.

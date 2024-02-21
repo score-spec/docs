@@ -106,12 +106,12 @@ resources:
 
 In general, `resource-type` has no meaning for Score, but it can affect how the targeted Score implementation tool resolves the resource. The following conventions are _reserved_ resource types.
 
-| Resource type | `score-compose`                                                                                                                 | `score-humanitec`                                                                                                                                            |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `environment` | Translates to the environment variables references. For example: `${PROPERTY-NAME}`.                                            | Translates to the application values references. For example: `${values.property-name}`.                                                                     |
-| `volume`      | Translates into a reference to the external volume. This reference is usually used in a container’s volume mount specification. | Translates into a reference to the external volume. This reference is usually used in a container’s volume mount specification.                              |
-| `service`     | N/A                                                                                                                             | Translates to the module properties references.                                                                                                              |
-| `workload`    | N/A                                                                                                                             | Reserved resource type. Its usage may lead to compatibility issues with future releases of [score-humanitec](https://github.com/score-spec/score-humanitec). |
+| Resource type | `score-compose`                                                                                                                 |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `environment` | Translates to the environment variables references. For example: `${PROPERTY-NAME}`.                                            |
+| `volume`      | Translates into a reference to the external volume. This reference is usually used in a container’s volume mount specification. |                          
+| `service`     | N/A                                                                                                                             |                                                                                 
+| `workload`    | N/A                                                                                                                             |
 
 ### Referencing resources
 
