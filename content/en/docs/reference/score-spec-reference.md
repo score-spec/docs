@@ -167,7 +167,7 @@ service:
 `protocol`: describes the transportation layer protocol.
 
 - Defaults: `TCP`
-- Valid values: `SCTP` | `TCP` | `UDP`
+- Valid values: `TCP` | `UDP`
 
 `targetPort`: describes the port to expose on the host. If the `targetPort` isn't specified, then it defaults to the required `port` property in the container.
 
@@ -202,21 +202,26 @@ command: []string
 args: []string
 variables: map[string]string
 files:
-  target: string
-  mode: string
-  content: string
-  source: string
-  noExpand: boolean
+  - target: string
+    mode: string
+    content: string
+    source: string
+    noExpand: boolean
 volumes:
-  source: string
-  path: string
-  target: string
-read_only: [true | false]
+  - target: string
+    source: string
+    path: string
+    readOnly: [true | false]
 resources:
-  limits: map[string]interface{}
-  requests: map[string]interface{}
+  limits:
+    cpu: string
+    memory: string
+  requests:
+    cpu: string
+    memory: string
 livenessProbe: ContainerProbeSpec
   httpGet:
+    scheme: [HTTP or HTTPS]
     path: string
     port: int
     httpHeaders:
@@ -224,7 +229,7 @@ livenessProbe: ContainerProbeSpec
       value: string
 readinessProbe:
   httpGet:
-    scheme: string
+    scheme: [HTTP or HTTPS]
     path: string
     port: int
     httpHeaders:
@@ -257,7 +262,7 @@ readinessProbe:
 - `source`: specifies external volume reference.
 - `path` specifies a sub path in the volume.
 - `target`: specifies a target mount on the container.
-- `read_only`: if true, mounts as read only.
+- `readOnly`: if true, mounts as read only.
 
 <!-- Optional CPU and memory resources needed -->
 
@@ -277,6 +282,7 @@ readinessProbe:
   - `scheme`: specifies the identifier used for connecting to the host.
     - Defaults: `HTTP`
     - Valid values: `HTTP` | `HTTPS`
+  - `host`: specifies the Hostname in the HTTP request. Defaults to the target IP address.
   - `path`: specifies a path for the HTTP `Get` method.
   - `port`: specifies a port for the HTTP `Get` method.
   - `httpHeaders`: headers to set in the request. Allows repeated headers.
@@ -313,7 +319,7 @@ containers:
     - source: ${resources.data}             #    - External volume reference
       path: sub/path                        #    - (Optional) Sub path in the volume
       target: /mnt/data                     #    - Target mount path on the container
-      read_only: true                       #    - (Optional) Mount as read-only
+      readOnly: true                       #    - (Optional) Mount as read-only
 
     resources:                              # (Optional) CPU and memory resources needed
       limits:                               #    - (Optional) Maximum allowed
