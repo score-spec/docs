@@ -4,7 +4,11 @@
   "title": "Score schema",
   "description": "Score workload specification",
   "type": "object",
-  "required": ["apiVersion", "metadata", "containers"],
+  "required": [
+    "apiVersion",
+    "metadata",
+    "containers"
+  ],
   "additionalProperties": false,
   "properties": {
     "apiVersion": {
@@ -15,7 +19,9 @@
     "metadata": {
       "description": "The metadata description of the Workload.",
       "type": "object",
-      "required": ["name"],
+      "required": [
+        "name"
+      ],
       "additionalProperties": true,
       "properties": {
         "name": {
@@ -76,7 +82,9 @@
     "servicePort": {
       "description": "The network port description.",
       "type": "object",
-      "required": ["port"],
+      "required": [
+        "port"
+      ],
       "additionalProperties": false,
       "properties": {
         "port": {
@@ -88,7 +96,10 @@
         "protocol": {
           "description": "The transport level protocol. Defaults to TCP.",
           "type": "string",
-          "enum": ["TCP", "UDP"]
+          "enum": [
+            "TCP",
+            "UDP"
+          ]
         },
         "targetPort": {
           "description": "The internal service port. This will default to 'port' if not provided.",
@@ -102,7 +113,9 @@
       "description": "The set of Resources associated with this Workload.",
       "type": "object",
       "additionalProperties": false,
-      "required": ["type"],
+      "required": [
+        "type"
+      ],
       "properties": {
         "type": {
           "description": "The Resource type. This should be a type supported by the Score implementations being used.",
@@ -164,7 +177,9 @@
     "container": {
       "description": "The specification of a Container within the Workload.",
       "type": "object",
-      "required": ["image"],
+      "required": [
+        "image"
+      ],
       "additionalProperties": false,
       "properties": {
         "image": {
@@ -202,7 +217,9 @@
           "type": "array",
           "items": {
             "type": "object",
-            "required": ["target"],
+            "required": [
+              "target"
+            ],
             "additionalProperties": false,
             "properties": {
               "target": {
@@ -231,10 +248,16 @@
             },
             "oneOf": [
               {
-                "required": ["target", "content"]
+                "required": [
+                  "target",
+                  "content"
+                ]
               },
               {
-                "required": ["target", "source"]
+                "required": [
+                  "target",
+                  "source"
+                ]
               }
             ]
           }
@@ -245,7 +268,10 @@
           "items": {
             "type": "object",
             "additionalProperties": false,
-            "required": ["source", "target"],
+            "required": [
+              "source",
+              "target"
+            ],
             "properties": {
               "source": {
                 "description": "The external volume reference.",
@@ -293,7 +319,9 @@
     },
     "containerProbe": {
       "type": "object",
-      "required": ["httpGet"],
+      "required": [
+        "httpGet"
+      ],
       "additionalProperties": false,
       "properties": {
         "httpGet": {
@@ -305,7 +333,10 @@
       "description": "An HTTP probe details.",
       "type": "object",
       "additionalProperties": false,
-      "required": ["port", "path"],
+      "required": [
+        "port",
+        "path"
+      ],
       "properties": {
         "host": {
           "description": "Host name to connect to. Defaults to the workload IP. The is equivalent to a Host HTTP header.",
@@ -314,7 +345,10 @@
         "scheme": {
           "description": "Scheme to use for connecting to the host (HTTP or HTTPS). Defaults to HTTP.",
           "type": "string",
-          "enum": ["HTTP", "HTTPS"]
+          "enum": [
+            "HTTP",
+            "HTTPS"
+          ]
         },
         "path": {
           "description": "The path to access on the HTTP server.",
