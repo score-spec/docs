@@ -6,6 +6,14 @@ Victor_Hugo: "true"
 Focus_Keyword: "Learn about the Score Specification"
 description: >
   Learn about Score, the Score implementation (CLI), and how to eliminate configuration mismanagement.
+aliases:
+- ../concepts
+- ../concepts/container
+- ../concepts/dependencies
+- ../concepts/environment-configuration
+- ../concepts/score
+- ../concepts/workload
+- ../glossary
 ---
 
 ## What is Score?

@@ -4,6 +4,8 @@ linkTitle: "Declare dependencies"
 weight: 6
 description: >
   Describes how to set Workloads that are dependent on additional resources.
+aliases:
+- ../concepts/dependencies/
 ---
 
 The Score Specification has a `resources` section that is used to describe Workload's dependencies. This mechanism can be used to spin-up multiservice setups.
