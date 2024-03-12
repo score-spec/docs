@@ -22,7 +22,7 @@ Score supports extension files.
 
 <!-- Routes Management in Applications -->
 
-Applications that consist of multiple microservices typically need a routing controller that redirects incoming requests to a proper {{< glossary_tooltip text="Workload" term_id="workload" >}} at run time.
+Applications that consist of multiple microservices typically need a routing controller that redirects incoming requests to a proper Workload at run time.
 
 For example, a common scenario is to deploy an API Gateway, Ingress controller, or Service mesh as part of your application.
 Maintaining and updating routing tables after new service deployments is a point of friction as the application scales.
@@ -35,9 +35,9 @@ Routes convert into resource definitions, so proper routes can be provisioned at
 
 {{% alert %}}
 
-> The Score Specification file has a concept of a {{< glossary_tooltip text="Workload specification" term_id="workload-spec" >}} that defines the requirements to run a Workload, but isn't used to manage Target Configuration or to provision any of the dependencies.
+> The Score Specification file has a concept of a Workload specification that defines the requirements to run a Workload, but isn't used to manage Target Configuration or to provision any of the dependencies.
 
-For more information, see [Score Specification]({{< relref "../concepts/score.md" >}} "Score Specification").
+For more information, see [Score Specification]({{< relref "/docs/reference/score-spec-reference" >}} "Score Specification").
 
 {{% /alert %}}
 

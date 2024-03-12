@@ -64,7 +64,7 @@ The Resource section of the Score Specification allows users to describe the rel
 
 Resources can be anything and Score doesn't differentiate resources by types. The resource section can be used to provision multiservice setups with platforms like Docker Compose.
 
-It is up to {{< glossary_tooltip text="Score implementation (CLI)" term_id="score" >}} to resolve the resource by name, type, or any other meta information available.
+It is up to the Score implementation (CLI) to resolve the resource by name, type, or any other meta information available.
 
 ### Resources
 
@@ -194,7 +194,7 @@ service:
 
 ## Container definition
 
-The {{< glossary_tooltip text="Workload" term_id="workload" >}} container’s specification describes how the Workload's tasks are executed.
+The Workload container’s specification describes how the Workload's tasks are executed.
 
 ```yaml
 image: string

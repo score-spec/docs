@@ -5,7 +5,7 @@ weight: 6
 description: >
   Describes how to set Workloads that are dependent on additional resources.
 aliases:
-- ../concepts/dependencies/
+- /docs/concepts/dependencies
 ---
 
 The Score Specification has a `resources` section that is used to describe Workload's dependencies. This mechanism can be used to spin-up multiservice setups.
@@ -159,5 +159,4 @@ compose-service-b-1  | service-b: Hello World!
 
 For more information, see the following links.
 
-- Review the [Workload dependencies]({{< relref "../concepts/dependencies" >}} "Workload dependencies") page.
-- Review the [resource section]({{< relref "../reference/score-spec-reference.md#resources-definition" >}} "Resource definition") of the Score Specification reference.
+- Review the [resource section]({{< relref "/docs/reference/score-spec-reference.md#resources-definition" >}} "Resource definition") of the Score Specification reference.

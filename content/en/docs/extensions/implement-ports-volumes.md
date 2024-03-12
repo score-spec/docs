@@ -5,7 +5,7 @@ weight: 4
 draft: false
 ---
 
-Using files and volumes or serving incoming requests on selected ports helps to build real world {{< glossary_tooltip text="Workloads" term_id="workload" >}} and applications.
+Using files and volumes or serving incoming requests on selected ports helps to build real world Workloads and applications.
 
 In such a scenario, you'd want to express this in your `score.yaml` file.
 
@@ -38,7 +38,7 @@ resources:
 
 Paired with the `score.yaml` file is the extension file, `humanitec.score.yaml`, which contains additional hints for the score-humanitec CLI tool.
 
-The extension file helps the CLI tool add proper routes to Humanitec's {{< glossary_tooltip text="Deployment Delta" term_id="deployment-delta" >}}, so that the service is available to the outer world.
+The extension file helps the CLI tool add proper routes to Humanitec's Deployment Delta, so that the service is available to the outer world.
 
 The following is an implementation of the `humanitec.score.yaml` file.
 
@@ -127,4 +127,4 @@ The generated JSON can then be used as a payload for a [Humanitec API call](http
 
 When deploying this service with `Humanitec`, make sure that the shared application value called `MESSAGE` is set for the target environment.
 
-For more information, see the [Humanitec extension reference]({{< relref "/content/en/docs/reference/humanitec-extension.md" >}}).
+For more information, see the [Humanitec extension reference]({{< relref "/docs/reference/humanitec-extension.md" >}}).

@@ -36,7 +36,7 @@ resources:
 > Resources need to map to the resource structure.
 > To declare environment variables in a Score file, the variable name, `resources.env.NAME` must map to the structure in `resource` section.
 
-For more information, see the [Resource section]({{< relref "/content/en/docs/reference/score-spec-reference.md#referencing-resources" >}}) in the Score Specification reference.
+For more information, see the [Resource section]({{< relref "/docs/reference/score-spec-reference.md#referencing-resources" >}}) in the Score Specification reference.
 
 {{% /alert %}}
 
