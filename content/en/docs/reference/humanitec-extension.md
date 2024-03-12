@@ -25,7 +25,7 @@ resources:
 
 `apiVersion`: the declared Score Specification version.
 
-- Valid options: `score.dev/v1b1`
+- Valid options: `humanitec.org/v1b1`
 
 `profile`: describes a custom Workload profile name.
 

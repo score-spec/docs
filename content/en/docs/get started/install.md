@@ -100,7 +100,7 @@ To upgrade the Score implementation (CLI), download the latest binary version an
 
 <!-- ### macOS
 
-We recommend installing the {{< glossary_tooltip text="Score implementation (CLI)" term_id="score" >}} with [Homebrew](https://brew.sh/index.html).
+We recommend installing the Score implementation with [Homebrew](https://brew.sh/index.html).
 With Homebrew, you can access an extensive selection of libraries and applications, with their dependencies managed for you.
 
 ### Prerequisites
@@ -116,7 +116,7 @@ Install Homebrew according to the [official Homebrew installation instructions](
 
 On the Linux operating systems, use the built-in package manager to install Score:
 
-1. Open a terminal and run these commands to install the latest {{< glossary_tooltip text="Score implementation (CLI)" term_id="score" >}} from the officially maintained package archives:
+1. Open a terminal and run these commands to install the latest Score implementation (CLI) from the officially maintained package archives:
 
    ```shell
    apt-add-repository ppa:score-compose
