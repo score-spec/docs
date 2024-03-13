@@ -23,7 +23,7 @@ Alternatively, use the `--property` flag to specify individual properties to ove
 
 ## Overview
 
-If an `overrides.score.yaml` file is found, the {{< glossary_tooltip text="Score implementation (CLI)" term_id="score" >}} applies overrides on the output. This occurs whether a flag is provided or not.
+If an `overrides.score.yaml` file is found, the Score implementation (CLI) applies overrides on the output. This occurs whether a flag is provided or not.
 
 Any property of Score segment can be overridden.
 

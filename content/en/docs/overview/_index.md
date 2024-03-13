@@ -6,6 +6,13 @@ Victor_Hugo: "true"
 Focus_Keyword: "Learn about the Score Specification"
 description: >
   Learn about Score, the Score implementation (CLI), and how to eliminate configuration mismanagement.
+aliases:
+- /docs/concepts
+- /docs/concepts/container
+- /docs/concepts/environment-configuration
+- /docs/concepts/score
+- /docs/concepts/workload
+- /docs/glossary
 ---
 
 ## What is Score?
@@ -20,7 +27,7 @@ The _Score implementation (CLI)_ is a conversion tool (such as score-compose or 
 
 Developers use the Score Specification to describe their Workload, including its resource and service dependencies.
 
-Then they run a {{< glossary_tooltip text="Score Implementation (CLI)" term_id="score" >}} to generate required resources in an environment of choice.
+Then they run a Score Implementation (CLI) to generate required resources in an environment of choice.
 
 For example, the same Score Specification can be used to generate a docker compose file for local development, Kubernetes manifests for deployment to a shared development environment and to a serverless platform such as Google Cloud Run for integration tests.
 

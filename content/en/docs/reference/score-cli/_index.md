@@ -8,7 +8,7 @@ description: >
 
 The _Score implementation (CLI)_ is a command-line tool used to interact with a Score Specification. Use a Score implementation (CLI) to transform your `score.yaml` file into multiple configuration files for the platform of your choice.
 
-- [How to install the Score implementation (CLI)]({{< relref "/content/en/docs/Get started/install.md" >}} "Install")
+- [How to install the Score implementation (CLI)]({{< relref "/docs/Get started/install.md" >}} "Install")
 - [Set environment-specific configuration to run Workloads in a target environment]({{< relref "/docs/environment%20variables/_index.md" >}} "Set environment-specific configuration to run Workloads in a target environment.")
 
 ## The Score implementation (CLI)
