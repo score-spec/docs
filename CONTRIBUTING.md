@@ -10,7 +10,6 @@ If you are looking to help to with a code contribution our project uses Go Lang
 
 If you are interested in making a code contribution and would like to learn more about the technologies that we use, check out the list below.
 
-- [https://humanitec.com](https://humanitec.com/)
 - [https://docs.docker.com/compose/](https://docs.docker.com/compose/)
 - [https://helm.sh/docs/](https://helm.sh/docs/)
 

@@ -17,7 +17,7 @@ score-<platform> completion fish | source
 Replace `score-<platform>` with the name of the Score implementation (CLI) you want to use, for example:
 
 ```bash
-score-humanitec completion fish | source
+score-compose completion fish | source
 ```
 
 After reloading your shell, Score autocompletion should be working.

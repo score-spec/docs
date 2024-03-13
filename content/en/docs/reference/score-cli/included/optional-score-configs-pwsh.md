@@ -17,7 +17,7 @@ score-<platform> completion powershell | Out-String | Invoke-Expression
 Replace `score-<platform>` with the name of the Score implementation (CLI) you want to use, for example:
 
 ```bash
-score-humanitec completion powershell | Out-String | Invoke-Expression
+score-compose completion powershell | Out-String | Invoke-Expression
 ```
 
 This command will regenerate the auto-completion script on every PowerShell start up. You can also add the generated script directly to your `$PROFILE` file.

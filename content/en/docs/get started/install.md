@@ -27,7 +27,6 @@ Prerequisites: You must have [brew](https://brew.sh) installed.
 {{< tabs name="brew" >}}
 {{< tab name="score-compose" include="included/install-score-compose-brew.md" />}}
 {{< tab name="score-helm" include="included/install-score-helm-brew.md" />}}
-{{< tab name="score-humanitec" include="included/install-score-humanitec-brew.md" />}}
 {{< /tabs >}}
 
 ## Install the Score CLI using Go
@@ -39,7 +38,6 @@ Prerequisites: You must have [Go](https://go.dev/dl/) installed.
 {{< tabs name="go" >}}
 {{< tab name="score-compose" include="included/fetch-score-compose-go.md" />}}
 {{< tab name="score-helm" include="included/fetch-score-helm-go.md" />}}
-{{< tab name="score-humanitec" include="included/fetch-score-humanitec-go.md" />}}
 {{< /tabs >}}
 
 ## Install using Docker
@@ -49,7 +47,6 @@ This method will start and run a new Docker container based on the image provide
 {{< tabs name="docker" >}}
 {{< tab name="score-compose" include="included/docker-score-compose.md" />}}
 {{< tab name="score-helm" include="included/docker-score-helm.md" />}}
-{{< tab name="score-humanitec" include="included/docker-score-humanitec.md" />}}
 {{< /tabs >}}
 
 ## Install using a manual method
@@ -63,7 +60,6 @@ Choose the Score Implementation you want to install.
 {{< tabs name="curl_download" >}}
 {{< tab name="score-compose" include="included/install-score-compose-curl-mac.md" />}}
 {{< tab name="score-helm" include="included/install-score-helm-curl-mac.md" />}}
-{{< tab name="score-humanitec" include="included/install-score-humanitec-curl-mac.md" />}}
 {{< /tabs >}}
 
 ### Install the binary with wget on macOS and Linux
@@ -73,7 +69,6 @@ Choose the Score Implementation you want to install.
 {{< tabs name="wget_download" >}}
 {{< tab name="score-compose" include="included/install-wget-compose.md" />}}
 {{< tab name="score-helm" include="included/install-wget-helm.md" />}}
-{{< tab name="score-humanitec" include="included/install-wget-humanitec.md" />}}
 {{< /tabs >}}
 
 ### Install the binary through the GitHub downloads page on macOS and Linux
@@ -83,7 +78,6 @@ Choose the Score Implementation you want to install.
 {{< tabs name="github_download" >}}
 {{< tab name="score-compose" include="included/install-score-compose-bash.md" />}}
 {{< tab name="score-helm" include="included/install-score-helm-bash.md" />}}
-{{< tab name="score-humanitec" include="included/install-score-humanitec-bash.md" />}}
 {{< /tabs >}}
 
 ### Install the binary on Windows
@@ -92,7 +86,6 @@ Select a Score Implementation, decompress the `zip` file, and move the binary to
 
 - [score-compose](https://github.com/score-spec/score-compose/releases)
 - [score-helm](https://github.com/score-spec/score-helm/releases)
-- [score-humanitec](https://github.com/score-spec/score-humanitec/releases)
 
 ## Upgrade the Score implementation CLI
 

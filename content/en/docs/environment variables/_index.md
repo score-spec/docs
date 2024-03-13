@@ -4,6 +4,8 @@ linkTitle: "Define environment variables"
 weight: 5
 description: >
     This section describes how to define environment variables.
+aliases:
+- /environment-variables/environment-variables-humanitec
 ---
 
 ## Overview
@@ -20,4 +22,3 @@ For more information, see
 
 - [Environment variables in score-compose]({{< relref "/docs/environment variables/environment-variables-compose" >}})
 - [Environment variables in score-helm]({{< relref "/docs/environment variables/environment-variables-helm" >}}) 
-- [Environment variables in score-humanite]({{< relref "/docs/environment variables/environment-variables-humanitec" >}})

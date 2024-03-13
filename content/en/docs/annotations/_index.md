@@ -62,27 +62,3 @@ resources:
         "my.org/version": "0.1"
     type: postgres
 ```
-
-### Shared resource example
-
-The following is an example of using a Resource Annotation supported by `score-humanitec` to indicate that the instance of a database resource is shared via a separate common `resId`.
-
-```yml
-resources:
-  shared-db:
-    metadata:
-      annotations:
-        score.humanitec.io/resId: shared.postgres-db
-    type: postgres
-```
-
-In this example, a PostgreSQL database resource is defined with the name `shared-db`.
-The annotation `score.humanitec.io/resId` is used to provide an indication to Humanitec that this resources should be used with specific ID (`shared.postgres-db`).
-
-Any other Workload deployed into the same Humanitec application can also access the same database by adding the same annotation in their Score file.
-
-## Resource Annotations vs. extension files
-
-Resource Annotations are used to provide additional metadata as a hint for the individual Score file instead of using the extensions file.
-
-It is recommended to use Resource Annotations instead of [extension files]({{< relref "../extensions/_index.md" >}}), as annotations help ensure consistency across your environments and deployments, since your Workload information is stored in one file.
