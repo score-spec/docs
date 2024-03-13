@@ -12,6 +12,9 @@ aliases:
 - /docs/concepts/environment-configuration
 - /docs/concepts/score
 - /docs/concepts/workload
+- /docs/extensions
+- /docs/extensions/implement-ports-volumes
+- /docs/reference/humanitec-extension
 - /docs/glossary
 ---
 

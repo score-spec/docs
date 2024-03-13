@@ -4,6 +4,8 @@ linkTitle: "Define environment variables"
 weight: 5
 description: >
     This section describes how to define environment variables.
+aliases:
+- /environment-variables/environment-variables-humanitec
 ---
 
 ## Overview
