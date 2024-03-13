@@ -22,4 +22,3 @@ For more information, see
 
 - [Environment variables in score-compose]({{< relref "/docs/environment variables/environment-variables-compose" >}})
 - [Environment variables in score-helm]({{< relref "/docs/environment variables/environment-variables-helm" >}}) 
-- [Environment variables in score-humanite]({{< relref "/docs/environment variables/environment-variables-humanitec" >}})

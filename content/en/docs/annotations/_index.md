@@ -62,9 +62,3 @@ resources:
         "my.org/version": "0.1"
     type: postgres
 ```
-
-## Resource Annotations vs. extension files
-
-Resource Annotations are used to provide additional metadata as a hint for the individual Score file instead of using the extensions file.
-
-It is recommended to use Resource Annotations instead of [extension files]({{< relref "../extensions/_index.md" >}}), as annotations help ensure consistency across your environments and deployments, since your Workload information is stored in one file.
