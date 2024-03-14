@@ -1,10 +1,7 @@
-FROM klakegg/hugo:0.101.0-ext-alpine as docsy
+FROM hugomods/hugo:exts-0.123.8 as docsy
 
-RUN apk update
-RUN apk add git
-COPY . /app/
-WORKDIR /app/
+COPY . /src
+WORKDIR /src
 RUN npm install --production=false
-RUN git config --global --add safe.directory /app/
 
-CMD ["serve", "--cleanDestinationDir", "--themesDir", "../..", "--disableFastRender", "--ignoreCache", "--watch"]
+CMD [ "hugo", "server", "--themesDir", "../..", "--disableFastRender", "--renderToMemory", "--bind", "0.0.0.0" ]
