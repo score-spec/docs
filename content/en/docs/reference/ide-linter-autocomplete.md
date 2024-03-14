@@ -15,7 +15,7 @@ Consult your IDE or IDE's extension for specific details on how to do this.
 For instance, configuring Visual Studio Code (VSC) involves the following steps:
 
 * Ensure you have an add-on such as [vscode-yaml](https://github.com/redhat-developer/vscode-yaml) installed. This is required for the validation of your Score YAML files, as Visual Studio Code (VSC) only supports `json.schemas` out of the box.
-* To enable schema validation in your IDE, open your editor's Settings.
+* To enable schema validation in your IDE, open your editor's Settings next.
 * Navigate to "Extensions" and select "YAML".
 * Under the "Yaml: Custom Tags" section, click on "Edit in settings.json."
 * Add the following JSON snippet:
