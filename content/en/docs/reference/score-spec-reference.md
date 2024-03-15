@@ -6,6 +6,7 @@ description: >
     Reference implementation for the Score Specification.
 aliases:
 - /docs/dependencies
+- /docs/annotations
 ---
 
 ## Score Specification definitions
@@ -90,7 +91,7 @@ resources:
 **`metadata`**: an optional property that specifies additional resource metadata.
 
 - **`Type`**: object.
-  - **`annotations`**: an optional property that specifies metadata annotations.
+  - **`annotations`**: An optional property to specify meta data for a resource. This can be utilised to provide additional instructions for the Score CLI Implementation to interpret.
     - **`Type`**: object.
     - **`Constraints`**: key-value pairs with alphanumeric characters and dashes "-".
 
