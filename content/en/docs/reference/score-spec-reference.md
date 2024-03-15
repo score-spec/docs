@@ -7,6 +7,10 @@ description: >
 aliases:
 - /docs/dependencies
 - /docs/annotations
+- /docs/environment-variables/
+- /docs/environment-variables/environment-variables-humanitec
+- /docs/environment-variables/environment-variables-compose
+- /docs/environment-variables/environment-variables-helm
 ---
 
 ## Score Specification definitions
