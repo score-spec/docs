@@ -4,6 +4,8 @@ linkTitle: "Score specification"
 weight: 9
 description: >
     Reference implementation for the Score Specification.
+aliases:
+- /docs/dependencies
 ---
 
 ## Score Specification definitions
