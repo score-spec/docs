@@ -1,37 +1,24 @@
 ---
-title: "Add an override configuration"
+title: "Specify configuration overrides"
 linkTitle: "Overrides"
 weight: 5
-description: >
-  Use overrides as a method of sharing common configurations across environments.
 ---
 
-An override is a way for you to customize or modify certain aspects of the `score.yaml` file. Overrides can be used to introduce changes directly to the Workload Definition without having to set up numerous files and Environment Profiles containing the same static values.
+An override is a way for you to customize or modify certain aspects of the `score.yaml` file. This can be achieved using either:
 
-By default, the Score implementation tool looks for a `score.yaml` file and overrides the declared defaults within that file, if `overrides.score.yaml` exits.
+- [Overrides file](#overrides-file)
+- [Overrides CLI flag](#overrides-property)
 
-The following Score implementation CLI's support passing an override file as an argument.
+Currently, these options are supported by the following Score implementation CLIs:
 
 - `score-compose`
 - `score-helm`
 
-{{% alert %}}
-
-Alternatively, use the `--property` flag to specify individual properties to override. For more information, see [Override properties]({{< relref "docs/override/override-parameters" >}}).
-
-{{% /alert %}}
-
-## Overview
+## Overrides file
 
 If an `overrides.score.yaml` file is found, the Score implementation (CLI) applies overrides on the output. This occurs whether a flag is provided or not.
 
-Any property of Score segment can be overridden.
-
-For example, the `score.yaml` file contains a configuration, however, the `overrides.score.yaml` file contains configuration overrides for new and existing services.
-
-If a configuration option is defined in both the default `score.yaml` file and the `overrides.score.yaml` file, the default values are replaced with the overrides.
-
-## Override a command
+### Example: How to override a command
 
 To override the defaults declared in your `score.yaml` file, create a `overrides.score.yaml` file and declare your overrides.
 
@@ -49,8 +36,6 @@ containers:
       - python
       - --version
 ```
-
-<!-- https://docs.docker.com/compose/extends/#adding-and-overriding-configuration -->
 
 2. Create an `overrides.score.yaml` file and declare an override.
 
@@ -72,7 +57,7 @@ score-compose run -f ./score.yaml \
 
 The following is an example output of the previous command.
 
-```yaml {linenos=false,hl_lines=["4-5"]}
+```yaml
 services:
   run-python-app:
     entrypoint:
@@ -81,4 +66,32 @@ services:
     image: python3
 ```
 
-**Results** You've successfully overridden the default configuration file with a command described in your `overrides.score.yaml` file.
+**Result:** You've successfully overridden the default configuration file with a command described in your `overrides.score.yaml` file.
+
+## Overrides CLI flag
+
+With Score, you can override the declared values in your command line arguments with the `--property` flag. This is an alternative approach to using a `overrides.score.yaml` file. For details, please refer to the documentation of the implementation CLI you are using.
+
+### Example: How to override a property
+
+Use the `--property` flag and specify the path to the property and the new value.
+
+For example, the following looks for the `containers.my-service.image` property and overrides the default image name with a value of `python3`.
+
+```bash
+score-compose run -f score.yaml --property containers.my-service.image=python3
+```
+
+### Example: How to remove a property
+
+Set the path of the property to an empty value to remove the property.
+
+```bash
+score-compose run -f score.yaml --property metadata.my-service=
+```
+
+For more information, see the [Score CLI reference]({{< relref "docs/reference/score-cli/" >}}).
+
+### Example: How to substitute a property
+
+Use the `--property` flag to specify a placeholder substitution in resource references section.
