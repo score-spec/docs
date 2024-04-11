@@ -8,7 +8,7 @@ toc_hide: true
 ### Step 1. Download the latest release
 
 ```bash
-curl -L0 "https://github.com/score-spec/score-helm/releases/download/0.2.0/score-helm_0.9.0_darwin_arm64.tar.gz" -o score-helm.tgz
+curl -L0 "https://github.com/score-spec/score-helm/releases/download/0.9.0/score-helm_0.9.0_darwin_arm64.tar.gz" -o score-helm.tgz
 ```
 
 ### Step 2. Unpack the latest release
