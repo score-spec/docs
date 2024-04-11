@@ -6,7 +6,6 @@ weight: 4
 aliases:
 - /docs/reference/score-cli/score-compose-run/
 - /docs/reference/score-cli/score-compose/
-
 ---
 
 The score-compose CLI provides a set of commands and flags to enable the generation of Docker Compose files from Score specifications.
