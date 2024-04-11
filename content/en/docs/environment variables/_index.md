@@ -1,6 +1,6 @@
 ---
 title: "Define environment variables"
-linkTitle: "Define environment variables"
+linkTitle: "Environment variables"
 weight: 5
 description: >
     This section describes how to define environment variables.
@@ -20,5 +20,5 @@ The Score Specification supports declaring environment variables in a configurat
 
 For more information, see
 
-- [Environment variables in score-compose]({{< relref "/docs/environment variables/environment-variables-compose" >}})
-- [Environment variables in score-helm]({{< relref "/docs/environment variables/environment-variables-helm" >}}) 
+- [Environment variables in score-compose](https://github.com/score-spec/score-compose/tree/main/examples/02-environment)
+- [Environment variables in score-helm](https://github.com/score-spec/score-helm/tree/main/examples/02-environment)
