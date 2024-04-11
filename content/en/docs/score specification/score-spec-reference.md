@@ -1,5 +1,5 @@
 ---
-title: "Score Specification reference"
+title: "Score specification reference"
 linkTitle: "Score specification"
 weight: 9
 description: >
@@ -7,6 +7,7 @@ description: >
 aliases:
 - /docs/dependencies
 - /docs/annotations
+- /docs/reference/score-spec-reference/
 ---
 
 ## Score Specification definitions

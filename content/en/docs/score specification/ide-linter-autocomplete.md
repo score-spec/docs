@@ -1,9 +1,11 @@
 ---
 title: "IDE linter for Score's JSON schema"
-linkTitle: "JSON schema IDE linter"
-weight: 10
+linkTitle: "Schema IDE linter"
+weight: 11
 description: >
   IDE linter for Score's JSON schema
+aliases:
+- /docs/reference/ide-linter-autocomplete/
 ---
 
 With the introduction of the JSON schema for Score, developers can benefit from linter functionalities in their Integrated Development Environments (IDEs). IDEs like Visual Studio Code, JetBrains IDEs, and others support JSON schema validation out of the box or with extensions like [YAML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) for VS Code.
