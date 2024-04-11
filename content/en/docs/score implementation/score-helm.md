@@ -1,8 +1,11 @@
 ---
-title: "score-helm run"
-linkTitle: "score-helm run"
+title: "score-helm"
+linkTitle: "score-helm"
 description: "Translates the Score file into a Helm values file."
 weight: 4
+aliases:
+- /docs/reference/score-cli/score-helm-run/
+- /docs/reference/score-cli/score-helm/
 ---
 
 ## Commands
