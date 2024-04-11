@@ -4,6 +4,8 @@ linkTitle: "Schema reference"
 weight: 10
 description: >
     Validate your Score file with the Score schema.
+aliases:
+- /docs/reference/score-schema-reference/
 ---
 
 The Score schema is a JSON schema that defines the structure of a Score file. It's used to validate the Score file before an implementation CLI (such as `score-compose` or `score-helm`) is executed.
