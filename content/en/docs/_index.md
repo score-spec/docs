@@ -25,4 +25,4 @@ To get started, you'll want to:
 Beyond the getting started section, you can learn more about Score and how to implement it into your own workflows.
 
 - [Concepts](/docs/concepts): Recommended reading for anyone consuming or operating Score.
-- [Set environment variables]({{< relref "environment%20variables/_index.md" >}}) Learn how to set and manage environment-specific variables.
+- [Set environment variables](/docs/how-to/enviornment-variables) Learn how to set and manage environment-specific variables.

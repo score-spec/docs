@@ -1,9 +1,11 @@
 ---
 title: "Enable autocomplete for shell"
-linkTitle: "Enable autocomplete"
+linkTitle: "Autocompletion"
 weight: 10
 description: >
   Enables autocomplete for the Score implementation (CLI).
+Alias: 
+- /docs/reference/ide-linter-autocomplete/
 ---
 
 <!-- By default, Homebrew install the autocompletion script. -->

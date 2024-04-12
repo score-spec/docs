@@ -1,6 +1,6 @@
 ---
 title: "Define environment variables"
-linkTitle: "Environment variables"
+linkTitle: "Env variables"
 weight: 5
 description: >
     This section describes how to define environment variables.

@@ -1,10 +1,13 @@
 ---
 title: "Setup GitHub Actions"
 subtitle: "Setup GitHub Actions for Continuous Integration"
+linkTitle: GitHub Actions
 weight: 5
 draft: false
 description: >
-    A tutorial on how to set up Score with GitHub Actions.
+    How to set up Score with GitHub Actions.
+Alias:
+- /docs/tutorials/github/
 ---
 
 You can use any Score implementation CLI in your GitHub Action workflows, for example, when you make a code change, and you want the Humanitec Platform Orchestrator to deploy your code to a new environment.
