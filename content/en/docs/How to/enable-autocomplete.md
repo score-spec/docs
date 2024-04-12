@@ -5,7 +5,7 @@ weight: 10
 description: >
   How to autocomplete for the Score implementation (CLI)
 aliases: 
-- /docs/reference/enable-autocomplete/
+- /docs/reference/score-cli/enable-autocomplete/
 ---
 
 <!-- By default, Homebrew install the autocompletion script. -->
