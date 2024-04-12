@@ -9,6 +9,7 @@ aliases:
 - /docs/reference/humanitec-extension/
 - /docs/reference/score-cli/score-humanitec-run/
 - /docs/reference/score-cli/score-humanitec-delta/
+- /docs/reference/score-cli/score-humanitec/
 ---
 
 The `score-humanitec` CLI is an implementation for the Humanitec Platform Orchestrator, enabling the translation of Score files into a Humanitec Deployment Set for deployment to a remote environment.
