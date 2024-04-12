@@ -4,7 +4,7 @@ linkTitle: "Autocompletion"
 weight: 10
 description: >
   How to autocomplete for the Score implementation (CLI)
-Alias: 
+aliases: 
 - /docs/reference/enable-autocomplete/
 ---
 
