@@ -2,6 +2,6 @@
 title: "Score Implementation CLIs"
 linkTitle: "Score implementations"
 weight: 3
-Alias:
+aliases:
 - /docs/reference/score-cli/
 ---
