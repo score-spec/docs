@@ -6,7 +6,7 @@ weight: 5
 draft: false
 description: >
     How to set up Score with GitHub Actions
-Alias:
+aliases:
 - /docs/tutorials/github/
 ---
 

@@ -4,7 +4,7 @@ linkTitle: "Overrides"
 weight: 5
 description: >
     How to define overrides for your Score specification
-Alias:
+aliases:
 - /docs/override/
 - /docs/override/override-parameters/
 ---
