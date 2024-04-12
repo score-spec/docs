@@ -5,7 +5,7 @@ weight: 10
 description: >
   How to autocomplete for the Score implementation (CLI)
 Alias: 
-- /docs/reference/ide-linter-autocomplete/
+- /docs/reference/enable-autocomplete/
 ---
 
 <!-- By default, Homebrew install the autocompletion script. -->
