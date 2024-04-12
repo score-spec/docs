@@ -1,6 +1,6 @@
 ---
 title: "How-to guides"
-linkTitle: "How to"
+linkTitle: "How to guides"
 weight: 8
 draft: false
 description: >

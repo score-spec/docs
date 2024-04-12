@@ -3,7 +3,7 @@ title: "Enable autocomplete for shell"
 linkTitle: "Autocompletion"
 weight: 10
 description: >
-  Enables autocomplete for the Score implementation (CLI).
+  How to autocomplete for the Score implementation (CLI)
 Alias: 
 - /docs/reference/ide-linter-autocomplete/
 ---

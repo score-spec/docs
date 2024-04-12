@@ -3,7 +3,7 @@ title: "Score schema reference"
 linkTitle: "Schema reference"
 weight: 10
 description: >
-    Validate your Score file with the Score schema.
+    Validate your Score file with the Score schema
 aliases:
 - /docs/reference/score-schema-reference/
 ---

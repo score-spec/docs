@@ -5,7 +5,7 @@ linkTitle: GitHub Actions
 weight: 5
 draft: false
 description: >
-    How to set up Score with GitHub Actions.
+    How to set up Score with GitHub Actions
 Alias:
 - /docs/tutorials/github/
 ---

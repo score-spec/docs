@@ -3,7 +3,7 @@ title: "Define environment variables"
 linkTitle: "Env variables"
 weight: 5
 description: >
-    This section describes how to define environment variables.
+    How to define environment variables in your Score specification
 aliases:
 - /docs/environment-variables/environment-variables-compose/
 - /docs/environment-variables/environment-variables-helm/

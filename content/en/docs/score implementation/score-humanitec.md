@@ -1,7 +1,7 @@
 ---
 title: "score-humanitec"
 linkTitle: "score-humanitec"
-description: "Translates the Score file into a Humanitec Deployment Set"
+description: "CLI Reference for score-humanitec"
 weight: 4
 aliases:
 - /docs/get-started/score-humanitec-hello-world/
