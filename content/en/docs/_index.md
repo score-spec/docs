@@ -19,7 +19,7 @@ To compose a Score Specification file, you'll do the following:
 To get started, you'll want to:
 
 - Read through the [Overview page]({{< relref "/overview" >}} "Overview").
-- Learn how to [install the score-compose referencimplementation (CLI)]({{< relref "docs/score-implementation/score-compose#installation" >}} "Learn to install").
+- Learn how to [install the score-compose reference implementation (CLI)]({{< relref "docs/score-implementation/score-compose#installation" >}} "Learn to install").
 
 Beyond the getting started section, you can learn more about Score and how to implement it into your own workflows.
 
