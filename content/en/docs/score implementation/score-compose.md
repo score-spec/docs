@@ -1,31 +1,102 @@
 ---
 title: "score-compose"
 linkTitle: "score-compose"
-description: "CLI Reference for score-compose"
-weight: 4
+description: "Get started with the score-compose reference implementation"
+weight: 1
 aliases:
 - /docs/reference/score-cli/score-compose-run/
 - /docs/reference/score-cli/score-compose/
 ---
 
+# Overview
+
+The score-compose CLI serves as a reference implementation for the Score specification, providing a standard for the creation of custom Score CLIs. Score-compose can be utilized both as a reference point for implementation and for practical use in local development with Docker Compose. Below you'll find an overview of:
+
+* [Installation options](#installation)
+* [CLI reference](#cli-reference)
+
+For additional details and opportunities to contribute to the project, visit the [score-compose](https://github.com/score-spec/score-compose) GitHub repository.
+
+## Installation
+
+You can install the score-compose CLI in a variety of ways:
+
+- [Homebrew](#homebrew)
+- [Go](#go)
+- [Docker](#docker)
+- [Manual download](#manual-download)
+
+### Homebrew
+
+Prerequisites: You must have [brew](https://brew.sh) installed.
+
+```bash
+brew install score-spec/tap/score-compose
+```
+
+### Go
+
+Prerequisites: You must have [Go](https://go.dev/dl/) installed.
+
+```bash
+go install -v github.com/score-spec/score-compose/cmd/score-compose@latest
+```
+
+### Docker
+
+Prerequisites: You must have [Docker](https://docs.docker.com/get-docker/) installed.
+
+1. Download the repository.
+   The following example uses the GitHub CLI to download the project.
+
+```bash
+gh repo clone score-spec/score-compose
+```
+
+2. Change directories into `score-compose`.
+
+```bash
+cd score-compose
+```
+
+3. Build the Docker image by running the following command in the same directory as the Dockerfile.
+
+```bash
+docker build -t score-compose:latest .
+```
+
+4. Run the Docker image by using the `docker run` command.
+
+```bash
+docker run -it score-compose:latest
+```
+
+If you want to run `score-compose` with the `--help` flag to view the available options, you would run the following command.
+
+```bash
+docker run -it score-compose:latest --help
+```
+
+This will start a new container based on the image you built, run `score-compose` with the `--help` flag, and then stop the container.
+
+### Manual download
+
+The following methods download the score-compose CLI from its [GitHub release page](https://github.com/score-spec/score-compose/releases):
+
+{{< tabs name="Manual installation methods">}}
+{{< tab name="curl on macOS" include="included/install-score-compose-curl-mac.md" />}}
+{{< tab name="wget on macOS/Linux" include="included/install-wget-compose.md" />}}
+{{< tab name="Github DLs on macOS/Linux" include="included/install-score-compose-bash.md" />}}
+{{< tab name="Windows" include="included/install-windows.md" />}}
+{{< /tabs >}}
+
+## CLI Reference
+
 The score-compose CLI provides a set of commands and flags to enable the generation of Docker Compose files from Score specifications.
-
-- [Commands](#commands):
-  - [init](#init): Initialise a new score-compose project 
-  - [generate](#generate): Convert one or more Score files into a Docker Compose manifest
-  - [completion](#completion): Generate an autocompletion script for a specified shell
-  - [run (deprecated)](#run-deprecated): Translate a Score file to Docker Compose 
-  - [help](#help): Get help on individual commands
-
-* [Global flags](#global-flags):
-   * [--help](#--help---h-2): Get help on score-compose
-   * [--quiet](#--quiet): Mute logging output
-   * [--verbose count](#--verbose-count---v): Increase log verbosity and detail
-   * [--version](#--version): Get version of score-compose
 
 ## Commands
 
-# `init`
+## `init`
 
 The init command creates a basic `score.yaml` file in the current directory and initializes a `.score-compose/` working directory if it doesn't already exist. The `.score-compose/` directory is used to store local state and should be excluded from version control systems such as Git by adding it to your `.gitignore` file.
 
@@ -45,7 +116,7 @@ Specifies a Score file to initialize. By default this is `./score.yaml`.
 score-compose init --file custom_file_name.yaml
 ```
 
-##### `--no-sample`
+#### `--no-sample`
 
 Disables the generation of the sample Score file if you already have a Score file in place.
 
@@ -53,7 +124,7 @@ Disables the generation of the sample Score file if you already have a Score fil
 score-compose init --no-sample
 ```
 
-##### `--project` | `-p`
+#### `--project` | `-p`
 
 Sets the name of the Docker Compose project. By default, the project name is the same as the current directory name.
 
@@ -61,7 +132,7 @@ Sets the name of the Docker Compose project. By default, the project name is the
 score-compose init --project custom_project_name.yaml
 ```
 
-##### `--help` | `-h`
+#### `--help` | `-h`
 
 Displays help information for `init`, providing a short description of the command along with examples and compatible flags.
 
@@ -69,7 +140,7 @@ Displays help information for `init`, providing a short description of the comma
 score-compose init --help
 ```
 
-# `generate`
+## `generate`
 
 The generate command converts the Score file(s) in the current Score Compose project into a combined Docker Compose manifest. All resources and links between Workloads will be resolved and provisioned as required. Please be aware that score-compose [init](#init) must be run first. An error will be thrown if the project directory is not present.
 
@@ -81,7 +152,7 @@ score-compose generate [flags]
 
 The `generate` command can be combined with the following flags:
 
-##### `--build `
+#### `--build `
 
 Specifies an optional build context to use for the given container. The format is either `--build=container=./dir` or `--build=container={'"context":"./dir"}`.
 
@@ -89,7 +160,7 @@ Specifies an optional build context to use for the given container. The format i
 score-compose generate --build container=./dir
 ```
 
-##### `--env-file `
+#### `--env-file `
 
 Specifies the location to store a skeleton `.env` file for Docker Compose. This will override existing content if present.
 
@@ -97,7 +168,7 @@ Specifies the location to store a skeleton `.env` file for Docker Compose. This 
 score-compose generate --env-file /path/to/env-file
 ```
 
-##### `--image`
+#### `--image`
 
 Specifies an optional container image to use for any container with `image == '.'`.
 
@@ -105,7 +176,7 @@ Specifies an optional container image to use for any container with `image == '.
 score-compose generate --image your_container_image
 ```
 
-##### `--output` | `-o`
+#### `--output` | `-o`
 
 Specifies the output file to write the composed Docker Compose file to. By default, the output file is named `compose.yaml`.
 
@@ -113,7 +184,7 @@ Specifies the output file to write the composed Docker Compose file to. By defau
 score-compose generate --output your_output_file.yaml
 ```
 
-##### `--override-property`
+#### `--override-property`
 
 Specifies an optional set of path=key overrides to set or remove.
 
@@ -121,7 +192,7 @@ Specifies an optional set of path=key overrides to set or remove.
 score-compose generate --override-property path1=value1
 ```
 
-##### `--override-file`
+#### `--override-file`
 
 Specifies an optional file of Score overrides to merge in.
 
@@ -129,7 +200,7 @@ Specifies an optional file of Score overrides to merge in.
 score-compose generate score.yaml --override-file=./overrides.score.yaml
 ```
 
-##### `--help` | `-h`
+#### `--help` | `-h`
 
 Displays help information for `generate`, providing a short description of the command along with examples and compatible flags.
 
@@ -137,7 +208,7 @@ Displays help information for `generate`, providing a short description of the c
 score-compose generate --help
 ```
 
-# `completion`
+## `completion`
 
 The completion command generates an autocompletion script for score-compose in the specified shell.
 
@@ -156,7 +227,7 @@ The `completion` command can be combined with the following subcommands:
 
 The `completion` command can be combined with the following flags:
 
-##### `--help ` | `-h`
+#### `--help ` | `-h`
 
 Displays details on how to use the generated script.
 
@@ -164,7 +235,7 @@ Displays details on how to use the generated script.
 score-compose completion [command] --help
 ```
 
-# `run (deprecated)`
+## `run (deprecated)`
 
 The run command translates the Score file into a Docker Compose file. Please note that this command is deprecated as it does not support resource provisioning out of the box. Please use the [generate](#generate) command instead.
 
@@ -178,7 +249,7 @@ score-compose run --file ./score.yaml \
 
 The `run` command can be combined with the following flags:
 
-##### `--build` (deprecated)
+#### `--build`
 
 Replaces the image name with the specified string.
 
@@ -186,7 +257,7 @@ Replaces the image name with the specified string.
 score-compose run -f ./score.yaml -o ./compose.yaml --build web
 ```
 
-##### `--env-file` (deprecated)
+#### `--env-file`
 
 Specifies the location to store sample `.env` file.
 
@@ -194,7 +265,7 @@ Specifies the location to store sample `.env` file.
 score-compose run -f ./score.yaml -o ./compose.yaml --env-file ./backend.env
 ```
 
-##### `--file` | `f` (deprecated)
+#### `--file` | `f`
 
 Specifies the path to the Score file. Uses `./score.yaml` as a default value if the flag isn't specified.
 
@@ -202,7 +273,7 @@ Specifies the path to the Score file. Uses `./score.yaml` as a default value if 
 score-compose run -f ./another-score.yaml
 ```
 
-##### `--output` | `-o` (deprecated)
+#### `--output` | `-o`
 
 The output location of the Compose file. Uses `./compose.yaml` as a default value if the flag isn't specified.
 
@@ -210,11 +281,11 @@ The output location of the Compose file. Uses `./compose.yaml` as a default valu
 score-compose run -f ./score.yaml -o ./another-compose.yaml
 ```
 
-##### `--property` | `-p` (deprecated)
+#### `--property` | `-p`
 
 Overrides selected property value.
 
-##### `--help` | `-h` (deprecated)
+#### `--help` | `-h`
 
 Displays help output for the `run` command.
 
@@ -222,7 +293,7 @@ Displays help output for the `run` command.
 score-compose run -h
 ```
 
-# `help`
+## `help`
 
 The help command provides information on all commands.
 
@@ -234,7 +305,7 @@ The help command provides information on all commands.
 
 The `help` command can be combined with the following flags:
 
-##### `--help` | `-h` 
+#### `--help` | `-h` 
 
 Receive information on the help command.
 
@@ -244,7 +315,7 @@ score-compose help --help
 
 ## Global flags
 
-##### `--help` | `-h` 
+## `--help` | `-h` 
 
 Displays help information for score-compose, includig available commands and flags.
 
@@ -252,7 +323,7 @@ Displays help information for score-compose, includig available commands and fla
 score-compose --help
 ```
 
-##### `--quiet`
+## `--quiet`
 
 Mutes any logging output.
 
@@ -260,7 +331,7 @@ Mutes any logging output.
 score-compose --quiet
 ```
 
-##### `--verbose count` | `-v`
+## `--verbose count` | `-v`
 
 Increases log verbosity and detail by specifying this flag one or more times.
 
@@ -268,12 +339,10 @@ Increases log verbosity and detail by specifying this flag one or more times.
 score-compose --verbose count
 ```
 
-##### `--version`
+## `--version`
 
 Displays the version of score-compose.
 
 ```bash
 score-compose --version
 ```
-
-
