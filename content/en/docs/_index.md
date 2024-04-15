@@ -20,9 +20,8 @@ To get started, you'll want to:
 
 - Read through the [Overview page]({{< relref "/overview" >}} "Overview").
 - Learn how to [install the Score implementation (CLI)]({{< relref "/install" >}} "Learn to install").
-- Review the [reference material]({{< relref "reference" >}} "Reference content").
 
 Beyond the getting started section, you can learn more about Score and how to implement it into your own workflows.
 
 - [Concepts](/docs/concepts): Recommended reading for anyone consuming or operating Score.
-- [Set environment variables]({{< relref "environment%20variables/_index.md" >}}) Learn how to set and manage environment-specific variables.
+- [Set environment variables](/docs/how-to-guides/enviornment-variables) Learn how to set and manage environment-specific variables.

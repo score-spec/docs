@@ -2,6 +2,11 @@
 title: "Specify configuration overrides"
 linkTitle: "Overrides"
 weight: 5
+description: >
+    How to define overrides for your Score specification
+aliases:
+- /docs/override/
+- /docs/override/override-parameters/
 ---
 
 An override is a way for you to customize or modify certain aspects of the `score.yaml` file. This can be achieved using either:
@@ -90,7 +95,7 @@ Set the path of the property to an empty value to remove the property.
 score-compose run -f score.yaml --property metadata.my-service=
 ```
 
-For more information, see the [Score CLI reference]({{< relref "docs/reference/score-cli/" >}}).
+For more information, see the [Score CLI reference]({{< relref "docs/score-implementation" >}}).
 
 ### Example: How to substitute a property
 

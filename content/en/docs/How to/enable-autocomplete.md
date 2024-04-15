@@ -1,9 +1,11 @@
 ---
 title: "Enable autocomplete for shell"
-linkTitle: "Enable autocomplete"
+linkTitle: "Autocompletion"
 weight: 10
 description: >
-  Enables autocomplete for the Score implementation (CLI).
+  How to autocomplete for the Score implementation (CLI)
+aliases: 
+- /docs/reference/score-cli/enable-autocomplete/
 ---
 
 <!-- By default, Homebrew install the autocompletion script. -->
@@ -53,6 +55,6 @@ For help with enabling autocomplete script for the shell, use the `--help` flag 
 score-compose completion bash --help
 ```
 
-For more information, see Cobra's documentation on [Generating shell completions](https://github.com/spf13/cobra/blob/main/shell_completions.md).
+For more information, see Cobra's documentation on [Generating shell completions](https://github.com/spf13/cobra/blob/main/site/content/completions/_index.md).
 
-For information on use setting up your IDE's autocomplete for `score.yaml`` files, see [IDE linter and autocomplete for Score's JSON schema]({{< relref "/docs/score-specification/score-schema-reference" >}}).
+For information on use setting up your IDE's autocomplete for `score.yaml` files, see [IDE linter and autocomplete for Score's JSON schema]({{< relref "/docs/score specification/ide-linter-autocomplete" >}}).

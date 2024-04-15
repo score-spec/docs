@@ -3,7 +3,7 @@ title: "Score specification reference"
 linkTitle: "Score specification"
 weight: 9
 description: >
-    Reference implementation for the Score Specification.
+    Reference implementation for the Score Specification
 aliases:
 - /docs/dependencies
 - /docs/annotations
