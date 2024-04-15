@@ -1,7 +1,7 @@
 ---
 title: "score-humanitec"
 linkTitle: "score-humanitec"
-description: "CLI Reference for score-humanitec"
+description: "Get started with the score-humanitec CLI"
 weight: 4
 aliases:
 - /docs/get-started/score-humanitec-hello-world/
