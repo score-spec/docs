@@ -4,7 +4,6 @@ linkTitle: "score-humanitec"
 description: "Get started with the score-humanitec CLI"
 weight: 4
 aliases:
-- /docs/get-started/score-humanitec-hello-world/
 - /docs/environment-variables/environment-variables-humanitec/
 - /docs/reference/humanitec-extension/
 - /docs/reference/score-cli/score-humanitec-run/

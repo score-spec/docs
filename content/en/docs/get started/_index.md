@@ -2,6 +2,11 @@
 title: "Get started with Score"
 linkTitle: "Get started"
 weight: 2
+aliases:
+- /docs/get-started/install/
+- /docs/get-started/score-compose-hello-world/
+- /docs/get-started/score-helm-hello-world/
+- /docs/get-started/score-humanitec-hello-world/
 ---
 
 ## Overview
