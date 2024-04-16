@@ -57,7 +57,7 @@ For more information please refer to the score-compose [examples library](https:
 
 ## Overrides CLI flag
 
-With score-compose, you can override the declared values in your command line arguments with the `--override-property` flag. This is an alternative approach to using a `overrides.score.yaml` file.
+You can override the declared values in your command line arguments with the `--override-property` flag. This is an alternative approach to using a `overrides.score.yaml` file.
 
 ### How to override a property
 
