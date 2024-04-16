@@ -14,6 +14,7 @@ The score-compose CLI serves as a reference implementation for the Score specifi
 
 * [Installation options](#installation)
 * [CLI reference](#cli-reference)
+* [Examples](#examples)
 
 For additional details and opportunities to contribute to the project, visit the [score-compose](https://github.com/score-spec/score-compose) GitHub repository.
 
@@ -346,3 +347,9 @@ Displays the version of score-compose.
 ```bash
 score-compose --version
 ```
+
+## Examples
+
+Explore a variety of examples for score-compose, ranging from simple "hello world" setups to more complex configurations, including resource provisioning and multiple workloads. You can find these examples in our [examples library](https://github.com/score-spec/score-compose/tree/main/examples).
+
+If you encounter any issues or have questions, feel free to reach out to us in the [Score community Slack](https://join.slack.com/t/scorecommunity/shared_invite/zt-2a0x563j7-i1vZOK2Yg2o4TwCM1irIuA).

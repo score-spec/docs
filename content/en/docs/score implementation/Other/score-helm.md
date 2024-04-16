@@ -14,6 +14,7 @@ The score-helm CLI allows developers to translate their Score specification into
 
 * [Installation options](#installation)
 * [CLI reference](#cli-reference)
+* [Examples](#examples)
 
 For additional details and opportunities to contribute to the project, visit the [score-helm](https://github.com/score-spec/score-helm) GitHub repository.
 
@@ -162,3 +163,9 @@ Enables a stream to which error messages are sent.
 ```bash
 score-helm run -f ./score.yaml -o ./values.yaml --verbose
 ```
+
+## Examples
+
+Explore examples for score-helm in the [examples library](https://github.com/score-spec/score-helm/tree/main/examples) on GitHub.
+
+If you encounter any issues or have questions, feel free to reach out to us in the [Score community Slack](https://join.slack.com/t/scorecommunity/shared_invite/zt-2a0x563j7-i1vZOK2Yg2o4TwCM1irIuA).
