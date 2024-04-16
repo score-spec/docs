@@ -305,7 +305,7 @@ The help command provides information on all commands.
 
 The `help` command can be combined with the following flags:
 
-#### `--help` | `-h` 
+#### `--help` | `-h`
 
 Receive information on the help command.
 
@@ -315,7 +315,7 @@ score-compose help --help
 
 ## Global flags
 
-## `--help` | `-h` 
+#### `--help` | `-h`
 
 Displays help information for score-compose, includig available commands and flags.
 
@@ -323,7 +323,7 @@ Displays help information for score-compose, includig available commands and fla
 score-compose --help
 ```
 
-## `--quiet`
+#### `--quiet`
 
 Mutes any logging output.
 
@@ -331,7 +331,7 @@ Mutes any logging output.
 score-compose --quiet
 ```
 
-## `--verbose count` | `-v`
+#### `--verbose count` | `-v`
 
 Increases log verbosity and detail by specifying this flag one or more times.
 
@@ -339,7 +339,7 @@ Increases log verbosity and detail by specifying this flag one or more times.
 score-compose --verbose count
 ```
 
-## `--version`
+#### `--version`
 
 Displays the version of score-compose.
 
