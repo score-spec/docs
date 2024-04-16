@@ -31,5 +31,5 @@ For instance, configuring Visual Studio Code (VSC) involves the following steps:
 
 For reference:
 
-![VSC instructions](/static/images/VSC%20Score%20schema%20linting.png)
+![VSC instructions](/images/vsc-score-schema-linting.png)
 
