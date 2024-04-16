@@ -17,9 +17,9 @@ The Score Specification is a YAML file that contains the following top-level ref
 Use these definitions to describe a single Workload.
 
 - [Workload definition](#workload-definition): (required) defines the metadata and `apiVersion`.
-- [`containers`](#container-definition): (required) defines how the Workload's tasks are executed.
-- [`resources`](#resources-definition): (optional) defines dependencies needed by the Workload.
-- [`service`](#service-definition): (optional) defines how an application can expose its resources when executed.
+- [containers](#container-definition): (required) defines how the Workload's tasks are executed.
+- [resources](#resources-definition): (optional) defines dependencies needed by the Workload.
+- [service](#service-definition): (optional) defines how an application can expose its resources when executed.
 
 ## Workload definition
 
@@ -61,141 +61,6 @@ resources:
   env:
   # . . .
 ```
-
-## Resources definition
-
-The Resource section of the Score Specification allows users to describe the relationship between Workloads and their dependent resources in an environment-agnostic way. The purpose of the Resource section is to validate resource references in the same Score file.
-
-Resources can be anything and Score doesn't differentiate resources by types. The resource section can be used to provision multiservice setups with platforms like Docker Compose.
-
-It is up to the Score implementation (CLI) to resolve the resource by name, type, or any other meta information available.
-
-### Resources
-
-```yaml
-resources:
-  [resource-name]:
-    metadata:                       # optional
-      annotations:                  # optional
-        [annotation-name]: [value]
-    type: [resource-type]
-    class: [resource-class]
-```
-
-**`resources`**: defines dependencies needed by the Workload.
-
-**`resource-name`**: a required property that specifies the resource name.
-
-- **Type**: string.
-- **Constraints**: alphanumeric characters and dashes "-".
-
-**`metadata`**: an optional property that specifies additional resource metadata.
-
-- **`Type`**: object.
-  - **`annotations`**: An optional property to specify meta data for a resource. This can be utilised to provide additional instructions for the Score CLI Implementation to interpret.
-    - **`Type`**: object.
-    - **`Constraints`**: key-value pairs with alphanumeric characters and dashes "-".
-
-`type`: specifies the resource type.
-
-- **Type**: string.
-- **Constraints**: alphanumeric characters and dashes "-".
-
-`class`: a specialisation of the resource type. For example, a workload that needs an externally accessible storage bucket might set the class to external while the workload that requires an encrypted resource might have a class of sensitive.
-
-- **Type**: string.
-- **Constraints**: alphanumeric characters and dashes "-".
-
-### Reserved resource types
-
-In general, `resource-type` has no meaning for Score, but it can affect how the targeted Score implementation tool resolves the resource. The following conventions are _reserved_ resource types.
-
-| Resource type | `score-compose`                                                                                                                 |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| `environment` | Translates to the environment variables references. For example: `${PROPERTY-NAME}`.                                            |
-| `volume`      | Translates into a reference to the external volume. This reference is usually used in a container’s volume mount specification. |                          
-| `service`     | N/A                                                                                                                             |                                                                                 
-| `workload`    | N/A                                                                                                                             |
-
-### Referencing resources
-
-Resources declared in the resources section of a Score file can be used in substitution patterns in different places.
-
-### Resource example
-
-The Score implementation (CLI) resolves resource references and performs value substitution in a specific manner.
-
-For example, when using the `score-compose` command, resource references within substitution patterns are replaced with corresponding environment variable references in the resulting `compose.yaml` configuration file. To gather all the required environment variables, you can utilize the `--env-file` command line parameter to generate a reference `.env` file. This file can be populated with the necessary values by the user.
-For more instructions, see to the [.env file documentation](https://docs.docker.com/compose/environment-variables/#the-env-file).
-
-The following Score file contains a single resource.
-
-```yaml
-apiVersion: score.dev/v1b1
-
-metadata:
-  name: backend
-
-containers:
-  container-id:
-    image: busybox
-    command: ["/bin/sh"]
-    args: ["-c", "while true; do echo Hello $${FRIEND}!; sleep 5; done"]
-    variables:
-        CONNECTION_STRING: postgresql://${resources.db.username}:${resources.db.password}@${resources.db.host}:${resources.db.port}/${resources.db.name}
-
-resources:
-  db:
-    type: postgres
-```
-
-## Service definition
-
-A `service` contains one or more networks ports that can be exposed to external applications.
-
-The `port` specification can include `public port` and should include `container port`.
-
-```yaml
-service:
-  ports:
-    port-name: string        # (required)
-      port: integer          # (required)
-      protocol: string       # (optional)
-      targetPort: integer    # (optional)
-```
-
-`port-name`: describes the name of the port.
-
-`port`: contains the port to expose to an external application.
-
-`protocol`: describes the transportation layer protocol.
-
-- Defaults: `TCP`
-- Valid values: `TCP` | `UDP`
-
-`targetPort`: describes the port to expose on the host. If the `targetPort` isn't specified, then it defaults to the required `port` property in the container.
-
-### Service example
-
-The following example advertises two public ports `80`, which points to the container's port `8080`, and `8080`, which also points to the container's port.
-
-```yaml
-apiVersion: score.dev/v1b1
-
-metadata:
-  name: web-app
-
-service:
-  ports:
-    www:
-      port: 80
-      targetPort: 8080
-    admin:
-      port: 8080
-      protocol: UDP
-# . . .
-```
-
 ## Container definition
 
 The Workload container’s specification describes how the Workload's tasks are executed.
@@ -347,3 +212,138 @@ containers:
         - name: Custom-Header
           value: Awesome
 ```
+
+## Resources definition
+
+The Resource section of the Score Specification allows users to describe the relationship between Workloads and their dependent resources in an environment-agnostic way. The purpose of the Resource section is to validate resource references in the same Score file.
+
+Resources can be anything and Score doesn't differentiate resources by types. The resource section can be used to provision multiservice setups with platforms like Docker Compose.
+
+It is up to the Score implementation (CLI) to resolve the resource by name, type, or any other meta information available.
+
+### Resources
+
+```yaml
+resources:
+  [resource-name]:
+    metadata:                       # optional
+      annotations:                  # optional
+        [annotation-name]: [value]
+    type: [resource-type]
+    class: [resource-class]
+```
+
+**`resources`**: defines dependencies needed by the Workload.
+
+**`resource-name`**: a required property that specifies the resource name.
+
+- **Type**: string.
+- **Constraints**: alphanumeric characters and dashes "-".
+
+**`metadata`**: an optional property that specifies additional resource metadata.
+
+- **`Type`**: object.
+  - **`annotations`**: An optional property to specify meta data for a resource. This can be utilised to provide additional instructions for the Score CLI Implementation to interpret.
+    - **`Type`**: object.
+    - **`Constraints`**: key-value pairs with alphanumeric characters and dashes "-".
+
+`type`: specifies the resource type.
+
+- **Type**: string.
+- **Constraints**: alphanumeric characters and dashes "-".
+
+`class`: a specialisation of the resource type. For example, a workload that needs an externally accessible storage bucket might set the class to external while the workload that requires an encrypted resource might have a class of sensitive.
+
+- **Type**: string.
+- **Constraints**: alphanumeric characters and dashes "-".
+
+### Reserved resource types
+
+In general, `resource-type` has no meaning for Score, but it can affect how the targeted Score implementation tool resolves the resource. The following conventions are _reserved_ resource types.
+
+| Resource type | `score-compose`                                                                                                                 |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `environment` | Translates to the environment variables references. For example: `${PROPERTY-NAME}`.                                            |
+| `volume`      | Translates into a reference to the external volume. This reference is usually used in a container’s volume mount specification. |                          
+| `service`     | N/A                                                                                                                             |                                                                                 
+| `workload`    | N/A                                                                                                                             |
+
+### Referencing resources
+
+Resources declared in the resources section of a Score file can be used in substitution patterns in different places.
+
+### Resource example
+
+The Score implementation (CLI) resolves resource references and performs value substitution in a specific manner.
+
+For example, when using the `score-compose` command, resource references within substitution patterns are replaced with corresponding environment variable references in the resulting `compose.yaml` configuration file. To gather all the required environment variables, you can utilize the `--env-file` command line parameter to generate a reference `.env` file. This file can be populated with the necessary values by the user.
+For more instructions, see to the [.env file documentation](https://docs.docker.com/compose/environment-variables/#the-env-file).
+
+The following Score file contains a single resource.
+
+```yaml
+apiVersion: score.dev/v1b1
+
+metadata:
+  name: backend
+
+containers:
+  container-id:
+    image: busybox
+    command: ["/bin/sh"]
+    args: ["-c", "while true; do echo Hello $${FRIEND}!; sleep 5; done"]
+    variables:
+        CONNECTION_STRING: postgresql://${resources.db.username}:${resources.db.password}@${resources.db.host}:${resources.db.port}/${resources.db.name}
+
+resources:
+  db:
+    type: postgres
+```
+
+## Service definition
+
+A `service` contains one or more networks ports that can be exposed to external applications.
+
+The `port` specification can include `public port` and should include `container port`.
+
+```yaml
+service:
+  ports:
+    port-name: string        # (required)
+      port: integer          # (required)
+      protocol: string       # (optional)
+      targetPort: integer    # (optional)
+```
+
+`port-name`: describes the name of the port.
+
+`port`: contains the port to expose to an external application.
+
+`protocol`: describes the transportation layer protocol.
+
+- Defaults: `TCP`
+- Valid values: `TCP` | `UDP`
+
+`targetPort`: describes the port to expose on the host. If the `targetPort` isn't specified, then it defaults to the required `port` property in the container.
+
+### Service example
+
+The following example advertises two public ports `80`, which points to the container's port `8080`, and `8080`, which also points to the container's port.
+
+```yaml
+apiVersion: score.dev/v1b1
+
+metadata:
+  name: web-app
+
+service:
+  ports:
+    www:
+      port: 80
+      targetPort: 8080
+    admin:
+      port: 8080
+      protocol: UDP
+# . . .
+```
+
