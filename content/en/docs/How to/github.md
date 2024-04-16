@@ -2,7 +2,7 @@
 title: "Setup GitHub Actions"
 subtitle: "Setup GitHub Actions for Continuous Integration"
 linkTitle: GitHub Actions
-weight: 5
+weight: 1
 draft: false
 description: >
     How to set up Score with GitHub Actions
