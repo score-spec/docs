@@ -50,7 +50,7 @@ containers:
 **3.** Run the following command to override the default arguments by the `overrides.score.yaml` file.
 
 ```bash
-score-compose generate score.yaml --overrides-file development.score-overrides.yaml
+score-compose generate score.yaml --overrides-file overrides.score.yaml
 ```
 
 For more information please refer to the score-compose [examples library](https://github.com/score-spec/score-compose/tree/main/examples/07-overrides#overriding-the-score-file-with---overrides-file).
