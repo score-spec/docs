@@ -35,7 +35,7 @@ containers:
   container-id:
     image: busybox
     command: ["/bin/sh"]
-    args: ["-c", "while true; do echo Hello $${FRIEND}!; sleep 5; done"]
+    args: ["-c", "while true; do echo Hello friend!; sleep 5; done"]
     variables:
         CONNECTION_STRING: postgresql://${resources.db.username}:${resources.db.password}@${resources.db.host}:${resources.db.port}/${resources.db.name}
 
