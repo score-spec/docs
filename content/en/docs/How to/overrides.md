@@ -47,7 +47,7 @@ containers:
       - --help
 ```
 
-**3.** Run the following command to override the default arguments by the `overrides.score.yaml` file.
+**3.** Run the following command to override the default arguments with the contents of the `overrides.score.yaml` file.
 
 ```bash
 score-compose generate score.yaml --overrides-file overrides.score.yaml
