@@ -94,6 +94,6 @@ Score exclusively takes care of translating the workload requirements specified 
 
 - Score is **not a resource and environment management system**, such as Terraform, or an Internal Developer Platform built around a Platform Orchestrator like Humanitec. It won’t spin up or purge physical resources or services defined in `score.yaml`.
 
-- Score is **not a deployment tool**. It doesn't support you with deploying or promoting workloads across environments.
+- Score is **not a deployment tool**. It does not perform deployments or the promoting of workloads across environments. Rather, it will be an input to these processes.
 
 Score will seamlessly integrate with the tech and tools you already have in place for configuration, resource, environment and deployment management. It does not intend to replace any part of your tech stack, but instead allows developers to feed in required workload configuration parameters through the Score Implementation CLI in an automated and accessible way.
