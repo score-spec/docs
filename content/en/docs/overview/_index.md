@@ -4,7 +4,9 @@ linkTitle: "Overview"
 weight: 1
 Victor_Hugo: "true"
 Focus_Keyword: "Learn about the Score Specification"
+url: /docs
 aliases:
+- /docs/overview
 - /docs/concepts
 - /docs/concepts/container
 - /docs/concepts/environment-configuration
