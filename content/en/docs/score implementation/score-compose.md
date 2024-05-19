@@ -88,7 +88,7 @@ The following methods download the score-compose CLI from its [GitHub release pa
 {{< tab name="curl on macOS" include="included/install-score-compose-curl-mac.md" />}}
 {{< tab name="wget on macOS/Linux" include="included/install-wget-compose.md" />}}
 {{< tab name="Github DLs on macOS/Linux" include="included/install-score-compose-bash.md" />}}
-{{< tab name="Windows" include="included/install-windows.md" />}}
+{{< tab name="Windows" include="included/install-windows-compose.md" />}}
 {{< /tabs >}}
 
 ## CLI Reference
@@ -193,12 +193,12 @@ Specifies an optional set of path=key overrides to set or remove.
 score-compose generate --override-property path1=value1
 ```
 
-#### `--override-file`
+#### `--overrides-file`
 
 Specifies an optional file of Score overrides to merge in.
 
 ```bash
-score-compose generate score.yaml --override-file=./overrides.score.yaml
+score-compose generate score.yaml --overrides-file=./overrides.score.yaml
 ```
 
 #### `--help` | `-h`

@@ -1,6 +1,6 @@
 ---
 title: "score-compose install on macOS"
-description: "Installation for score-helm on macOS."
+description: "Installation for score-compose on macOS."
 headless: true
 toc_hide: true
 ---
