@@ -8,7 +8,7 @@ toc_hide: true
 **1.** Download the latest release from the [GitHub release page](https://github.com/score-spec/score-k8s/releases):
 
 ```bash
-wget https://github.com/score-spec/score-k8s/releases/download/<x.y.z>/score-k8s_<x.y.z>_<os_system>.tar.gz
+curl -L -o score-k8s.tgz https://github.com/score-spec/score-k8s/releases/download/<x.y.z>/score-k8s_<x.y.z>_<os_system>.tar.gz
 ```
 
 **2.** Unpack the latest release
