@@ -1,5 +1,5 @@
 ---
-title: "score-k8s install on macOS"
+title: "score-k8s install on macOS/Linux"
 description: "Installation for score-k8s on macOS."
 headless: true
 toc_hide: true
