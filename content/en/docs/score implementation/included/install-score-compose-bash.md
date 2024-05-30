@@ -1,5 +1,5 @@
 ---
-title: "score-compose install on macOS"
+title: "score-compose install on macOS/Linux"
 description: "Installation for score-compose on macOS."
 headless: true
 toc_hide: true

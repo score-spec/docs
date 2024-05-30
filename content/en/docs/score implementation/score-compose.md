@@ -302,18 +302,6 @@ The help command provides information on all commands.
   score-compose help [command] [flags]
 ```
 
-#### Flags
-
-The `help` command can be combined with the following flags:
-
-#### `--help` | `-h`
-
-Receive information on the help command.
-
-```bash
-score-compose help --help
-```
-
 ## Global flags
 
 #### `--help` | `-h`

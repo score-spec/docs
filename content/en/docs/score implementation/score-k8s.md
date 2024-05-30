@@ -159,18 +159,6 @@ The help command provides information on all commands.
   score-k8s help [command] [flags]
 ```
 
-#### Flags
-
-The `help` command can be combined with the following flags:
-
-#### `--help` | `-h`
-
-Receive information on the help command.
-
-```bash
-score-k8s help --help
-```
-
 ## Global flags
 
 #### `--help` | `-h`
