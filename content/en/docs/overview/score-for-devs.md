@@ -68,7 +68,7 @@ When working with Score, there are three main components to consider:
 
 - **The Score file**: A file based on the Score specification that is used to describe your workload’s configuration declaratively. The spec is platform-agnostic, enabling you to use common language and not having to worry about platform-specific syntax from container orchestration tooling like Kubernetes.
 
-- **A Score Implementation**: An implementation, typically a CLI, of the Score specification for target platforms such as Kubernetes, Helm or Google Cloud Run. It is typically developed and maintained by the platform team and can be utilised via a simple set of commands such as score-<platform> generate to generate the required config file.
+- **A Score Implementation**: An implementation, typically a CLI, of the Score specification for target platforms such as Kubernetes, Helm or Google Cloud Run. It is typically developed and maintained by the platform team and can be utilised via a simple set of commands such as score-<platform> to generate the required config file.
 
 - **The platform configuration files**: The generated configuration file can be executed natively by the target platform. If needed it can be combined with environment-specific parameters to run the workload in the target environment.
 
