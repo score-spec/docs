@@ -1,14 +1,14 @@
 ---
-title: "score-compose install on macOS/Linux"
-description: "Installation for score-compose on macOS."
+title: "score-k8s install on macOS/Linux"
+description: "Installation for score-k8s on macOS/Linux."
 headless: true
 toc_hide: true
 ---
 
-**1.** Download the latest compressed Tar file for your operating system from the [GitHub release page](https://github.com/score-spec/score-compose/releases). By default, the tarball will be saved to your `~/Downloads` directory. If you choose to use a different location, you'll need to change that in the following steps.
+**1.** Download the latest compressed Tar file for your operating system from the [GitHub release page](https://github.com/score-spec/score-k8s/releases). By default, the tarball will be saved to your `~/Downloads` directory. If you choose to use a different location, you'll need to change that in the following steps.
 
 ```bash
-score-compose_x.y.z_osx-amd64.tar.gz
+score-k8s_x.y.z_osx-amd64.tar.gz
 ```
 
 **2.** Install into your `local` directory
@@ -24,7 +24,7 @@ mkdir -pv score-spec
 Extract the compressed Tar file (You may need to run the previous command with elevated permissions).
 
 ```bash
-tar -xvzf ~/Downloads/score-compose_<x.y.z>_darwin_arm64.tar.gz -C /usr/local/bin/
+tar -xvzf ~/Downloads/score-k8s_<x.y.z>_darwin_arm64.tar.gz -C /usr/local/bin/
 ```
 
 You should see the following output:
@@ -32,7 +32,7 @@ You should see the following output:
 ```bash
 x LICENSE
 x README.md
-x score-compose
+x score-k8s
 ```
 
 **3.** Export PATH
@@ -46,13 +46,13 @@ export PATH=$PATH:/usr/local/bin/
 **4.** Verify installation
 
 ```bash
-score-compose --version
+score-k8s --version
 ```
 
 The command returns the following output:
 
 ```bash
-score-compose x.y.z
+score-k8s x.y.z
 ```
 
-You’ve successfully installed the score-compose CLI!
+You’ve successfully installed the score-k8s CLI!

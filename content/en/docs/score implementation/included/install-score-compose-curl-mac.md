@@ -1,6 +1,6 @@
 ---
 title: "score-compose install on macOS"
-description: "Installation for score-helm on macOS."
+description: "Installation for score-compose on macOS."
 headless: true
 toc_hide: true
 ---
@@ -8,7 +8,7 @@ toc_hide: true
 **1.** Download the latest release from the [GitHub release page](https://github.com/score-spec/score-compose/releases):
 
 ```bash
-wget https://github.com/score-spec/score-compose/releases/download/<x.y.z>/score-compose_<x.y.z>_<os_system>.tar.gz
+curl -L -o score-compose.tgz https://github.com/score-spec/score-compose/releases/download/<x.y.z>/score-compose_<x.y.z>_<os_system>.tar.gz
 ```
 
 **2.** Unpack the latest release
