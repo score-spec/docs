@@ -14,12 +14,12 @@ aliases:
 
 The Score Specification is a YAML file that contains the following top-level reference definitions.
 
-Use these definitions to describe a single Workload.
+Use these definitions to describe a single workload.
 
-- [Workload definition](#workload-definition): (required) defines the metadata and `apiVersion`.
-- [containers](#container-definition): (required) defines how the Workload's tasks are executed.
-- [resources](#resources-definition): (optional) defines dependencies needed by the Workload.
-- [service](#service-definition): (optional) defines how an application can expose its resources when executed.
+- [Workload definition](#workload-definition): (required) defines the API version and metadata.
+- [service](#service-definition): (optional) defines the service that the workload provides.
+- [containers](#container-definition): (required) defines how the workload's containers are executed.
+- [resources](#resources-definition): (optional) defines dependencies needed by the workload.
 
 ## Workload definition
 
@@ -30,27 +30,27 @@ apiVersion: string
 
 metadata:
   name: string
+  annotations: # optional
+    annotations-name: string # optional
 ```
 
-`apiVersion`: the declared Score Specification version.
+`apiVersion`: the declared Score Specification version. Find the current version [here](https://github.com/score-spec/spec/blob/main/score-spec-v1b1.yaml-).
 
-- **Valid options**: `score.dev/v1b1`
-
-`metadata`: the metadata description of your Workload.
-
-- `name`: specifies a string that can describe your Workload.
-
-You can reference any information available in the metadata section too.
+`metadata`: the metadata description of your workload.
+  - `name`: a string that describes your workload.
+  - `annotations`: a set of optional annotations that apply to the workload and can be passed through to the destination runtime.
 
 ### Workload example
 
-The following is a top level description for a Workload.
+The following is a top level description for a workload.
 
 ```yaml
 apiVersion: score.dev/v1b1
 
 metadata:
   name: hello-world
+  annotations:
+    example.com/my-annotation: value
 service:
   ports:
   # . . .
@@ -61,104 +61,142 @@ resources:
   env:
   # . . .
 ```
-## Container definition
 
-The Workload container’s specification describes how the Workload's tasks are executed.
+## Service definition
+
+A `service` contains one or more networks ports that can be exposed to external applications.
+
+The `port` specification can include `public port` and should include `container port`.
 
 ```yaml
-image: string
-command: []string
-args: []string
-variables: map[string]string
-files:
-  - target: string
-    mode: string
-    content: string
-    source: string
-    noExpand: boolean
-volumes:
-  - target: string
-    source: string
-    path: string
-    readOnly: [true | false]
-resources:
-  limits:
-    cpu: string
-    memory: string
-  requests:
-    cpu: string
-    memory: string
-livenessProbe: ContainerProbeSpec
-  httpGet:
-    scheme: [HTTP or HTTPS]
-    path: string
-    port: int
-    httpHeaders:
-      name: string
-      value: string
-readinessProbe:
-  httpGet:
-    scheme: [HTTP or HTTPS]
-    path: string
-    port: int
-    httpHeaders:
-      name: string
-      value: string
+service:
+  ports:
+    port-name: string # required
+      port: integer # required
+      protocol: string # optional, defaults to TCP
+      targetPort: integer # optional
 ```
 
-<!-- string workload containers -->
+`port-name`: the name of the port.
+  - `port`: the public service port.
+  - `protocol`: the transport level protocol. Defaults to TCP.
+  - `targetPort`: the internal service port. This will default to 'port' if not provided.
 
-`container-id`: specifies a name of the container image.
+### Service example
 
-`image`: image name or tag.
+The following example advertises two public ports `80`, which points to the container's port `8080`, and `8080`, which also points to the container's port.
 
-`command`: overrides image entry point.
+```yaml
+apiVersion: score.dev/v1b1
 
-`args`: overrides entry point arguments.
+metadata:
+  name: web-app
 
-`variables`: specifies environment variables.
+service:
+  ports:
+    www:
+      port: 80
+      targetPort: 8080
+    admin:
+      port: 8080
+      protocol: UDP
+# . . .
+```
 
-`files`: specifies extra files to mount.
+## Container definition
 
-- `target`: specifies a path and name.
-- `mode`: specifies access mode.
-- `content`: specifies inline content and supports templates. Exactly one of content or source must be defined.
-- `source`: specifies a path to a file to make available. Exactly one of content or source must be defined.
-- `noExpand`:  If true, the content or file referenced in source will be used literally with no placeholder expansion in the running container.
+The workload container’s specification describes how the workload's tasks are executed.
 
-`volumes`: specifies volumes to mount.
+```yaml
+containers:
+  container-name:
+    image: string
+    command: #optional
+      - string
+    args: #optional
+      - string
+    variables: #optional
+      VAR_NAME: string
+    files: #optional
+      - target: string
+        mode: string #optional
+        source: string # oneOf source or content is required
+        content: string # oneOf source or content is required
+        noExpand: boolean #optional
+    volumes: #optional
+      - source: string
+        path: string #optional
+        target: string
+        readOnly: boolean #optional
+    resources: #optional
+      limits: #optional
+        memory: string
+        cpu: string
+      requests: #optional
+        memory: string
+        cpu: string
+    livenessProbe: #optional
+      httpGet:
+        scheme: string # optional
+        host: string # optional
+        path: string
+        port: integer
+        httpHeaders: # optional
+          - name: string
+            value: string
+    readinessProbe:
+      httpGet:
+        scheme: string # optional
+        host: string # optional
+        path: string
+        port: integer
+        httpHeaders: # optional
+          - name: string
+            value: string
+```
 
-- `source`: specifies external volume reference.
-- `path` specifies a sub path in the volume.
-- `target`: specifies a target mount on the container.
-- `readOnly`: if true, mounts as read only.
+`container-name`: the name of the container.
 
-<!-- Optional CPU and memory resources needed -->
+`image`: the container image name and tag.
 
-`limits`: maximum allowed CPU memory.
+`command`: if specified, overrides the entrypoint defined in the container image.
 
-- `memory`: a string value representing the maximum allowed CPU memory.
-- `cpu`: a string value representing the maximum allowed CPU.
+`args`: if specified, overrides the arguments passed to the container entrypoint.
 
-`requests`: minimum required CPU memory.
+`variables`: the environment variables for the container.
 
-- `memory`: a string value representing the minimum required CPU memory.
-- `cpu`: a string value representing the minimum required CPU.
+`files`: the extra files to mount into the container.
+  - `target`: the file path to expose in the container.
+  - `mode`: the optional file access mode in octal encoding. For example 0600.
+  - `source`: the relative or absolute path to the content file.
+  - `content`: the inline content for the file.
+  - `noExpand`: if set to true, the placeholders expansion will not occur in the contents of the file.
 
-`livenessProbe`: indicates if the container is running.
+`volumes`: the volumes to mount.
+  - `source`: the external volume reference.
+  - `path`: an optional sub path in the volume.
+  - `target`: the target mount on the container.
+  - `readOnly`: indicates if the volume should be mounted in a read-only mode.
 
-- `httpGet`: performs an HTTP `Get` on a specified path and port.
-  - `scheme`: specifies the identifier used for connecting to the host.
-    - Defaults: `HTTP`
-    - Valid values: `HTTP` | `HTTPS`
-  - `host`: specifies the Hostname in the HTTP request. Defaults to the target IP address.
-  - `path`: specifies a path for the HTTP `Get` method.
-  - `port`: specifies a port for the HTTP `Get` method.
-  - `httpHeaders`: headers to set in the request. Allows repeated headers.
-    - `name`: custom header to set in the request.
-    - `value`: specifies a value.
+`resources`: the compute resources for the container.
+  - `limits`: the maximum allowed resources for the container.
+    - `memory`: a string value representing the maximum allowed CPU memory.
+    - `cpu`: a string value representing the maximum allowed CPU.
+  - `requests`: the minimal resources required for the container
+    - `memory`: a string value representing the minimum required CPU memory.
+    - `cpu`: a string value representing the minimum required CPU.
 
-`readinessProbe`: indicates if the container is ready to respond to requests. This has the same format as `livenessProbe`.
+`livenessProbe`: the liveness probe for the container.
+  - `httpGet`: performs an HTTP `Get` on a specified path and port.
+    - `scheme`: scheme to use for connecting to the host (HTTP or HTTPS). Defaults to HTTP.
+    - `host`: host name to connect to. Defaults to the workload IP. The is equivalent to a Host HTTP header.
+    - `path`: the path to access on the HTTP server.
+    - `port`: the port to access on the workload.
+    - `httpHeaders`: additional HTTP headers to send with the request.
+      - `name`: the HTTP header name.
+      - `value`: the HTTP header value.
+
+`readinessProbe`: the readiness probe for the container. This has the same format as `livenessProbe`.
 
 ### Container example
 
@@ -203,6 +241,7 @@ containers:
         scheme: http                        #    - Specify the schema (http or https)
         path: /alive
         port: 8080
+
     readinessProbe:                         # (Optional) Readiness probe
       httpGet:                              #    - Only HTTP GET is supported
         scheme: http                        #    - Specify the schema (http or https)
@@ -215,47 +254,36 @@ containers:
 
 ## Resources definition
 
-The Resource section of the Score Specification allows users to describe the relationship between Workloads and their dependent resources in an environment-agnostic way. The purpose of the Resource section is to validate resource references in the same Score file.
+The resource section of the Score Specification allows users to describe the relationship between workloads and their dependent resources in an environment-agnostic way. The purpose of the resource section is to validate resource references in the same Score file.
 
-Resources can be anything and Score doesn't differentiate resources by types. The resource section can be used to provision multiservice setups with platforms like Docker Compose.
+resources can be anything and Score doesn't differentiate resources by types. The resource section can be used to provision multiservice setups with platforms like Docker Compose.
 
-It is up to the Score implementation (CLI) to resolve the resource by name, type, or any other meta information available.
+It is up to the Score implementation to resolve the resource by name, type, or any other meta information available.
 
 ### Resources
 
 ```yaml
-resources:
-  [resource-name]:
-    metadata:                       # optional
-      annotations:                  # optional
-        [annotation-name]: [value]
-    type: [resource-type]
-    class: [resource-class]
+resources: # optional
+  resource-name:
+    type: string
+    class: string # optional
+    id: string # optional
+    metadata: # optional
+      annotations: # optional
+        annotation-name: string
+    params: # optional
+      param-name: value
 ```
 
-**`resources`**: defines dependencies needed by the Workload.
+`resources`: the resource dependencies needed by the workload.
 
-**`resource-name`**: a required property that specifies the resource name.
+`resource-name`: a required property that specifies the resource name.
+  - `type`: the resource type. This should be a type supported by the Score implementations being used.
+  - `class`: an optional specialisation of the resource type.
+  - `id`: an optional external resource identifier. When two resources share the same type, class, and id, they are considered the same resource when used across related workloads.
 
-- **Type**: string.
-- **Constraints**: alphanumeric characters and dashes "-".
-
-**`metadata`**: an optional property that specifies additional resource metadata.
-
-- **`Type`**: object.
-  - **`annotations`**: An optional property to specify meta data for a resource. This can be utilised to provide additional instructions for the Score CLI Implementation to interpret.
-    - **`Type`**: object.
-    - **`Constraints`**: key-value pairs with alphanumeric characters and dashes "-".
-
-`type`: specifies the resource type.
-
-- **Type**: string.
-- **Constraints**: alphanumeric characters and dashes "-".
-
-`class`: a specialisation of the resource type. For example, a workload that needs an externally accessible storage bucket might set the class to external while the workload that requires an encrypted resource might have a class of sensitive.
-
-- **Type**: string.
-- **Constraints**: alphanumeric characters and dashes "-".
+`metadata`: an optional property that specifies additional resource metadata.
+  - `annotations`: An optional property to specify meta data for a resource. This can be utilised to provide additional instructions for the Score CLI Implementation to interpret.
 
 ### Reserved resource types
 
@@ -300,50 +328,5 @@ resources:
     type: postgres
 ```
 
-## Service definition
 
-A `service` contains one or more networks ports that can be exposed to external applications.
-
-The `port` specification can include `public port` and should include `container port`.
-
-```yaml
-service:
-  ports:
-    port-name: string        # (required)
-      port: integer          # (required)
-      protocol: string       # (optional)
-      targetPort: integer    # (optional)
-```
-
-`port-name`: describes the name of the port.
-
-`port`: contains the port to expose to an external application.
-
-`protocol`: describes the transportation layer protocol.
-
-- Defaults: `TCP`
-- Valid values: `TCP` | `UDP`
-
-`targetPort`: describes the port to expose on the host. If the `targetPort` isn't specified, then it defaults to the required `port` property in the container.
-
-### Service example
-
-The following example advertises two public ports `80`, which points to the container's port `8080`, and `8080`, which also points to the container's port.
-
-```yaml
-apiVersion: score.dev/v1b1
-
-metadata:
-  name: web-app
-
-service:
-  ports:
-    www:
-      port: 80
-      targetPort: 8080
-    admin:
-      port: 8080
-      protocol: UDP
-# . . .
-```
 
