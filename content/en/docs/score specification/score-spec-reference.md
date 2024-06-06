@@ -34,7 +34,7 @@ metadata:
     annotations-name: string # optional
 ```
 
-`apiVersion`: the declared Score Specification version. Find the current version [here](https://github.com/score-spec/spec/blob/main/score-spec-v1b1.yaml-).
+`apiVersion`: the declared Score Specification version. Find the current version [here](https://github.com/score-spec/spec/blob/main/score-spec-v1b1.yaml).
 
 `metadata`: the metadata description of your workload.
   - `name`: a string that describes your workload.
