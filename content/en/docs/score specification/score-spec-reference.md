@@ -51,11 +51,11 @@ metadata:
   name: hello-world
   annotations:
     example.com/my-annotation: value
-service:
-  ports:
-  # . . .
 containers:
   my-container:
+  # . . .
+service:
+  ports:
   # . . .
 resources:
   env:
