@@ -215,7 +215,7 @@ containers:
 
 A `service` contains one or more networks ports that can be exposed to external applications.
 
-The `port` specification can include `public port` and should include `container port`.
+The `port` specification must include the public `port` and should include the container `targetPort`.
 
 ```yaml
 service:
