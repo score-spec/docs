@@ -17,8 +17,8 @@ The Score Specification is a YAML file that contains the following top-level ref
 Use these definitions to describe a single workload.
 
 - [Workload definition](#workload-definition): (required) defines the API version and metadata.
-- [service](#service-definition): (optional) defines the service that the workload provides.
 - [containers](#container-definition): (required) defines how the workload's containers are executed.
+- [service](#service-definition): (optional) defines the service that the workload provides.
 - [resources](#resources-definition): (optional) defines dependencies needed by the workload.
 
 ## Workload definition
@@ -34,7 +34,7 @@ metadata:
     annotations-name: string # optional
 ```
 
-`apiVersion`: the declared Score Specification version. Find the current version [here](https://github.com/score-spec/spec/blob/main/score-spec-v1b1.yaml).
+`apiVersion`: the declared Score Specification version. Find the current version [here](https://github.com/score-spec/schema/blob/main/score-v1b1.json).
 
 `metadata`: the metadata description of your workload.
   - `name`: a string that describes your workload.
@@ -60,47 +60,6 @@ containers:
 resources:
   env:
   # . . .
-```
-
-## Service definition
-
-A `service` contains one or more networks ports that can be exposed to external applications.
-
-The `port` specification can include `public port` and should include `container port`.
-
-```yaml
-service:
-  ports:
-    port-name: string # required
-      port: integer # required
-      protocol: string # optional, defaults to TCP
-      targetPort: integer # optional
-```
-
-`port-name`: the name of the port.
-  - `port`: the public service port.
-  - `protocol`: the transport level protocol. Defaults to TCP.
-  - `targetPort`: the internal service port. This will default to 'port' if not provided.
-
-### Service example
-
-The following example advertises two public ports `80`, which points to the container's port `8080`, and `8080`, which also points to the container's port.
-
-```yaml
-apiVersion: score.dev/v1b1
-
-metadata:
-  name: web-app
-
-service:
-  ports:
-    www:
-      port: 80
-      targetPort: 8080
-    admin:
-      port: 8080
-      protocol: UDP
-# . . .
 ```
 
 ## Container definition
@@ -250,6 +209,47 @@ containers:
         httpHeaders:                        #    - (Optional) HTTP Headers to include
         - name: Custom-Header
           value: Awesome
+```
+
+## Service definition
+
+A `service` contains one or more networks ports that can be exposed to external applications.
+
+The `port` specification can include `public port` and should include `container port`.
+
+```yaml
+service:
+  ports:
+    port-name: string # required
+      port: integer # required
+      protocol: string # optional, defaults to TCP
+      targetPort: integer # optional
+```
+
+`port-name`: the name of the port.
+  - `port`: the public service port.
+  - `protocol`: the transport level protocol. Defaults to TCP.
+  - `targetPort`: the internal service port. This will default to 'port' if not provided.
+
+### Service example
+
+The following example advertises two public ports `80`, which points to the container's port `8080`, and `8080`, which also points to the container's port.
+
+```yaml
+apiVersion: score.dev/v1b1
+
+metadata:
+  name: web-app
+
+service:
+  ports:
+    www:
+      port: 80
+      targetPort: 8080
+    admin:
+      port: 8080
+      protocol: UDP
+# . . .
 ```
 
 ## Resources definition
