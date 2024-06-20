@@ -1,0 +1,24 @@
+name: Release to Dev Environment
+
+on:
+  pull_request:
+    branches: [ "*" ]
+    paths-ignore:
+      - README.md
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v4
+      - run: npm install -g yarn
+      - run: yarn install
+      - run: yarn run hugo
+      - run: yarn run dprint check
+  try-build:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v2
+      - run: docker build .

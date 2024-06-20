@@ -6,6 +6,7 @@
   "scripts": {
     "fmt": "dprint fmt",
     "build": "hugo server",
+    "draft": "hugo server --buildDrafts",
     "lint": "vale content/en/docs/**/* && dprint check"
   },
   "repository": {
@@ -13,19 +14,21 @@
     "url": "git+https://github.com/score-spec/docs.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/score-spec/docs/issues"
   },
   "homepage": "https://github.com/score-spec/docs#readme",
-  "devDependencies": {
-    "autoprefixer": "^10.4.0",
-    "hugo-extended": "^0.103.1",
-    "postcss": "^8.4.16",
-    "postcss-cli": "^10.0.0"
-  },
+  "devDependencies": {},
   "dependencies": {
+    "@popperjs/core": "^2.11.6",
+    "autoprefixer": "^10.4.19",
+    "dprint": "^0.46.0",
     "html-hint": "^0.2.4",
-    "hugo-cli": "^0.11.0"
+    "hugo-cli": "^0.13.0",
+    "hugo-extended": "^0.113.0",
+    "lunr": "^2.3.9",
+    "postcss": "^8.4.38",
+    "postcss-cli": "^11.0.0"
   }
 }

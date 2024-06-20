@@ -5,27 +5,31 @@
   },
   "comments": {
     "dependencies": {
-      "html-hint": "project",
-      "hugo-cli": "project"
-    },
-    "devDependencies": {
+      "@popperjs/core": "project",
       "autoprefixer": "project",
+      "dprint": "project",
+      "html-hint": "project",
+      "hugo-cli": "project",
       "hugo-extended": "project",
+      "lunr": "project",
       "postcss": "project",
       "postcss-cli": "project"
-    }
+    },
+    "devDependencies": {}
   },
   "dependencies": {
     "@popperjs/core": "^2.11.6",
+    "autoprefixer": "^10.4.19",
+    "dprint": "^0.46.0",
     "html-hint": "^0.2.4",
-    "hugo-cli": "^0.11.0",
-    "hugo-lunr": "^0.0.4"
+    "hugo-cli": "^0.13.0",
+    "hugo-extended": "^0.113.0",
+    "lunr": "^2.3.9",
+    "postcss": "^8.4.38",
+    "postcss-cli": "^11.0.0"
   },
   "description": "Score technical documentation.",
-  "devDependencies": {
-    "autoprefixer": "^10.4.0",
-    "lunr": "^2.3.9"
-  },
+  "devDependencies": {},
   "homepage": "https://github.com/score-spec/docs#readme",
   "license": "Apache-2.0",
   "main": "none.js",

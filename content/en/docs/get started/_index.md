@@ -76,10 +76,10 @@ Congrats! You’ve successfully run your first Score Implementation with a Hello
 
 ## Next steps
 
-* **Explore more examples**: Check out the [examples folder](https://github.com/score-spec/score-compose/tree/main/examples) for score-compose to dive into further use cases and experiment with different configurations.
+- **Explore more examples**: Check out the [examples folder](https://github.com/score-spec/score-compose/tree/main/examples) for score-compose to dive into further use cases and experiment with different configurations.
 
-* **Learn more about score-compose**: Investigate the inner workings of the score-compose reference implementation by exploring its CLI reference [here](/docs/score-implementation/score-compose#cli-reference).
+- **Learn more about score-compose**: Investigate the inner workings of the score-compose reference implementation by exploring its CLI reference [here](/docs/score-implementation/score-compose#cli-reference).
 
-* **Explore other implementations**: Play around with [other available open-source Score implementations](/docs/score-implementation/). For example, you could continue by running the same Score file used in the example above via the score-k8s CLI to generate a Kubernetes manifest.
+- **Explore other implementations**: Play around with [other available open-source Score implementations](/docs/score-implementation/). For example, you could continue by running the same Score file used in the example above via the score-k8s CLI to generate a Kubernetes manifest.
 
-* **Join the Score community Slack**: If you encounter any issues or have questions, feel free to reach out to us in the [Score community Slack](https://join.slack.com/t/scorecommunity/shared_invite/zt-2a0x563j7-i1vZOK2Yg2o4TwCM1irIuA).
+- **Join the Score community Slack**: If you encounter any issues or have questions, feel free to reach out to us in the [Score community Slack](https://join.slack.com/t/scorecommunity/shared_invite/zt-2a0x563j7-i1vZOK2Yg2o4TwCM1irIuA).

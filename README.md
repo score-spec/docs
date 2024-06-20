@@ -7,23 +7,31 @@ For information on Score's style guide see the [Style guide](styles/style-guide.
 
 ### Running the website locally
 
-Building and running the site locally requires a recent `extended` version of [Hugo](https://gohugo.io).
-You can find out more about how to install Hugo for your environment in our
-[Getting started](https://www.docsy.dev/docs/getting-started/#prerequisites-and-installation) guide.
+We use `yarn` (for MacOS: `brew install yarn`) as a package manager to ensure the versions of Hugo and associated tools are up to date. All commands that execute those tools are prefixed with `yarn run` or are aliased in the `package.json` file.
 
-From the repo root folder, run:
+To install the packages:
 
-To use yarn.
+```
+yarn install
+```
 
-```bash
+To run the server locally:
+
+```
 yarn build
+
+OR
+
+yarn run hugo server
 ```
 
-To use Hugo.
+And then view it at <http://localhost:1313>.
 
-```bash
-hugo server -D
-```
+### Deployment
+
+_NOTE_: we want to change this to be statically rendered and deployed with github pages if we can.
+
+Deployment currently runs by building and deploying the [Dockerfile](Dockerfile) to a container runtime. The hosting is currently provided by Humanitec.
 
 ### Format docs
 
@@ -42,20 +50,16 @@ yarn fmt
 Example output.
 
 ```bash
-$ dprint fmt
+$ yarn fmt
 Formatted 1 file.
 ✨  Done in 0.13s.
 ```
 
 This project uses the [Vale](https://vale.sh) with a [Vale-compatible implementation of the Google Developer Documentation Style Guide](https://github.com/errata-ai/Google).
 
-To lint your doc run:
+On MacOS, install it through `brew install vale`.
 
-```bash
-yarn fmt /path/to/your/file.md
-```
-
-For example, to lint this document run:
+For example, to lint a document run:
 
 ```bash
 vale sync
@@ -72,44 +76,11 @@ Example output.
 ✖ 1 error, 0 warnings and 0 suggestions in 1 file.
 ```
 
+To lint all documents, run `yarn lint`.
+
 ## Troubleshooting documentation site builds
 
 This section covers common build issues with Hugo.
-
-### Extended version of Hugo
-
-As you run the website locally, you may run into the following error:
-
-```bash
-➜ hugo server
-
-INFO 2021/01/21 21:07:55 Using config file:
-Building sites … INFO 2021/01/21 21:07:55 syncing static files to /
-Built in 288 ms
-Error: Error building site: TOCSS: failed to transform "scss/main.scss" (text/x-scss): resource "scss/scss/main.scss_9fadf33d895a46083cdd64396b57ef68" not found in file cache
-```
-
-This error occurs if you have not installed the extended version of Hugo.
-See this [section](https://www.docsy.dev/docs/get-started/docsy-as-module/installation-prerequisites/#install-hugo) of the user guide for instructions on how to install Hugo.
-
-Or you may encounter the following error:
-
-```bash
-➜ hugo server
-
-Error: failed to download modules: binary with name "go" not found
-```
-
-This error occurs if you have not installed the `go` programming language on your system.
-See this [section](https://www.docsy.dev/docs/get-started/docsy-as-module/installation-prerequisites/#install-go-language) of the user guide for instructions on how to install `go`.
-
-[alternate dashboard]: https://app.netlify.com/sites/goldydocs/deploys
-[deploys]: https://app.netlify.com/sites/docsy-example/deploys
-[docsy user guide]: https://docsy.dev/docs
-[docsy]: https://github.com/google/docsy
-[example.docsy.dev]: https://example.docsy.dev
-[hugo theme module]: https://gohugo.io/hugo-modules/use-modules/#use-a-module-for-a-theme
-[netlify]: https://netlify.com
 
 ### Failed to resolve output format `print`
 

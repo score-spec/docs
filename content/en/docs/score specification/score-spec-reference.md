@@ -37,8 +37,9 @@ metadata:
 `apiVersion`: the declared Score Specification version. Find the current version [here](https://github.com/score-spec/schema/blob/main/score-v1b1.json).
 
 `metadata`: the metadata description of your workload.
-  - `name`: a string that describes your workload.
-  - `annotations`: a set of optional annotations that apply to the workload and can be passed through to the destination runtime.
+
+- `name`: a string that describes your workload.
+- `annotations`: a set of optional annotations that apply to the workload and can be passed through to the destination runtime.
 
 ### Workload example
 
@@ -125,35 +126,39 @@ containers:
 `variables`: the environment variables for the container.
 
 `files`: the extra files to mount into the container.
-  - `target`: the file path to expose in the container.
-  - `mode`: the optional file access mode in octal encoding. For example 0600.
-  - `source`: the relative or absolute path to the content file.
-  - `content`: the inline content for the file.
-  - `noExpand`: if set to true, the placeholders expansion will not occur in the contents of the file.
+
+- `target`: the file path to expose in the container.
+- `mode`: the optional file access mode in octal encoding. For example 0600.
+- `source`: the relative or absolute path to the content file.
+- `content`: the inline content for the file.
+- `noExpand`: if set to true, the placeholders expansion will not occur in the contents of the file.
 
 `volumes`: the volumes to mount.
-  - `source`: the external volume reference.
-  - `path`: an optional sub path in the volume.
-  - `target`: the target mount on the container.
-  - `readOnly`: indicates if the volume should be mounted in a read-only mode.
+
+- `source`: the external volume reference.
+- `path`: an optional sub path in the volume.
+- `target`: the target mount on the container.
+- `readOnly`: indicates if the volume should be mounted in a read-only mode.
 
 `resources`: the compute resources for the container.
-  - `limits`: the maximum allowed resources for the container.
-    - `memory`: a string value representing the maximum allowed CPU memory.
-    - `cpu`: a string value representing the maximum allowed CPU.
-  - `requests`: the minimal resources required for the container
-    - `memory`: a string value representing the minimum required CPU memory.
-    - `cpu`: a string value representing the minimum required CPU.
+
+- `limits`: the maximum allowed resources for the container.
+  - `memory`: a string value representing the maximum allowed CPU memory.
+  - `cpu`: a string value representing the maximum allowed CPU.
+- `requests`: the minimal resources required for the container
+  - `memory`: a string value representing the minimum required CPU memory.
+  - `cpu`: a string value representing the minimum required CPU.
 
 `livenessProbe`: the liveness probe for the container.
-  - `httpGet`: performs an HTTP `Get` on a specified path and port.
-    - `scheme`: scheme to use for connecting to the host (HTTP or HTTPS). Defaults to HTTP.
-    - `host`: host name to connect to. Defaults to the workload IP. The is equivalent to a Host HTTP header.
-    - `path`: the path to access on the HTTP server.
-    - `port`: the port to access on the workload.
-    - `httpHeaders`: additional HTTP headers to send with the request.
-      - `name`: the HTTP header name.
-      - `value`: the HTTP header value.
+
+- `httpGet`: performs an HTTP `Get` on a specified path and port.
+  - `scheme`: scheme to use for connecting to the host (HTTP or HTTPS). Defaults to HTTP.
+  - `host`: host name to connect to. Defaults to the workload IP. The is equivalent to a Host HTTP header.
+  - `path`: the path to access on the HTTP server.
+  - `port`: the port to access on the workload.
+  - `httpHeaders`: additional HTTP headers to send with the request.
+    - `name`: the HTTP header name.
+    - `value`: the HTTP header value.
 
 `readinessProbe`: the readiness probe for the container. This has the same format as `livenessProbe`.
 
@@ -227,9 +232,10 @@ service:
 ```
 
 `port-name`: the name of the port.
-  - `port`: the public service port.
-  - `protocol`: the transport level protocol. Defaults to TCP.
-  - `targetPort`: the internal service port. This will default to 'port' if not provided.
+
+- `port`: the public service port.
+- `protocol`: the transport level protocol. Defaults to TCP.
+- `targetPort`: the internal service port. This will default to 'port' if not provided.
 
 ### Service example
 
@@ -278,12 +284,14 @@ resources: # optional
 `resources`: the resource dependencies needed by the workload.
 
 `resource-name`: a required property that specifies the resource name.
-  - `type`: the resource type. This should be a type supported by the Score implementations being used.
-  - `class`: an optional specialisation of the resource type.
-  - `id`: an optional external resource identifier. When two resources share the same type, class, and id, they are considered the same resource when used across related workloads.
+
+- `type`: the resource type. This should be a type supported by the Score implementations being used.
+- `class`: an optional specialisation of the resource type.
+- `id`: an optional external resource identifier. When two resources share the same type, class, and id, they are considered the same resource when used across related workloads.
 
 `metadata`: an optional property that specifies additional resource metadata.
-  - `annotations`: An optional property to specify meta data for a resource. This can be utilised to provide additional instructions for the Score CLI Implementation to interpret.
+
+- `annotations`: An optional property to specify meta data for a resource. This can be utilised to provide additional instructions for the Score CLI Implementation to interpret.
 
 ### Reserved resource types
 
@@ -292,8 +300,8 @@ In general, `resource-type` has no meaning for Score, but it can affect how the 
 | Resource type | `score-compose`                                                                                                                 |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | `environment` | Translates to the environment variables references. For example: `${PROPERTY-NAME}`.                                            |
-| `volume`      | Translates into a reference to the external volume. This reference is usually used in a container’s volume mount specification. |                          
-| `service`     | N/A                                                                                                                             |                                                                                 
+| `volume`      | Translates into a reference to the external volume. This reference is usually used in a container’s volume mount specification. |
+| `service`     | N/A                                                                                                                             |
 | `workload`    | N/A                                                                                                                             |
 
 ### Referencing resources
@@ -304,8 +312,7 @@ Resources declared in the resources section of a Score file can be used in subst
 
 The Score implementation (CLI) resolves resource references and performs value substitution in a specific manner.
 
-For example, when using the `score-compose` command, resource references within substitution patterns are replaced with corresponding environment variable references in the resulting `compose.yaml` configuration file. To gather all the required environment variables, you can utilize the `--env-file` command line parameter to generate a reference `.env` file. This file can be populated with the necessary values by the user.
-For more instructions, see to the [.env file documentation](https://docs.docker.com/compose/environment-variables/#the-env-file).
+For example, when using the `score-compose` command, resource references within substitution patterns are replaced with corresponding environment variable references in the resulting `compose.yaml` configuration file. To gather all the required environment variables, you can utilize the `--env-file` command line parameter to generate a reference `.env` file.
 
 The following Score file contains a single resource.
 
@@ -327,6 +334,3 @@ resources:
   db:
     type: postgres
 ```
-
-
-

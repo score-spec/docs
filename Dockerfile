@@ -1,4 +1,16 @@
-FROM klakegg/hugo:ext-alpine
+# We use golang because hugo depends on Go as it's module downloader
+FROM golang:alpine
+# We then install shared libs and dynamic linking dependencies
+RUN apk add --no-cache gcc g++ musl-dev git yarn gcompat npm
 
-RUN apk add git && \
-  git config --global --add safe.directory /src
+COPY . /src
+WORKDIR /src
+
+# Install all the packages
+RUN yarn install
+
+# Do an initial hugo build
+RUN yarn hugo --verbose
+
+# Run the hugo server at launch
+CMD [ "hugo", "server", "--themesDir", "../..", "--disableFastRender", "--renderToMemory", "--bind", "0.0.0.0" ]
