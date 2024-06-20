@@ -8,7 +8,7 @@ description: >
     How to combine multiple Score implementations into a CI pipeline for testing and deployment
 ---
 
-A big benefit of the Score workload specification is that it allows the same workload (or workloads) to be deployed in different contexts on different container runtimes. Often this is used to support local development, but it is equally valuable within the Continuous Integration (CI) pipeline and production deployment too. This guide illustrates how to combine the two reference Score implementations into a Github Actions CI/CD pipeline that uses [`score-compose`]({{< relref "/docs/score implementation/score-compose.md" >}}) for testing within the CI Pipeline, followed by [`score-k8s`]({{< relref "/docs/score implementation/score-k8s.md" >}}) for production deployment.
+A big benefit of the Score workload specification is that it allows the same workload, or workloads, to be deployed in different contexts on different container runtimes. Often this is used to support local development, but it's equally valuable within the Continuous Integration (CI) pipeline and production deployment too. This guide illustrates how to combine the two reference Score implementations into a Github Actions CI/CD pipeline that uses [`score-compose`]({{< relref "/docs/score implementation/score-compose.md" >}}) for testing within the CI Pipeline, followed by [`score-k8s`]({{< relref "/docs/score implementation/score-k8s.md" >}}) for production deployment.
 
 The instructions below are shown for Github Actions but can be used as inspiration for a similar process in any other CI tool.
 
@@ -42,7 +42,7 @@ resources:
       path: /
 ```
 
-Notice that the image is "." since the tag is not yet known until the build executes. The image is provided by a Docker file:
+Notice that the image is "." since the tag isn't yet known until the build executes. The image is provided by a Docker file:
 
 ```Dockerfile
 FROM nginx:latest
@@ -51,11 +51,11 @@ RUN echo "Score Example" > /usr/share/nginx/html/index.html
 
 ## Setting up a Github Actions Pipeline
 
-In the source repository, the `.github/workflows/ci.yaml` file will contain the workflow definition.
+In the source repository, the `.github/workflows/ci.yaml` file contains the workflow definition.
 
 ### Triggers
 
-The file starts with the definition of how the workflow is triggered. In this case, it will run on any pull requests and merges into the main branch. The pull requests must only use `score-compose` while the production release will use `score-k8s`.
+The file starts with the definition of how the workflow is triggered. In this case, it runs on any pull requests and merges into the main branch. The pull requests must only use `score-compose` while the production release uses `score-k8s`.
 
 ```yaml
 name: CI
@@ -68,7 +68,7 @@ on:
 
 ### Building the image
 
-The first job in the workflow will build and tag the image locally with a semantic version. This is not Score-specific and can be changed completely for the target project.
+The first job in the workflow builds and tags the image locally with a semantic version. This isn't Score-specific and can be changed completely for the target project.
 
 ```yaml
 jobs:
@@ -89,27 +89,27 @@ jobs:
 
 ### Testing with `score-compose`
 
-The next set of steps will focus on testing with `score-compose`. This provides value because it:
+The next set of steps focuses on testing with `score-compose`. This provides value because it:
 
 1. Tests that the `score.yaml` file is valid.
 2. Tests that the resource provisioning and outputs work as expected.
 3. Launches the container with all dependencies and runs a basic test to check that the web server works as expected. In reality, this can be replaced with an arbitrarily complex test suite for code coverage.
 
-This helps to maximize the chance that the "release" step to production will succeed and result in a working application.
+This helps to maximize the chance that the "release" step to production succeeds and results in a working application.
 
 ```yaml
-      - uses: score-spec/setup-score@v2
-        with:
-          file: score-compose
-          version: 0.15.6
-          token: ${{ secrets.GITHUB_TOKEN }}
-      - run: score-compose init
-      - run: score-compose generate score.yaml --image=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.semver.outputs.version }}
-      - run: docker compose up -d
-      # Integration tests here
-      - run: curl http://$(score-compose resources get-outputs 'dns.default#hello-world.example-dns' --format '{{.host}}'):8080 -v | tee | grep 'Score Example'
-    outputs:
-      version: ${{ steps.semver.outputs.version }}
+  - uses: score-spec/setup-score@v2
+    with:
+      file: score-compose
+      version: 0.15.6
+      token: ${{ secrets.GITHUB_TOKEN }}
+  - run: score-compose init
+  - run: score-compose generate score.yaml --image=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.semver.outputs.version }}
+  - run: docker compose up -d
+  # Integration tests here
+  - run: curl http://$(score-compose resources get-outputs 'dns.default#hello-world.example-dns' --format '{{.host}}'):8080 -v | tee | grep 'Score Example'
+outputs:
+  version: ${{ steps.semver.outputs.version }}
 ```
 
 ### Publish the image and deploy the Kubernetes manifests
@@ -147,21 +147,21 @@ jobs:
 And finally, the steps to convert to Kubernetes manifests and deploy them. Notice that the `generate` call is setting the image to the tag that was just uploaded in the previous steps. The `azure/` actions are maintained by Azure, but are not Azure-specific and can deploy to any generic Kubernetes cluster as needed. Notice that this requires a `KUBECONFIG` secret variable set in the Github Actions workflow to authenticate with the target cluster.
 
 ```yaml
-      - uses: score-spec/setup-score@v2
-        with:
-          file: score-k8s
-          version: 0.1.5
-          token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: azure/k8s-set-context@v2
-        with:
-          method: kubeconfig
-          kubeconfig: ${{ secrets.KUBECONFIG }}
-      - run: score-k8s init
-      - run: score-k8s generate score.yaml --image=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ needs.build-and-test.outputs.version }}
-      - uses: azure/k8s-deploy@v1
-        with:
-          namespace: default
-          manifests: ./manifests
+- uses: score-spec/setup-score@v2
+  with:
+    file: score-k8s
+    version: 0.1.5
+    token: ${{ secrets.GITHUB_TOKEN }}
+- uses: azure/k8s-set-context@v2
+  with:
+    method: kubeconfig
+    kubeconfig: ${{ secrets.KUBECONFIG }}
+- run: score-k8s init
+- run: score-k8s generate score.yaml --image=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ needs.build-and-test.outputs.version }}
+- uses: azure/k8s-deploy@v1
+  with:
+    namespace: default
+    manifests: ./manifests
 ```
 
 This workflow can now test, push, and deploy a Score application. However, there is a problem that remains: the `.score-k8s/state.yaml` file.
@@ -170,20 +170,19 @@ This workflow can now test, push, and deploy a Score application. However, there
 
 CI Workflows typically start with a clean slate every time they execute. No state is stored on disk between runs. However, `score-k8s` _does_ store unique data, random seeds, and non-hermetic attributes in a `.score-k8s/state.yaml` file. For best results, this file should be restored before running `score-k8s` generate.
 
-In this example, the file is stored as a secret in the target Kubernetes cluster. First, it is downloaded before running init or generate:
+In this example, the file is stored as a secret in the target Kubernetes cluster. First, it's downloaded before running init or generate:
 
 ```yaml
-      - run: kubectl get secret -n default score-k8s-state-yaml -o json | jq '.data.content' > .score-k8s/state.yaml
+- run: kubectl get secret -n default score-k8s-state-yaml -o json | jq '.data.content' > .score-k8s/state.yaml
 ```
 
 And then it can be uploaded again after the deployment:
 
 ```yaml
-      - run: kubectl create secret generic -n default score-k8s-state-yaml --from-file=content=.score-k8s/state.yaml
+- run: kubectl create secret generic -n default score-k8s-state-yaml --from-file=content=.score-k8s/state.yaml
 ```
 
-It's a good idea to restrict the concurrency of this job so that concurrent jobs do not overwrite files incorrectly:
-
+It's a good idea to restrict the concurrency of this job so that concurrent jobs don't overwrite files incorrectly:
 
 ```yaml
 jobs:
