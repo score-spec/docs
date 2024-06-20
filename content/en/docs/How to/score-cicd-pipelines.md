@@ -49,7 +49,7 @@ FROM nginx:latest
 RUN echo "Score Example" > /usr/share/nginx/html/index.html
 ```
 
-## Setting up a Github Actions Pipeline
+## Setting up a GitHub Actions Pipeline
 
 In the source repository, the `.github/workflows/ci.yaml` file contains the workflow definition.
 
