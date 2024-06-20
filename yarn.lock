@@ -782,10 +782,10 @@ hugo-cli@^0.13.0:
     got "^11.8.6"
     semver "^7.5.4"
 
-hugo-extended@^0.113.0:
-  version "0.113.0"
-  resolved "https://registry.yarnpkg.com/hugo-extended/-/hugo-extended-0.113.0.tgz#79b4938d4da897991790a7ebcc556fbc5fb2a886"
-  integrity sha512-pJajuImK4MeWutwAlduEmtvn3qW35hjd4cyHc/9Tcr/4AFZQTDAT2vERka0ynUrEDRTknbJ7l0lbcgfoQuv4jw==
+hugo-extended@^0.123.8:
+  version "0.123.8"
+  resolved "https://registry.yarnpkg.com/hugo-extended/-/hugo-extended-0.123.8.tgz#0925aea40c201f28c88a2f63079e8923c54cf99d"
+  integrity sha512-EudplT9MZRhDemli+8SleR8SuxBvwdaf4mCCd1yFUcV+YtM1M92Doc2+AadQn+Mf+znamk2vEIM5Q/YUKvQkeg==
   dependencies:
     careful-downloader "^3.0.0"
     log-symbols "^5.1.0"
