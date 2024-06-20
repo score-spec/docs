@@ -25,6 +25,7 @@ swap:
   action bar: app bar
   admin: administrator
   Ajax: AJAX
+  a\.k\.a|aka: or|also known as
   Android device: Android-powered device
   android: Android
   API explorer: APIs Explorer
@@ -37,7 +38,7 @@ swap:
   cellular network: mobile network
   chapter: documents|pages|sections
   check box: checkbox
-  check: select
+  CLI: command-line tool
   click on: click|click in
   Cloud: Google Cloud Platform|GCP
   Container Engine: Kubernetes Engine
@@ -62,7 +63,7 @@ swap:
   long press: touch & hold
   network IP address: internal IP address
   omnibox: address bar
-  open source: open source
+  open-source: open source
   overview screen: recents screen
   regex: regular expression
   SHA1: SHA-1|HAS-SHA1

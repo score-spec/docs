@@ -2,7 +2,7 @@
 title: "Score for developers"
 linkTitle: "Score for developers"
 description: Learn about Score as a developer
-weight: 1
+weight: 2
 Focus_Keyword: "Learn about Score as a developer"
 
 ---
@@ -13,8 +13,7 @@ Score is a workload specification designed to simplify development for cloud-nat
 
 Below you'll find an example of a simple Score application with a web server that queries a Postgres database on each request. The demo code can be found [here](https://github.com/score-spec/sample-app-gif).
 
-
-``` yaml
+```yaml
 # The version string helps identify the Score file syntax
 apiVersion: score.dev/v1b1
 metadata:

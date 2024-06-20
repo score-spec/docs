@@ -12,9 +12,9 @@ aliases:
 
 The score-helm CLI allows developers to translate their Score specification into Helm values files. Below you'll find an overview of:
 
-* [Installation options](#installation)
-* [CLI reference](#cli-reference)
-* [Examples](#examples)
+- [Installation options](#installation)
+- [CLI reference](#cli-reference)
+- [Examples](#examples)
 
 For additional details and opportunities to contribute to the project, visit the [score-helm](https://github.com/score-spec/score-helm) GitHub repository.
 
@@ -126,7 +126,7 @@ Help for the `run` command.
 score-helm run -h
 ```
 
-#### `--output`  | `-o`
+#### `--output` | `-o`
 
 The output location of the helm file. Uses the default value `./helm.yaml` if the flag isn't specified.
 

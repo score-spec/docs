@@ -1,7 +1,0 @@
-FROM hugomods/hugo:exts-0.123.8 as docsy
-
-COPY . /src
-WORKDIR /src
-RUN npm install --production=false
-
-CMD [ "hugo", "server", "--themesDir", "../..", "--disableFastRender", "--renderToMemory", "--bind", "0.0.0.0" ]

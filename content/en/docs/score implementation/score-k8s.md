@@ -9,8 +9,8 @@ weight: 1
 
 The score-k8s CLI serves as a reference implementation for the Score specification, providing a standard for the creation of custom Score CLIs. Score-k8s can be utilized both as a reference point for implementation and for practical use in development with Kubernetes. Below you'll find an overview of:
 
-* [Installation options](#installation)
-* [CLI reference](#cli-reference)
+- [Installation options](#installation)
+- [CLI reference](#cli-reference)
 
 For additional details and opportunities to contribute to the project, visit the [score-k8s](https://github.com/score-spec/score-k8s) GitHub repository.
 
@@ -118,6 +118,7 @@ Specifies the output file to write the manifest to. By default, the output file 
 ```bash
 score-k8s generate --output your_output_file.yaml
 ```
+
 #### `--override-property`
 
 Specifies an optional set of path=key overrides to set or remove.
@@ -136,10 +137,9 @@ score-k8s generate score.yaml --overrides-file=./overrides.score.yaml
 
 #### `--patch-manifests`
 
-Specifies an optional set of `<kind|*>/<name|*>/path=key` operations for the output manifests. 
+Specifies an optional set of `<kind|*>/<name|*>/path=key` operations for the output manifests.
 
 ```bash
-
 score-k8s generate --patch-manifests 'Deployment/my-workload/spec.replicas=3'
 ```
 
@@ -156,7 +156,7 @@ score-k8s generate --help
 The help command provides information on all commands.
 
 ```bash
-  score-k8s help [command] [flags]
+score-k8s help [command] [flags]
 ```
 
 ## Global flags

@@ -12,9 +12,9 @@ aliases:
 
 The score-compose CLI serves as a reference implementation for the Score specification, providing a standard for the creation of custom Score CLIs. Score-compose can be utilized both as a reference point for implementation and for practical use in local development with Docker Compose. Below you'll find an overview of:
 
-* [Installation options](#installation)
-* [CLI reference](#cli-reference)
-* [Examples](#examples)
+- [Installation options](#installation)
+- [CLI reference](#cli-reference)
+- [Examples](#examples)
 
 For additional details and opportunities to contribute to the project, visit the [score-compose](https://github.com/score-spec/score-compose) GitHub repository.
 
@@ -153,7 +153,7 @@ score-compose generate [flags]
 
 The `generate` command can be combined with the following flags:
 
-#### `--build `
+#### `--build`
 
 Specifies an optional build context to use for the given container. The format is either `--build=container=./dir` or `--build=container={'"context":"./dir"}`.
 
@@ -161,7 +161,7 @@ Specifies an optional build context to use for the given container. The format i
 score-compose generate --build container=./dir
 ```
 
-#### `--env-file `
+#### `--env-file`
 
 Specifies the location to store a skeleton `.env` file for Docker Compose. This will override existing content if present.
 
@@ -228,7 +228,7 @@ The `completion` command can be combined with the following subcommands:
 
 The `completion` command can be combined with the following flags:
 
-#### `--help ` | `-h`
+#### `--help` | `-h`
 
 Displays details on how to use the generated script.
 
@@ -299,7 +299,7 @@ score-compose run -h
 The help command provides information on all commands.
 
 ```bash
-  score-compose help [command] [flags]
+score-compose help [command] [flags]
 ```
 
 ## Global flags
