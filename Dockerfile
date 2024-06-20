@@ -13,4 +13,4 @@ RUN yarn install
 RUN yarn hugo --verbose
 
 # Run the hugo server at launch
-CMD [ "hugo", "server", "--themesDir", "../..", "--disableFastRender", "--renderToMemory", "--bind", "0.0.0.0" ]
+CMD [ "yarn", "hugo", "server", "--themesDir", "../..", "--disableFastRender", "--renderToMemory", "--bind", "0.0.0.0" ]
