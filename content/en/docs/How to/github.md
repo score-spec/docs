@@ -26,6 +26,7 @@ steps:
     with:
       file: <score-cli>
       version: '<x.y.z>'
+      token: ${{ secrets.GITHUB_TOKEN }}
   - run: score-compose --version
 ```
 
@@ -36,6 +37,8 @@ The action accepts the following inputs:
 - `file` - The Score CLI tool to install. For example `score-compose` or `score-helm`.
 
 - `version` - The version of the CLI to install. You can retrieve the latest version from the release page of the respective CLI tool you're working with. For example [score-compose releases](https://github.com/score-spec/score-compose/releases) or [score-helm releases](https://github.com/score-spec/score-helm/releases).
+
+- `token` - The Github Actions Token in the environment (`${{ secrets.GITHUB_TOKEN }}`).
 
 ## Example
 
@@ -55,6 +58,7 @@ jobs:
         with:
           file: score-compose
           version: '0.13.0'
+          token: ${{ secrets.GITHUB_TOKEN }}
       - run: score-compose --version
 ```
 
