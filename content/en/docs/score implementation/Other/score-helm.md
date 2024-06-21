@@ -8,6 +8,8 @@ aliases:
 - /docs/reference/score-cli/score-helm/
 ---
 
+{{< alert context="info" >}} Deprecation Notice: We have deprecated the score-helm CLI implementation. To get started with Score, we recommend using one of our reference implementations [score-compose](../score-compose.md) or [score-k8s](../score-k8s.md). If you're interested in developing a score-helm reference implementation, we'd love to support you! Please [reach out](https://github.com/score-spec/spec?tab=readme-ov-file#-get-in-touch) to us for assistance and collaboration. {{< /alert >}}
+
 # Overview
 
 The score-helm CLI allows developers to translate their Score specification into Helm values files. Below you'll find an overview of:
