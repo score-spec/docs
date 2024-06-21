@@ -164,6 +164,12 @@ And finally, the steps to convert to Kubernetes manifests and deploy them. Notic
     manifests: ./manifests
 ```
 
+With the Score file in this example, the generated `manifests.yaml` file contains:
+
+- `apps/v1/Deployment` - the app itself
+- `v1/Service` - the internal service
+- `gateway.networking.k8s.io/v1/HTTPRoute` - the HTTP route from the ingress DNS name to the service
+
 This workflow can now test, push, and deploy a Score application. However, there is a problem that remains: the `.score-k8s/state.yaml` file.
 
 ### Maintaining `score-k8s` state
@@ -190,3 +196,9 @@ jobs:
     concurrency:
     group: ${{ github.workflow }}-${{ github.ref }}
 ```
+
+### Moving to a managed Score implementation
+
+Managing the local `state.yaml` file is a risk. It may cause issues when concurrent deployments occur or if a workflow fails unexpectedly. Managed Score implementations and services are responsible for storing and converting any related resource state on behalf of the deployment and ensuring it is correctly shared between deployments.
+
+When using one of these managed services, the Github Actions workflow can be modified to replace the `score-k8s` and `kubectl` invocations.
