@@ -8,7 +8,7 @@ aliases:
 - /docs/reference/score-cli/score-helm/
 ---
 
-{{< alert context="info" >}} Deprecation Notice: We have deprecated the score-helm CLI implementation. To get started with Score, we recommend using one of our reference implementations [score-compose](../score-compose.md) or [score-k8s](../score-k8s.md). If you're interested in developing a score-helm reference implementation, we'd love to support you! Please [reach out](https://github.com/score-spec/spec?tab=readme-ov-file#-get-in-touch) to us for assistance and collaboration. {{< /alert >}}
+{{< alert context="info" >}} Deprecation Notice: We have deprecated the score-helm CLI implementation. To get started with Score, we recommend using one of our reference implementations [score-compose]({{< relref "/docs/score implementation/score-compose" >}}) or [score-k8s]({{< relref "/docs/score implementation/score-k8s" >}}). If you're interested in developing a score-helm reference implementation, we'd love to support you! Please [reach out](https://github.com/score-spec/spec?tab=readme-ov-file#-get-in-touch) to us for assistance and collaboration. {{< /alert >}}
 
 # Overview
 
