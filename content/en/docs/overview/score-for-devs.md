@@ -11,7 +11,7 @@ Focus_Keyword: "Learn about Score as a developer"
 
 Score is a workload specification designed to simplify development for cloud-native developers. The spec enables you to describe your workload’s configuration in a vendor-neutral way, eliminating the need for tooling-specific syntax from platforms such as Docker or Kubernetes for example. By leveraging familiar concepts and semantics, defining a workload’s configuration becomes as simple as stating, "I want a database of type X and an event queue of type Y to accompany my workload".
 
-Below you'll find an example of a simple Score application with a web server that queries a Postgres database on each request. The demo code can be found [here](https://github.com/score-spec/sample-app-gif).
+Below you'll find an example of a simple Score application with a web server that queries a Postgres database on each request. The demo code can be found [here](https://github.com/score-spec/sample-app-gif/blob/main/score.yaml).
 
 ```yaml
 # The version string helps identify the Score file syntax
