@@ -7,7 +7,7 @@
 <link
   rel="{{ .Rel }}"
   type="{{ .MediaType.Type }}"
-  href="{{ $.Site.BaseURL }}/docs/"
+  href="{{ relURL "docs" }}"
 />
 {{ end -}} {{ $outputFormat := partial "outputformat.html" . -}} {{ if and
 hugo.IsProduction (ne $outputFormat "print") -}}
