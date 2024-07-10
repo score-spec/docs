@@ -33,7 +33,7 @@
         {{ $pre := .Pre -}}
         {{ $post := .Post -}}
         {{ $url := urls.Parse .URL -}}
-        {{ $baseurl := urls.Parse $.Site.Params.Baseurl -}}
+        {{ $baseurl := urls.Parse $.Site.BaseUrl -}}
         <a {{/**/ -}}
           class="nav-link {{- if $active }} active {{- end }}" {{/**/ -}}
           href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .URL | relLangURL }}{{ end }}"
