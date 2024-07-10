@@ -7,7 +7,7 @@
 <link
   rel="{{ .Rel }}"
   type="{{ .MediaType.Type }}"
-  href="https://docs.score.dev/docs/"
+  href="{{ $.Site.BaseURL }}/docs/"
 />
 {{ end -}} {{ $outputFormat := partial "outputformat.html" . -}} {{ if and
 hugo.IsProduction (ne $outputFormat "print") -}}
