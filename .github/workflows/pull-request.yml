@@ -1,4 +1,4 @@
-name: Release to Dev Environment
+name: Compile Hugo
 
 on:
   pull_request:
@@ -20,9 +20,3 @@ jobs:
       - run: yarn install
       - run: yarn run hugo
       - run: yarn run dprint check
-  try-build:
-    runs-on: ubuntu-latest
-    needs: test
-    steps:
-      - uses: actions/checkout@v2
-      - run: docker build .

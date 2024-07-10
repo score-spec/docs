@@ -29,9 +29,7 @@ And then view it at <http://localhost:1313>.
 
 ### Deployment
 
-_NOTE_: we want to change this to be statically rendered and deployed with github pages if we can.
-
-Deployment currently runs by building and deploying the [Dockerfile](Dockerfile) to a container runtime. The hosting is currently provided by Humanitec.
+This site is currently deployed through Github Pages with a CNAME directing `docs.score.dev` to `score-spec.github.io`. The DNS configuration is managed by Humanitec.
 
 ### Format docs
 
