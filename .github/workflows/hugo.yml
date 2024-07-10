@@ -1,11 +1,13 @@
 name: Deploy Hugo site to Pages
 on:
   push:
-    branches: ["main"]
+    branches: ["main", "astromechza-patch-1"]
     paths-ignore:
       - README.md
       - CONTRIBUTING.md
       - CODE_OF_CONDUCT.md
+  workflow_dispatch:
+
 permissions:
   contents: read
   pages: write
