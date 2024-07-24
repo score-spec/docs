@@ -191,7 +191,7 @@ icon = "fab fa-github"
 desc = "Development takes place here!"
 [[params.links.developer]]
 name = "Slack"
-url = "https://join.slack.com/t/scorecommunity/shared_invite/zt-1i2glkqkl-EnjSWSCgYUyaEGwmDYBZZQ"
+url = "https://cloud-native.slack.com/archives/C07DN0D1UCW"
 icon = "fab fa-slack"
 desc = "Chat with other project developers"
 [[params.links.developer]]
