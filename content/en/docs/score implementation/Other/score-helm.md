@@ -170,4 +170,4 @@ score-helm run -f ./score.yaml -o ./values.yaml --verbose
 
 Explore examples for score-helm in the [examples library](https://github.com/score-spec/score-helm/tree/main/examples) on GitHub.
 
-If you encounter any issues or have questions, feel free to reach out to us in the [Score community Slack](https://join.slack.com/t/scorecommunity/shared_invite/zt-2a0x563j7-i1vZOK2Yg2o4TwCM1irIuA).
+If you encounter any issues or have questions, feel free to reach out to us in the [Score](https://cloud-native.slack.com/archives/C07DN0D1UCW) channel on the CNCF Slack (<https://slack.cncf.io/>).
