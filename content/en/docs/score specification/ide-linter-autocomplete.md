@@ -24,7 +24,7 @@ For instance, configuring Visual Studio Code (VSC) involves the following steps:
 
 ```json
 "yaml.schemas": {
-       "https://raw.githubusercontent.com/score-spec/schema/main/score-v1b1.json": "score.yaml"
+       "https://raw.githubusercontent.com/score-spec/spec/main/score-v1b1.json": "score.yaml"
    }
 ```
 
