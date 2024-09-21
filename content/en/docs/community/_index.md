@@ -40,7 +40,7 @@ We host [regular community meetings](https://github.com/score-spec/spec?tab=read
 - [Dapr with Score and Humanitec — Improving the Developer Experience of your Platform, on steroids!](https://medium.com/@mabenoit/dapr-with-score-and-humanitec-developer-experience-with-your-platform-on-steroids-a848f2de0a5a)
 - [Mastering Workload Specifications: Finding the Right Fit for Your Developers](https://www.infracloud.io/blogs/mastering-workload-specifications/)
 
-## Leverage sample apps projects using Score
+## Leverage example projects using Score
 
 - [`sample-score-app`](https://github.com/score-spec/sample-score-app)
 - [`sample-app-gif`](https://github.com/score-spec/sample-app-gif)
