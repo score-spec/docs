@@ -19,7 +19,7 @@ aliases:
 
 ## What is Score?
 
-Score is an open-source, platform-agnostic, container-based workload specification. With Score, you can define your workload once using the Score Specification and then use a Score Implementation to translate it to multiple platforms such as Docker Compose, Kubernetes, Helm or Google Cloud Run.
+Score is an open-source and a [Cloud Native Computing Foundation (CNCF) Sandbox project](https://www.cncf.io/projects/score/), platform-agnostic, container-based workload specification. With Score, you can define your workload once using the Score Specification and then use a Score Implementation to translate it to multiple platforms such as Docker Compose, Kubernetes, Helm or Google Cloud Run.
 
 Score aims to reduce developer toil and cognitive load by enabling the definition of a single file that works across multiple platforms.
 
