@@ -82,9 +82,3 @@ Score is designed by developers for developers. We’ll spare you the usual mark
 - **Lightweight Abstraction:** Score offers a simple abstraction layer that respects your expertise level. You can stay at the top level of the Score file or dive deep into manipulating generated deployment manifests if you’re a seasoned pro.
 
 - **Easy Workflow Integration**: Adding Score to your workflow is easy. It integrates with your existing toolchain, acting as a bridge, rather than an additional layer or replacement. Simply add the Score spec file to your workload, and use the standalone CLI to generate the required configuration file for your target platform. With minimal lock-in, reverting to your previous workflow is no problem.
-
-### Join the Score community
-
-Score is open source! Connect with fellow Score developers on our [Slack](https://join.slack.com/t/scorecommunity/shared_invite/zt-2a0x563j7-i1vZOK2Yg2o4TwCM1irIuA) or browse through our [GitHub repository](https://github.com/score-spec/spec) to see what’s new, or start your own implementation project.
-
-Got something to say about Score? [We're all ears](https://github.com/score-spec/spec?tab=readme-ov-file#-get-involved)! We’d love to discuss your ideas on where the project should go next or how we can improve.
