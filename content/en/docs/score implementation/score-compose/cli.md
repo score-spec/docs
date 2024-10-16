@@ -49,7 +49,7 @@ score-compose init --project score-compose2
 
 #### `--provisioners` | `-p`
 
-Loads additional provisoners from a remote url. May be specified multiple times. Supports http://host/file, https://host/file, git-ssh://git@host/repo.git/file, and  git-https://host/repo.git/file formats.
+Loads additional provisoners from a remote url. May be specified multiple times. Supports http://host/file, https://host/file, git-ssh://git@host/repo.git/file, and git-https://host/repo.git/file formats.
 
 ```bash
 score-compose init --provisioners https://raw.githubusercontent.com/user/repo/main/example.yaml
