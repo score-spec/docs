@@ -53,7 +53,7 @@ You now have to ensure that the Score completion script gets sourced in all your
   ```
 
   ```bash
-  echo 'source <(score-helm completion bash)' >>~/.bash_profile
+  echo 'source <(score-k8s completion bash)' >>~/.bash_profile
   ```
 
 - Add the completion script to the `/usr/local/etc/bash_completion.d` directory:
