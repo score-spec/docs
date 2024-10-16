@@ -63,4 +63,4 @@ The command returns the following output:
 score-k8s <x.y.z>
 ```
 
-You've successfully installed the score-k8s CLI!
+You've successfully installed the `score-k8s` CLI!
