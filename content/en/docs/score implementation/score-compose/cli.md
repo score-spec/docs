@@ -1,97 +1,11 @@
 ---
-title: "score-compose"
-linkTitle: "score-compose"
-description: "Get started with the score-compose reference implementation"
-weight: 1
+title: "score-compose CLI reference"
+linkTitle: "CLI reference"
+description: "CLI reference for score-compose"
+weight: 2
 aliases:
-- /docs/reference/score-cli/score-compose-run/
-- /docs/reference/score-cli/score-compose/
+- /docs/reference/score-cli/score-compose/cli
 ---
-
-# Overview
-
-The score-compose CLI serves as a reference implementation for the Score specification, providing a standard for the creation of custom Score CLIs. Score-compose can be utilized both as a reference point for implementation and for practical use in local development with Docker Compose. Below you'll find an overview of:
-
-- [Installation options](#installation)
-- [CLI reference](#cli-reference)
-- [Examples](#examples)
-
-For additional details and opportunities to contribute to the project, visit the [score-compose](https://github.com/score-spec/score-compose) GitHub repository.
-
-## Installation
-
-You can install the score-compose CLI in a variety of ways:
-
-- [Homebrew](#homebrew)
-- [Go](#go)
-- [Docker](#docker)
-- [Manual download](#manual-download)
-
-### Homebrew
-
-Prerequisites: You must have [brew](https://brew.sh) installed.
-
-```bash
-brew install score-spec/tap/score-compose
-```
-
-### Go
-
-Prerequisites: You must have [Go](https://go.dev/dl/) installed.
-
-```bash
-go install -v github.com/score-spec/score-compose/cmd/score-compose@latest
-```
-
-### Docker
-
-Prerequisites: You must have [Docker](https://docs.docker.com/get-docker/) installed.
-
-1. Download the repository.
-   The following example uses the GitHub CLI to download the project.
-
-```bash
-gh repo clone score-spec/score-compose
-```
-
-2. Change directories into `score-compose`.
-
-```bash
-cd score-compose
-```
-
-3. Build the Docker image by running the following command in the same directory as the Dockerfile.
-
-```bash
-docker build -t score-compose:latest .
-```
-
-4. Run the Docker image by using the `docker run` command.
-
-```bash
-docker run -it score-compose:latest
-```
-
-If you want to run `score-compose` with the `--help` flag to view the available options, you would run the following command.
-
-```bash
-docker run -it score-compose:latest --help
-```
-
-This will start a new container based on the image you built, run `score-compose` with the `--help` flag, and then stop the container.
-
-### Manual download
-
-The following methods download the score-compose CLI from its [GitHub release page](https://github.com/score-spec/score-compose/releases):
-
-{{< tabs name="Manual installation methods">}}
-{{< tab name="curl on macOS" include="included/install-score-compose-curl-mac.md" />}}
-{{< tab name="wget on macOS/Linux" include="included/install-wget-compose.md" />}}
-{{< tab name="Github DLs on macOS/Linux" include="included/install-score-compose-bash.md" />}}
-{{< tab name="Windows" include="included/install-windows-compose.md" />}}
-{{< /tabs >}}
-
-## CLI Reference
 
 The score-compose CLI provides a set of commands and flags to enable the generation of Docker Compose files from Score specifications.
 
@@ -130,7 +44,15 @@ score-compose init --no-sample
 Sets the name of the Docker Compose project. By default, the project name is the same as the current directory name.
 
 ```bash
-score-compose init --project custom_project_name.yaml
+score-compose init --project score-compose2
+```
+
+#### `--provisioners` | `-p`
+
+Loads additional provisoners from a remote url. May be specified multiple times. Supports http://host/file, https://host/file, git-ssh://git@host/repo.git/file, and git-https://host/repo.git/file formats.
+
+```bash
+score-compose init --provisioners https://raw.githubusercontent.com/user/repo/main/example.yaml
 ```
 
 #### `--help` | `-h`
@@ -143,7 +65,7 @@ score-compose init --help
 
 ## `generate`
 
-The generate command converts the Score file(s) in the current Score Compose project into a combined Docker Compose manifest. All resources and links between Workloads will be resolved and provisioned as required. Please be aware that score-compose [init](#init) must be run first. An error will be thrown if the project directory is not present.
+The `generate` command converts the Score file(s) in the current Score Compose project into a combined Docker Compose manifest. All resources and links between Workloads will be resolved and provisioned as required. Please be aware that [`score-compose init`](#init) must be run first. An error will be thrown if the project directory is not present.
 
 ```bash
 score-compose generate [flags]
@@ -201,6 +123,14 @@ Specifies an optional file of Score overrides to merge in.
 score-compose generate score.yaml --overrides-file=./overrides.score.yaml
 ```
 
+#### `--publish`
+
+Specifies an optional set of HOST_PORT:<ref>:CONTAINER_PORT to publish on the host system. <ref> could be either for the workload (example: 8080:my-workload:80) or for a resource (example: 5432:postgres#my-workload.db.host:5432).
+
+```bash
+score-compose generate score.yaml --publish 8080:my-workload:80
+```
+
 #### `--help` | `-h`
 
 Displays help information for `generate`, providing a short description of the command along with examples and compatible flags.
@@ -211,7 +141,7 @@ score-compose generate --help
 
 ## `completion`
 
-The completion command generates an autocompletion script for score-compose in the specified shell.
+The `completion` command generates an autocompletion script for `score-compose` in the specified shell.
 
 ```bash
 score-compose completion [command]
@@ -238,7 +168,7 @@ score-compose completion [command] --help
 
 ## `run (deprecated)`
 
-The run command translates the Score file into a Docker Compose file. Please note that this command is deprecated as it does not support resource provisioning out of the box. Please use the [generate](#generate) command instead.
+The `run` command translates the Score file into a Docker Compose file. Please note that this command is deprecated as it does not support resource provisioning out of the box. Please use the [generate](#generate) command instead.
 
 ```bash
 score-compose run --file ./score.yaml \
@@ -335,9 +265,3 @@ Displays the version of score-compose.
 ```bash
 score-compose --version
 ```
-
-## Examples
-
-Explore a variety of examples for score-compose, ranging from simple "hello world" setups to more complex configurations, including resource provisioning and multiple workloads. You can find these examples in our [examples library](https://github.com/score-spec/score-compose/tree/main/examples).
-
-If you encounter any issues or have questions, feel free to reach out to us in the the [Score](https://cloud-native.slack.com/archives/C07DN0D1UCW) channel on the CNCF Slack (<https://slack.cncf.io/>).

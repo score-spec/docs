@@ -38,4 +38,4 @@ sudo mv ./score-compose /usr/local/bin/score-compose
 sudo chown root: /usr/local/bin/score-compose
 ```
 
-You’ve successfully installed the score-compose CLI!
+You’ve successfully installed the `score-compose` CLI!

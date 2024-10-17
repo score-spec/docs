@@ -69,13 +69,13 @@ The Score specification is characterised by being:
 
 ## How does Score work?
 
-The Score Specification can be run against a Score Implementation (CLI) such as [score-compose](/docs/score-implementation/score-compose) or [score-k8s](/docs/score-implementation/score-k8s/) to generate a platform configuration file such as `docker-compose.yaml` or a Kubernetes `manifest.yaml` file.
+The Score Specification can be run against a Score Implementation (CLI) such as [`score-compose`](/docs/score-implementation/score-compose) or [`score-k8s`](/docs/score-implementation/score-k8s/) to generate a platform configuration file such as `docker-compose.yaml` or a Kubernetes `manifest.yaml` file.
 
 The generated configuration file can then be combined with environment-specific parameters to run the workload in the target environment.
 
 ![how-score-works](/images/how-score-works.png)
 
-For more hands-on examples, visit the [examples library](https://github.com/score-spec/score-compose/tree/main/examples) available for score-compose.
+For more hands-on examples, visit the [examples library](https://github.com/score-spec/score-compose/tree/main/examples) available for `score-compose`.
 
 ## Benefits
 
@@ -85,7 +85,7 @@ Score reduces cognitive load by providing a single, easy to understand specifica
 
 ### Eliminates configuration mismanagement
 
-Development teams risk configuration inconsistencies when promoting workloads between environments that run on different technology stacks. For example, if you're running a testing environment with Docker Compose and a production environment on Kubernetes, keeping your Wwrkloads' configuration in sync can be challenging as each platform comes with its own set of APIs, semantics, syntax and configuration constructs. With Score, developers describe their workloads once with `score.yaml` and any required platform-specific configuration can be automatically generated via a Score Implementation (e.g. score-compose or score-k8s). This significantly reduces the risk of configuration mismatch between environments.
+Development teams risk configuration inconsistencies when promoting workloads between environments that run on different technology stacks. For example, if you're running a testing environment with Docker Compose and a production environment on Kubernetes, keeping your Wwrkloads' configuration in sync can be challenging as each platform comes with its own set of APIs, semantics, syntax and configuration constructs. With Score, developers describe their workloads once with `score.yaml` and any required platform-specific configuration can be automatically generated via a Score Implementation (e.g. `score-compose` or `score-k8s`). This significantly reduces the risk of configuration mismatch between environments.
 
 ### Enables separation of concerns
 

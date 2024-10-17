@@ -9,4 +9,4 @@ toc_hide: true
 
 **2.** Decompress the `zip` file, and move the binary to your `PATH`.
 
-You've successfully installed the score-k8s CLI!
+You've successfully installed the `score-k8s` CLI!

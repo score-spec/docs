@@ -34,9 +34,9 @@ This will download and cache the specified version of the `score-compose` CLI an
 
 The action accepts the following inputs:
 
-- `file` - The Score CLI tool to install. For example `score-compose` or `score-helm`.
+- `file` - The Score CLI tool to install. For example `score-compose` or `score-k8s`.
 
-- `version` - The version of the CLI to install. You can retrieve the latest version from the release page of the respective CLI tool you're working with. For example [score-compose releases](https://github.com/score-spec/score-compose/releases) or [score-helm releases](https://github.com/score-spec/score-helm/releases).
+- `version` - The version of the CLI to install. You can retrieve the latest version from the release page of the respective CLI tool you're working with. For example [score-compose releases](https://github.com/score-spec/score-compose/releases) or [score-k8s releases](https://github.com/score-spec/score-k8s/releases).
 
 - `token` - The Github Actions Token in the environment (`${{ secrets.GITHUB_TOKEN }}`).
 

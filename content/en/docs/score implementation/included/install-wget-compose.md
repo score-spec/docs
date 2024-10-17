@@ -63,4 +63,4 @@ The command returns the following output:
 score-compose <x.y.z>
 ```
 
-You've successfully installed the score-compose CLI!
+You've successfully installed the `score-compose` CLI!

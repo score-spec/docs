@@ -38,4 +38,4 @@ sudo mv ./score-k8s /usr/local/bin/score-k8s
 sudo chown root: /usr/local/bin/score-k8s
 ```
 
-You’ve successfully installed the score-k8s CLI!
+You’ve successfully installed the `score-k8s` CLI!
