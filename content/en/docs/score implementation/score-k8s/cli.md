@@ -107,6 +107,58 @@ Displays help information for `generate`, providing a short description of the c
 score-k8s generate --help
 ```
 
+## `completion`
+
+Generate the autocompletion script for `score-k8s` for the specified shell. See each sub-command's help for details on how to use the generated script.
+
+#### Sub-Commands
+
+The `completion` commands supports the following sub-commands.
+
+#### `bash`
+
+Generate completions for bash
+
+```bash
+score-k8s completion bash
+```
+
+#### `zsh`
+
+Generate completions for zsh
+
+```bash
+score-k8s completion zsh
+```
+
+#### `fish`
+
+Generate completions for fish
+
+```bash
+score-k8s completion fish
+```
+
+#### `powershell`
+
+Generate completions for powershell
+
+```bash
+score-k8s completion powershell
+```
+
+#### Flags
+
+The `completion` command can be combined with the following flags
+
+#### `--help` | `-h`
+
+Displays help information for `completion`, providing a short description of the command along with sub-commands and compatible flags.
+
+```bash
+score-k8s completion --help
+```
+
 ## `help`
 
 The `help` command provides information on all commands.
