@@ -51,11 +51,11 @@ resources:
       port: 8080
 ```
 
-You can now use this Score file for deploying your workload to a specific platform such as Docker Compose or Kubernetes. Run it through a Score implementation CLI to generate the configuration manifests, and apply them using the standard platform tooling. In the graphic below, this process is illustrated with our reference implementations: [score-compose](https://github.com/score-spec/score-compose) (for Docker Compose files) and [score-kubernetes](https://github.com/score-spec/score-k8s) (for Kubernetes manifests).
+You can now use this Score file for deploying your workload to a specific platform such as Docker Compose or Kubernetes. Run it through a Score implementation CLI to generate the configuration manifests, and apply them using the standard platform tooling. In the graphic below, this process is illustrated with our reference implementations: [`score-compose`](https://github.com/score-spec/score-compose) (for Docker Compose files) and [`score-k8s`](https://github.com/score-spec/score-k8s) (for Kubernetes manifests).
 
 ![how-score-works](/images/how-score-works.png)
 
-If you’re curious about how this looks in practice, check out the recording below where we walk through examples using [score-compose](https://github.com/score-spec/score-compose) and [score-k8s](https://github.com/score-spec/score-k8s) to generate manifests for Docker Compose and Kubernetes, both derived from the same Score spec.
+If you’re curious about how this looks in practice, check out the recording below where we walk through examples using [`score-compose`](https://github.com/score-spec/score-compose) and [`score-k8s`](https://github.com/score-spec/score-k8s) to generate manifests for Docker Compose and Kubernetes, both derived from the same Score spec.
 
 <script src="https://fast.wistia.com/embed/medias/m3mxb2w8vp.jsonp" async></script><script src="https://fast.wistia.com/assets/external/E-v1.js" async></script><div class="wistia_responsive_padding" style="padding:47% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:80%;left:0;position:absolute;top:0;width:80%;"><div class="wistia_embed wistia_async_m3mxb2w8vp seo=true videoFoam=true" style="height:80%;position:relative;width:80%"><div class="wistia_swatch" style="height:80%;left:0;opacity:0;overflow:hidden;position:absolute;top:0;transition:opacity 200ms;width:80%;"><img src="https://fast.wistia.com/embed/medias/m3mxb2w8vp/swatch" style="filter:blur(5px);height:80%;object-fit:contain;width:80%;" alt="" aria-hidden="true" onload="this.parentNode.style.opacity=1;" /></div></div></div></div>
 
@@ -67,7 +67,7 @@ When working with Score, there are three main components to consider:
 
 - **The Score file**: A file based on the Score specification that is used to describe your workload’s configuration declaratively. The spec is platform-agnostic, enabling you to use common language and not having to worry about platform-specific syntax from container orchestration tooling like Kubernetes.
 
-- **A Score Implementation**: An implementation, typically a CLI, of the Score specification for target platforms such as Kubernetes, Helm or Google Cloud Run. It is typically developed and maintained by the platform team and can be utilised via a simple set of commands such as score-<platform> to generate the required config file.
+- **A Score Implementation**: An implementation, typically a CLI, of the Score specification for target platforms such as Kubernetes, Helm or Google Cloud Run. It is typically developed and maintained by the platform team and can be utilised via a simple set of commands such as `score-<platform>` to generate the required config file.
 
 - **The platform configuration files**: The generated configuration file can be executed natively by the target platform. If needed it can be combined with environment-specific parameters to run the workload in the target environment.
 

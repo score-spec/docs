@@ -3,3 +3,4 @@ glossary_tooltip
 score-humanitec
 score-helm
 score-compose
+score-k8s
