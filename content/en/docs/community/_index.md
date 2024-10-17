@@ -37,6 +37,7 @@ We host [regular community meetings](https://github.com/score-spec/spec?tab=read
 ## Read external blog posts about Score
 
 - [What if the `Azure-Samples/aks-store-demo` was using Score?](https://itnext.io/what-if-the-azure-samples-aks-store-demo-was-using-score-655c55f1c3dd)
+- [Score: New CNCF Sandbox Tool for Infrastructure-Centric Dev](https://thenewstack.io/score-new-cncf-sandbox-tool-for-infrastructure-centric-dev/)
 - [Dapr with Score and Humanitec — Improving the Developer Experience of your Platform, on steroids!](https://medium.com/@mabenoit/dapr-with-score-and-humanitec-developer-experience-with-your-platform-on-steroids-a848f2de0a5a)
 - [Mastering Workload Specifications: Finding the Right Fit for Your Developers](https://www.infracloud.io/blogs/mastering-workload-specifications/)
 
