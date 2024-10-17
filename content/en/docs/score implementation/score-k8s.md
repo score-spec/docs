@@ -190,6 +190,7 @@ Generate completions for powershell
 ```bash
 score-k8s completion powershell
 ```
+
 #### Flags
 
 The `completion` command can be combined with the following flags
