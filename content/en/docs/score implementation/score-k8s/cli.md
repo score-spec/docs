@@ -39,6 +39,14 @@ Disables the generation of the sample Score file if you already have a Score fil
 score-k8s init --no-sample
 ```
 
+#### `--provisioners`
+
+Loads additional provisoners from a remote url. May be specified multiple times. Supports http://host/file, https://host/file, git-ssh://git@host/repo.git/file, git-https://host/repo.git/file, and oci://[registry/][namespace/]repository[:tag|@digest] formats.
+
+```bash
+score-k8s init --provisioners https://raw.githubusercontent.com/user/repo/main/example.yaml
+```
+
 #### `--help` | `-h`
 
 Displays help information for `init`, providing a short description of the command along with examples and compatible flags.
