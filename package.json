@@ -18,7 +18,7 @@
     "devDependencies": {}
   },
   "dependencies": {
-    "@popperjs/core": "^2.11.6",
+    "@popperjs/core": "^2.11.8",
     "autoprefixer": "^10.4.20",
     "dprint": "^0.47.4",
     "html-hint": "^0.2.4",
