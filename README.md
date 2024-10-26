@@ -32,6 +32,7 @@ And then view it at <http://localhost:1313>.
 #### `score-compose`
 
 You can [install `score-compose`](https://docs.score.dev/docs/score-implementation/score-compose/installation/) and then build and run this hugo website as a container:
+
 ```
 score-compose init --no-sample
 score-compose generate score.yaml --build main=.
