@@ -372,7 +372,7 @@ When provisioning resources, the `some-resource` resource will have the `workloa
 
 Placeholders may also refer to outputs of Resources within the Workload. Each provisioned resource may have a set of implementation specific outputs for the Workload to consume. The outputs of a Resource depend on the resource type, class, id, params, and any other environmental state at deploy time. For example, given the following Score file:
 
-```
+```yaml
 apiVersion: score.dev/v1b1
 metadata:
   name: my-workload
@@ -384,6 +384,10 @@ containers:
     variables:
       RESOURCE_HOOK: ${resources.some-resource.hook}
       COMBINED: ${resources.some-resource.a}-${resources.other-resource.b}
+    files:
+    - target: /something.properties
+      content: |
+        xyz=${resources.some-resource.a}
 resources:
   some-resource:
     type: something
@@ -394,6 +398,14 @@ resources:
       related: ${resources.some-resource.hook}
 ```
 
-At deploy time resources are evaluated first as an acyclic graph: first `some-resource` is provisioned followed by `other-resource` which has the `workload` param set to `"my-workload"` and the `related` param set to the `hook` output of `some-resource` if it exists. Once the resources are provisioned, the placeholders on the Workload can be evaluated: `RESOURCE_HOOK` is set to the same `hook` output, while `COMBINED` is set to combination of outputs from both resources.
+At deploy time resources are evaluated first as an acyclic graph: first `some-resource` is provisioned followed by `other-resource` which has the `workload` param set to `"my-workload"` and the `related` param set to the `hook` output of `some-resource` if it exists. Once the resources are provisioned, the placeholders on the Workload can be evaluated: `RESOURCE_HOOK` is set to the same `hook` output, while `COMBINED` is set to combination of outputs from both resources. A file is mounted at path `/something.properties` and it contains a setting that has the `hook` output interpolated into it.
 
 As a practical example, a resource of type `postgres` may have outputs like `host`, `port`, `username`, and `password` which we may pass to the Workload variables or to a related resource to consume.
+
+### Supporting secret or sensitive resource outputs
+
+Some resources may return outputs that are expected to be secret and not stored or interpolated as plaintext. For example, a database password should be kept as a secret where possible.
+
+The Score specification itself does not provide any explicit support for indicating whether something is secret or how that should be handled by the runtime since each platform has different support and interpolation options. Instead, each Score implementation should provide native support be ensuring that resource outputs are appropriately marked and stored securely and any interpolated values are mounted into the Workload in a secure way.
+
+For example, `score-compose` explicitely does not support any kinds of secret outputs since it is a reference implementation intended for local development. `score-k8s` on the other hand, allows resource outputs to refer to the contents of a Kubernetes Secret and for the interpolation to intelligently convert these into Volume Mounts where possible and fail when the interpolation is not possible.
