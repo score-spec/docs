@@ -295,7 +295,7 @@ resources: # optional
 
 `metadata`: an optional property that specifies additional resource metadata.
 
-- `annotations`: An optional property to specify meta data for a resource. This can be utilised to provide additional instructions for the Score CLI Implementation to interpret.                                                                                                                          |
+- `annotations`: An optional property to specify meta data for a resource. This can be utilised to provide additional instructions for the Score CLI Implementation to interpret.
 
 ### Resource example
 
