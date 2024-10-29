@@ -334,13 +334,14 @@ In general, the Score specification does not specify a set of supported `resourc
 
 ## Placeholder References
 
-Score Workloads support `${..}` placeholder references in order to support dynamic configuration within the Workload. Placeholders operate within the context of their Workload and can be used to interpolate values from either Workload metadata or the outputs of named resources. References to unknown keys will result in a failure. The `${}` syntax can be escaped with an additional dollar sign, for example: `$${not a placeholder}`.
+Score Workloads support `${..}` placeholder references in order to support dynamic configuration within the Workload. Placeholders operate within the context of their Workload and can be used to interpolate values from either Workload metadata or the outputs of named resources. References to unknown keys will result in a failure. The `${}` syntax can be escaped with an additional dollar sign, for example: `$${not a placeholder}` and any `.`'s in a key can be escaped with a backslash: `${some\.thing}`.
 
 Placeholders are supported in the following locations:
 
 - `containers.*.variables.*`: The value of a variable may contain one or more placeholders.
 - `containers.*.files[*].content`: The inline content of a file may contain one or more placeholders.
 - `containers.*.volumes[*].source`: The volume source may contain placeholders. This usually refers to a particular named resource of type `volume`.
+- `resources.*.params.*`: The resource params may accept placeholder resolutions.
 
 ### Workload metadata references
 
