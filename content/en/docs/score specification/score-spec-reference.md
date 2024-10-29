@@ -125,19 +125,19 @@ containers:
 
 `args`: if specified, overrides the arguments passed to the container entrypoint.
 
-`variables`: the environment variables for the container. Container variables support both metadata and resource output placeholders.
+`variables`: the environment variables for the container. Container variables support both metadata and resource output [placeholders]({{ relref . "#placeholder-references" }}).
 
 `files`: the extra files to mount into the container. Either `content` or `source` must be specified along with `target`.
 
 - `target`: the file path to expose in the container.
 - `mode`: the optional file access mode in octal encoding. For example 0600.
-- `source`: the relative or absolute path to the content file. File content supports both metadata and resource output placeholders unless `noExpand` is true.
-- `content`: the inline content for the file. File content supports both metadata and resource output placeholders unless `noExpand` is true.
+- `source`: the relative or absolute path to the content file. File content supports both metadata and resource output [placeholders]({{ relref . "#placeholder-references" }}) unless `noExpand` is true.
+- `content`: the inline content for the file. File content supports both metadata and resource output [placeholders]({{ relref . "#placeholder-references" }}) unless `noExpand` is true.
 - `noExpand`: if set to true, the placeholders expansion will not occur in the contents of the file.
 
 `volumes`: the volumes to mount.
 
-- `source`: the external volume reference. The volume source supports resource output placeholders.
+- `source`: the external volume reference. The volume source supports resource output [placeholders]({{ relref . "#placeholder-references" }}).
 - `path`: an optional sub path in the volume.
 - `target`: the target mount on the container.
 - `readOnly`: indicates if the volume should be mounted in a read-only mode.
@@ -330,6 +330,7 @@ In general, the Score specification does not specify a set of supported `resourc
 
 - `environment`: This resource type is a source of environment specific values. In `score-compose` this comes from environment variables present when running `score-compose generate`, in Humanitec this comes from the deployed environment configuration. In `score-k8s` this has no specific meaning.
 - `volume`: This resource type should be used with the container volume source field. This is generally implementation specific due to the varied behavior and configuration of mounted volumes.
+- `service`: This resource type is used in Humanitec to return service placeholders. It has no specific meaning in `score-compose` or `score-k8s`.
 
 ## Placeholder References
 
@@ -401,6 +402,27 @@ resources:
 At deploy time resources are evaluated first as an acyclic graph: first `some-resource` is provisioned followed by `other-resource` which has the `workload` param set to `"my-workload"` and the `related` param set to the `hook` output of `some-resource` if it exists. Once the resources are provisioned, the placeholders on the Workload can be evaluated: `RESOURCE_HOOK` is set to the same `hook` output, while `COMBINED` is set to combination of outputs from both resources. A file is mounted at path `/something.properties` and it contains a setting that has the `hook` output interpolated into it.
 
 As a practical example, a resource of type `postgres` may have outputs like `host`, `port`, `username`, and `password` which we may pass to the Workload variables or to a related resource to consume.
+
+### Resource id references
+
+The `${resources.name}` reference format will return a unique resource id for the named resource. This is rarely used, but is most frequently used for historical reasons in the container volumes `source` field which links the container to a resource dependency. The Score implementation is responsible for validating this reference and returning the resource in a form that allows the volume to be mounted.
+
+For example:
+
+```yaml
+apiVersion: score.dev/v1b1
+metadata:
+  name: my-workload
+containers:
+  example:
+    image: some-image
+    volumes:
+    - source: ${resources.my-volume}
+      target: /mnt/volume
+resources:
+  my-volume:
+    type: volume
+```
 
 ### Supporting secret or sensitive resource outputs
 
