@@ -125,19 +125,19 @@ containers:
 
 `args`: if specified, overrides the arguments passed to the container entrypoint.
 
-`variables`: the environment variables for the container. Container variables support both metadata and resource output [placeholders]({{ relref . "#placeholder-references" }}).
+`variables`: the environment variables for the container. Container variables support both metadata and resource output [placeholders]({{< relref "#placeholder-references" >}}).
 
 `files`: the extra files to mount into the container. Either `content` or `source` must be specified along with `target`.
 
 - `target`: the file path to expose in the container.
 - `mode`: the optional file access mode in octal encoding. For example 0600.
-- `source`: the relative or absolute path to the content file. File content supports both metadata and resource output [placeholders]({{ relref . "#placeholder-references" }}) unless `noExpand` is true.
-- `content`: the inline content for the file. File content supports both metadata and resource output [placeholders]({{ relref . "#placeholder-references" }}) unless `noExpand` is true.
+- `source`: the relative or absolute path to the content file. File content supports both metadata and resource output [placeholders]({{< relref "#placeholder-references" >}}) unless `noExpand` is true.
+- `content`: the inline content for the file. File content supports both metadata and resource output [placeholders]({{< relref "#placeholder-references" >}}) unless `noExpand` is true.
 - `noExpand`: if set to true, the placeholders expansion will not occur in the contents of the file.
 
 `volumes`: the volumes to mount.
 
-- `source`: the external volume reference. The volume source supports resource output [placeholders]({{ relref . "#placeholder-references" }}).
+- `source`: the external volume reference. The volume source supports resource output [placeholders]({{< relref "#placeholder-references" >}}).
 - `path`: an optional sub path in the volume.
 - `target`: the target mount on the container.
 - `readOnly`: indicates if the volume should be mounted in a read-only mode.
