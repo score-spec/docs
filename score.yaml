@@ -1,0 +1,20 @@
+apiVersion: score.dev/v1b1
+metadata:
+  name: score-docs
+containers:
+  main:
+    image: .
+resources:
+  dns:
+    type: dns
+  route:
+    type: route
+    params:
+      host: ${resources.dns.host}
+      path: /
+      port: 8080
+service:
+  ports:
+    tcp:
+      port: 8080
+      targetPort: 8080

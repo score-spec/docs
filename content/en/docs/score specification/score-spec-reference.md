@@ -23,7 +23,7 @@ Use these definitions to describe a single workload.
 
 ## Workload definition
 
-Describes the Score Specification API version and metadata. Data in the metadata section can be referenced throughout other parts of the specification as well, for example `${metadata.name}`.
+Describes the Score Specification API version and metadata including the Workload name.
 
 ```yaml
 apiVersion: string
@@ -32,14 +32,16 @@ metadata:
   name: string
   annotations: # optional
     annotations-name: string # optional
+  other-key: other-value # arbitrary properties and values can also be set here
 ```
 
 `apiVersion`: the declared Score Specification version. Find the current version [here](https://github.com/score-spec/spec/blob/main/score-v1b1.json).
 
-`metadata`: the metadata description of your workload.
+`metadata`: the metadata description of your workload. Keys in the metadata section can be referenced using the `${metadata.KEY.SUBKEY}` syntax and can be used in the container variable values, container files, and resource params.
 
 - `name`: a string that describes your workload.
 - `annotations`: a set of optional annotations that apply to the workload and can be passed through to the destination runtime.
+- Other properties can be defined here and referenced but do not have any official meaning in the Score specification.
 
 ### Workload example
 
@@ -71,31 +73,31 @@ The workload container’s specification describes how the workload's tasks are 
 containers:
   container-name:
     image: string
-    command: #optional
+    command: # optional
       - string
-    args: #optional
+    args: # optional
       - string
-    variables: #optional
+    variables: # optional
       VAR_NAME: string
-    files: #optional
+    files: # optional
       - target: string
-        mode: string #optional
+        mode: string # optional
         source: string # oneOf source or content is required
         content: string # oneOf source or content is required
-        noExpand: boolean #optional
-    volumes: #optional
+        noExpand: boolean # optional
+    volumes: # optional
       - source: string
-        path: string #optional
+        path: string # optional
         target: string
-        readOnly: boolean #optional
-    resources: #optional
-      limits: #optional
+        readOnly: boolean # optional
+    resources: # optional
+      limits: # optional
         memory: string
         cpu: string
-      requests: #optional
+      requests: # optional
         memory: string
         cpu: string
-    livenessProbe: #optional
+    livenessProbe: # optional
       httpGet:
         scheme: string # optional
         host: string # optional
@@ -117,25 +119,25 @@ containers:
 
 `container-name`: the name of the container.
 
-`image`: the container image name and tag.
+`image`: the container image name and tag. This may be set to `.` to indicate that the image must be supplied at deploy time.
 
 `command`: if specified, overrides the entrypoint defined in the container image.
 
 `args`: if specified, overrides the arguments passed to the container entrypoint.
 
-`variables`: the environment variables for the container.
+`variables`: the environment variables for the container. Container variables support both metadata and resource output [placeholders]({{< relref "#placeholder-references" >}}).
 
-`files`: the extra files to mount into the container.
+`files`: the extra files to mount into the container. Either `content` or `source` must be specified along with `target`.
 
 - `target`: the file path to expose in the container.
 - `mode`: the optional file access mode in octal encoding. For example 0600.
-- `source`: the relative or absolute path to the content file.
-- `content`: the inline content for the file.
+- `source`: the relative or absolute path to the content file. File content supports both metadata and resource output [placeholders]({{< relref "#placeholder-references" >}}) unless `noExpand` is true.
+- `content`: the inline content for the file. File content supports both metadata and resource output [placeholders]({{< relref "#placeholder-references" >}}) unless `noExpand` is true.
 - `noExpand`: if set to true, the placeholders expansion will not occur in the contents of the file.
 
 `volumes`: the volumes to mount.
 
-- `source`: the external volume reference.
+- `source`: the external volume reference. The volume source supports resource output [placeholders]({{< relref "#placeholder-references" >}}).
 - `path`: an optional sub path in the volume.
 - `target`: the target mount on the container.
 - `readOnly`: indicates if the volume should be mounted in a read-only mode.
@@ -164,7 +166,7 @@ containers:
 
 ### Container example
 
-The following example creates a container with the `busybox` image.
+The following example creates a container with the `busybox` image. It assumes that an `env` and `data` resource are specified in the Resources definitions of the Workload.
 
 ```yaml
 containers:
@@ -178,6 +180,7 @@ containers:
 
     variables:                                # (Optional) Specifies environment variable
       FRIEND: World!
+      MESSAGE: Hello ${metadata.name}
 
     files:                                  # (Optional) Specifies extra files to mount
     - target: /etc/hello-world/config.yaml  #    - Target file path and name
@@ -260,9 +263,9 @@ service:
 
 ## Resources definition
 
-The resource section of the Score Specification allows users to describe the relationship between workloads and their dependent resources in an environment-agnostic way. The purpose of the resource section is to validate resource references in the same Score file.
+The resource section of the Score Specification allows users to describe the relationship between workloads and their dependent resources in an environment-agnostic way. The resource name is used as a key for any placeholder references to this resource in the same Workload.
 
-resources can be anything and Score doesn't differentiate resources by types. The resource section can be used to provision multiservice setups with platforms like Docker Compose.
+Resources can be anything and Score doesn't differentiate resources by types. The resource section can be used to provision multiservice setups with platforms like Docker Compose.
 
 It is up to the Score implementation to resolve the resource by name, type, or any other meta information available.
 
@@ -285,28 +288,14 @@ resources: # optional
 
 `resource-name`: a required property that specifies the resource name.
 
-- `type`: the resource type. This should be a type supported by the Score implementations being used.
-- `class`: an optional specialisation of the resource type.
-- `id`: an optional external resource identifier. When two resources share the same type, class, and id, they are considered the same resource when used across related workloads.
+`type`: the resource type. This should be a type supported by the Score implementations being used.
+`class`: an optional specialisation of the resource type.
+`id`: an optional external resource identifier. When two resources share the same type, class, and id, they are considered the same resource when used across related Workloads.
+`params`: an optional map of parameters that may configure this resource. Params support both metadata and resource placeholders local to this Workload.
 
 `metadata`: an optional property that specifies additional resource metadata.
 
 - `annotations`: An optional property to specify meta data for a resource. This can be utilised to provide additional instructions for the Score CLI Implementation to interpret.
-
-### Reserved resource types
-
-In general, `resource-type` has no meaning for Score, but it can affect how the targeted Score implementation tool resolves the resource. The following conventions are _reserved_ resource types.
-
-| Resource type | `score-compose`                                                                                                                 |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| `environment` | Translates to the environment variables references. For example: `${PROPERTY-NAME}`.                                            |
-| `volume`      | Translates into a reference to the external volume. This reference is usually used in a container’s volume mount specification. |
-| `service`     | N/A                                                                                                                             |
-| `workload`    | N/A                                                                                                                             |
-
-### Referencing resources
-
-Resources declared in the resources section of a Score file can be used in substitution patterns in different places.
 
 ### Resource example
 
@@ -334,3 +323,112 @@ resources:
   db:
     type: postgres
 ```
+
+### Reserved resource types
+
+In general, the Score specification does not specify a set of supported `resource types or outputs of those resources however there are some types that have historical significance in some Score implementations that you may want to be aware of.
+
+- `environment`: This resource type is a source of environment specific values. In `score-compose` this comes from environment variables present when running `score-compose generate`, in Humanitec this comes from the deployed environment configuration. In `score-k8s` this has no specific meaning.
+- `volume`: This resource type should be used with the container volume source field. This is generally implementation specific due to the varied behavior and configuration of mounted volumes.
+- `service`: This resource type is used in Humanitec to return service placeholders. It has no specific meaning in `score-compose` or `score-k8s`.
+
+## Placeholder References
+
+Score Workloads support `${..}` placeholder references in order to support dynamic configuration within the Workload. Placeholders operate within the context of their Workload and can be used to interpolate values from either Workload metadata or the outputs of named resources. References to unknown keys will result in a failure. The `${}` syntax can be escaped with an additional dollar sign, for example: `$${not a placeholder}` and any `.`'s in a key can be escaped with a backslash: `${some\.thing}`.
+
+Placeholders are supported in the following locations:
+
+- `containers.*.variables.*`: The value of a variable may contain one or more placeholders.
+- `containers.*.files[*].content`: The inline content of a file may contain one or more placeholders.
+- `containers.*.volumes[*].source`: The volume source may contain placeholders. This usually refers to a particular named resource of type `volume`.
+- `resources.*.params.*`: The resource params may accept placeholder resolutions.
+
+### Workload metadata references
+
+Workload metadata references return data from the Workload that defines the container or resource. For example, given the following Score file:
+
+```yaml
+apiVersion: score.dev/v1b1
+metadata:
+  name: my-workload
+  other: 
+    key: other-value
+containers:
+  example:
+    image: some-image
+    variables:
+      WORKLOAD_NAME: ${metadata.name}
+      COMBINED: ${metadata.name}_${metadata.other.key}
+resources:
+  some-resource:
+    type: something
+    params:
+      workload: ${metadata.name}
+```
+
+At deploy time, the `WORKLOAD_NAME` container variable will be set to the Workload name `"my-workload"`, while the `COMBINED` variable will be interpolated as `"my-workload_other-value"`.
+
+When provisioning resources, the `some-resource` resource will have the `workload` parameter set to `"my-workload"`. When the Resource has an `id` field set, metadata references will come from the metadata of the workload that first defined the resource.
+
+### Resource output references
+
+Placeholders may also refer to outputs of Resources within the Workload. Each provisioned resource may have a set of implementation specific outputs for the Workload to consume. The outputs of a Resource depend on the resource type, class, id, params, and any other environmental state at deploy time. For example, given the following Score file:
+
+```yaml
+apiVersion: score.dev/v1b1
+metadata:
+  name: my-workload
+  other: 
+    key: other-value
+containers:
+  example:
+    image: some-image
+    variables:
+      RESOURCE_HOOK: ${resources.some-resource.hook}
+      COMBINED: ${resources.some-resource.a}-${resources.other-resource.b}
+    files:
+    - target: /something.properties
+      content: |
+        xyz=${resources.some-resource.a}
+resources:
+  some-resource:
+    type: something
+  other-resource:
+    type: something-else
+    params:
+      workload: ${metadata.name}
+      related: ${resources.some-resource.hook}
+```
+
+At deploy time resources are evaluated first as an acyclic graph: first `some-resource` is provisioned followed by `other-resource` which has the `workload` param set to `"my-workload"` and the `related` param set to the `hook` output of `some-resource` if it exists. Once the resources are provisioned, the placeholders on the Workload can be evaluated: `RESOURCE_HOOK` is set to the same `hook` output, while `COMBINED` is set to combination of outputs from both resources. A file is mounted at path `/something.properties` and it contains a setting that has the `hook` output interpolated into it.
+
+As a practical example, a resource of type `postgres` may have outputs like `host`, `port`, `username`, and `password` which we may pass to the Workload variables or to a related resource to consume.
+
+### Resource id references
+
+The `${resources.name}` reference format will return a unique resource id for the named resource. This is rarely used, but is most frequently used for historical reasons in the container volumes `source` field which links the container to a resource dependency. The Score implementation is responsible for validating this reference and returning the resource in a form that allows the volume to be mounted.
+
+For example:
+
+```yaml
+apiVersion: score.dev/v1b1
+metadata:
+  name: my-workload
+containers:
+  example:
+    image: some-image
+    volumes:
+    - source: ${resources.my-volume}
+      target: /mnt/volume
+resources:
+  my-volume:
+    type: volume
+```
+
+### Supporting secret or sensitive resource outputs
+
+Some resources may return outputs that are expected to be secret and not stored or interpolated as plaintext. For example, a database password should be kept as a secret where possible.
+
+The Score specification itself does not provide any explicit support for indicating whether something is secret or how that should be handled by the runtime since each platform has different support and interpolation options. Instead, each Score implementation should provide native support be ensuring that resource outputs are appropriately marked and stored securely and any interpolated values are mounted into the Workload in a secure way.
+
+For example, `score-compose` explicitely does not support any kinds of secret outputs since it is a reference implementation intended for local development. `score-k8s` on the other hand, allows resource outputs to refer to the contents of a Kubernetes Secret and for the interpolation to intelligently convert these into Volume Mounts where possible and fail when the interpolation is not possible.

@@ -7,6 +7,8 @@ For information on Score's style guide see the [Style guide](styles/style-guide.
 
 ### Running the website locally
 
+#### `yarn`
+
 We use `yarn` (for MacOS: `brew install yarn`) as a package manager to ensure the versions of Hugo and associated tools are up to date. All commands that execute those tools are prefixed with `yarn run` or are aliased in the `package.json` file.
 
 To install the packages:
@@ -26,6 +28,19 @@ yarn run hugo server
 ```
 
 And then view it at <http://localhost:1313>.
+
+#### `score-compose`
+
+You can [install `score-compose`](https://docs.score.dev/docs/score-implementation/score-compose/installation/) and then build and run this hugo website as a container:
+
+```
+score-compose init --no-sample
+score-compose generate score.yaml --build main=.
+
+docker compose up --build -d
+
+curl $(score-compose resources get-outputs dns.default#score-docs.dns --format '{{ .host }}:8080/docs/')
+```
 
 ### Deployment
 

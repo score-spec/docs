@@ -20,3 +20,15 @@ jobs:
       - run: yarn install
       - run: yarn run hugo
       - run: yarn run dprint check
+      - uses: score-spec/setup-score@v3
+        with:
+          file: score-compose
+          token: ${{ secrets.GITHUB_TOKEN }}
+          version: 'latest'
+      - run: |
+          score-compose init --no-sample
+          score-compose generate score.yaml --build main=.
+      - run: |
+          docker compose up --build -d
+      - run: |
+          curl $(score-compose resources get-outputs dns.default#score-docs.dns --format '{{ .host }}:8080/docs/')
