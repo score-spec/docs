@@ -18,14 +18,14 @@
     "devDependencies": {}
   },
   "dependencies": {
-    "@popperjs/core": "^2.11.6",
-    "autoprefixer": "^10.4.19",
-    "dprint": "^0.46.0",
+    "@popperjs/core": "^2.11.8",
+    "autoprefixer": "^10.4.20",
+    "dprint": "^0.47.5",
     "html-hint": "^0.2.4",
-    "hugo-cli": "^0.13.0",
+    "hugo-cli": "^0.14.0",
     "hugo-extended": "^0.123.8",
     "lunr": "^2.3.9",
-    "postcss": "^8.4.38",
+    "postcss": "^8.4.47",
     "postcss-cli": "^11.0.0"
   },
   "description": "Score technical documentation.",
