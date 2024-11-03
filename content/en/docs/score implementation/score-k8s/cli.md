@@ -41,7 +41,12 @@ score-k8s init --no-sample
 
 #### `--provisioners`
 
-Loads additional provisoners from a remote url. May be specified multiple times. Supports http://host/file, https://host/file, git-ssh://git@host/repo.git/file, git-https://host/repo.git/file, and oci://[registry/][namespace/]repository[:tag|@digest] formats.
+Loads additional provisoners from a remote url. May be specified multiple times. Supports the following formats:
+  - `http://host/file`
+  - `https://host/file`
+  - `git-ssh://git@host/repo.git/file`
+  - `git-https://host/repo.git/file`
+  - `oci://[registry/][namespace/]repository[:tag|@digest][#file]`
 
 ```bash
 score-k8s init --provisioners https://raw.githubusercontent.com/user/repo/main/example.yaml
