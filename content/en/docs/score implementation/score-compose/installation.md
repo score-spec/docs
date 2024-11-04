@@ -44,6 +44,12 @@ If you want to run `score-compose` with the `--help` flag to view the available 
 docker run --rm -it ghcr.io/score-spec/score-compose:latest --help
 ```
 
+If you want to run `score-compose` with the `init` subcommand to initialize your local working directory, you would run the following command.
+
+```bash
+docker run --rm -it -v .:/score-compose ghcr.io/score-spec/score-compose:latest init
+```
+
 ## Manual download
 
 The following methods download the `score-compose` CLI from its [GitHub release page](https://github.com/score-spec/score-compose/releases):
