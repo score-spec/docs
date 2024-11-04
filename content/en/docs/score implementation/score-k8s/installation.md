@@ -11,6 +11,7 @@ You can install the `score-k8s` CLI in a variety of ways:
 
 - [Homebrew](#homebrew)
 - [Go](#go)
+- [Docker](#docker)
 - [Manual download](#manual-download)
 
 ### Homebrew
@@ -27,6 +28,20 @@ Prerequisites: You must have [Go](https://go.dev/dl/) installed.
 
 ```bash
 $ go install -v github.com/score-spec/score-k8s@latest
+```
+
+## Docker
+
+Prerequisites: You must have [Docker](https://docs.docker.com/get-docker/) installed.
+
+```bash
+docker run --rm -it ghcr.io/score-spec/score-k8s:latest
+```
+
+If you want to run `score-k8s` with the `--help` flag to view the available options, you would run the following command.
+
+```bash
+docker run --rm -it ghcr.io/score-spec/score-k8s:latest --help
 ```
 
 ### Manual download
