@@ -34,38 +34,15 @@ go install -v github.com/score-spec/score-compose/cmd/score-compose@latest
 
 Prerequisites: You must have [Docker](https://docs.docker.com/get-docker/) installed.
 
-1. Download the repository.
-   The following example uses the GitHub CLI to download the project.
-
 ```bash
-gh repo clone score-spec/score-compose
-```
-
-2. Change directories into `score-compose`.
-
-```bash
-cd score-compose
-```
-
-3. Build the Docker image by running the following command in the same directory as the Dockerfile.
-
-```bash
-docker build -t score-compose:latest .
-```
-
-4. Run the Docker image by using the `docker run` command.
-
-```bash
-docker run -it score-compose:latest
+docker run --rm -it ghcr.io/score-spec/score-compose:latest
 ```
 
 If you want to run `score-compose` with the `--help` flag to view the available options, you would run the following command.
 
 ```bash
-docker run -it score-compose:latest --help
+docker run --rm -it ghcr.io/score-spec/score-compose:latest --help
 ```
-
-This will start a new container based on the image you built, run `score-compose` with the `--help` flag, and then stop the container.
 
 ## Manual download
 
