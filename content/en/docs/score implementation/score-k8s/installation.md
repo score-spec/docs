@@ -30,7 +30,7 @@ Prerequisites: You must have [Go](https://go.dev/dl/) installed.
 $ go install -v github.com/score-spec/score-k8s@latest
 ```
 
-## Docker
+### Docker
 
 Prerequisites: You must have [Docker](https://docs.docker.com/get-docker/) installed.
 
