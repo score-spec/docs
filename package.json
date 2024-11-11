@@ -23,7 +23,7 @@
     "dprint": "^0.47.5",
     "html-hint": "^0.2.4",
     "hugo-cli": "^0.14.0",
-    "hugo-extended": "^0.137.0",
+    "hugo-extended": "^0.123.8",
     "lunr": "^2.3.9",
     "postcss": "^8.4.47",
     "postcss-cli": "^11.0.0"
