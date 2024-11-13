@@ -27,3 +27,5 @@ exceptions:
   - VS
   - Windows
   - JSON
+  - Go
+  - Score

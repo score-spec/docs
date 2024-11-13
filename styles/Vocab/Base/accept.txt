@@ -4,3 +4,5 @@ score-humanitec
 score-helm
 score-compose
 score-k8s
+subcommand
+subcommands
