@@ -7,9 +7,9 @@ weight: 3
 
 **Prerequisites**
 
-1. Experience using [`score-compose`]({{< relref "/docs/score-implementation/score-compose" >}}) or [`score-k8s`]({{< relref "/docs/score-implementation/score-k8s" >}}). 
-    
-    It's important to understand the day-to-day development and deployment flow when using Score. These reference command line interfaces help guide the behavior of any new implementations.
+1. Experience using [`score-compose`]({{< relref "/docs/score-implementation/score-compose" >}}) or [`score-k8s`]({{< relref "/docs/score-implementation/score-k8s" >}}).
+
+   It's important to understand the day-to-day development and deployment flow when using Score. These reference command line interfaces help guide the behavior of any new implementations.
 
 2. A good understanding of the parts of the [Score specification]({{< relref "/docs/score-specification" >}}) including resources and supported [placeholders]({{< relref "/docs/score-specification/score-spec-reference#placeholder-references" >}}).
 
@@ -21,7 +21,7 @@ The core responsibilities of a Score implementation are:
 
 1. **Workload Collection:** Gather and validate Score workload files from the user and local context.
 
-    For example, `score-compose` and `score-k8s` do this in the `generate` command and accept additional Score files along with `--overrides`, and `--image` defaults.
+   For example, `score-compose` and `score-k8s` do this in the `generate` command and accept additional Score files along with `--overrides`, and `--image` defaults.
 
 2. **Resource Provisioning**: Provision all of the resources mentioned in the `resources` section of the Score workload files. Do this before converting the workloads into their final format, since `${resource...}` placeholders depend on the outputs of the provisioned resources. "Provision" has no specific meaning other than it either succeeds or fails based on supported resource types and results in a set of outputs for each resource.
 
@@ -36,12 +36,12 @@ Find more detail on these steps below.
 ### Workload collection and validation
 
 - **1:** The implementation **must** support collecting one or more YAML-formatted files following the [Score specification]({{< relref "/docs/score-specification" >}}).
-    - **1.1:** The implementation **should** support multiple Score workloads deployed together and referring to shared resource outputs, but this isn't required. Multiple Score workloads in one project may share Resource provisioning outputs.
+  - **1.1:** The implementation **should** support multiple Score workloads deployed together and referring to shared resource outputs, but this isn't required. Multiple Score workloads in one project may share Resource provisioning outputs.
 - **2:** The implementation **must** validate the files according to the Score specification JSON schema. This validation should take place _after_ applying any additional overrides or defaults.
-    - **2.1:** The implementation **should** apply implementation-specific validation to ensure that workloads abide by platform-specific or implementation-specific limitations. Report any errors clearly to the user. For example, some platforms don't support mounted `containers.*.files` and have no choice but to reject Score workloads that use these attributes.
+  - **2.1:** The implementation **should** apply implementation-specific validation to ensure that workloads abide by platform-specific or implementation-specific limitations. Report any errors clearly to the user. For example, some platforms don't support mounted `containers.*.files` and have no choice but to reject Score workloads that use these attributes.
 - **3:** Command line implementations **should** support the following:
-    - **3.1:** Implement an `init` subcommand to initialize any local state in the project directory. This isn't required if the implementation requires no local state. The `init` subcommand should generate a sample Score file if one doesn't exist.
-    - **3.2:** Implement a `generate` subcommand for accepting Score files and their configuration from the user, provisioning resources, and converting to the final manifests. Running the `generate` subcommand must be additive and idempotent.
+  - **3.1:** Implement an `init` subcommand to initialize any local state in the project directory. This isn't required if the implementation requires no local state. The `init` subcommand should generate a sample Score file if one doesn't exist.
+  - **3.2:** Implement a `generate` subcommand for accepting Score files and their configuration from the user, provisioning resources, and converting to the final manifests. Running the `generate` subcommand must be additive and idempotent.
 
 ### Resource provisioning
 
@@ -87,9 +87,9 @@ You can write a Score implementation in any language or framework, however [Go](
 As indicated in the `README.md`, the sample comes complete with:
 
 1. A command line skeleton including `init` and`generate` subcommands
-    - `generate --overrides-file` and `generate --override-property` for applying Score overrides before conversion
-    - `generate --image` for overriding the workload image before conversion.
-    - Full placeholder support for `${metadata...}` and `${resource...}` expressions in the workload variables, files, and resource parameters.
+   - `generate --overrides-file` and `generate --override-property` for applying Score overrides before conversion
+   - `generate --image` for overriding the workload image before conversion.
+   - Full placeholder support for `${metadata...}` and `${resource...}` expressions in the workload variables, files, and resource parameters.
 2. State directory storage in `.score-implementation-sample/`
 3. `TODO` statements in place of Resource Provisioning and Workload Conversion
 
