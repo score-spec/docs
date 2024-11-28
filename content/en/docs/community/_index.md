@@ -26,6 +26,7 @@ We host [regular community meetings](https://github.com/score-spec/spec?tab=read
 
 ## Watch talks about Score
 
+- [Cloud Native Rejekts NA 2024 - You Can Score It! Shift Down to the Platform. Do Not Shift Left to the Developers](https://youtu.be/qdk5mLEnrNo)
 - [ChatLoopBackOff - Episode 23 (Score)](https://www.youtube.com/watch?v=BRiZ0t6MYNo&list=PLj6h78yzYM2PnyOsrsCbR_kqjCKfPObHK&index=22)
 - [Open at Microsoft - Improve the Developers Experience from your Platform with Score](https://learn.microsoft.com/en-us/shows/open-at-microsoft/improve-the-developers-experience-from-your-platform-with-score)
 - [PlatformCon 2024 - Dapr + Score: Crafting and improving your developers experience](https://platformcon.com/talks/dapr-score-crafting-and-improving-your-developers-experience)
