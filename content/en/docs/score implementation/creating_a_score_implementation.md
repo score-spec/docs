@@ -25,7 +25,7 @@ The core responsibilities of a Score implementation are:
 
 2. **Resource Provisioning**: Provision all of the resources mentioned in the `resources` section of the Score workload files. Do this before converting the workloads into their final format, since `${resource...}` placeholders depend on the outputs of the provisioned resources. "Provision" has no specific meaning other than it either succeeds or fails based on supported resource types and results in a set of outputs for each resource.
 
-3. **Workload Conversion**: Convert the workloads into the desired output manifests while resolving all [placeholders]({{< relref "/docs/score-specification/score-spec-reference#placeholder-references" >}}). The output manifests are specific to the target runtime platform. `score-compose` converts the output to Docker Compose manifests, while `score-k8s` returns a Kubernetes YAML document.
+3. **Workload Conversion**: Convert the workloads into the desired output manifests while resolving all [placeholders]({{< relref "/docs/score-specification/score-spec-reference#placeholder-references" >}}). The output manifests are specific to the target runtime platform. `score-compose` converts the output to Docker Compose manifests, while `score-k8s` returns a Kubernetes YAML document. The implementation should apply best-practice configuration and security where possible. Extra configuration and options should only be needed to enable unique behavior or more privileged access.
 
 Note that although the reference Score implementations are command line interfaces, some Score implementations run as API and Web-UI based applications and support the same Score specification and core responsibilities.
 

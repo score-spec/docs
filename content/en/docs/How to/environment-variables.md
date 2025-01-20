@@ -19,6 +19,4 @@ Values for those variables can be either hard-coded (not recommended) or sourced
 
 The Score Specification supports declaring environment variables in a configurations files or as a shell value.
 
-For more information, see
-
-- [Environment variables in `score-compose`](https://github.com/score-spec/score-compose/tree/main/examples/02-environment)
+For more information, see [environment variables in `score-compose`](https://github.com/score-spec/score-compose/tree/main/examples/02-environment).

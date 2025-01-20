@@ -133,7 +133,8 @@ containers:
 - `mode`: the optional file access mode in octal encoding. For example 0600.
 - `source`: the relative or absolute path to the content file. File content supports both metadata and resource output [placeholders]({{< relref "#placeholder-references" >}}) unless `noExpand` is true.
 - `content`: the inline content for the file. File content supports both metadata and resource output [placeholders]({{< relref "#placeholder-references" >}}) unless `noExpand` is true.
-- `noExpand`: if set to true, the placeholders expansion will not occur in the contents of the file.
+- `binaryContent`: base64-encoded inline content for the file. This field supports non-utf-8 bytes for binary or archive files. Placeholder expansion is never supported.
+- `noExpand`: if set to true, the placeholders expansion will not occur in the contents of the `content` or `source` file.
 
 `volumes`: the volumes to mount.
 
@@ -151,7 +152,7 @@ containers:
   - `memory`: a string value representing the minimum required CPU memory.
   - `cpu`: a string value representing the minimum required CPU.
 
-`livenessProbe`: the liveness probe for the container.
+`livenessProbe`: the liveness probe for the container. Both `httpGet` and `exec` are suppored and implementations should support one or both options.
 
 - `httpGet`: performs an HTTP `Get` on a specified path and port.
   - `scheme`: scheme to use for connecting to the host (HTTP or HTTPS). Defaults to HTTP.
@@ -161,6 +162,8 @@ containers:
   - `httpHeaders`: additional HTTP headers to send with the request.
     - `name`: the HTTP header name.
     - `value`: the HTTP header value.
+- `exec`: executes a command within the container.
+  - `command`: the array of arguments to execute within the container for the health check.
 
 `readinessProbe`: the readiness probe for the container. This has the same format as `livenessProbe`.
 
