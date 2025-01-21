@@ -152,7 +152,7 @@ containers:
   - `memory`: a string value representing the minimum required CPU memory.
   - `cpu`: a string value representing the minimum required CPU.
 
-`livenessProbe`: the liveness probe for the container. Both `httpGet` and `exec` are suppored and implementations should support one or both options.
+`livenessProbe`: the liveness probe for the container. Both `httpGet` and `exec` are supported and implementations should support one or both options.
 
 - `httpGet`: performs an HTTP `Get` on a specified path and port.
   - `scheme`: scheme to use for connecting to the host (HTTP or HTTPS). Defaults to HTTP.
