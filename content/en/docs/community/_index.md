@@ -16,7 +16,7 @@ aliases:
 
 ## Score implementations in the community
 
-Score is just a specification without it's implementations! Do you know of another implementation and want it listed here? [Open a PR](https://github.com/score-spec/docs/edit/main/content/en/docs/community/_index.md) to add it below.
+Score is just a specification without its implementations! Do you know of another implementation and want it listed here? [Open a PR](https://github.com/score-spec/docs/edit/main/content/en/docs/community/_index.md) to add it below.
 
 - [astromechza/score-flyio](https://github.com/astromechza/score-flyio) - A Score implementation deploying to [Fly.io](https://fly.io/) and supporting resource provisioners.
 - [Humanitec](https://humanitec.com/products/score) - The Humanitec Platform Orchestrator supports Score-defined workloads and resources.
