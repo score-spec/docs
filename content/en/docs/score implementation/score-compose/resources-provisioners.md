@@ -19,6 +19,7 @@ aliases:
 | `environment`   | `default` | (none)                 | `${KEY}`                                                                                                                                                        |
 | `kafka-topic`   | `default` | (none)                 | `host`, `port`, `name`, `num_partitions`                                                                                                                        |
 | `mongodb`       | `default` | (none)                 | `host`, `port`, `username`, `password`, `connection`                                                                                                            |
+| `mssql`         | `default` | (none)                 | `server`, `port`, `connection`, `database`, `username`, `password`                                                                                              |
 | `mysql`         | `default` | (none)                 | `host`, `port`, `name` (aka `database`), `username`, `password`                                                                                                 |
 | `postgres`      | `default` | (none)                 | `host`, `port`, `name` (aka `database`), `username`, `password`                                                                                                 |
 | `redis`         | `default` | (none)                 | `host`, `port`, `username`, `password`                                                                                                                          |

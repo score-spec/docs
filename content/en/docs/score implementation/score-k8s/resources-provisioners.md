@@ -21,6 +21,7 @@ aliases:
 | `postgres`     | `default` | (none)                 | `host`, `port`, `name` (aka `database`), `username`, `password`    |
 | `redis`        | `default` | (none)                 | `host`, `port`, `username`, `password`                             |
 | `route`        | `default` | `host`, `path`, `port` |                                                                    |
+| `s3`           | `default` | (none)                 | `endpoint`, `region`, `bucket`, `access_key_id`, `secret_key`      |
 | `service-port` | `default` | `workload`, `port`     | `hostname`, `port`                                                 |
 | `volume`       | `default` | (none)                 | `source`                                                           |
 
