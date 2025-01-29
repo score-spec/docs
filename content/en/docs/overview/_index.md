@@ -89,7 +89,7 @@ Development teams risk configuration inconsistencies when promoting workloads be
 
 ### Enables separation of concerns
 
-Score enables a clear separation of concerns between developer-owned Workload related configuration and platform-owned infrastructure related configuration: Developers describe what their Wwrkload requires to run as part of `score.yaml` and if the requirements are honored by the platform, the workload runs as intended.
+Score enables a clear separation of concerns between developer-owned Workload related configuration and platform-owned infrastructure related configuration: Developers describe what their Workload requires to run as part of `score.yaml` and if the requirements are honored by the platform, the workload runs as intended.
 
 ## What Score is not
 
