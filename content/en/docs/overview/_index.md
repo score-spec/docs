@@ -85,11 +85,11 @@ Score reduces cognitive load by providing a single, easy to understand specifica
 
 ### Eliminates configuration mismanagement
 
-Development teams risk configuration inconsistencies when promoting workloads between environments that run on different technology stacks. For example, if you're running a testing environment with Docker Compose and a production environment on Kubernetes, keeping your Wwrkloads' configuration in sync can be challenging as each platform comes with its own set of APIs, semantics, syntax and configuration constructs. With Score, developers describe their workloads once with `score.yaml` and any required platform-specific configuration can be automatically generated via a Score Implementation (e.g. `score-compose` or `score-k8s`). This significantly reduces the risk of configuration mismatch between environments.
+Development teams risk configuration inconsistencies when promoting workloads between environments that run on different technology stacks. For example, if you're running a testing environment with Docker Compose and a production environment on Kubernetes, keeping your Workloads' configuration in sync can be challenging as each platform comes with its own set of APIs, semantics, syntax and configuration constructs. With Score, developers describe their workloads once with `score.yaml` and any required platform-specific configuration can be automatically generated via a Score Implementation (e.g. `score-compose` or `score-k8s`). This significantly reduces the risk of configuration mismatch between environments.
 
 ### Enables separation of concerns
 
-Score enables a clear separation of concerns between developer-owned Workload related configuration and platform-owned infrastructure related configuration: Developers describe what their Wwrkload requires to run as part of `score.yaml` and if the requirements are honored by the platform, the workload runs as intended.
+Score enables a clear separation of concerns between developer-owned Workload related configuration and platform-owned infrastructure related configuration: Developers describe what their Workload requires to run as part of `score.yaml` and if the requirements are honored by the platform, the workload runs as intended.
 
 ## What Score is not
 
