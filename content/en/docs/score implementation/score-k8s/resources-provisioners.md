@@ -15,7 +15,7 @@ aliases:
 | -------------- | ----- | ---------------------- | ------------------------------------------------------------------ |
 | `ampq`         | (any) | (none)                 | `host`, `port`, `username`, `password`, `vhost`                    |
 | `dns`          | (any) | (none)                 | `host`                                                             |
-| `mongodb`      | (any) | (none)                 | `host`, `port`, `username`, `password`, `connection`       |
+| `mongodb`      | (any) | (none)                 | `host`, `port`, `username`, `password`, `connection`               |
 | `mssql`        | (any) | (none)                 | `server`, `port`, `username`, `password`, `database`, `connection` |
 | `mysql`        | (any) | (none)                 | `host`, `port`, `name` (aka `database`), `username`, `password`    |
 | `postgres`     | (any) | (none)                 | `host`, `port`, `name` (aka `database`), `username`, `password`    |
