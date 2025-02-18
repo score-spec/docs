@@ -230,6 +230,62 @@ Displays help output for the `run` command.
 score-compose run -h
 ```
 
+## `resources`
+
+The `resources` command provides subcommands related to provisioned resources in `score-compose`.
+
+```bash
+score-compose resources [command]
+```
+
+### Subcommands
+
+#### `get-outputs`
+
+Returns the outputs of provisioned resources. This command retrieves values that can be used by workloads or other processes.
+
+```bash
+score-compose resources get-outputs
+```
+
+#### `list`
+
+Lists the unique identifiers (UIDs) of all provisioned resources.
+
+```bash
+score-compose resources list
+```
+
+### Flags
+
+#### `--help` | `-h`
+
+Displays help information for the `resources` command, including its available subcommands.
+
+```bash
+score-compose resources --help
+```
+
+### Global Flags
+
+These flags apply to all `score-compose resources` commands:
+
+#### `--quiet`
+
+Mutes any logging output.
+
+```bash
+score-compose resources --quiet
+```
+
+#### `--verbose count` | `-v`
+
+Increases log verbosity and detail by specifying this flag one or more times.
+
+```bash
+score-compose resources --verbose
+```
+
 ## `help`
 
 The help command provides information on all commands.
