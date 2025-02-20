@@ -4,7 +4,7 @@ linkTitle: "CLI reference"
 description: "CLI reference for score-k8s"
 weight: 2
 aliases:
-- /docs/reference/score-cli/score-k8s/cli
+  - /docs/reference/score-cli/score-k8s/cli
 ---
 
 The `score-k8s` CLI provides a set of commands and flags to enable the generation of Kubernetes manifests from Score specifications.
@@ -228,7 +228,6 @@ Increases log verbosity and detail by specifying this flag one or more times.
 ```bash
 score-k8s resources --verbose
 ```
-
 
 ## `help`
 
