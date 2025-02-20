@@ -231,7 +231,7 @@ score-k8s resources --verbose
 
 ## `help`
 
-The `help` command provides information on all commands.
+The help command provides information on all commands.
 
 ```bash
 score-k8s help [command] [flags]
