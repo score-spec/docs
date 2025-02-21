@@ -4,7 +4,7 @@ linkTitle: "CLI reference"
 description: "CLI reference for score-k8s"
 weight: 2
 aliases:
-- /docs/reference/score-cli/score-k8s/cli
+  - /docs/reference/score-cli/score-k8s/cli
 ---
 
 The `score-k8s` CLI provides a set of commands and flags to enable the generation of Kubernetes manifests from Score specifications.
@@ -173,9 +173,65 @@ Displays help information for `completion`, providing a short description of the
 score-k8s completion --help
 ```
 
+## `resources`
+
+The `resources` command provides subcommands related to provisioned resources in `score-k8s`.
+
+```bash
+score-k8s resources [command]
+```
+
+### Subcommands
+
+#### `get-outputs`
+
+Returns the outputs of provisioned resources. This command retrieves values that can be used by workloads or other processes.
+
+```bash
+score-k8s resources get-outputs
+```
+
+#### `list`
+
+Lists the unique identifiers (UIDs) of all provisioned resources.
+
+```bash
+score-k8s resources list
+```
+
+### Flags
+
+#### `--help` | `-h`
+
+Displays help information for the `resources` command, including its available subcommands.
+
+```bash
+score-k8s resources --help
+```
+
+### Global Flags
+
+These flags apply to all `score-k8s resources` commands:
+
+#### `--quiet`
+
+Mutes any logging output.
+
+```bash
+score-k8s resources --quiet
+```
+
+#### `--verbose count` | `-v`
+
+Increases log verbosity and detail by specifying this flag one or more times.
+
+```bash
+score-k8s resources --verbose
+```
+
 ## `help`
 
-The `help` command provides information on all commands.
+The help command provides information on all commands.
 
 ```bash
 score-k8s help [command] [flags]
