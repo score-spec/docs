@@ -202,7 +202,7 @@ Specifies the location to store sample `.env` file.
 score-compose run -f ./score.yaml -o ./compose.yaml --env-file ./backend.env
 ```
 
-#### `--file` | `f`
+#### `--file` | `-f`
 
 Specifies the path to the Score file. Uses `./score.yaml` as a default value if the flag isn't specified.
 
@@ -284,6 +284,44 @@ Increases log verbosity and detail by specifying this flag one or more times.
 
 ```bash
 score-compose resources --verbose
+```
+
+## `provisioners`
+
+The `provisioners` command provides subcommand related to provisioners in `score-compose`
+
+```bash
+score-compose provisioners [command]
+```
+
+### Subcommands
+
+#### `list`
+
+List available `provisioners`
+
+```bash
+score-compose provisioners list [flags]
+```
+
+##### Flags
+
+###### --format | -f 
+
+Display listed provisioners in the format provided. Uses  `table` as default value. Allowed values: `table`, `json`
+
+```bash
+score-compose provisioners list --fornat json
+```
+
+### Flags
+
+#### `--help` | `-h`
+
+Displays help information for the `provisioners` command, including its available subcommands.
+
+```bash
+score-compose provisioners --help
 ```
 
 ## `help`
