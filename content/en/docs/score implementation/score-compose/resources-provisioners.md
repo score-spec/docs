@@ -27,7 +27,7 @@ aliases:
 | `service-port`  | (any) | `workload`, `port`     | `hostname`, `port`                                                                                                                                              |
 | `s3`            | (any) | (none)                 | `endpoint`, `access_key_id`, `secret_key`, `bucket`, with `region=""`, `aws_access_key_id=<access_key_id>`, and `aws_secret_key=<secret_key>` for compatibility |
 | `volume`        | (any) | (none)                 | `source`                                                                                                                                                        |
-| mssql           | (any) | (none)                 | `server`, `port`, `connection`, `database`, `username`, `password`                                                                                              |
+| `mssql`         | (any) | (none)                 | `server`, `port`, `connection`, `database`, `username`, `password`                                                                                              |
 
 These can be found in the default provisioners file. You are encouraged to write your own provisioners and add them to the `.score-compose` directory (with the `.provisioners.yaml` extension) or contribute them upstream to the [default.provisioners.yaml](https://github.com/score-spec/score-compose/blob/main/internal/command/default.provisioners.yaml) file.
 

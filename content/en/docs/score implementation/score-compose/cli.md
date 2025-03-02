@@ -256,6 +256,16 @@ Lists the unique identifiers (UIDs) of all provisioned resources.
 score-compose resources list
 ```
 
+##### Flags
+
+###### --format | -f
+
+Display listed resources in the format provided. Uses `table` as default value. Allowed values: `table`, `json`
+
+```bash
+score-compose resources list --fornat json
+```
+
 ### Flags
 
 #### `--help` | `-h`
