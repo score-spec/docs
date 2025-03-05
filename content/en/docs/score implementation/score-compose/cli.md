@@ -263,7 +263,7 @@ score-compose resources list
 Display listed resources in the format provided. Uses `table` as default value. Allowed values: `table`, `json`
 
 ```bash
-score-compose resources list --fornat json
+score-compose resources list --format json
 ```
 
 ### Flags
@@ -321,7 +321,7 @@ score-compose provisioners list [flags]
 Display listed provisioners in the format provided. Uses `table` as default value. Allowed values: `table`, `json`
 
 ```bash
-score-compose provisioners list --fornat json
+score-compose provisioners list --format json
 ```
 
 ### Flags
