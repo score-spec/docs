@@ -258,7 +258,7 @@ score-compose resources list
 
 ##### Flags
 
-###### --format | -f
+###### `--format` | `-f`
 
 Display listed resources in the format provided. Uses `table` as default value. Allowed values: `table`, `json`
 
@@ -316,7 +316,7 @@ score-compose provisioners list [flags]
 
 ##### Flags
 
-###### --format | -f
+###### `--format` | `-f`
 
 Display listed provisioners in the format provided. Uses `table` as default value. Allowed values: `table`, `json`
 
