@@ -33,6 +33,7 @@ We host [regular community meetings](https://github.com/score-spec/spec?tab=read
 
 ## Watch talks about Score
 
+- [You Choose!, Ch. 05, Ep. 05 - Specialized Templating - Feat. Porter, Werf, Radius, Score, PipeCD](https://youtu.be/TEZVeWsirsw)
 - [Cloud Native Rejekts NA 2024 - You Can Score It! Shift Down to the Platform. Do Not Shift Left to the Developers](https://youtu.be/qdk5mLEnrNo)
 - [ChatLoopBackOff - Episode 23 (Score)](https://www.youtube.com/watch?v=BRiZ0t6MYNo&list=PLj6h78yzYM2PnyOsrsCbR_kqjCKfPObHK&index=22)
 - [Open at Microsoft - Improve the Developers Experience from your Platform with Score](https://learn.microsoft.com/en-us/shows/open-at-microsoft/improve-the-developers-experience-from-your-platform-with-score)
@@ -45,6 +46,7 @@ We host [regular community meetings](https://github.com/score-spec/spec?tab=read
 ## Read external blog posts about Score
 
 - [Descomplicando o Score (CNCF)](https://www.linkedin.com/pulse/descomplicando-o-score-cncf-clecio-antao-nyt3f/)
+- [Who’s Really Responsible for an Internal Developer Platform?](https://itnext.io/whos-really-responsible-for-an-internal-developer-platform-5dce5f2a0401)
 - [What if the `Azure-Samples/aks-store-demo` was using Score?](https://itnext.io/what-if-the-azure-samples-aks-store-demo-was-using-score-655c55f1c3dd)
 - [Score: New CNCF Sandbox Tool for Infrastructure-Centric Dev](https://thenewstack.io/score-new-cncf-sandbox-tool-for-infrastructure-centric-dev/)
 - [Dapr with Score and Humanitec — Improving the Developer Experience of your Platform, on steroids!](https://medium.com/@mabenoit/dapr-with-score-and-humanitec-developer-experience-with-your-platform-on-steroids-a848f2de0a5a)
