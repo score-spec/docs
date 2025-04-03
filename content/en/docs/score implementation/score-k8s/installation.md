@@ -27,7 +27,7 @@ brew install score-spec/tap/score-k8s
 Prerequisites: You must have [Go](https://go.dev/dl/) installed.
 
 ```bash
-$ go install -v github.com/score-spec/score-k8s@latest
+$ go install -v github.com/score-spec/score-k8s/cmd/score-k8s@latest
 ```
 
 ### Docker
