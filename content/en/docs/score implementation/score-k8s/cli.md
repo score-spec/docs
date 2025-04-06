@@ -53,6 +53,15 @@ Loads additional provisoners from a remote url. May be specified multiple times.
 score-k8s init --provisioners https://raw.githubusercontent.com/user/repo/main/example.yaml
 ```
 
+### `--no-default-provisioner`
+
+Skip default provisoners file creation
+
+```bash
+score-k8s init --provisioners https://raw.githubusercontent.com/user/repo/main/example.yaml --no-default-provisioners
+```
+
+
 #### `--help` | `-h`
 
 Displays help information for `init`, providing a short description of the command along with examples and compatible flags.
