@@ -36,7 +36,7 @@ The action accepts the following inputs:
 
 - `file` - The Score CLI tool to install. For example `score-compose` or `score-k8s`.
 
-- `version` - The version of the CLI to install. `latest` can be used, or you can retrieve a specific version from the release page of the respective CLI tool you're working with. For example [`score-compose` releases](https://github.com/score-spec/score-compose/releases) or [`score-k8s` releases](https://github.com/score-spec/score-k8s/releases).  
+- `version` - The version of the CLI to install. `latest` can be used, or you can retrieve a specific version from the release page of the respective CLI tool you're working with. For example [`score-compose` releases](https://github.com/score-spec/score-compose/releases) or [`score-k8s` releases](https://github.com/score-spec/score-k8s/releases).
 
 - `token` - The GitHub Actions Token in the environment (`${{ secrets.GITHUB_TOKEN }}`).
 
