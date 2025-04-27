@@ -10,11 +10,11 @@ aliases:
 - /docs/tutorials/github/
 ---
 
-You can use any Score implementation CLI in your GitHub Action workflows, for example, when you make a code change, and you want the Humanitec Platform Orchestrator to deploy your code to a new environment.
+You can use any Score implementation CLI in your GitHub Action workflows, for example, when you make a code change, and you want to deploy your code to a new environment in a specific platform.
 
 The following is a guide to setting up the Score implementation CLI in your GitHub Action workflows.
 
-For the Score GitHub Action, see [Setup Score](https://github.com/score-spec/setup-score).
+For the Score GitHub Action, see [Setup Score](https://github.com/marketplace/actions/setup-score-environment).
 
 ## Usage
 
@@ -36,9 +36,9 @@ The action accepts the following inputs:
 
 - `file` - The Score CLI tool to install. For example `score-compose` or `score-k8s`.
 
-- `version` - The version of the CLI to install. You can retrieve the latest version from the release page of the respective CLI tool you're working with. For example [score-compose releases](https://github.com/score-spec/score-compose/releases) or [score-k8s releases](https://github.com/score-spec/score-k8s/releases).
+- `version` - The version of the CLI to install. `latest` can be used, or you can retrieve a specific version from the release page of the respective CLI tool you're working with. For example [`score-compose` releases](https://github.com/score-spec/score-compose/releases) or [`score-k8s` releases](https://github.com/score-spec/score-k8s/releases).  
 
-- `token` - The Github Actions Token in the environment (`${{ secrets.GITHUB_TOKEN }}`).
+- `token` - The GitHub Actions Token in the environment (`${{ secrets.GITHUB_TOKEN }}`).
 
 ## Example
 
