@@ -48,7 +48,7 @@ When working with Score, there are three main components to consider:
 
 - **The platform configuration files**: The generated configuration file can be executed natively by the target platform. If needed it can be combined with environment-specific parameters to run the workload in the target environment.
 
-In the graphic below, the process with these three main components is illustrated with our reference implementations: [`score-compose`](https://github.com/score-spec/score-compose) (for Docker Compose files) and [`score-k8s`](https://github.com/score-spec/score-k8s) (for Kubernetes manifests).
+In the graphic below, the process with these three main components is illustrated with our reference implementations: [`score-compose`]({{< relref "/docs/score-implementation/score-compose" >}}) (for Docker Compose files) and [`score-k8s`]({{< relref "/docs/score-implementation/score-k8s" >}}) (for Kubernetes manifests).
 
 ![how-score-works](/images/how-score-works.png)
 
@@ -98,6 +98,11 @@ resources:
 
 You can now use this Score file for deploying your workload to a specific platform such as Docker Compose or Kubernetes. Run it through a Score implementation CLI to generate the configuration manifests, and apply them using the standard platform tooling.
 
-Check out the recording below where we walk through examples using [`score-compose`](https://github.com/score-spec/score-compose) and [`score-k8s`](https://github.com/score-spec/score-k8s) to generate manifests for Docker Compose and Kubernetes, both derived from the same Score spec.
+Check out the recording below where we walk through examples using [`score-compose`]({{< relref "/docs/score-implementation/score-compose" >}}) and [`score-k8s`]({{< relref "/docs/score-implementation/score-k8s" >}}) to generate manifests for Docker Compose and Kubernetes, both derived from the same Score spec.
 
 <script src="https://fast.wistia.com/embed/medias/m3mxb2w8vp.jsonp" async></script><script src="https://fast.wistia.com/assets/external/E-v1.js" async></script><div class="wistia_responsive_padding" style="padding:47% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:80%;left:0;position:absolute;top:0;width:80%;"><div class="wistia_embed wistia_async_m3mxb2w8vp seo=true videoFoam=true" style="height:80%;position:relative;width:80%"><div class="wistia_swatch" style="height:80%;left:0;opacity:0;overflow:hidden;position:absolute;top:0;transition:opacity 200ms;width:80%;"><img src="https://fast.wistia.com/embed/medias/m3mxb2w8vp/swatch" style="filter:blur(5px);height:80%;object-fit:contain;width:80%;" alt="" aria-hidden="true" onload="this.parentNode.style.opacity=1;" /></div></div></div></div>
+
+## Next steps
+
+- [**Get started with Score**]({{< relref "docs/get-started" >}}): Follow this step-by-step guide by deploying your first Score file with the default `score-compose` Score implementation.
+- [**Join the Score community**]({{< relref "/docs/community" >}}): Connect with fellow Score developers on our CNCF Slack channel or start find your way to contribute to Score.
