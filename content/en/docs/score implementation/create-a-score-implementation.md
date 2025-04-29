@@ -1,8 +1,10 @@
 ---
-title: "Creating a new Score implementation"
-linkTitle: "Creating a new Score implementation"
+title: "Create a new Score implementation"
+linkTitle: "Create a new Score implementation"
 description: "A guide to creating new Score implementations deploying to other platforms"
-weight: 3
+weight: 4
+aliases:
+- /docs/score-implementation/creating_a_score_implementation/
 ---
 
 **Prerequisites**
