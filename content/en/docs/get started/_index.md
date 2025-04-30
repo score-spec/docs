@@ -13,11 +13,13 @@ aliases:
 
 If you're new to Score, we recommend starting with the [`score-compose`](/docs/score-implementation/score-compose) reference implementation. It provides an helpful blueprint for using Score and allows you to become familiar with the [Score specification](/docs/score-specification/score-spec-reference) before exploring further implementation options.
 
-## Get started with `score-compose`
+## 1. `score-compose`
 
-**1.** To begin, follow the [installation instructions](/docs/score-implementation/score-compose/installation) to install the latest version of `score-compose`.
+To begin, follow the [installation instructions](/docs/score-implementation/score-compose/installation) to install the latest version of `score-compose`.
 
-**2.** Open your IDE and paste in the following `score.yaml` file, which describes a simple web server that queries a PostgreSQL database on each request and is exposed via a DNS. The demo code can be found [here](https://github.com/score-spec/sample-app-gif/blob/main/score.yaml).
+## 2. `score.yaml`
+
+Open your IDE and paste in the following `score.yaml` file, which describes a simple web server that queries a PostgreSQL database on each request and is exposed via a DNS. The demo code can be found [here](https://github.com/score-spec/sample-app-gif/blob/main/score.yaml).
 
 ```yaml
 apiVersion: score.dev/v1b1
@@ -45,7 +47,9 @@ resources:
       port: 8080
 ```
 
-**3.** Initialize your current `score-compose` workspace, run the following command in your terminal:
+## 3. `score-compose init`
+
+Initialize your current `score-compose` workspace, run the following command in your terminal:
 
 ```bash
 score-compose init --no-sample
@@ -75,7 +79,9 @@ The Score file example illustrated uses three resource types: `postgres`, `dns` 
 +---------------+-------+------------------+--------------------------------+---------------------------------+
 ```
 
-**4.** Convert the `score.yaml` file into a runnable `compose.yaml`, run the following command in your terminal:
+## 4. `score-compose generate`
+
+Convert the `score.yaml` file into a runnable `compose.yaml`, run the following command in your terminal:
 
 ```bash
 score-compose generate score.yaml --image ghcr.io/score-spec/sample-app-gif:main
@@ -97,7 +103,9 @@ cat compose.yaml
 
 If you make any modifications to the `score.yaml` file, run `score-compose generate score.yaml` to regenerate the output `compose.yaml`.
 
-**5.** Get the information of the resources dependencies of the workload, run the following command:
+## 5. `score-compose resources`
+
+Get the information of the resources dependencies of the workload, run the following command:
 
 ```bash
 score-compose resources list
@@ -143,7 +151,9 @@ score-compose resources get-outputs postgres.default#sample.db
 }
 ```
 
-**6.** Run `docker compose up` to execute the generated `compose.yaml` file:
+## 6. `docker compose up`
+
+Run `docker compose up` to execute the generated `compose.yaml` file:
 
 ```bash
 docker compose up -d
@@ -158,7 +168,9 @@ docker compose up -d
  ✔ Container test-sample-main-1         Started
 ```
 
-**7.** See the running containers:
+## 7. `docker ps`
+
+See the running containers:
 
 ```bash
 docker ps
@@ -171,7 +183,9 @@ e4bdd0126d97   mirror.gcr.io/postgres:17-alpine                "docker-entrypoin
 a03dfeea3371   mirror.gcr.io/nginx:1-alpine                    "/docker-entrypoint.…"   3 hours ago   Up About a minute             0.0.0.0:8080->80/tcp, [::]:8080->80/tcp   test-routing-avhAWY-1
 ```
 
-**8.** Test the running container, run the following command:
+## 8. `curl localhost:8080`
+
+Test the running container, run the following command:
 
 ```bash
 curl localhost:8080 -H "Host: dnsbcsqnd.localhost"
