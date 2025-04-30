@@ -2,7 +2,7 @@
 title: "score-compose examples"
 linkTitle: "Examples"
 description: "Examples for score-compose"
-weight: 4
+weight: 5
 aliases:
 - /docs/reference/score-cli/score-compose/examples
 ---
