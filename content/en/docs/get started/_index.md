@@ -55,7 +55,7 @@ Initialize your current `score-compose` workspace, run the following command in 
 score-compose init --no-sample
 ```
 
-The `init` command will create the `.score-compose` directory with the [default reource provisioners]({{< relref "/docs/score-implementation/score-compose/resources-provisioners/" >}}) available. You can learn more about the resource provisioners available by running this command:
+The `init` command will create the `.score-compose` directory with the [default resource provisioners]({{< relref "/docs/score-implementation/score-compose/resources-provisioners/" >}}) available. You can learn more about the resource provisioners available by running this command:
 
 ```bash
 score-compose provisioners list
