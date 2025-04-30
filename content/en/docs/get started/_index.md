@@ -11,7 +11,7 @@ aliases:
 
 ## Overview
 
-If you're new to Score, we recommend starting with the [`score-compose`](/docs/score-implementation/score-compose) reference implementation. It provides a helpful blueprint for using Score and allows you to become familiar with the [Score specification](/docs/score-specification/score-spec-reference) before exploring further implementation options.
+If you're new to Score, we recommend starting with the [`score-compose`](/docs/score-implementation/score-compose) reference implementation. It provides an helpful blueprint for using Score and allows you to become familiar with the [Score specification](/docs/score-specification/score-spec-reference) before exploring further implementation options.
 
 ## Get started with `score-compose`
 
@@ -143,7 +143,7 @@ score-compose resources get-outputs postgres.default#sample.db
 }
 ```
 
-**5.** Run `docker compose up` to execute the generated `compose.yaml` file:
+**6.** Run `docker compose up` to execute the generated `compose.yaml` file:
 
 ```bash
 docker compose up -d
@@ -158,7 +158,7 @@ docker compose up -d
  ✔ Container test-sample-main-1         Started
 ```
 
-**6.** See the running containers:
+**7.** See the running containers:
 
 ```bash
 docker ps
@@ -171,7 +171,7 @@ e4bdd0126d97   mirror.gcr.io/postgres:17-alpine                "docker-entrypoin
 a03dfeea3371   mirror.gcr.io/nginx:1-alpine                    "/docker-entrypoint.…"   3 hours ago   Up About a minute             0.0.0.0:8080->80/tcp, [::]:8080->80/tcp   test-routing-avhAWY-1
 ```
 
-**7.** Test the running container, run the following command:
+**8.** Test the running container, run the following command:
 
 ```bash
 curl localhost:8080 -H "Host: dnsbcsqnd.localhost"
@@ -185,6 +185,6 @@ Congrats! You’ve successfully deploy your first Score file with the `score-com
 
 ## Next steps
 
-- **Explore more examples**: Check out the [examples folder](https://github.com/score-spec/score-compose/tree/main/examples) for `score-compose` to dive into further use cases and experiment with different configurations.
-- **Try other implementations**: Play around with [other available Score implementations](/docs/score-implementation/). For example, you could continue by running the same Score file used in the example above via the `score-k8s` CLI to generate Kubernetes manifests.
+- [**Explore more examples**](https://github.com/score-spec/score-compose/tree/main/examples): Check out the examples folder for `score-compose` to dive into further use cases and experiment with different configurations.
+- [**Try other implementations**](/docs/score-implementation/): Play around with [other available Score implementations]. For example, you could continue by running the same Score file used in the example above via the `score-k8s` CLI to generate Kubernetes manifests.
 - [**Join the Score community**]({{< relref "/docs/community" >}}): Connect with fellow Score developers on our CNCF Slack channel or start find your way to contribute to Score.
