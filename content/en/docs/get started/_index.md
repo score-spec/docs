@@ -45,7 +45,7 @@ resources:
       port: 8080
 ```
 
-**3.** Initialize your current `score-compose` workspace, run the following command in your terminal: 
+**3.** Initialize your current `score-compose` workspace, run the following command in your terminal:
 
 ```bash
 score-compose init --no-sample
