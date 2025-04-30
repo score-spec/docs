@@ -1,10 +1,11 @@
 ---
 title: "Create a new Score implementation"
-linkTitle: "Create a new Score implementation"
+linkTitle: "Create a new implementation"
 description: "A guide to creating new Score implementations deploying to other platforms"
 weight: 4
 aliases:
 - /docs/score-implementation/creating_a_score_implementation/
+- /docs/score-implementation/creating-a-score-implementation/
 ---
 
 **Prerequisites**

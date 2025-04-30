@@ -30,13 +30,13 @@ Defining a workload’s configuration becomes as simple as stating, _"I want a d
 
 The Score specification is characterised by being:
 
-- **platform-agnostic**: The Score Specification is not tied to a specific platform, allowing integration with various container orchestration platforms and tooling such as Docker Compose, Kubernetes, Helm, or Google Cloud Run.
+- **Platform-agnostic**: The Score Specification is not tied to a specific platform, allowing integration with various container orchestration platforms and tooling such as Docker Compose, Kubernetes, Helm, or Google Cloud Run.
 
-- **environment-agnostic**: The `score.yaml` file captures the configuration that stays the same across all environments. This allows combining it with environment-specific parameters in the target environment. For instance, the parameterized database connection string in the example above is intended to be resolved in each target environment by injecting the corresponding values.
+- **Environment-agnostic**: The `score.yaml` file captures the configuration that stays the same across all environments. This allows combining it with environment-specific parameters in the target environment. For instance, the parameterized database connection string in the example above is intended to be resolved in each target environment by injecting the corresponding values.
 
-- **tightly scoped**: Score describes workload level properties. It does not intend to be a fully featured YAML replacement for any platform. Instead, Score draws a line between developer-owned workload configuration and platform-owned infrastructure configuration.
+- **Tightly scoped**: Score describes workload level properties. It does not intend to be a fully featured YAML replacement for any platform. Instead, Score draws a line between developer-owned workload configuration and platform-owned infrastructure configuration.
 
-- **declarative**: Developers declare what their workload requires to run as part of `score.yaml`. The platform in the target environment is responsible for resolving individual runtime requirements.
+- **Declarative**: Developers declare what their workload requires to run as part of `score.yaml`. The platform in the target environment is responsible for resolving individual runtime requirements.
 
 ## How does Score work?
 
@@ -67,8 +67,8 @@ metadata:
 # A set of containers deployed together for this Workload.
 containers:
   main:
-    # The "default" image for our service. When deploying, we may override this with a particular tag.
-    image: ghcr.io/score-spec/sample-app-gif:sha-2533037
+    # The image for our service. When deploying, this will be overriden with a particular container image.
+    image: .
     variables:
       # Pass the resource outputs to our container as environment variables. The Score implementation takes care of securing any secret access as needed.
       PG_CONNECTION_STRING: "postgresql://${resources.db.username}:${resources.db.password}@${resources.db.host}:${resources.db.port}/${resources.db.database}?sslmode=disable"
