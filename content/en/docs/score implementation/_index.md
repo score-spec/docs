@@ -6,6 +6,7 @@ aliases:
 - /docs/reference/score-cli/
 - /docs/get-started/install
 - /docs/score-implementations
+- /docs/implementations
 - /docs/score-implementation/other
 - /docs/score-implementation/other/score-helm
 - /docs/score-implementation/other/score-humanitec
