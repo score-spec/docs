@@ -50,6 +50,7 @@ We host [regular community meetings](https://github.com/score-spec/spec?tab=read
 
 ## Leverage example projects using Score
 
+- [`kubecon-dapr-score-demo`](https://github.com/kendallroden/kubecon-dapr-score-demo)
 - [`sample-score-app`](https://github.com/score-spec/sample-score-app)
 - [`sample-app-gif`](https://github.com/score-spec/sample-app-gif)
 - [`onlineboutique-demo`](https://github.com/Humanitec-DemoOrg/onlineboutique-demo)
