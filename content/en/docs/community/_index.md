@@ -14,13 +14,6 @@ aliases:
 - /docs/examples
 ---
 
-## Score implementations in the community
-
-Score is just a specification without its implementations! Do you know of another implementation and want it listed here? [Open a PR](https://github.com/score-spec/docs/edit/main/content/en/docs/community/_index.md) to add it below.
-
-- [astromechza/score-flyio](https://github.com/astromechza/score-flyio) - A Score implementation deploying to [Fly.io](https://fly.io/) and supporting resource provisioners.
-- [Humanitec](https://humanitec.com/products/score) - The Humanitec Platform Orchestrator supports Score-defined workloads and resources.
-
 ## Join the Score community
 
 Score is open-source and a [Cloud Native Computing Foundation (CNCF) Sandbox project](https://www.cncf.io/projects/score/)!
@@ -33,6 +26,9 @@ We host [regular community meetings](https://github.com/score-spec/spec?tab=read
 
 ## Watch talks about Score
 
+- [KubeCon EU 2025 - Score Lightning Talk](https://sched.co/1tcwp) [[video](https://youtu.be/Nq_PgPKZHsc?list=PLj6h78yzYM2MP0QhYFK8HOb8UqgbIkLMc)]
+- [KubeCon EU 2025 - Platform Engineering Loves Security: Shift Down To Your Platform, Not Left To Your Developers!](https://sched.co/1txGE) [[video](https://youtu.be/Es3DBj2UgIE?list=PLj6h78yzYM2MP0QhYFK8HOb8UqgbIkLMc)]
+- [KubeCon EU 2025 - Dapr + Score: Mixing the Perfect Cocktail for an Enhanced Developer Experience](https://sched.co/1txGi) [[video](https://youtu.be/-fGztPUuD8k?list=PLj6h78yzYM2MP0QhYFK8HOb8UqgbIkLMc)]
 - [You Choose!, Ch. 05, Ep. 05 - Specialized Templating - Feat. Porter, Werf, Radius, Score, PipeCD](https://youtu.be/TEZVeWsirsw)
 - [Cloud Native Rejekts NA 2024 - You Can Score It! Shift Down to the Platform. Do Not Shift Left to the Developers](https://youtu.be/qdk5mLEnrNo)
 - [ChatLoopBackOff - Episode 23 (Score)](https://www.youtube.com/watch?v=BRiZ0t6MYNo&list=PLj6h78yzYM2PnyOsrsCbR_kqjCKfPObHK&index=22)
@@ -54,6 +50,7 @@ We host [regular community meetings](https://github.com/score-spec/spec?tab=read
 
 ## Leverage example projects using Score
 
+- [`kubecon-dapr-score-demo`](https://github.com/kendallroden/kubecon-dapr-score-demo)
 - [`sample-score-app`](https://github.com/score-spec/sample-score-app)
 - [`sample-app-gif`](https://github.com/score-spec/sample-app-gif)
 - [`onlineboutique-demo`](https://github.com/Humanitec-DemoOrg/onlineboutique-demo)
