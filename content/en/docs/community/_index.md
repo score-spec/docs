@@ -26,6 +26,7 @@ We host [regular community meetings](https://github.com/score-spec/spec?tab=read
 
 ## Watch talks about Score
 
+- [LF Live Webinar: From CI to Kubernetes Catalog: A Practical Guide to vCluster and GitOps](https://youtu.be/U4AgmEo3oV8)
 - [KubeCon EU 2025 - Score Lightning Talk](https://sched.co/1tcwp) [[video](https://youtu.be/Nq_PgPKZHsc?list=PLj6h78yzYM2MP0QhYFK8HOb8UqgbIkLMc)]
 - [KubeCon EU 2025 - Platform Engineering Loves Security: Shift Down To Your Platform, Not Left To Your Developers!](https://sched.co/1txGE) [[video](https://youtu.be/Es3DBj2UgIE?list=PLj6h78yzYM2MP0QhYFK8HOb8UqgbIkLMc)]
 - [KubeCon EU 2025 - Dapr + Score: Mixing the Perfect Cocktail for an Enhanced Developer Experience](https://sched.co/1txGi) [[video](https://youtu.be/-fGztPUuD8k?list=PLj6h78yzYM2MP0QhYFK8HOb8UqgbIkLMc)]
@@ -41,6 +42,8 @@ We host [regular community meetings](https://github.com/score-spec/spec?tab=read
 
 ## Read external blog posts about Score
 
+- [Stop Building Platforms Nobody Uses: Pick the Right Kubernetes Abstraction with GitOps](https://itnext.io/stop-building-platforms-nobody-uses-pick-the-right-kubernetes-abstraction-with-gitops-64681357690f)
+- [From CI to Kubernetes Catalog: Building a Composable Platform with GitOps and vCluster](https://itnext.io/from-ci-to-kubernetes-catalog-building-a-composable-platform-with-gitops-and-vcluster-7e1decaa81da)
 - [Descomplicando o Score (CNCF)](https://www.linkedin.com/pulse/descomplicando-o-score-cncf-clecio-antao-nyt3f/)
 - [Who’s Really Responsible for an Internal Developer Platform?](https://itnext.io/whos-really-responsible-for-an-internal-developer-platform-5dce5f2a0401)
 - [What if the `Azure-Samples/aks-store-demo` was using Score?](https://itnext.io/what-if-the-azure-samples-aks-store-demo-was-using-score-655c55f1c3dd)
@@ -50,9 +53,11 @@ We host [regular community meetings](https://github.com/score-spec/spec?tab=read
 
 ## Leverage example projects using Score
 
-- [`kubecon-dapr-score-demo`](https://github.com/kendallroden/kubecon-dapr-score-demo)
-- [`sample-score-app`](https://github.com/score-spec/sample-score-app)
-- [`sample-app-gif`](https://github.com/score-spec/sample-app-gif)
-- [`onlineboutique-demo`](https://github.com/Humanitec-DemoOrg/onlineboutique-demo)
-- [`aks-store-demo`](https://github.com/Humanitec-DemoOrg/aks-store-demo)
-- [`dapr-score`](https://github.com/mathieu-benoit/dapr-score-humanitec)
+- [`la-cc/score-k8s-webapp`](https://github.com/la-cc/score-k8s-webapp)
+- [`mathieu-benoit/nginx-score-demo`](https://github.com/mathieu-benoit/nginx-score-demo)
+- [`kendallroden/kubecon-dapr-score-demo`](https://github.com/kendallroden/kubecon-dapr-score-demo)
+- [`score-spec/sample-score-app`](https://github.com/score-spec/sample-score-app)
+- [`score-spec/sample-app-gif`](https://github.com/score-spec/sample-app-gif)
+- [`Humanitec-DemoOrg/onlineboutique-demo`](https://github.com/Humanitec-DemoOrg/onlineboutique-demo)
+- [`Humanitec-DemoOrg/aks-store-demo`](https://github.com/Humanitec-DemoOrg/aks-store-demo)
+- [`mathieu-benoit/dapr-score`](https://github.com/mathieu-benoit/dapr-score-humanitec)
