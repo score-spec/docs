@@ -9,6 +9,7 @@ description: >
 The Visual Studio Code [Dev Containers extension](https://code.visualstudio.com/docs/remote/containers) lets you use a self-contained Docker container as a complete development environment, without installing any additional packages, libraries, or utilities in your local filesystem.
 
 While Score doesn't provide a pre-built Dev Containers, here is an example on how you can inspiration of this working setup for your own Dev Containers by having these tools pre-packaged:
+
 - The base Dev Containers image used is `mcr.microsoft.com/devcontainers/base:noble`, but you can use others fitting better with your own needs.
 - `docker`
 - `minikube`
@@ -18,38 +19,40 @@ While Score doesn't provide a pre-built Dev Containers, here is an example on ho
 - This is also adding the Score specification schema validation for your Score files.
 
 Create a `.devcontainer/devcontainer.json` file:
+
 ```json
 {
-	"name": "Score Dev Containers",
-	"image": "mcr.microsoft.com/devcontainers/base:noble",
-	"features": {
-		"ghcr.io/devcontainers/features/docker-in-docker:2": {
-			"moby": true,
-			"version": "latest"  
-		},
-		"ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
-			"version": "latest",
-			"helm": "latest",
-			"minikube": "latest"
-		}
-	},
-	"postCreateCommand": "bash .devcontainer/installMoreTools.sh",
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"redhat.vscode-yaml"
-			],
-			"settings": {
-				"yaml.schemas": {
-					"https://raw.githubusercontent.com/score-spec/spec/main/score-v1b1.json": "score.yaml"
-				}
-			}
-		}
-	}
+  "name": "Score Dev Containers",
+  "image": "mcr.microsoft.com/devcontainers/base:noble",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "moby": true,
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
+      "version": "latest",
+      "helm": "latest",
+      "minikube": "latest"
+    }
+  },
+  "postCreateCommand": "bash .devcontainer/installMoreTools.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "redhat.vscode-yaml"
+      ],
+      "settings": {
+        "yaml.schemas": {
+          "https://raw.githubusercontent.com/score-spec/spec/main/score-v1b1.json": "score.yaml"
+        }
+      }
+    }
+  }
 }
 ```
 
 Create a `.devcontainer/installMoreTools.sh` file:
+
 ```bash
 #!/bin/bash
 
