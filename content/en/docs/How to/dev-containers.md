@@ -1,7 +1,7 @@
 ---
 title: "Dev Containers"
 linkTitle: "Dev Containers"
-weight: 6
+weight: 3
 description: >
     How to use Score in a Dev Containers environment
 ---
