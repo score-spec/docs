@@ -8,7 +8,7 @@ description: >
 
 The Visual Studio Code [Dev Containers extension](https://code.visualstudio.com/docs/remote/containers) lets you use a self-contained Docker container as a complete development environment, without installing any additional packages, libraries, or utilities in your local filesystem.
 
-While Score doesn't provide a pre-built Dev Containers, here is an example on how you can inspiration of this working setup for your own Dev Containers by having these tools pre-packaged:
+While Score doesn't provide a pre-built Dev Containers, here is an example on how you can take inspiration of this working setup for your own Dev Containers by having these tools pre-packaged:
 
 - The base Dev Containers image used is `mcr.microsoft.com/devcontainers/base:noble`, but you can use others fitting better with your own needs.
 - `docker`
