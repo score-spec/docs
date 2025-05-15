@@ -206,6 +206,5 @@ Congrats! You’ve successfully deploy, with the `score-compose` implementation,
 
 ## Next steps
 
-- [**Explore more examples**](https://github.com/score-spec/score-compose/tree/main/examples): Check out the examples folder for `score-compose` to dive into further use cases and experiment with different configurations.
-- [**Try other implementations**](/docs/score-implementation/): Play around with [other available Score implementations]. For example, you could continue by running the same Score file used in the example above via the `score-k8s` CLI to generate Kubernetes manifests.
+- [**Explore more examples**](/docs/examples/): Check out more examples to dive into further use cases and experiment with different configurations.
 - [**Join the Score community**]({{< relref "/docs/community" >}}): Connect with fellow Score developers on our CNCF Slack channel or start find your way to contribute to Score.
