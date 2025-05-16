@@ -46,7 +46,9 @@ service:
       targetPort: 3000
 ```
 
-From here, you can either deploy this exact same Score file with [`score-compose`](#2-score-compose) or `score-k8s`.
+From here, you can deploy this exact same Score file:
+- Either with [`score-compose`](#2-score-compose)
+- Or with [`score-k8s`](#3-score-k8s).
 
 ## 2. `score-compose`
 
@@ -310,7 +312,7 @@ score-k8s resources get-outputs postgres.default#hello-world.db
 
 ### `kubectl apply`
 
-_Here you will need to have access to a Kubernetes cluster to execute the following commands._
+_Here you will need to have access to a Kubernetes cluster to execute the following commands. You can follow [these instructions](/docs/how-to/score-k8s/kind-cluster/) if you want to set up a Kind cluster._
 
 Run `kubectl apply` to execute the generated `manifests.yaml` file:
 
@@ -355,12 +357,12 @@ NAME                                       READY   AGE
 statefulset.apps/pg-hello-world-87af7a15   1/1     37s
 ```
 
-### `curl localhost:8080`
+### `curl localhost`
 
 Test the running container, run the following command:
 
 ```bash
-curl localhost:8080 -H "Host: dnsgm0shc.localhost"
+curl localhost -H "Host: dnsgm0shc.localhost"
 ```
 
 ```none
