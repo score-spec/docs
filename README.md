@@ -97,13 +97,18 @@ To lint all documents, run `yarn lint`.
 
 ### Score example hub
 
-This site uses content from external Git repositories to create and continuously update the "Score example hub" pages. The external repos are pulled in to the `/gen/external-repos` folder.
+This site uses content from external Git repositories to create and continuously update the "Score example hub" pages. The external repos are pulled in to the `/gen/external-content` folder.
 
-The commands for the initial integration of an external repo are:
+The commands for the initial integration of the repos are:
 
 ```bash
-git remote add -f repo-name https://github.com/repo-org/repo-name.git
-git subtree add --prefix gen/external-repos/repo-name/ repo-name main --squash
+git remote add -f -t main --no-tags examples https://github.com/score-spec/examples.git
+git remote add -f -t main --no-tags community-provisioners https://github.com/score-spec/community-provisioners.git
+git read-tree --prefix=gen/external-content/score/specification -u examples/main:specification
+git read-tree --prefix=gen/external-content/score/resources/default-provisioners -u examples/main:resources
+git read-tree --prefix=gen/external-content/score/resources/community-provisioners -u community-provisioners/main
+git add gen/external-content
+git commit -s -S -m "Integrating external content"
 ```
 
 These commands will not have to be repeated unless re-creating the repo integration, or moving the source location. In that case, remove the `remote`, delete the local contents, repeat these commands targeting the new location, and update the generation scripts.
