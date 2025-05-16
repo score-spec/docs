@@ -1,0 +1,15 @@
+apiVersion: score.dev/v1b1
+metadata:
+  name: my-workload
+containers:
+  my-container:
+    image: busybox
+    command: ["/bin/sh"]
+    args: ["-c", "while true; do echo Hello HPA; sleep 5; done"]
+resources:
+  hpa:
+    type: horizontal-pod-autoscaler
+    params: # optional
+      minReplicas: 2
+      maxReplicas: 3
+      targetCPUUtilizationPercentage: 80

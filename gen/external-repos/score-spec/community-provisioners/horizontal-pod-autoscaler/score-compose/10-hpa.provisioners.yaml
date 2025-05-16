@@ -1,0 +1,3 @@
+- uri: template://community-provisioners/empty-hpa
+  type: horizontal-pod-autoscaler
+  description: Generates an empty object because HPA is not supported in Docker Compose.

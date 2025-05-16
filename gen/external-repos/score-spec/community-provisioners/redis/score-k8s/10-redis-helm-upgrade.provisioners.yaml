@@ -1,0 +1,22 @@
+- uri: cmd://bash#helm-upgrade-redis
+  type: redis
+  description: Deploys the bitnami/redis Helm chart in an existing cluster. 
+  args:
+  - -c
+  - |
+    if [ -z "$NAMESPACE" ]; then
+      echo "Error: The NAMESPACE environment variable shouldn't be empty. That's where the Redis Helm chart will be installed with this provisioner." >&2
+      exit 1
+    fi
+    STDIN=$(cat)
+    SERVICE=$(echo $STDIN | yq eval -p json '.resource_id' | yq '. |= sub("\.", "-")')
+    set -eu -o pipefail
+    helm repo add bitnami https://charts.bitnami.com/bitnami >&2
+    helm upgrade -i ${SERVICE} bitnami/redis --set replica.replicaCount=1 -n ${NAMESPACE} --wait >&2
+    OUTPUTS='{"resource_outputs":{"host":"%s-master", "port":"6379", "username":"", "password":"🔐💬%s_redis-password💬🔐"},"manifests":[]}'
+    printf "$OUTPUTS" "$SERVICE" "$SERVICE"
+  expected_outputs: 
+    - host 
+    - port 
+    - username 
+    - password
