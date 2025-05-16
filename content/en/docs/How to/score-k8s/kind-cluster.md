@@ -25,6 +25,7 @@ EOF
 ```
 
 From there, you can configure in this cluster:
+
 - Either a [Gateway API](#configure-a-gateway-api)
 - Or an [Ingress controller](#configure-an-ingress-controller)
 
