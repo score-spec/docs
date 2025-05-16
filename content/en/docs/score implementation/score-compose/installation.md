@@ -14,6 +14,8 @@ You can install the `score-compose` CLI in a variety of ways:
 - [Docker](#docker)
 - [Manual download](#manual-download)
 
+You can also use the predefined [Dev Containers setup](/docs/how-to/dev-containers/) if you prefer.
+
 ## Homebrew
 
 Prerequisites: You must have [brew](https://brew.sh) installed.

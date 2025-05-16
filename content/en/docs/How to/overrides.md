@@ -1,9 +1,9 @@
 ---
 title: "Specify configuration overrides"
 linkTitle: "Overrides"
-weight: 2
+weight: 5
 description: >
-    How to define overrides for your Score specification with score-compose
+    How to define overrides for your Score specification with score-compose and score-k8s
 aliases:
 - /docs/override/
 - /docs/override/override-parameters/
@@ -16,7 +16,7 @@ An override is a way for you to customize or modify certain aspects of the `scor
 
 ## Overrides file
 
-If an `overrides.score.yaml` file is found, the score-compose CLI applies overrides on the output. This occurs whether a flag is provided or not.
+If an `overrides.score.yaml` file is found, the `score-compose` and `score-k8s` CLIs apply overrides on the output. This occurs whether a flag is provided or not.
 
 ### How to override a command
 
@@ -53,7 +53,9 @@ containers:
 score-compose generate score.yaml --overrides-file overrides.score.yaml
 ```
 
-For more information please refer to the score-compose [examples library](https://github.com/score-spec/score-compose/tree/main/examples/07-overrides#overriding-the-score-file-with---overrides-file).
+```bash
+score-k8s generate score.yaml --overrides-file overrides.score.yaml
+```
 
 ## Overrides CLI flag
 
@@ -69,6 +71,10 @@ For example, the following looks for the `containers.my-service.image` property 
 score-compose run -f score.yaml --override-property containers.my-service.image=python3
 ```
 
+```bash
+score-k8s run -f score.yaml --override-property containers.my-service.image=python3
+```
+
 ### How to remove a property
 
 Set the path of the property to an empty value to remove the property.
@@ -77,4 +83,6 @@ Set the path of the property to an empty value to remove the property.
 score-compose run -f score.yaml --override-property metadata.my-service=
 ```
 
-For more information, please refer to the score-compose [examples library](https://github.com/score-spec/score-compose/tree/main/examples/07-overrides#overriding-individual-properties-in-the-score-file).
+```bash
+score-k8s run -f score.yaml --override-property metadata.my-service=
+```
