@@ -47,6 +47,7 @@ service:
 ```
 
 From here, you can deploy this exact same Score file:
+
 - Either with [`score-compose`](#2-score-compose)
 - Or with [`score-k8s`](#3-score-k8s).
 
