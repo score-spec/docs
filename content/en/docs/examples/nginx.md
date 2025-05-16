@@ -11,7 +11,7 @@ In this example we will walk you through how you can deploy a Nginx containerize
 
 ## 1. `score.yaml`
 
-Open your IDE and paste in the following `score.yaml` file, which describes a simple web server that queries a PostgreSQL database on each request and is exposed via a DNS. The demo code can be found [here](https://github.com/score-spec/sample-score-app).
+Open your IDE and paste in the following `score.yaml` file, which describes a simple web server that is exposed via a DNS. The demo code can be found [here](https://github.com/mathieu-benoit/nginx-score-demo).
 
 ```yaml
 apiVersion: score.dev/v1b1
@@ -93,7 +93,7 @@ The `init` command will create the `.score-compose` directory with the [default 
 score-compose provisioners list
 ```
 
-The Score file example illustrated uses three resource types: `postgres`, `dns` and `route`.
+The Score file example illustrated uses three resource types: `dns`, `route` and `volume`.
 
 ```none
 +---------------+-------+------------------+--------------------------------+---------------------------------+
@@ -110,6 +110,8 @@ The Score file example illustrated uses three resource types: `postgres`, `dns` 
 |               |       |                  |                                | workload.                       |
 +---------------+-------+------------------+--------------------------------+---------------------------------+
 ```
+
+By using the [`--patch-templates`](/docs/score-implementation/score-compose/patch-templates/) (in this case: [`unprivileged.tpl`](https://github.com/score-spec/community-patchers/blob/main/score-compose/unprivileged.tpl)) we are also making sure that the generated workload will run as unprivileged.
 
 ### `generate`
 
@@ -229,7 +231,7 @@ The `init` command will create the `.score-k8s` directory with the [default reso
 score-k8s provisioners list
 ```
 
-The Score file example illustrated uses three resource types: `postgres`, `dns` and `route`.
+The Score file example illustrated uses three resource types: `dns`, `route` and `volume`.
 
 ```none
 +---------------+-------+------------------+--------------------------------+---------------------------------+
@@ -246,6 +248,8 @@ The Score file example illustrated uses three resource types: `postgres`, `dns` 
 |               |       |                  |                                | workload                        |
 +---------------+-------+------------------+--------------------------------+---------------------------------+
 ```
+
+By using the [`--patch-templates`](/docs/score-implementation/score-compose/patch-templates/) (in this case: [`unprivileged.tpl`](https://github.com/score-spec/community-patchers/blob/main/score-compose/unprivileged.tpl)) we are also making sure that the generated workload will run as unprivileged.
 
 ### `generate`
 
