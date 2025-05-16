@@ -1,0 +1,10 @@
+apiVersion: score.dev/v1b1
+metadata:
+  name: my-workload
+  annotations:
+    podscoreannotationkey: podscoreannotationvalue
+containers:
+  my-container:
+    image: busybox
+    command: ["/bin/sh"]
+    args: ["-c", "while true; do echo Hello annotations; sleep 5; done"]
