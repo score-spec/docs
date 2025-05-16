@@ -1,0 +1,145 @@
+- uri: template://community-provisioners/redis-dapr-pubsub
+  type: dapr-pubsub
+  description: Generates a Dapr PubSub Component pointing to a Redis StatefulSet.
+  init: |
+    randomPassword: {{ randAlphaNum 16 | quote }}
+    port: 6379
+  state: |
+    service: redis-{{ .SourceWorkload }}-{{ substr 0 8 .Guid | lower }}
+    username: default
+    password: {{ dig "password" .Init.randomPassword .State | quote }}
+  outputs: |
+    name: {{ .State.service }}
+  expected_outputs:
+    - name
+  manifests: |
+    - apiVersion: dapr.io/v1alpha1
+      kind: Component
+      metadata:
+        name: {{ .State.service }}
+      spec:
+        type: pubsub.redis
+        version: v1
+        metadata:
+        - name: redisHost
+          value: {{ .State.service }}:{{ .Init.port }}
+        - name: redisPassword
+          value: {{ .State.password }}
+    - apiVersion: v1
+      kind: Secret
+      metadata:
+        name: {{ .State.service }}
+        annotations:
+          k8s.score.dev/source-workload: {{ .SourceWorkload }}
+          k8s.score.dev/resource-uid: {{ .Uid }}
+          k8s.score.dev/resource-guid: {{ .Guid }}
+        labels:
+          app.kubernetes.io/managed-by: score-k8s
+          app.kubernetes.io/name: {{ .State.service }}
+          app.kubernetes.io/instance: {{ .State.service }}
+      data:
+        password: {{ .State.password | b64enc }}
+        redis.conf: {{ printf "requirepass %s\nport 6379\nsave 60 1\nloglevel warning\n" .State.password | b64enc }}
+    - apiVersion: apps/v1
+      kind: StatefulSet
+      metadata:
+        name: {{ .State.service }}
+        annotations:
+          k8s.score.dev/source-workload: {{ .SourceWorkload }}
+          k8s.score.dev/resource-uid: {{ .Uid }}
+          k8s.score.dev/resource-guid: {{ .Guid }}
+        labels:
+          app.kubernetes.io/managed-by: score-k8s
+          app.kubernetes.io/name: {{ .State.service }}
+          app.kubernetes.io/instance: {{ .State.service }}
+      spec:
+        replicas: 1
+        serviceName: {{ .State.service }}
+        selector:
+          matchLabels:
+            app.kubernetes.io/instance: {{ .State.service }}
+        template:
+          metadata:
+            labels:
+              app.kubernetes.io/managed-by: score-k8s
+              app.kubernetes.io/name: {{ .State.service }}
+              app.kubernetes.io/instance: {{ .State.service }}
+            annotations:
+              k8s.score.dev/source-workload: {{ .SourceWorkload }}
+              k8s.score.dev/resource-uid: {{ .Uid }}
+              k8s.score.dev/resource-guid: {{ .Guid }}
+          spec:
+            automountServiceAccountToken: false
+            containers:
+            - name: redis
+              image: mirror.gcr.io/redis:7-alpine
+              securityContext:
+                allowPrivilegeEscalation: false
+                capabilities:
+                  drop:
+                    - ALL
+                privileged: false
+                readOnlyRootFilesystem: true
+              ports:
+              - name: redis
+                containerPort: {{ .Init.port }}
+              volumeMounts:
+              - name: redis-data
+                mountPath: /data
+              - name: config
+                mountPath: /usr/local/etc/redis
+              readinessProbe:
+                exec:
+                  command:
+                  - redis-cli
+                  - ping
+                periodSeconds: 3
+            securityContext:
+              fsGroup: 1000
+              runAsGroup: 1000
+              runAsNonRoot: true
+              runAsUser: 1000
+              seccompProfile:
+                type: RuntimeDefault
+            volumes:
+            - name: config
+              secret:
+                secretName: {{ .State.service }}
+                items:
+                - key: redis.conf
+                  path: redis.conf
+        volumeClaimTemplates:
+        - metadata:
+            name: redis-data
+            annotations:
+              k8s.score.dev/source-workload: {{ .SourceWorkload }}
+              k8s.score.dev/resource-uid: {{ .Uid }}
+              k8s.score.dev/resource-guid: {{ .Guid }}
+            labels:
+              app.kubernetes.io/managed-by: score-k8s
+              app.kubernetes.io/name: {{ .State.service }}
+              app.kubernetes.io/instance: {{ .State.service }}
+          spec:
+            accessModes: ["ReadWriteOnce"]
+            resources:
+              requests:
+                storage: 1Gi
+    - apiVersion: v1
+      kind: Service
+      metadata:
+        name: {{ .State.service }}
+        annotations:
+          k8s.score.dev/source-workload: {{ .SourceWorkload }}
+          k8s.score.dev/resource-uid: {{ .Uid }}
+          k8s.score.dev/resource-guid: {{ .Guid }}
+        labels:
+          app.kubernetes.io/managed-by: score-k8s
+          app.kubernetes.io/name: {{ .State.service }}
+          app.kubernetes.io/instance: {{ .State.service }}
+      spec:
+        selector:
+          app.kubernetes.io/instance: {{ .State.service }}
+        type: ClusterIP
+        ports:
+        - port: {{ .Init.port }}
+          targetPort: {{ .Init.port }}

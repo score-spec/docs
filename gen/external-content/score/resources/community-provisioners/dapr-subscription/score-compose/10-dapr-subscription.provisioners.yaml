@@ -1,0 +1,29 @@
+- uri: template://community-provisioners/dapr-subscription
+  type: dapr-subscription
+  description: Generates a Dapr Subscription on a given Topic and PubSub.
+  supported_params:
+    - topic
+    - pubsub
+  init: |
+    subscriptionName: {{ .Params.topic }}-subscription-{{ randAlphaNum 6 }}
+  state: |
+    subscriptionName: {{ dig "subscriptionName" .Init.subscriptionName .State | quote }}
+  outputs: |
+    name: {{ .State.subscriptionName }}
+    topic: {{ .Params.topic }}
+  expected_outputs:
+    - name
+    - topic
+  files: |
+    components/{{ .State.subscriptionName }}.yaml: |
+      apiVersion: dapr.io/v2alpha1
+      kind: Subscription
+      metadata:
+        name: {{ .State.subscriptionName }}
+      spec:
+        topic: {{ .Params.topic }}
+        routes:
+          default: /{{ .Params.topic }}
+        pubsubname: {{ .Params.pubsub }}
+      scopes:
+        - {{ .SourceWorkload }}

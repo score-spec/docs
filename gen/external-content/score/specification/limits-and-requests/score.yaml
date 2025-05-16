@@ -1,0 +1,15 @@
+apiVersion: score.dev/v1b1
+metadata:
+  name: my-workload
+containers:
+  my-container:
+    image: busybox
+    command: ["/bin/sh"]
+    args: ["-c", "while true; do echo Hello limits and requests; sleep 5; done"]
+    resources:
+      limits:
+        cpu: "0.250"
+        memory: "256Mi"
+      requests:
+        cpu: "0.025"
+        memory: "64Mi"
