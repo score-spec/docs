@@ -115,7 +115,15 @@ These commands will not have to be repeated unless re-creating the repo integrat
 
 ### Pulling new content
 
-TODO - fill in the details on the continous pulling of external content once implemented.
+To pull the current content from the remote example library repo, execute this command:
+
+```bash
+yarn gen-get-external-content
+```
+
+Refer to the [package.json`](./package.json) to see the actual implementation of this command.
+
+## Exam
 
 ## Troubleshooting documentation site builds
 
