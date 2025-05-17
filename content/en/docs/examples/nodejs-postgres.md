@@ -1,7 +1,7 @@
 ---
 title: "NodeJS and PostgreSQL"
 linkTitle: "NodeJS and PostgreSQL"
-description: "How to deploy a NodeJS containerized application using a PostgreSQL database with score-compose and score-k8s"
+description: "How to deploy a NodeJS containerized application using a PostgreSQL database with `score-compose` and `score-k8s`"
 weight: 3
 ---
 
@@ -49,9 +49,11 @@ service:
 From here, you can deploy this exact same Score file:
 
 - Either with [`score-compose`](#2-score-compose)
-- Or with [`score-k8s`](#3-score-k8s).
+- Or with [`score-k8s`](#3-score-k8s)
 
 ## 2. `score-compose`
+
+
 
 To begin, follow the [installation instructions](/docs/score-implementation/score-compose/installation) to install the latest version of `score-compose`.
 

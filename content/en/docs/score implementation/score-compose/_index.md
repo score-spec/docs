@@ -1,7 +1,7 @@
 ---
 title: "score-compose"
 linkTitle: "score-compose"
-description: "Get started with the score-compose reference implementation"
+description: "Get started with the `score-compose` reference implementation"
 weight: 1
 aliases:
 - /docs/reference/score-cli/score-compose-run/
