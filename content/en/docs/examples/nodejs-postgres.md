@@ -53,8 +53,6 @@ From here, you can deploy this exact same Score file:
 
 ## 2. `score-compose`
 
-
-
 To begin, follow the [installation instructions](/docs/score-implementation/score-compose/installation) to install the latest version of `score-compose`.
 
 ### `init`
