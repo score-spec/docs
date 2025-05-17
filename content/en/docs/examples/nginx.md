@@ -1,13 +1,22 @@
 ---
 title: "Nginx"
 linkTitle: "Nginx"
-description: "How to deploy a Nginx containerized application with score-compose and score-k8s"
+description: "How to deploy a Nginx containerized application with `score-compose` and `score-k8s`"
 weight: 2
 ---
 
 ## Overview
 
 In this example we will walk you through how you can deploy a Nginx containerized application, and this with both `score-compose` and `score-k8s`.
+
+```mermaid
+flowchart TD
+    dns[DNS] --> nginx-workload(Nginx)
+    subgraph Workloads
+        nginx-workload
+    end
+    nginx-workload-->Volume
+```
 
 ## 1. `score.yaml`
 
@@ -72,7 +81,7 @@ We will use this last Score file for the rest of this page.
 From here, you can deploy this exact same Score file:
 
 - Either with [`score-compose`](#2-score-compose)
-- Or with [`score-k8s`](#3-score-k8s).
+- Or with [`score-k8s`](#3-score-k8s)
 
 ## 2. `score-compose`
 

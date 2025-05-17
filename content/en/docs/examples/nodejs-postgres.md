@@ -9,6 +9,15 @@ weight: 3
 
 In this example we will walk you through how you can deploy a NodeJS containerized application using a PostgreSQL database, and this with both `score-compose` and `score-k8s`.
 
+```mermaid
+flowchart TD
+    dns[DNS] --> nodejs-workload(NodeJS)
+    subgraph Workloads
+        nodejs-workload
+    end
+    nodejs-workload-->PostgreSQL
+```
+
 ## 1. `score.yaml`
 
 Open your IDE and paste in the following `score.yaml` file, which describes a simple web server that queries a PostgreSQL database on each request and is exposed via a DNS. The demo code can be found [here](https://github.com/score-spec/sample-score-app).
