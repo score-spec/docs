@@ -1,7 +1,7 @@
 ---
 title: "score-k8s"
 linkTitle: "score-k8s"
-description: "Get started with the score-k8s reference implementation"
+description: "Get started with the `score-k8s` reference implementation"
 weight: 2
 ---
 

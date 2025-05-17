@@ -1,13 +1,22 @@
 ---
 title: "NodeJS and PostgreSQL"
 linkTitle: "NodeJS and PostgreSQL"
-description: "How to deploy a NodeJS containerized application using a PostgreSQL database with score-compose and score-k8s"
+description: "How to deploy a NodeJS containerized application using a PostgreSQL database with `score-compose` and `score-k8s`"
 weight: 3
 ---
 
 ## Overview
 
 In this example we will walk you through how you can deploy a NodeJS containerized application using a PostgreSQL database, and this with both `score-compose` and `score-k8s`.
+
+```mermaid
+flowchart TD
+    dns[DNS] --> nodejs-workload(NodeJS)
+    subgraph Workloads
+        nodejs-workload
+    end
+    nodejs-workload-->PostgreSQL
+```
 
 ## 1. `score.yaml`
 
@@ -49,7 +58,7 @@ service:
 From here, you can deploy this exact same Score file:
 
 - Either with [`score-compose`](#2-score-compose)
-- Or with [`score-k8s`](#3-score-k8s).
+- Or with [`score-k8s`](#3-score-k8s)
 
 ## 2. `score-compose`
 
