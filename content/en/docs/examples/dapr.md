@@ -242,6 +242,7 @@ score-k8s init --no-sample \
 ```
 
 The `init` command will create the `.score-k8s` directory with the [default resource provisioners]({{< relref "/docs/score-implementation/score-k8s/resources-provisioners/" >}}) available. We are also importing one external file to fully support and seamlessly support Dapr for this workload:
+
 - [`dapr-state-store` provisioner](https://github.com/score-spec/community-provisioners/blob/main/dapr-state-store/score-compose/10-redis-dapr-state-store.provisioners.yaml): to generate a Dapr StateStore `Component` pointing to a Redis database.
 
 You can see the resource provisioners available by running this command:
