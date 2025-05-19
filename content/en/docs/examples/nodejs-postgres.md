@@ -15,7 +15,7 @@ flowchart TD
     subgraph Workloads
         nodejs-workload
     end
-    nodejs-workload-->PostgreSQL
+    nodejs-workload-->postgres[(PostgreSQL)]
 ```
 
 ## 1. `score.yaml`
@@ -72,7 +72,9 @@ Initialize your current `score-compose` workspace, run the following command in 
 score-compose init --no-sample
 ```
 
-The `init` command will create the `.score-compose` directory with the [default resource provisioners]({{< relref "/docs/score-implementation/score-compose/resources-provisioners/" >}}) available. You can learn more about the resource provisioners available by running this command:
+The `init` command will create the `.score-compose` directory with the [default resource provisioners]({{< relref "/docs/score-implementation/score-compose/resources-provisioners/" >}}) available.
+
+You can see the resource provisioners available by running this command:
 
 ```bash
 score-compose provisioners list
@@ -230,7 +232,9 @@ Initialize your current `score-k8s` workspace, run the following command in your
 score-k8s init --no-sample
 ```
 
-The `init` command will create the `.score-k8s` directory with the [default resource provisioners]({{< relref "/docs/score-implementation/score-k8s/resources-provisioners/" >}}) available. You can learn more about the resource provisioners available by running this command:
+The `init` command will create the `.score-k8s` directory with the [default resource provisioners]({{< relref "/docs/score-implementation/score-k8s/resources-provisioners/" >}}) available.
+
+You can see the resource provisioners available by running this command:
 
 ```bash
 score-k8s provisioners list
@@ -354,7 +358,6 @@ pod/pg-hello-world-87af7a15-0      1/1     Running   0             37s
 
 NAME                              TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
 service/hello-world               ClusterIP   10.96.250.192   <none>        8080/TCP   37s
-service/kubernetes                ClusterIP   10.96.0.1       <none>        443/TCP    91s
 service/pg-hello-world-87af7a15   ClusterIP   10.96.231.3     <none>        5432/TCP   37s
 
 NAME                          READY   UP-TO-DATE   AVAILABLE   AGE
