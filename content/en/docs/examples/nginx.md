@@ -96,7 +96,9 @@ score-compose init --no-sample \
     --patch-templates https://raw.githubusercontent.com/score-spec/community-patchers/refs/heads/main/score-compose/unprivileged.tpl
 ```
 
-The `init` command will create the `.score-compose` directory with the [default resource provisioners]({{< relref "/docs/score-implementation/score-compose/resources-provisioners/" >}}) available. You can learn more about the resource provisioners available by running this command:
+The `init` command will create the `.score-compose` directory with the [default resource provisioners]({{< relref "/docs/score-implementation/score-compose/resources-provisioners/" >}}) available.
+
+You can see the resource provisioners available by running this command:
 
 ```bash
 score-compose provisioners list
@@ -234,7 +236,9 @@ score-k8s init --no-sample \
     --patch-templates https://raw.githubusercontent.com/score-spec/community-patchers/refs/heads/main/score-k8s/unprivileged.tpl
 ```
 
-The `init` command will create the `.score-k8s` directory with the [default resource provisioners]({{< relref "/docs/score-implementation/score-k8s/resources-provisioners/" >}}) available. You can learn more about the resource provisioners available by running this command:
+The `init` command will create the `.score-k8s` directory with the [default resource provisioners]({{< relref "/docs/score-implementation/score-k8s/resources-provisioners/" >}}) available.
+
+You can see the resource provisioners available by running this command:
 
 ```bash
 score-k8s provisioners list
@@ -337,7 +341,6 @@ NAME                         READY   STATUS    RESTARTS   AGE
 pod/nginx-6947586bd6-82lvj   1/1     Running   0          16s
 
 NAME                 TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)    AGE
-service/kubernetes   ClusterIP   10.96.0.1     <none>        443/TCP    52m
 service/nginx        ClusterIP   10.96.38.94   <none>        8080/TCP   17s
 
 NAME                    READY   UP-TO-DATE   AVAILABLE   AGE
