@@ -11,6 +11,6 @@ aliases:
 - /docs/how-to/environment-variables/
 ---
 
-Explore a variety of examples of Score files, ranging from simple "hello world" setups to more complex configurations, including resource provisioning. You can find these examples in our [examples library](https://github.com/score-spec/examples).
+Explore a variety of examples of Score files illustrating different features from the Score specification as well as including resources provisioning. You can find these examples in our [examples library](https://github.com/score-spec/examples).
 
-If you encounter any issues or have questions, feel free to reach out to us in the the [Score](https://cloud-native.slack.com/archives/C07DN0D1UCW) channel on the CNCF Slack (<https://slack.cncf.io/>).
+In addition to this, you can find more advanced and real-world scenarios in the list below:

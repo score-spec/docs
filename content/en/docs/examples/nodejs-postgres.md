@@ -20,7 +20,7 @@ flowchart TD
 
 ## 1. `score.yaml`
 
-Open your IDE and paste in the following `score.yaml` file, which describes a simple web server that queries a PostgreSQL database on each request and is exposed via a DNS. The demo code can be found [here](https://github.com/score-spec/sample-score-app).
+Open your IDE and paste in the following `score.yaml` file, which describes a simple web server exposed via a DNS that queries a PostgreSQL database on each request. The demo code can be found [here](https://github.com/score-spec/sample-score-app).
 
 ```yaml
 apiVersion: score.dev/v1b1
@@ -37,6 +37,11 @@ containers:
       DB_PASSWORD: ${resources.db.password}
       DB_HOST: ${resources.db.host}
       DB_PORT: ${resources.db.port}
+service:
+  ports:
+    www:
+      port: 8080
+      targetPort: 3000
 resources:
   db:
     type: postgres
@@ -48,11 +53,6 @@ resources:
       host: ${resources.dns.host}
       path: /
       port: 8080
-service:
-  ports:
-    www:
-      port: 8080
-      targetPort: 3000
 ```
 
 From here, you can deploy this exact same Score file:

@@ -1,13 +1,13 @@
 ---
 title: "Nginx"
 linkTitle: "Nginx"
-description: "How to deploy a Nginx containerized application with `score-compose` and `score-k8s`"
+description: "How to deploy an unprivileged Nginx containerized application with `score-compose` and `score-k8s`"
 weight: 2
 ---
 
 ## Overview
 
-In this example we will walk you through how you can deploy a Nginx containerized application, and this with both `score-compose` and `score-k8s`.
+In this example we will walk you through how you can deploy an unprivileged Nginx containerized application, and this with both `score-compose` and `score-k8s`.
 
 ```mermaid
 flowchart TD
@@ -20,7 +20,7 @@ flowchart TD
 
 ## 1. `score.yaml`
 
-Open your IDE and paste in the following `score.yaml` file, which describes a simple web server that is exposed via a DNS. The demo code can be found [here](https://github.com/mathieu-benoit/nginx-score-demo).
+Open your IDE and paste in the following `score.yaml` file, which describes a simple web server exposed via a DNS. The demo code can be found [here](https://github.com/mathieu-benoit/nginx-score-demo).
 
 ```yaml
 apiVersion: score.dev/v1b1
