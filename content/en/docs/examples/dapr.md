@@ -21,7 +21,7 @@ flowchart TD
 
 ## 1. `score.yaml`
 
-Open your IDE and paste in the following `score.yaml` file, which describes a simple web server that queries a Dapr StateStore (Redis) on each request and is exposed via a DNS. The demo code can be found [here](https://github.com/mathieu-benoit/dapr-score-humanitec).
+Open your IDE and paste in the following `score.yaml` file, which describes a simple web server exposed via a DNS that queries a Dapr StateStore (Redis) on each request. The demo code can be found [here](https://github.com/mathieu-benoit/dapr-score-humanitec).
 
 ```yaml
 apiVersion: score.dev/v1b1
@@ -74,10 +74,7 @@ score-compose init --no-sample \
     --patch-templates https://raw.githubusercontent.com/score-spec/community-patchers/refs/heads/main/score-compose/dapr.tpl
 ```
 
-The `init` command will create the `.score-compose` directory with the [default resource provisioners]({{< relref "/docs/score-implementation/score-compose/resources-provisioners/" >}}) available. We are also importing two external files to fully support and seamlessly support Dapr for this workload:
-
-- [`dapr-state-store` provisioner](https://github.com/score-spec/community-provisioners/blob/main/dapr-state-store/score-compose/10-redis-dapr-state-store.provisioners.yaml): to generate a Dapr StateStore `Component` pointing to a Redis database.
-- [Dapr patch template](https://github.com/score-spec/community-patchers/blob/main/score-compose/dapr.tpl): to generate the Dapr `scheduler` and `placement` in addition to a Dapr `Sidecar` for any Workload.
+The `init` command will create the `.score-compose` directory with the [default resource provisioners]({{< relref "/docs/score-implementation/score-compose/resources-provisioners/" >}}) available. We are also importing one external file to seamlessly generate a Dapr StateStore `Component` pointing to a Redis database: [`dapr-state-store` provisioner](https://github.com/score-spec/community-provisioners/blob/main/dapr-state-store/score-compose/10-redis-dapr-state-store.provisioners.yaml).
 
 You can see the resource provisioners available by running this command:
 
@@ -102,6 +99,8 @@ The Score file example illustrated uses three resource types: `dapr-state-store`
 |                   |       |                  |                                | a shared Nginx instance         |
 +-------------------+-------+------------------+--------------------------------+---------------------------------+
 ```
+
+By using the [`--patch-templates`](/docs/score-implementation/score-compose/patch-templates/) (in this case: [`dapr.tpl`](https://github.com/score-spec/community-patchers/blob/main/score-compose/dapr.tpl)) we are seamlessly generating the Dapr `scheduler` and `placement` containers in addition to a Dapr `Sidecar` container for any Workload.
 
 ### `generate`
 
@@ -241,9 +240,7 @@ score-k8s init --no-sample \
     --provisioners https://raw.githubusercontent.com/score-spec/community-provisioners/refs/heads/main/dapr-state-store/score-k8s/10-redis-dapr-state-store.provisioners.yaml
 ```
 
-The `init` command will create the `.score-k8s` directory with the [default resource provisioners]({{< relref "/docs/score-implementation/score-k8s/resources-provisioners/" >}}) available. We are also importing one external file to fully support and seamlessly support Dapr for this workload:
-
-- [`dapr-state-store` provisioner](https://github.com/score-spec/community-provisioners/blob/main/dapr-state-store/score-compose/10-redis-dapr-state-store.provisioners.yaml): to generate a Dapr StateStore `Component` pointing to a Redis database.
+The `init` command will create the `.score-k8s` directory with the [default resource provisioners]({{< relref "/docs/score-implementation/score-k8s/resources-provisioners/" >}}) available. We are also importing one external file to generate a Dapr StateStore `Component` pointing to a Redis database: [`dapr-state-store` provisioner](https://github.com/score-spec/community-provisioners/blob/main/dapr-state-store/score-k8s/10-redis-dapr-state-store.provisioners.yaml).
 
 You can see the resource provisioners available by running this command:
 

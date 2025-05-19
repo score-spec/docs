@@ -199,6 +199,6 @@ Congrats! You’ve successfully deploy your first Score file with the `score-com
 
 ## Next steps
 
+- [**Try other implementations**](/docs/score-implementation/): Continue by deploying the same Score file used in the example above via the `score-k8s` CLI to generate Kubernetes manifests.
 - [**Explore more examples**](/docs/examples/): Check out more examples to dive into further use cases and experiment with different configurations.
-- [**Try other implementations**](/docs/score-implementation/): Play around with other available Score implementations. For example, you could continue by running the same Score file used in the example above via the `score-k8s` CLI to generate Kubernetes manifests.
 - [**Join the Score community**]({{< relref "/docs/community" >}}): Connect with fellow Score developers on our CNCF Slack channel or start find your way to contribute to Score.
