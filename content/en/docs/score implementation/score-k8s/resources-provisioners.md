@@ -31,7 +31,7 @@ Users are encouraged to write their own custom provisioners to support new resou
 
 A list of provisioners authored and shared by the community can also be found [here](https://github.com/score-spec/community-provisioners). Users are encouraged to use them and contribute to this growing list of community provisioners:
 
-| Type                        | Class | Params                                                                | Outputs                                | Description
+| Type                        | Class | Params                                                                | Outputs                                | Description                                                                             |
 | --------------------------- | ----- | --------------------------------------------------------------------- | -------------------------------------- | --------------------------------------------------------------------------------------- |
 | `dapr-pubsub`               | (any) | (none)                                                                | `name`                                 | Generates a Dapr PubSub `Component` pointing to a RabbitMQ `StatefulSet`.               |
 | `dapr-pubsub`               | (any) | (none)                                                                | `name`                                 | Generates a Dapr PubSub `Component` pointing to a Redis `StatefulSet`.                  |
@@ -40,7 +40,7 @@ A list of provisioners authored and shared by the community can also be found [h
 | `dns`                       | (any) | (none)                                                                | `host`, `url`                          | Get the forwarded port URL in current GitHub Codespace on port `80`.                    |
 | `dns`                       | (any) | (none)                                                                | `host`, `url`                          | Outputs a `*.localhost` domain as the hostname and associated URL in http on port `80`. |
 | `environment`               | (any) | (none)                                                                | (none)                                 | Loads environment variables from a local `.env` file.                                   |
-| `horizontal-pod-autoscaler` | (any) | `maxReplicas`, `minReplicas`, `defaultTargetCPUUtilizationPercentage` | (none)                                 | Generates an `HorizontalPodAutoscaler` manifest.                                        |     
+| `horizontal-pod-autoscaler` | (any) | `maxReplicas`, `minReplicas`, `defaultTargetCPUUtilizationPercentage` | (none)                                 | Generates an `HorizontalPodAutoscaler` manifest.                                        |
 | `redis`                     | (any) | (none)                                                                | `host`, `password`, `port`, `username` | Generates the manifests of the `bitnami/redis` Helm chart.                              |
 | `redis`                     | (any) | (none)                                                                | `host`, `password`, `port`, `username` | Deploys the `bitnami/redis` Helm chart in an existing cluster.                          |
 | `route`                     | (any) | `host`, `path`, `port`                                                | (none)                                 | Provisions an Ingress route on a shared Nginx instance.                                 |
