@@ -1,13 +1,13 @@
 ---
 title: "Dapr"
 linkTitle: "Dapr"
-description: "How to deploy a NodeJS containerized application using a Dapr StateStore (Redis) with `score-compose` and `score-k8s`"
+description: "How to deploy a containerized NodeJS application using a Dapr StateStore (Redis) with `score-compose` and `score-k8s`"
 weight: 4
 ---
 
 ## Overview
 
-In this example we will walk you through how you can deploy a NodeJS containerized application using a Dapr StateStore (Redis), and this with both `score-compose` and `score-k8s`.
+In this example we will walk you through how you can deploy a containerized NodeJS application using a Dapr StateStore (Redis), and this with both `score-compose` and `score-k8s`.
 
 ```mermaid
 flowchart TD
@@ -225,7 +225,7 @@ You can check the logs of the running container:
 Node App listening on port 3000!
 ```
 
-Congrats! You’ve successfully deploy, with the `score-compose` implementation, a sample NodeJS containerized workload talking to a Dapr StateStore (Redis) and exposed via a DNS. You provisioned them through Docker, without writing the Docker Compose file by yourself.
+Congrats! You’ve successfully deploy, with the `score-compose` implementation, a sample containerized NodeJS workload talking to a Dapr StateStore (Redis) and exposed via a DNS. You provisioned them through Docker, without writing the Docker Compose file by yourself.
 
 ## 3. `score-k8s`
 
@@ -394,7 +394,7 @@ You can check the logs of the running container:
 Node App listening on port 3000!
 ```
 
-Congrats! You’ve successfully deploy, with the `score-k8s` implementation, a sample NodeJS containerized workload talking to a Dapr StateStore (Redis) and exposed via a DNS. You provisioned them through `kubectl`, without writing the Kubernetes manifests file by yourself.
+Congrats! You’ve successfully deploy, with the `score-k8s` implementation, a sample containerized NodeJS workload talking to a Dapr StateStore (Redis) and exposed via a DNS. You provisioned them through `kubectl`, without writing the Kubernetes manifests file by yourself.
 
 ## Next steps
 

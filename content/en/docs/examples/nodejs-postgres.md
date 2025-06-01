@@ -1,13 +1,13 @@
 ---
 title: "NodeJS and PostgreSQL"
 linkTitle: "NodeJS and PostgreSQL"
-description: "How to deploy a NodeJS containerized application using a PostgreSQL database with `score-compose` and `score-k8s`"
+description: "How to deploy a containerized NodeJS application using a PostgreSQL database with `score-compose` and `score-k8s`"
 weight: 3
 ---
 
 ## Overview
 
-In this example we will walk you through how you can deploy a NodeJS containerized application using a PostgreSQL database, and this with both `score-compose` and `score-k8s`.
+In this example we will walk you through how you can deploy a containerized NodeJS application using a PostgreSQL database, and this with both `score-compose` and `score-k8s`.
 
 ```mermaid
 flowchart TD
@@ -218,7 +218,7 @@ This is an application talking to a PostgreSQL 17.5 database on host pg-Tut8g7, 
 PostgreSQL 17.5 on x86_64-pc-linux-musl, compiled by gcc (Alpine 14.2.0) 14.2.0, 64-bit
 ```
 
-Congrats! You’ve successfully deploy, with the `score-compose` implementation, a sample NodeJS containerized workload talking to PostgreSQL and exposed via a DNS. You provisioned them through Docker, without writing the Docker Compose file by yourself.
+Congrats! You’ve successfully deploy, with the `score-compose` implementation, a sample containerized NodeJS workload talking to PostgreSQL and exposed via a DNS. You provisioned them through Docker, without writing the Docker Compose file by yourself.
 
 ## 3. `score-k8s`
 
@@ -384,7 +384,7 @@ This is an application talking to a PostgreSQL 17.5 database on host pg-Tut8g7, 
 PostgreSQL 17.5 on x86_64-pc-linux-musl, compiled by gcc (Alpine 14.2.0) 14.2.0, 64-bit
 ```
 
-Congrats! You’ve successfully deploy, with the `score-k8s` implementation, a sample NodeJS containerized workload talking to PostgreSQL and exposed via a DNS. You provisioned them through `kubectl`, without writing the Kubernetes manifests file by yourself.
+Congrats! You’ve successfully deploy, with the `score-k8s` implementation, a sample containerized NodeJS workload talking to PostgreSQL and exposed via a DNS. You provisioned them through `kubectl`, without writing the Kubernetes manifests file by yourself.
 
 ## Next steps
 

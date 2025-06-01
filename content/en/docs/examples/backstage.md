@@ -1,13 +1,13 @@
 ---
 title: "Backstage"
 linkTitle: "Backstage"
-description: "How to deploy a Backstage containerized application using a PostgreSQL database with `score-compose` and `score-k8s`"
-weight: 3
+description: "How to deploy a containerized Backstage application using a PostgreSQL database with `score-compose` and `score-k8s`"
+weight: 6
 ---
 
 ## Overview
 
-In this example we will walk you through how you can deploy a Backstage containerized application using a PostgreSQL database, and this with both `score-compose` and `score-k8s`.
+In this example we will walk you through how you can deploy a containerized Backstage application using a PostgreSQL database, and this with both `score-compose` and `score-k8s`.
 
 ```mermaid
 flowchart TD
@@ -225,7 +225,7 @@ curl localhost:8080 -H "Host: dnsjdtv57.localhost"
 ...
 ```
 
-Congrats! You’ve successfully deploy, with the `score-compose` implementation, a sample Backstage containerized workload talking to PostgreSQL and exposed via a DNS. You provisioned them through Docker, without writing the Docker Compose file by yourself.
+Congrats! You’ve successfully deploy, with the `score-compose` implementation, a sample containerized Backstage workload talking to PostgreSQL and exposed via a DNS. You provisioned them through Docker, without writing the Docker Compose file by yourself.
 
 ## 3. `score-k8s`
 
@@ -395,7 +395,7 @@ curl localhost -H "Host: dnsnocrke.localhost"
 ...
 ```
 
-Congrats! You’ve successfully deploy, with the `score-k8s` implementation, a sample Backstage containerized workload talking to PostgreSQL and exposed via a DNS. You provisioned them through `kubectl`, without writing the Kubernetes manifests file by yourself.
+Congrats! You’ve successfully deploy, with the `score-k8s` implementation, a sample containerized Backstage workload talking to PostgreSQL and exposed via a DNS. You provisioned them through `kubectl`, without writing the Kubernetes manifests file by yourself.
 
 ## Next steps
 
