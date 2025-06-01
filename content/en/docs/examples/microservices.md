@@ -112,7 +112,7 @@ resources:
     type: service
 ```
 
-the following `score-cart.yaml` file, which describes the `cart` containerized application exposed via a DNS that queries different other applications on each request:
+The following `score-cart.yaml` file, which describes the `cart` containerized application exposed via a DNS that queries different other applications on each request:
 
 ```yaml
 apiVersion: score.dev/v1b1
@@ -142,7 +142,7 @@ resources:
 
 Just two Score files have been illustrated above, you can grab the other Score files from [this GitHub repository](https://github.com/Humanitec-DemoOrg/onlineboutique-demo/tree/main/apps).
 
-From here, you can deploy these Score files:
+From here, we will now see how you can deploy these Score files:
 
 - Either with [`score-compose`](#2-score-compose)
 - Or with [`score-k8s`](#3-score-k8s)

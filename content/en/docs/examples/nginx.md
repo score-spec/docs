@@ -78,7 +78,7 @@ resources:
 
 We will use this last Score file for the rest of this page.
 
-From here, you can deploy this exact same Score file:
+From here, we will now see how you can deploy this exact same Score file:
 
 - Either with [`score-compose`](#2-score-compose)
 - Or with [`score-k8s`](#3-score-k8s)

@@ -55,7 +55,7 @@ resources:
       port: 3000
 ```
 
-From here, you can deploy this exact same Score file:
+From here, we will now see how you can deploy this exact same Score file:
 
 - Either with [`score-compose`](#2-score-compose)
 - Or with [`score-k8s`](#3-score-k8s)
