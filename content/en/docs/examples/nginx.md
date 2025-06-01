@@ -1,13 +1,13 @@
 ---
 title: "Nginx"
 linkTitle: "Nginx"
-description: "How to deploy an unprivileged Nginx containerized application with `score-compose` and `score-k8s`"
+description: "How to deploy an unprivileged containerized Nginx application with `score-compose` and `score-k8s`"
 weight: 2
 ---
 
 ## Overview
 
-In this example we will walk you through how you can deploy an unprivileged Nginx containerized application, and this with both `score-compose` and `score-k8s`.
+In this example we will walk you through how you can deploy an unprivileged containerized Nginx application, and this with both `score-compose` and `score-k8s`.
 
 ```mermaid
 flowchart TD
@@ -78,7 +78,7 @@ resources:
 
 We will use this last Score file for the rest of this page.
 
-From here, you can deploy this exact same Score file:
+From here, we will now see how you can deploy this exact same Score file:
 
 - Either with [`score-compose`](#2-score-compose)
 - Or with [`score-k8s`](#3-score-k8s)
@@ -221,7 +221,7 @@ curl localhost:8080 -H "Host: dnspb7p6y.localhost"
 Welcome to nginx!
 ```
 
-Congrats! You’ve successfully deploy, with the `score-compose` implementation, a simple Nginx containerized workload exposed via a DNS. You provisioned them through Docker, without writing the Docker Compose file by yourself.
+Congrats! You’ve successfully deploy, with the `score-compose` implementation, a simple containerized Nginx workload exposed via a DNS. You provisioned them through Docker, without writing the Docker Compose file by yourself.
 
 ## 3. `score-k8s`
 
@@ -362,7 +362,7 @@ curl localhost -H "Host: dnsev272w.localhost"
 Welcome to nginx!
 ```
 
-Congrats! You’ve successfully deploy, with the `score-k8s` implementation, a simple Nginx containerized workload exposed via a DNS. You provisioned them through `kubectl`, without writing the Kubernetes manifests file by yourself.
+Congrats! You’ve successfully deploy, with the `score-k8s` implementation, a simple containerized Nginx workload exposed via a DNS. You provisioned them through `kubectl`, without writing the Kubernetes manifests file by yourself.
 
 ## Next steps
 
