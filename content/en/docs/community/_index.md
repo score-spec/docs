@@ -42,6 +42,7 @@ We host [regular community meetings](https://github.com/score-spec/spec?tab=read
 
 ## Read external blog posts about Score
 
+- [Deploy Backstage with Score](https://medium.com/@mabenoit/deploy-backstage-with-score-45bb2d7c2d90)
 - [Stop Building Platforms Nobody Uses: Pick the Right Kubernetes Abstraction with GitOps](https://itnext.io/stop-building-platforms-nobody-uses-pick-the-right-kubernetes-abstraction-with-gitops-64681357690f)
 - [From CI to Kubernetes Catalog: Building a Composable Platform with GitOps and vCluster](https://itnext.io/from-ci-to-kubernetes-catalog-building-a-composable-platform-with-gitops-and-vcluster-7e1decaa81da)
 - [Descomplicando o Score (CNCF)](https://www.linkedin.com/pulse/descomplicando-o-score-cncf-clecio-antao-nyt3f/)
@@ -53,6 +54,7 @@ We host [regular community meetings](https://github.com/score-spec/spec?tab=read
 
 ## Leverage example projects using Score
 
+- [`mathieu-benoit/deploy-backstage-with-score`](https://github.com/mathieu-benoit/deploy-backstage-with-score)
 - [`la-cc/score-k8s-webapp`](https://github.com/la-cc/score-k8s-webapp)
 - [`mathieu-benoit/nginx-score-demo`](https://github.com/mathieu-benoit/nginx-score-demo)
 - [`kendallroden/kubecon-dapr-score-demo`](https://github.com/kendallroden/kubecon-dapr-score-demo)
