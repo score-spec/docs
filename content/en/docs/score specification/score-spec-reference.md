@@ -287,17 +287,13 @@ resources: # optional
       param-name: value
 ```
 
-`resources`: the resource dependencies needed by the workload.
-
 `resource-name`: a required property that specifies the resource name.
 
-`type`: the resource type. This should be a type supported by the Score implementations being used.
-`class`: an optional specialisation of the resource type.
-`id`: an optional external resource identifier. When two resources share the same type, class, and id, they are considered the same resource when used across related Workloads.
-`params`: an optional map of parameters that may configure this resource. Params support both metadata and resource placeholders local to this Workload.
-
-`metadata`: an optional property that specifies additional resource metadata.
-
+- `type`: the resource type. This should be a type supported by the Score implementations being used.
+- `class`: an optional specialisation of the resource type.
+- `id`: an optional external resource identifier. When two resources share the same type, class, and id, they are considered the same resource when used across related Workloads.
+- `params`: an optional map of parameters that may configure this resource. Params support both metadata and resource placeholders local to this Workload.
+- `metadata`: an optional property that specifies additional resource metadata.
 - `annotations`: An optional property to specify meta data for a resource. This can be utilised to provide additional instructions for the Score CLI Implementation to interpret.
 
 ### Resource example
