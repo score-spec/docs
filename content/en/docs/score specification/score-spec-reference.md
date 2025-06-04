@@ -288,6 +288,7 @@ resources: # optional
 ```
 
 `resource-name`: a required property that specifies the resource name.
+
 - `type`: the resource type. This should be a type supported by the Score implementations being used.
 - `class`: an optional specialisation of the resource type.
 - `id`: an optional external resource identifier. When two resources share the same type, class, and id, they are considered the same resource when used across related Workloads.
