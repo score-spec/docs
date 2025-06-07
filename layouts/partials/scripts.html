@@ -75,3 +75,7 @@ window.markmap = {
 <script src='{{ "/js/prism.js" | relURL }}'></script>
 {{ end }}
 
+{{ $multifilter := resources.Get "js/multifilter.js" | js.Build -}}
+{{ $multifilterSecureJS := $multifilter | resources.Fingerprint "sha512" }}
+<script src="{{ $multifilterSecureJS.RelPermalink }}" integrity="{{ $multifilterSecureJS.Data.Integrity }}"></script>
+

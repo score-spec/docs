@@ -4,6 +4,10 @@
 {{ $sectionWithoutBase := index (split .section "/") 1 }}
 {{ $folder := print $exampleLibrarySourcePath "/" $sectionWithoutBase }}
 
+{{ $labels := slice }}
+{{ range where site.Params.exampleTypeLabels "name" $sectionWithoutBase }}
+  {{ $labels = .labels }}
+{{ end }}
 
 <div class="examples-sidebar">
   <h3>{{ print $sectionWithoutBase | humanize | strings.Title }}</h3>
@@ -14,4 +18,84 @@
       examples found.
     </div>
   {{ end }}
+  <div class="mt-4">
+    {{ with site.GetPage .section }}
+      <div>
+        <h3>{{ index $labels 0 }}</h3>
+        {{ $names := slice }}
+        {{ range readDir (print $folder "/specification") }}
+          {{ if .IsDir }}
+            {{ $names = $names | append (.Name | humanize) }}
+          {{ end }}
+        {{ end }}
+        {{ range sort ($names | uniq) }}
+          <div class="form-check">
+            <input 
+              class="form-check-input" 
+              type="checkbox" 
+              id="check-{{ . | urlize }}" 
+              value="{{ . | urlize }}" 
+              data-directory="{{ replace (index $labels 0 | urlize) "-" "" }}"
+            />
+            <label class="form-check-label" for="check-{{ . | urlize }}">
+              {{ . }}
+            </label>
+          </div>
+        {{ end }}
+      </div>
+      <div class="mt-4">
+        <h3>{{ index $labels 1 }}</h3>
+        {{ $names := slice }}
+        {{ range readDir (print $folder "/resources") }}
+          {{ if and .IsDir (not (hasPrefix .Name ".")) }}
+            {{ $subfolder := print $folder "/resources/" .Name }}
+            {{ range readDir $subfolder }}
+              {{ if and .IsDir (not (hasPrefix .Name ".")) }}
+                {{ $names = $names | append (.Name | humanize) }}
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+        {{ range sort ($names | uniq) }}
+          <div class="form-check">
+            <input 
+              class="form-check-input" 
+              type="checkbox" 
+              id="check-{{ . | urlize }}" 
+              value="{{ . | urlize }}" 
+              data-directory="{{ replace (index $labels 1 | urlize) "-" "" }}"
+            />
+            <label class="form-check-label" for="check-{{ . | urlize }}">
+              {{ . }}
+            </label>
+          </div>
+        {{ end }}
+      </div>
+      <div class="mt-4">
+        <h3>{{ index $labels 2 }}</h3>
+        {{ $names := slice }}
+        {{ range readDir (print $folder "/resources") }}
+          {{ if .IsDir }}
+            {{ $names = $names | append (.Name | humanize) }}
+          {{ end }}
+        {{ end }}
+        {{ range sort ($names | uniq) }}
+          <div class="form-check">
+            <input 
+              class="form-check-input" 
+              type="checkbox" 
+              id="check-{{ . | urlize }}" 
+              value="{{ . | urlize }}" 
+              data-directory="{{ replace (index $labels 2 | urlize) "-" "" }}"
+            />
+            <label class="form-check-label" for="check-{{ . | urlize }}">
+              {{ $words := split . " " }}
+              {{ $text := cond (gt (len $words) 1) (delimit (first (sub (len $words) 1) $words) " ") . }}
+              {{ $text }}
+            </label>
+          </div>
+        {{ end }}
+      </div>
+    {{ end }}
+  </div>
 </div>

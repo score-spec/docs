@@ -6,6 +6,13 @@
 		{{ $folder := print (index $section 1) "/" (index $section 2)}}
 		{{ $metadata := site.Data.examplesMeta }}
 
+		{{ $labels := slice }}
+		{{ range where site.Params.exampleTypeLabels "name" (index $section 2) }}
+			{{ $labels = .labels }}
+		{{ end }}
+		{{ $labels = apply $labels "anchorize" "." }}
+		{{ $labels = apply $labels "strings.Replace" "." "-" "" }}
+
 		<div 
 			id="examples-container" 
 			class="d-flex container-fluid" 
@@ -22,19 +29,11 @@
 					<div 
 						class="examples-list-item" 
 						id="{{ .Title | urlize }}"
-						{{ if .Params.parent }}
-							data-parent="{{ .Params.parent | urlize }}"
-						{{ else }}
-							data-parent="{{ .Title | urlize }}"
-						{{ end }}
 						{{ if .Params.flavor }}
-							data-flavor="{{ .Params.flavor | urlize }}"	
-						{{ end }}
-						{{ if .Params.features }}
-							data-features="{{ apply .Params.features "strings.Replace" "." " " "-" }}"
-						{{ end }}
-						{{ if .Params.types }}
-							data-types="{{ apply .Params.types "strings.Replace" "." " " "-" }}"
+							data-provisioner="{{ .Params.parent | urlize }}"
+							data-resources="{{ .Title | urlize }}"
+						{{ else }}
+							data-specification="{{ .Title | urlize }}"
 						{{ end }}
 					>
 						<div class="examples-list-title">
@@ -47,17 +46,9 @@
 								<span class="examples-parent-badge">{{ .Params.flavor }}</span>
 							{{ end }}
 							{{ if .Params.parent }}
-								<span class="examples-parent-badge">{{ .Params.parent }}</span>
-							{{ end }}
-							{{ if .Params.features }}
-								{{ range .Params.features }}
-									<span class="examples-parent-badge">{{ . | humanize }}</span>
-								{{ end }}
-							{{ end }}
-							{{ if .Params.types }}
-								{{ range .Params.types }}
-									<span class="examples-parent-badge">{{ . | humanize }}</span>
-								{{ end }}
+								{{ $words := split .Params.parent " " }}
+								{{ $parentText := cond (gt (len $words) 1) (delimit (first (sub (len $words) 1) $words) " ") .Params.parent }}
+								<span class="examples-parent-badge">{{ $parentText }}</span>
 							{{ end }}
 						</div>
 						{{ $excerpt := replaceRE `\[(?P<label>[^]]+)\]\(([^h]|h[^t]|ht[^t]|htt[^p])[^\)]*\)` "${label}" .Params.excerpt }}

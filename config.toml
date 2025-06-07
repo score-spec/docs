@@ -107,6 +107,9 @@ url = "https://github.com/humanitec-architecture/resource-packs-aws/blob/main/ex
 [[Params.exampleLibraryGitHubUrls]]
 name = "resource-packs/azure"
 url = "https://github.com/humanitec-architecture/resource-packs-azure/blob/main/examples"
+[[Params.exampleTypeLabels]]
+name = "score"
+labels = ["Specification", "Resources", "Provisioner"]
 
 [params]
 # copyright = "Score"
