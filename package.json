@@ -45,6 +45,7 @@
     "lint": "vale content/en/docs/**/* && dprint check",
     "gen-all": "yarn gen-get-external-content",
     "gen-get-external-content": "yarn gen-score-specification && yarn gen-score-resources-default-provisioners && yarn gen-score-resources-community-provisioners",
+    "gen-example-pages": "node ./gen/examples-site/gen-example-pages.js ./gen/example-library",
     "gen-score-specification": "git rm -rfq gen/external-content/score/specification && git read-tree --prefix=gen/external-content/score/specification -u examples/main:specification",
     "gen-score-resources-default-provisioners": "git rm -rfq gen/external-content/score/resources/default-provisioners && git read-tree --prefix=gen/external-content/score/resources/default-provisioners -u examples/main:resources",
     "gen-score-resources-community-provisioners": "git rm -rfq gen/external-content/score/resources/community-provisioners && git read-tree --prefix=gen/external-content/score/resources/community-provisioners -u community-provisioners/main"
