@@ -1,0 +1,8 @@
+{{ $linkLabel := .Get "linkLabel" | default "Get examples" }}
+<div class="page-card">
+  <h3>{{ .Get "title" }}</h3>
+  <p>{{ .Get "text" | markdownify }}</p>
+  <a class="page-card-link" href="{{ .Get "url" }}">
+    {{ $linkLabel }}
+  </a>
+</div>

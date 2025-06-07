@@ -1,0 +1,9 @@
+.grid {
+  display: grid;
+  gap: 1.5rem;
+
+  @media (max-width: 991px) {
+    display: flex;
+    flex-direction: column;
+  }
+}

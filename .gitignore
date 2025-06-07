@@ -10,3 +10,4 @@ package-lock.json
 .score-compose/zz-default.provisioners.yaml
 .score-compose/mounts/routing-QXKXWL/nginx.conf
 compose.yaml
+.prettierignore

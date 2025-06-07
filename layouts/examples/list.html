@@ -1,0 +1,7 @@
+{{ define "main" }}
+	{{ if eq .Params.url "/examples" }}
+		{{ partial "examples/examples-index" . }}
+	{{ else }}
+		<div>List</div>
+	{{ end }}
+{{ end }}

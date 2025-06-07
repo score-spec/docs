@@ -10,6 +10,7 @@
 @import "../vendor/Font-Awesome/scss/regular.scss";
 @import "../vendor/Font-Awesome/scss/brands.scss";
 
+@import "global";
 @import "support/utilities";
 @import "colors";
 @import "boxes";
@@ -30,6 +31,9 @@
 @import "taxonomy";
 @import "drawio";
 @import "fonts";
+@import "examples";
+
+@import "components/cards";
 
 @if $td-enable-google-fonts {
   @import url($web-font-path);
