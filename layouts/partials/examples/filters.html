@@ -1,0 +1,17 @@
+{{ $exampleLibrarySourcePath :=  site.Params.exampleLibrarySourcePath }}
+{{ $metadata := site.Data.examplesMeta }}
+
+{{ $sectionWithoutBase := index (split .section "/") 1 }}
+{{ $folder := print $exampleLibrarySourcePath "/" $sectionWithoutBase }}
+
+
+<div class="examples-sidebar">
+  <h3>{{ print $sectionWithoutBase | humanize | strings.Title }}</h3>
+
+  {{ if len .context.Pages }}
+    <div class="mt-4">
+      <span id="pagecount" class="examples-pagecount mr-2">{{ len .context.Pages }}</span> 
+      examples found.
+    </div>
+  {{ end }}
+</div>

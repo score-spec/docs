@@ -2,6 +2,74 @@
 	{{ if eq .Params.url "/examples" }}
 		{{ partial "examples/examples-index" . }}
 	{{ else }}
-		<div>List</div>
+		{{ $section := split .RelPermalink "/" }}
+		{{ $folder := print (index $section 1) "/" (index $section 2)}}
+		{{ $metadata := site.Data.examplesMeta }}
+
+		<div 
+			id="examples-container" 
+			class="d-flex container-fluid" 
+			data-folder="{{ $folder }}"
+		>
+			{{ partial "examples/filters" (dict
+				"section" $folder 
+				"context" .
+			) }}
+			<div class="examples-content examples-page docs-content">
+				{{ .Content }}
+				{{ range .Pages }}
+					{{ $title := .Title }}
+					<div 
+						class="examples-list-item" 
+						id="{{ .Title | urlize }}"
+						{{ if .Params.parent }}
+							data-parent="{{ .Params.parent | urlize }}"
+						{{ else }}
+							data-parent="{{ .Title | urlize }}"
+						{{ end }}
+						{{ if .Params.flavor }}
+							data-flavor="{{ .Params.flavor | urlize }}"	
+						{{ end }}
+						{{ if .Params.features }}
+							data-features="{{ apply .Params.features "strings.Replace" "." " " "-" }}"
+						{{ end }}
+						{{ if .Params.types }}
+							data-types="{{ apply .Params.types "strings.Replace" "." " " "-" }}"
+						{{ end }}
+					>
+						<div class="examples-list-title">
+							<h2>
+								<a href="{{ .RelPermalink }}">
+									{{ .Title }}
+								</a>
+							</h2>
+							{{ if .Params.flavor }}
+								<span class="examples-parent-badge">{{ .Params.flavor }}</span>
+							{{ end }}
+							{{ if .Params.parent }}
+								<span class="examples-parent-badge">{{ .Params.parent }}</span>
+							{{ end }}
+							{{ if .Params.features }}
+								{{ range .Params.features }}
+									<span class="examples-parent-badge">{{ . | humanize }}</span>
+								{{ end }}
+							{{ end }}
+							{{ if .Params.types }}
+								{{ range .Params.types }}
+									<span class="examples-parent-badge">{{ . | humanize }}</span>
+								{{ end }}
+							{{ end }}
+						</div>
+						{{ $excerpt := replaceRE `\[(?P<label>[^]]+)\]\(([^h]|h[^t]|ht[^t]|htt[^p])[^\)]*\)` "${label}" .Params.excerpt }}
+						<div>
+							{{ $excerpt | markdownify }}
+							{{ if .Params.hasMore }}
+								<span>(...)</span>
+							{{ end }}
+						</div>
+					</div>
+				{{ end }}
+			</div>
+		</div>
 	{{ end }}
 {{ end }}

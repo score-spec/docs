@@ -6,6 +6,7 @@ const {
   getExcerpt,
   addAliasesToMetadata,
 } = require("./metadata-utils");
+const { isDirectory } = require("./file-utils");
 const { beautify } = require("./content-utils");
 
 const sourceFolder = process.argv[2];
@@ -96,7 +97,10 @@ const buildFrontmatter = (title, path, parent, flavor) => {
 
   const otherFiles = fs
     .readdirSync(`${sourceFolder}/${path}`)
-    .filter((file) => file !== "README.md");
+    .filter(
+      (file) =>
+        file !== "README.md" && !isDirectory(`${sourceFolder}/${path}/${file}`)
+    );
 
   metadata = addAliasesToMetadata(path, metadata);
 

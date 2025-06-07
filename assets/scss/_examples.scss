@@ -1,8 +1,128 @@
 .examples-page {
+  margin-top: 6rem;
+  border: none;
+
+  [data-dark-mode] & {
+    border: none;
+  }
+
   .lead {
     font-size: 1rem;
     color: $electric-blue;
     font-weight: $font-medium;
+  }
+}
+
+.examples-pagecount {
+  background-color: $gray-200;
+  color: $gray-900;
+  border-radius: 10px;
+  font-size: 16px;
+  padding: 0.25rem 1.5rem;
+
+  [data-dark-mode] & {
+    background-color: $gray-800;
+    color: $white;
+  }
+}
+
+.examples-sidebar {
+  margin-top: 6rem;
+  margin-bottom: 2rem;
+  width: 25%;
+
+  & .form-check,
+  & .form-check-label {
+    cursor: pointer;
+  }
+
+  & .form-check-input {
+    background-color: $gray-200;
+    color: $gray-900;
+    border-radius: 0px;
+    font-size: 16px;
+
+    [data-dark-mode] & {
+      background-color: $gray-800;
+      color: $white;
+    }
+
+    &:checked {
+      background-color: $electric-blue;
+      color: $white;
+    }
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}
+
+.examples-content {
+  width: 75%;
+  margin-bottom: 2rem;
+
+  &.docs-content {
+    padding: 0;
+
+    & h2 {
+      margin-bottom: 0rem;
+    }
+  }
+}
+
+@-webkit-keyframes fadeEffect {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeEffect {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.examples-list-item {
+  margin-top: 2rem;
+  transition: all 0.3s ease-in-out;
+  -webkit-animation: fadeEffect 0.3s;
+  animation: fadeEffect 0.3s; /* Fading effect takes 1 second */
+}
+
+.examples-list-title {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 0.5rem;
+
+  a {
+    color: $electric-blue;
+    font-size: 1.625rem;
+    font-weight: $font-medium;
+    text-decoration: none;
+  }
+}
+
+.examples-single-title h1 {
+  margin-top: 2rem;
+}
+
+.examples-parent-badge {
+  background-color: $gray-200;
+  color: $gray-900;
+  border-radius: 10px;
+  font-size: 16px;
+  padding: 0.25rem 1rem;
+  margin-left: 0.75rem;
+
+  [data-dark-mode] & {
+    background-color: $gray-800;
+    color: $white;
   }
 }
 

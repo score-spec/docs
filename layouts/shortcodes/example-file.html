@@ -1,0 +1,41 @@
+<!--
+  This shortcode is intended to render the contents of a sample code file.
+  It is a wrapper for the "code-block" shortcode. Calling shortcodes from
+  pages directly is not supported in Hugo. 
+-->
+
+{{- $exampleLibrarySourcePath :=  $.Page.Site.Params.exampleLibrarySourcePath }}
+{{- $exampleLibraryGitHubBaseUrl := $.Page.Site.Params.exampleLibraryGitHubBaseUrl }}
+
+{{ if .IsNamedParams }}
+  {{- $folder := print $exampleLibrarySourcePath "/" (.Get "dir") "/" (.Get "filename") }}
+  {{ if ne (.Get "githubUrl") $exampleLibraryGitHubBaseUrl}}
+    {{ $updatedDir := delimit (after 2 (split (.Get "dir") "/")) "/" }}
+    {{ $updatedFolder := print  "/" $updatedDir "/" (.Get "filename") }}
+    {{- partial "content/code-block" ( dict 
+      "file" $folder 
+      "gitHubUrl" (print 
+        (.Get "githubUrl" | default $exampleLibraryGitHubBaseUrl)
+        ( strings.TrimPrefix $exampleLibrarySourcePath $updatedFolder ) 
+      )
+      "currentPage" $.Page
+    ) -}}
+  {{ else }}
+    {{- partial "content/code-block" ( dict 
+      "file" $folder 
+      "gitHubUrl" (print 
+        (.Get "githubUrl" | default $exampleLibraryGitHubBaseUrl)
+        ( strings.TrimPrefix $exampleLibrarySourcePath $folder ) 
+      )
+      "currentPage" $.Page
+    ) -}}
+  {{ end }}
+{{ else }}
+  {{- $fileName := .Get 0 }}
+  {{- partial "content/code-block" ( dict 
+    "file" (print $exampleLibrarySourcePath $fileName )
+    "gitHubUrl" (print $exampleLibraryGitHubBaseUrl ( strings.TrimPrefix $exampleLibrarySourcePath $fileName ) )
+    "currentPage" $.Page
+    ) }}
+{{ end }}
+

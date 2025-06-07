@@ -1,0 +1,58 @@
+<!--
+  Reads a file which is supposed to contain a code sample either from the local filesystem or from a URL,
+  and generates a markdown multiline code block "```".
+  It extracts the language from the path extension.
+
+Parameter: a "dict" containing these elements:
+- file: (Optional) fully qualified file name of the file to render
+- gitHubUrl: (Optional) URL of the source reference on GitHub
+- currentPage: the current page context. Required to get access to the context and global params
+
+If "file" is set, tries to read its contents from the local file system. "gitHubUrl" is then optional - if also set, generates a "view on GitHub" link
+If "file" is not set, tries to read its contents from the URL at "gitHubUrl", which must be set. Generates a "view on GitHub" link.
+-->
+
+{{- $GitHubBaseUrl := .currentPage.Site.Params.GitHubBaseUrl }}
+{{- $GitHubRawBaseUrl := .currentPage.Site.Params.GitHubRawBaseUrl }}
+
+<!-- Declaring variables -->
+{{ $base := "" }}
+{{ $lang := "" }}
+{{ $fileContent := "" }}
+
+<!-- Read the file content from either filesystem or URL -->
+{{- if .file }}
+  {{- if fileExists .file }}
+    {{- $fileContent = .file | readFile -}}
+    {{- $base = path.Base .file }}
+    {{- $lang = strings.TrimPrefix "." ( path.Ext .file ) }}
+  {{- else }}
+      {{ errorf "File %s does not exist: " .file }}
+  {{- end }}
+{{- else }}
+  {{ $resource := resources.GetRemote .gitHubUrl }}
+  {{- $fileContent = ( $resource.Content | safeHTML ) }}
+  {{ $u := urls.Parse .gitHubUrl }}
+  {{- $path := ( $u.Path | path.Split ) }}
+  {{- $base = $path.File }}
+  {{- $lang = path.Ext $base }}
+{{- end }}
+
+<!-- Print a markdown code block -->
+<!-- If raw content, convert to standard GitHub URL -->
+{{- print "\n---\n" }}
+{{- print "\n\n`" $base "`" }}
+{{- if .gitHubUrl }}
+  {{- $url := .gitHubUrl }}
+  {{- if hasPrefix $url $GitHubRawBaseUrl }}
+    {{- $url = replace $url $GitHubRawBaseUrl $GitHubBaseUrl }}
+    {{- $url = replace $url "refs/heads" "blob" }}
+  {{- end }}
+  <!-- Create GitHub link -->
+  {{- print " ([view on GitHub](" $url "))" | markdownify }}
+  <!-- Make relative "source" statements in TF modules absolute -->
+  {{- $gitHubUrlCore := (index (findRE `([^\/]+/){3}` $url 1 ) 0) }}
+  {{- $fileContent = ( replaceRE `(\.\./)+` (print $gitHubUrlCore "/") $fileContent ) }}
+{{- end }}
+{{- print ":\n\n" }}
+{{- (print "```" $lang "\n" $fileContent "\n```") | markdownify }}

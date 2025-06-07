@@ -95,6 +95,19 @@ style = "tango"
 [outputs]
 section = ["HTML", "RSS"]
 
+[Params]
+GitHubBaseUrl = "https://github.com"
+GitHubRawBaseUrl = "https://raw.githubusercontent.com"
+exampleLibraryBlacklistedFolders = [".github","tools"]
+exampleLibraryGitHubBaseUrl = "https://github.com/score-spec/examples/blob/main"
+exampleLibrarySourcePath = "/gen/external-content"
+[[Params.exampleLibraryGitHubUrls]]
+name = "resource-packs/aws"
+url = "https://github.com/humanitec-architecture/resource-packs-aws/blob/main/examples"
+[[Params.exampleLibraryGitHubUrls]]
+name = "resource-packs/azure"
+url = "https://github.com/humanitec-architecture/resource-packs-azure/blob/main/examples"
+
 [params]
 # copyright = "Score"
 # privacy_policy = "https://policies.google.com/privacy"
@@ -143,15 +156,6 @@ offlineSearch = true
 
 # Enable syntax highlighting and copy buttons on code blocks with Prism
 prism_syntax_highlighting = false
-
-exampleLibraryBlacklistedFolders = [".github","tools"]
-exampleLibraryGitHubBaseUrl = "https://github.com/score-spec/examples/blob/main"
-[[Params.exampleLibraryGitHubUrls]]
-name = "resource-packs/aws"
-url = "https://github.com/humanitec-architecture/resource-packs-aws/blob/main/examples"
-[[Params.exampleLibraryGitHubUrls]]
-name = "resource-packs/azure"
-url = "https://github.com/humanitec-architecture/resource-packs-azure/blob/main/examples"
 
 # User interface configuration
 [params.ui]
