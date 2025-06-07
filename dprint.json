@@ -22,7 +22,8 @@
   ],
   "excludes": [
     "**/node_modules",
-    "**/*-lock.json"
+    "**/*-lock.json",
+    "**/gen"
   ],
   "plugins": [
     "https://plugins.dprint.dev/typescript-0.71.2.wasm",

@@ -1,0 +1,17 @@
+apiVersion: score.dev/v1b1
+metadata:
+  name: my-workload
+containers:
+  my-container:
+    image: busybox
+    command: ["/bin/sh"]
+    args: ["-c", "while true; do echo $POSTGRES_HOST; sleep 5; done"]
+    variables:
+      POSTGRES_HOST: ${resources.my-postgres.host}
+      POSTGRES_PORT: ${resources.my-postgres.port}
+      POSTGRES_DATABASE: ${resources.my-postgres.database}
+      POSTGRES_USERNAME: ${resources.my-postgres.username}
+      POSTGRES_PASSWORD: ${resources.my-postgres.password}
+resources:
+  my-postgres:
+    type: postgres

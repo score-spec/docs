@@ -1,0 +1,62 @@
+.examples-page {
+  .lead {
+    font-size: 1rem;
+    color: $electric-blue;
+    font-weight: $font-medium;
+  }
+}
+
+.gradient-image-card {
+  position: relative;
+  border-radius: 12px;
+  border: 1px solid #d5d9e5;
+  padding: 20px;
+  margin-bottom: 1rem;
+
+  [data-dark-mode] & {
+    border: 1px solid rgba(33, 86, 246, 0.5);
+  }
+}
+
+.gradient-image-card-content {
+  position: relative;
+  z-index: 10;
+  max-width: 50%;
+  font-size: $font-size-base;
+}
+
+.gradient-image-card-background {
+  position: absolute;
+  border-radius: 12px;
+  top: 0;
+  right: 0;
+  width: 35%;
+  height: 100%;
+  background-size: cover;
+  background-position: right;
+  background-repeat: no-repeat;
+}
+
+.gradient-image-card-gradient {
+  position: absolute;
+  border-radius: 12px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    rgba(131, 177, 255, 0.5) 30%,
+    rgba(9, 44, 148, 0.9)
+  );
+
+  [data-dark-mode] & {
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0),
+      rgba(0, 24, 65, 0.5) 50%,
+      rgba(0, 0, 0, 0.75)
+    );
+  }
+}

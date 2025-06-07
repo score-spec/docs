@@ -1,0 +1,17 @@
+apiVersion: score.dev/v1b1
+metadata:
+  name: my-workload
+containers:
+  my-container:
+    image: busybox
+    command: ["/bin/sh"]
+    args: ["-c", "while true; do echo $AMQP_HOST; sleep 5; done"]
+    variables:
+      AMQP_HOST: ${resources.my-amqp.host}
+      AMQP_PORT: ${resources.my-amqp.port}
+      AMQP_VHOST: ${resources.my-amqp.vhost}
+      AMQP_USERNAME: ${resources.my-amqp.username}
+      AMQP_PASSWORD: ${resources.my-amqp.password}
+resources:
+  my-amqp:
+    type: amqp

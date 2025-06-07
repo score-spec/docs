@@ -1,0 +1,13 @@
+{{ $img := resources.Get (printf "%s" (.Get "image")) }}
+{{ if not $img }}
+  {{ $img = resources.Get "images/aws-humanitec-3D-skew-style.svg" }}
+{{ end }}
+
+<div class="gradient-image-card">
+  {{/*  <img src="{{ $img.RelPermalink }}" alt="asd">  */}}
+  <div class="gradient-image-card-gradient"></div>
+  <div class="gradient-image-card-background" style="background-image: url('{{ $img.RelPermalink }}');"></div>
+  <div class="gradient-image-card-content">
+    {{ .Inner }}
+  </div>
+</div>

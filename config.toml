@@ -11,6 +11,17 @@ enableMissingTranslationPlaceholders = true
 
 enableRobotsTXT = true
 
+[menus]
+[[menus.main]]
+  name = "Documentation"
+  url = "/docs"
+  weight = 1
+
+[[menus.main]]
+  name = "Examples"
+  url = "/examples"
+  weight = 2
+
 # Will give values to .Lastmod etc.
 enableGitInfo = true
 
