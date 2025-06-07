@@ -9,3 +9,6 @@ flavor: "Resources"
 
 ---
 
+
+
+{{% example-file filename="score.yaml" dir="score/resources/default-provisioners/mysql" githubUrl="https://github.com/score-spec/examples/blob/main" %}}

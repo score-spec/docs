@@ -8,3 +8,6 @@ parent: "Specification"
 
 ---
 
+
+
+{{% example-file filename="score.yaml" dir="score/specification/volumes" githubUrl="https://github.com/score-spec/examples/blob/main" %}}

@@ -43,6 +43,17 @@ ${content}`;
 };
 
 /**
+ * Generates content for an example file using the example-file shortcode.
+ * @param {string} file - The filename of the example file.
+ * @param {string} dir - The directory containing the file.
+ * @param {string} githubUrl - The GitHub URL for the file.
+ * @returns {string} The generated example file content.
+ */
+const generateExampleFileContent = (file, dir, githubUrl) => {
+  return `{{% example-file filename="${file}" dir="${dir}" githubUrl="${githubUrl}" %}}`;
+};
+
+/**
  * Processes the README.md file in the given path and extracts metadata, content, and excerpt.
  * @param {string} path - The path to the directory containing the README.md file.
  * @returns {Object} An object containing excerpt, content, and metadata.
@@ -98,7 +109,17 @@ const buildFrontmatter = (title, path, parent, flavor) => {
     flavor
   );
 
-  writeContentToFile(path, frontmatterContent);
+  const otherFilesContent = otherFiles
+    .map((file) => generateExampleFileContent(file, dir, githubUrl))
+    .join("\n");
+
+  writeContentToFile(
+    path,
+    `${frontmatterContent}
+
+${otherFilesContent}
+`
+  );
 
   console.log({ dir, githubUrl, excerpt, content, metadata, otherFiles });
 };
