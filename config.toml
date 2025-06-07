@@ -145,7 +145,13 @@ offlineSearch = true
 prism_syntax_highlighting = false
 
 exampleLibraryBlacklistedFolders = [".github","tools"]
-
+exampleLibraryGitHubBaseUrl = "https://github.com/score-spec/examples/blob/main"
+[[Params.exampleLibraryGitHubUrls]]
+name = "resource-packs/aws"
+url = "https://github.com/humanitec-architecture/resource-packs-aws/blob/main/examples"
+[[Params.exampleLibraryGitHubUrls]]
+name = "resource-packs/azure"
+url = "https://github.com/humanitec-architecture/resource-packs-azure/blob/main/examples"
 
 # User interface configuration
 [params.ui]

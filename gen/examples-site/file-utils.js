@@ -10,6 +10,15 @@ const mkdirIfNotExistsSync = (path) => {
 };
 
 /**
+ * Check if a folder should be ignored (starts with a dot)
+ * @param {string} folderName - Name of the folder
+ * @returns {boolean} - True if folder should be ignored
+ */
+const shouldIgnoreFolder = (folderName) => {
+  return folderName.startsWith(".");
+};
+
+/**
  * Recursively traverse a directory and apply a callback to each file
  * @param {string} dir - Directory to traverse
  * @param {Function} callback - Function to call for each file
@@ -31,4 +40,5 @@ module.exports = {
   isDirectory,
   mkdirIfNotExistsSync,
   traverseDirectory,
+  shouldIgnoreFolder,
 };

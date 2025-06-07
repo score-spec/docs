@@ -1,0 +1,10 @@
+---
+title: "Variables"
+draft: false
+mermaid: true
+excerpt: ''
+hasMore: false
+parent: "Specification"
+
+---
+

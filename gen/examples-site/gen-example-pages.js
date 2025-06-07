@@ -1,6 +1,11 @@
 const fs = require("fs");
+const { buildFrontmatter } = require("./frontmatter");
 const { parseConfig } = require("./config-parser");
-const { mkdirIfNotExistsSync } = require("./file-utils");
+const {
+  isDirectory,
+  mkdirIfNotExistsSync,
+  shouldIgnoreFolder,
+} = require("./file-utils");
 const { beautify } = require("./content-utils");
 
 const sourceFolder = process.argv[2];
@@ -43,4 +48,83 @@ ${categoryIndexContent}
 
 ---`
   );
+
+  //Get the folders inside each category:
+  const folders = fs.readdirSync(`${sourceFolder}/${categoryFolder}`);
+
+  //For each folder, check if this is the last nesting level:
+  for (const folder of folders) {
+    //Discard readme and other files:
+    if (!isDirectory(`${sourceFolder}/${categoryFolder}/${folder}`)) {
+      continue;
+    }
+    const isLastNestingLevel = !fs
+      .readdirSync(`${sourceFolder}/${categoryFolder}/${folder}`)
+      .some((file) =>
+        isDirectory(`${sourceFolder}/${categoryFolder}/${folder}/${file}`)
+      );
+
+    if (!isLastNestingLevel) {
+      const subfolders = fs.readdirSync(
+        `${sourceFolder}/${categoryFolder}/${folder}`
+      );
+      const folderPath = `./content/en/examples/${categoryFolder}/${folder}`;
+      for (const subfolder of subfolders) {
+        mkdirIfNotExistsSync(folderPath);
+        //Discard readme and other files, and dot folders:
+        if (
+          !isDirectory(
+            `${sourceFolder}/${categoryFolder}/${folder}/${subfolder}`
+          ) ||
+          shouldIgnoreFolder(subfolder)
+        ) {
+          continue;
+        }
+
+        const isLastNestingLevel = !fs
+          .readdirSync(
+            `${sourceFolder}/${categoryFolder}/${folder}/${subfolder}`
+          )
+          .some((file) =>
+            isDirectory(
+              `${sourceFolder}/${categoryFolder}/${folder}/${subfolder}/${file}`
+            )
+          );
+
+        if (!isLastNestingLevel) {
+          const subsubfolders = fs.readdirSync(
+            `${sourceFolder}/${categoryFolder}/${folder}/${subfolder}`
+          );
+          const subfolderPath = `${folderPath}/${subfolder}`;
+          for (const subsubfolder of subsubfolders) {
+            mkdirIfNotExistsSync(subfolderPath);
+            //Discard readme and other files, and dot folders:
+            if (
+              !isDirectory(
+                `${sourceFolder}/${categoryFolder}/${folder}/${subfolder}/${subsubfolder}`
+              ) ||
+              shouldIgnoreFolder(subsubfolder)
+            ) {
+              continue;
+            }
+
+            buildFrontmatter(
+              subsubfolder,
+              `${categoryFolder}/${folder}/${subfolder}/${subsubfolder}`,
+              subfolder,
+              folder
+            );
+          }
+        } else {
+          buildFrontmatter(
+            subfolder,
+            `${categoryFolder}/${folder}/${subfolder}`,
+            folder
+          );
+        }
+      }
+    } else {
+      buildFrontmatter(folder, `${categoryFolder}/${folder}`);
+    }
+  }
 }
