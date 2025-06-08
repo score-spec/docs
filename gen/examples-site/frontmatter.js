@@ -84,6 +84,63 @@ const writeContentToFile = (path, content) => {
   fs.writeFileSync(`./content/en/examples/${path}.md`, content);
 };
 
+const generateTabs = (
+  mainScoreFiles,
+  scoreFileDirectories,
+  parentDir,
+  githubUrl,
+  path
+) => {
+  const useMainScoreFiles = mainScoreFiles && mainScoreFiles.length > 0;
+  const dataSource = useMainScoreFiles
+    ? mainScoreFiles
+    : scoreFileDirectories || [];
+
+  if (dataSource.length === 0) {
+    return "";
+  }
+
+  const tabsContent = dataSource
+    .map((item) => {
+      let tabName;
+      let tabContent;
+
+      if (useMainScoreFiles) {
+        tabName = item.replace(".md", "");
+        const filePath = `${sourceFolder}/${parentDir}/${item}`;
+        tabContent = fs.existsSync(filePath)
+          ? fs.readFileSync(filePath, "utf8").trim()
+          : "";
+      } else {
+        tabName = item;
+        const directoryPath = `${sourceFolder}/${path}/${item}`;
+        if (fs.existsSync(directoryPath) && isDirectory(directoryPath)) {
+          const filesInDir = fs
+            .readdirSync(directoryPath)
+            .filter((file) => !isDirectory(`${directoryPath}/${file}`));
+          tabContent = filesInDir
+            .map((file) => {
+              const shortcodeDir = `${path}/${item}`;
+              return generateExampleFileContent(file, shortcodeDir, githubUrl);
+            })
+            .join("\n");
+        } else {
+          tabContent = "";
+        }
+      }
+
+      return `{{% tab name="${tabName}" %}}
+${tabContent}
+{{%/ tab %}}`;
+    })
+    .join("\n");
+
+  return `{{< tabs >}}
+${tabsContent}
+{{< /tabs >}}
+  `;
+};
+
 /**
  * Builds frontmatter and content for an example page.
  * @param {string} title - The title of the page.
@@ -103,6 +160,16 @@ const buildFrontmatter = (title, path, parent, flavor) => {
         file !== "README.md" && !isDirectory(`${sourceFolder}/${path}/${file}`)
     );
 
+  const parentDir = path.split("/").slice(0, -1).join("/");
+  const mainScoreFiles = fs
+    .readdirSync(`${sourceFolder}/${parentDir}`)
+    .filter((file) => file.endsWith(".md") && file !== "README.md");
+
+  //TODO: community provisioners have directories with files that go on tabs
+  const scoreFileDirectories = fs
+    .readdirSync(`${sourceFolder}/${path}`)
+    .filter((file) => isDirectory(`${sourceFolder}/${path}/${file}`));
+
   metadata = addAliasesToMetadata(path, metadata);
 
   const frontmatterContent = generateFrontmatterContent(
@@ -114,7 +181,6 @@ const buildFrontmatter = (title, path, parent, flavor) => {
     flavor
   );
 
-  console.log({ githubUrl });
   const otherFilesContent = otherFiles
     .map((file) => generateExampleFileContent(file, dir, githubUrl))
     .join("\n");
@@ -124,6 +190,14 @@ const buildFrontmatter = (title, path, parent, flavor) => {
     `${frontmatterContent}
 
 ${otherFilesContent}
+
+${generateTabs(
+  mainScoreFiles,
+  scoreFileDirectories,
+  parentDir,
+  githubUrl,
+  path
+)}
 `
   );
 };
