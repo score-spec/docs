@@ -10,7 +10,7 @@
 {{ if .IsNamedParams }}
   {{- $folder := print $exampleLibrarySourcePath "/" (.Get "dir") "/" (.Get "filename") }}
   {{ if ne (.Get "githubUrl") $exampleLibraryGitHubBaseUrl}}
-    {{ $updatedDir := delimit (after 2 (split (.Get "dir") "/")) "/" }}
+    {{ $updatedDir := delimit (after 3 (split (.Get "dir") "/")) "/" }}
     {{ $updatedFolder := print  "/" $updatedDir "/" (.Get "filename") }}
     {{- partial "content/code-block" ( dict 
       "file" $folder 
@@ -21,11 +21,20 @@
       "currentPage" $.Page
     ) -}}
   {{ else }}
+    {{ $dirSegments := split (.Get "dir") "/" }}
+    {{ $filteredSegments := slice }}
+    {{ range $dirSegments }}
+      {{ if and (ne . "") (ne . "default-provisioners") }}
+        {{ $filteredSegments = $filteredSegments | append . }}
+      {{ end }}
+    {{ end }}
+    {{ $updatedDir := delimit $filteredSegments "/" }}
+    {{ $updatedFolder := print  "/" $updatedDir "/" (.Get "filename") }}
     {{- partial "content/code-block" ( dict 
       "file" $folder 
       "gitHubUrl" (print 
         (.Get "githubUrl" | default $exampleLibraryGitHubBaseUrl)
-        ( strings.TrimPrefix $exampleLibrarySourcePath $folder ) 
+        ( strings.TrimPrefix $exampleLibrarySourcePath $updatedFolder ) 
       )
       "currentPage" $.Page
     ) -}}

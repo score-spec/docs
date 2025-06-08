@@ -2,6 +2,7 @@
 title: "Limits And Requests"
 draft: false
 mermaid: true
+type: examples
 excerpt: ''
 hasMore: false
 parent: "Specification"
@@ -10,4 +11,4 @@ parent: "Specification"
 
 
 
-{{% example-file filename="score.yaml" dir="score/specification/limits-and-requests" githubUrl="" %}}
+{{% example-file filename="score.yaml" dir="score/specification/limits-and-requests" githubUrl="https://github.com/score-spec/examples/blob/main" %}}

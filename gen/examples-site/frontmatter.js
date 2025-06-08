@@ -33,6 +33,7 @@ const generateFrontmatterContent = (
 title: "${beautify(title)}"
 draft: false
 mermaid: true
+type: examples
 excerpt: '${excerpt}'
 hasMore: ${excerpt !== content.trim() ? "true" : "false"}
 ${parent ? `parent: "${beautify(parent)}"\n` : ""}${
@@ -113,6 +114,7 @@ const buildFrontmatter = (title, path, parent, flavor) => {
     flavor
   );
 
+  console.log({ githubUrl });
   const otherFilesContent = otherFiles
     .map((file) => generateExampleFileContent(file, dir, githubUrl))
     .join("\n");
@@ -124,8 +126,6 @@ const buildFrontmatter = (title, path, parent, flavor) => {
 ${otherFilesContent}
 `
   );
-
-  console.log({ dir, githubUrl, excerpt, content, metadata, otherFiles });
 };
 
 module.exports = { buildFrontmatter };

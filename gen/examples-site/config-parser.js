@@ -12,14 +12,14 @@ function parseConfig(configPath) {
     });
     return {
       exampleLibraryGitHubUrls:
-        parsedConfig.data.params.exampleLibraryGitHubUrls || [],
+        parsedConfig.data.Params.exampleLibraryGitHubUrls || [],
       // exampleLibraryEnabledTabGroupTypes:
       //   parsedConfig.data.params.exampleLibraryEnabledTabGroupTypes || [],
       // exampleFileTypes: parsedConfig.data.params.exampleFileTypes || [],
       exampleLibraryBlacklistedFolders:
-        parsedConfig.data.params.exampleLibraryBlacklistedFolders || [],
+        parsedConfig.data.Params.exampleLibraryBlacklistedFolders || [],
       exampleLibraryGitHubBaseUrl:
-        parsedConfig.data.params.exampleLibraryGitHubBaseUrl || "",
+        parsedConfig.data.Params.exampleLibraryGitHubBaseUrl || "",
     };
   } catch (error) {
     console.error("Error parsing config file:", error);

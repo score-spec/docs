@@ -34,6 +34,7 @@
 @import "examples";
 
 @import "components/cards";
+@import "components/code";
 
 @if $td-enable-google-fonts {
   @import url($web-font-path);

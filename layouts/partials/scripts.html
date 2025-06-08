@@ -79,3 +79,7 @@ window.markmap = {
 {{ $multifilterSecureJS := $multifilter | resources.Fingerprint "sha512" }}
 <script src="{{ $multifilterSecureJS.RelPermalink }}" integrity="{{ $multifilterSecureJS.Data.Integrity }}"></script>
 
+{{ $clipboard := resources.Get "js/clipboard.js" | js.Build -}}
+{{ $clipboardSecureJS := $clipboard | resources.Fingerprint "sha512" }}
+<script src="{{ $clipboardSecureJS.RelPermalink }}" integrity="{{ $clipboardSecureJS.Data.Integrity }}"></script>
+

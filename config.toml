@@ -102,11 +102,14 @@ exampleLibraryBlacklistedFolders = [".github","tools"]
 exampleLibraryGitHubBaseUrl = "https://github.com/score-spec/examples/blob/main"
 exampleLibrarySourcePath = "/gen/external-content"
 [[Params.exampleLibraryGitHubUrls]]
-name = "resource-packs/aws"
-url = "https://github.com/humanitec-architecture/resource-packs-aws/blob/main/examples"
+name = "score/specification"
+url = "https://github.com/score-spec/examples/blob/main"
 [[Params.exampleLibraryGitHubUrls]]
-name = "resource-packs/azure"
-url = "https://github.com/humanitec-architecture/resource-packs-azure/blob/main/examples"
+name = "score/resources/default-provisioners"
+url = "https://github.com/score-spec/examples/blob/main"
+[[Params.exampleLibraryGitHubUrls]]
+name = "score/resources/community-provisioners"
+url = "https://github.com/score-spec/community-provisioners/blob/main"
 [[Params.exampleTypeLabels]]
 name = "score"
 labels = ["Specification", "Resources", "Provisioner"]
