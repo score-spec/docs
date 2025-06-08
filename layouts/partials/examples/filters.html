@@ -10,14 +10,14 @@
 {{ end }}
 
 <div class="examples-sidebar">
-  <h3>{{ print $sectionWithoutBase | humanize | strings.Title }}</h3>
   {{ if len .context.Pages }}
+  <h3>{{ print $sectionWithoutBase | humanize | strings.Title }}</h3>
     <div class="mt-4">
       <span id="pagecount" class="examples-pagecount mr-2">{{ len .context.Pages }}</span> 
       examples found.
     </div>
   {{ end }}
-  <div class="mt-4">
+  <div class="{{ if len .context.Pages }}mt-4{{ end }}">
     {{ with site.GetPage .section }}
       <div>
         <h3>{{ index $labels 0 }}</h3>

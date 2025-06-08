@@ -8,7 +8,7 @@
 	>
 		{{ partial "examples/filters" (dict
 			"section" $folder 
-			"context" (site.GetPage $folder)
+			"context" .
 		) }}
 		<div class="examples-page examples-content docs-content">
 			<div class="examples-single-title">
