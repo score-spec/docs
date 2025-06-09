@@ -1,0 +1,17 @@
+apiVersion: score.dev/v1b1
+metadata:
+  name: my-workload
+containers:
+  my-container:
+    image: busybox
+    command: ["/bin/sh"]
+    args: ["-c", "while true; do echo $MYSQL_HOST; sleep 5; done"]
+    variables:
+      MYSQL_HOST: ${resources.my-mysql.host}
+      MYSQL_PORT: ${resources.my-mysql.port}
+      MYSQL_DATABASE: ${resources.my-mysql.database}
+      MYSQL_USERNAME: ${resources.my-mysql.username}
+      MYSQL_PASSWORD: ${resources.my-mysql.password}
+resources:
+  my-mysql:
+    type: mysql

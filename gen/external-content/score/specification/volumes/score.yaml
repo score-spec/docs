@@ -1,0 +1,14 @@
+apiVersion: score.dev/v1b1
+metadata:
+  name: my-workload
+containers:
+  my-container:
+    image: busybox
+    command: ["/bin/sh"]
+    args: ["-c", "while true; do echo Hello volumes; sleep 5; done"]
+    volumes:
+      - target: /data
+        source: ${resources.data}
+resources:
+  data:
+    type: volume

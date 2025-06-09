@@ -11,6 +11,17 @@ enableMissingTranslationPlaceholders = true
 
 enableRobotsTXT = true
 
+[menus]
+[[menus.main]]
+  name = "Documentation"
+  url = "/docs"
+  weight = 1
+
+[[menus.main]]
+  name = "Examples"
+  url = "/examples"
+  weight = 2
+
 # Will give values to .Lastmod etc.
 enableGitInfo = true
 
@@ -83,6 +94,25 @@ style = "tango"
 # Comment out if you don't want the "print entire section" link enabled.
 [outputs]
 section = ["HTML", "RSS"]
+
+[Params]
+GitHubBaseUrl = "https://github.com"
+GitHubRawBaseUrl = "https://raw.githubusercontent.com"
+exampleLibraryBlacklistedFolders = [".github","tools"]
+exampleLibraryGitHubBaseUrl = "https://github.com/score-spec/examples/blob/main"
+exampleLibrarySourcePath = "/gen/external-content"
+[[Params.exampleLibraryGitHubUrls]]
+name = "score/specification"
+url = "https://github.com/score-spec/examples/blob/main"
+[[Params.exampleLibraryGitHubUrls]]
+name = "score/resources/default-provisioners"
+url = "https://github.com/score-spec/examples/blob/main"
+[[Params.exampleLibraryGitHubUrls]]
+name = "score/resources/community-provisioners"
+url = "https://github.com/score-spec/community-provisioners/blob/main"
+[[Params.exampleTypeLabels]]
+name = "score"
+labels = ["Specification", "Resources", "Provisioner"]
 
 [params]
 # copyright = "Score"

@@ -78,3 +78,15 @@ window.markmap = {
 <script src='{{ "/js/prism.js" | relURL }}'></script>
 {{ end }}
 
+{{ $multifilter := resources.Get "js/multifilter.js" | js.Build -}}
+{{ $multifilterSecureJS := $multifilter | resources.Fingerprint "sha512" }}
+<script src="{{ $multifilterSecureJS.RelPermalink }}" integrity="{{ $multifilterSecureJS.Data.Integrity }}"></script>
+
+{{ $clipboard := resources.Get "js/clipboard.js" | js.Build -}}
+{{ $clipboardSecureJS := $clipboard | resources.Fingerprint "sha512" }}
+<script src="{{ $clipboardSecureJS.RelPermalink }}" integrity="{{ $clipboardSecureJS.Data.Integrity }}"></script>
+
+
+{{ $tabs := resources.Get "js/tabs.js" | js.Build -}}
+{{ $tabsSecureJS := $tabs | resources.Fingerprint "sha512" }}
+<script src="{{ $tabsSecureJS.RelPermalink }}" integrity="{{ $tabsSecureJS.Data.Integrity }}" crossorigin="anonymous"></script>

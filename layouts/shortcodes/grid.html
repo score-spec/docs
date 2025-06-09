@@ -1,0 +1,4 @@
+{{ $columns := .Get "columns" | default 2 }}
+<div class="grid" style="grid-template-columns: repeat({{ $columns }}, 1fr);">
+  {{ .Inner | markdownify }}
+</div>

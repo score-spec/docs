@@ -1,0 +1,187 @@
+pre,
+code,
+kbd,
+samp {
+  font-family: $font-family-monospace;
+  font-size: $font-size-sm;
+  border-radius: $border-radius;
+}
+
+code {
+  background: $bg-light;
+  color: $black;
+  padding: 0.25rem 0.5rem;
+}
+
+pre {
+  margin: 2rem 0;
+  border-radius: 14px;
+  border: 1px solid $gray-300;
+  position: relative;
+  [data-dark-mode] & {
+    border: none;
+  }
+}
+
+pre code {
+  display: block;
+  overflow-x: auto;
+  line-height: $line-height-base;
+  padding: 1.25rem 1.5rem;
+  tab-size: 4;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+.hljs {
+  padding: 2rem !important;
+}
+
+@include media-breakpoint-down(sm) {
+  pre,
+  code,
+  kbd,
+  samp {
+    border-radius: 0;
+  }
+
+  pre {
+    margin: 2rem -1.5rem;
+  }
+
+  .copy-btn {
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+}
+
+pre code::-webkit-scrollbar {
+  height: 5px;
+}
+
+pre code::-webkit-scrollbar-thumb {
+  background: $gray-400;
+}
+
+pre code:hover {
+  scrollbar-width: thin;
+  scrollbar-color: $gray-500 transparent;
+}
+
+pre code::-webkit-scrollbar-thumb:hover {
+  background: $gray-500;
+}
+
+code.language-mermaid {
+  background: none;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid $gray-300;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+
+  &:hover {
+    background: rgba(255, 255, 255, 1);
+    border-color: $gray-400;
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  // Light mode - show regular icon, hide dark icon and success elements
+  .copy-icon {
+    display: block;
+  }
+
+  .copy-icon-dark {
+    display: none;
+  }
+
+  .copy-success-icon {
+    display: none;
+  }
+
+  .copy-text {
+    display: none;
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-left: 0.25rem;
+    color: $electric-blue;
+    white-space: nowrap;
+  }
+
+  // Success state
+  &.copy-success {
+    background: rgba(34, 197, 94, 0.1);
+    border-color: $electric-blue;
+    width: auto;
+    padding: 0.5rem 0.75rem;
+
+    .copy-icon,
+    .copy-icon-dark {
+      display: none;
+    }
+
+    .copy-success-icon {
+      display: block;
+    }
+
+    .copy-text {
+      display: block;
+    }
+
+    &:hover {
+      background: rgba(34, 197, 94, 0.15);
+      transform: none;
+    }
+  }
+
+  // Dark mode styles
+  [data-dark-mode] & {
+    background: rgba(0, 0, 0, 0.8);
+    border-color: $gray-600;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.9);
+      border-color: $gray-500;
+    }
+
+    // Dark mode - hide regular icon, show dark icon
+    .copy-icon {
+      display: none;
+    }
+
+    .copy-icon-dark {
+      display: block;
+    }
+
+    .copy-text {
+      color: $electric-blue;
+    }
+
+    // Dark mode success state
+    &.copy-success {
+      background: rgba(34, 197, 94, 0.2);
+      border-color: $electric-blue;
+
+      &:hover {
+        background: rgba(34, 197, 94, 0.25);
+      }
+    }
+  }
+}
