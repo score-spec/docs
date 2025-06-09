@@ -10,12 +10,11 @@ flavor: "Resources"
 
 ---
 
-
-
 {{% example-file filename="score.yaml" dir="score/resources/default-provisioners/mysql" githubUrl="https://github.com/score-spec/examples/blob/main" %}}
 
 {{< tabs >}}
 {{% tab name="score-compose" %}}
+
 ## Initialize your local workspace
 
 This will use the default provisioners, you can use other provisioners instead like illustrated [here](https://github.dev/score-spec/community-provisioners).
@@ -55,8 +54,10 @@ docker compose up -d
 ```bash
 docker ps
 ```
+
 {{%/ tab %}}
 {{% tab name="score-k8s" %}}
+
 ## Initialize your local workspace
 
 This will use the default provisioners, you can use other provisioners instead like illustrated [here](https://github.dev/score-spec/community-provisioners).
@@ -96,6 +97,6 @@ kubectl apply -f manifests.yaml
 ```bash
 kubectl get all
 ```
+
 {{%/ tab %}}
 {{< /tabs >}}
-  

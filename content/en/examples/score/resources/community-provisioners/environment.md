@@ -10,8 +10,6 @@ flavor: "Resources"
 
 ---
 
-
-
 {{% example-file filename=".env" dir="score/resources/community-provisioners/environment" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
 {{% example-file filename="score.yaml" dir="score/resources/community-provisioners/environment" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
 
@@ -25,4 +23,3 @@ flavor: "Resources"
 {{% example-file filename="README.md" dir="score/resources/community-provisioners/environment/score-k8s" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
 {{%/ tab %}}
 {{< /tabs >}}
-  

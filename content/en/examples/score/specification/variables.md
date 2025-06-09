@@ -9,12 +9,11 @@ parent: "Specification"
 
 ---
 
-
-
 {{% example-file filename="score.yaml" dir="score/specification/variables" githubUrl="https://github.com/score-spec/examples/blob/main" %}}
 
 {{< tabs >}}
 {{% tab name="score-compose" %}}
+
 ## Initialize your local workspace
 
 ```bash
@@ -38,8 +37,10 @@ docker compose up -d
 ```bash
 docker ps
 ```
+
 {{%/ tab %}}
 {{% tab name="score-k8s" %}}
+
 ## Initialize your local workspace
 
 ```bash
@@ -63,6 +64,6 @@ kubectl apply -f manifests.yaml
 ```bash
 kubectl get all
 ```
+
 {{%/ tab %}}
 {{< /tabs >}}
-  
