@@ -1,17 +1,26 @@
 ---
 title: "Nginx"
 linkTitle: "Nginx"
-description: "How to deploy a Nginx containerized application with score-compose and score-k8s"
+description: "How to deploy an unprivileged containerized Nginx application with `score-compose` and `score-k8s`"
 weight: 2
 ---
 
 ## Overview
 
-In this example we will walk you through how you can deploy a Nginx containerized application, and this with both `score-compose` and `score-k8s`.
+In this example we will walk you through how you can deploy an unprivileged containerized Nginx application, and this with both `score-compose` and `score-k8s`.
+
+```mermaid
+flowchart TD
+    dns[DNS] --> nginx-workload(Nginx)
+    subgraph Workloads
+        nginx-workload
+    end
+    nginx-workload-->Volume
+```
 
 ## 1. `score.yaml`
 
-Open your IDE and paste in the following `score.yaml` file, which describes a simple web server that is exposed via a DNS. The demo code can be found [here](https://github.com/mathieu-benoit/nginx-score-demo).
+Open your IDE and paste in the following `score.yaml` file, which describes a simple web server exposed via a DNS. The demo code can be found [here](https://github.com/mathieu-benoit/nginx-score-demo).
 
 ```yaml
 apiVersion: score.dev/v1b1
@@ -69,10 +78,10 @@ resources:
 
 We will use this last Score file for the rest of this page.
 
-From here, you can deploy this exact same Score file:
+From here, we will now see how you can deploy this exact same Score file:
 
 - Either with [`score-compose`](#2-score-compose)
-- Or with [`score-k8s`](#3-score-k8s).
+- Or with [`score-k8s`](#3-score-k8s)
 
 ## 2. `score-compose`
 
@@ -87,7 +96,9 @@ score-compose init --no-sample \
     --patch-templates https://raw.githubusercontent.com/score-spec/community-patchers/refs/heads/main/score-compose/unprivileged.tpl
 ```
 
-The `init` command will create the `.score-compose` directory with the [default resource provisioners]({{< relref "/docs/score-implementation/score-compose/resources-provisioners/" >}}) available. You can learn more about the resource provisioners available by running this command:
+The `init` command will create the `.score-compose` directory with the [default resource provisioners]({{< relref "/docs/score-implementation/score-compose/resources-provisioners/" >}}) available.
+
+You can see the resource provisioners available by running this command:
 
 ```bash
 score-compose provisioners list
@@ -210,7 +221,7 @@ curl localhost:8080 -H "Host: dnspb7p6y.localhost"
 Welcome to nginx!
 ```
 
-Congrats! You’ve successfully deploy, with the `score-compose` implementation, a simple Nginx containerized workload exposed via a DNS. You provisioned them through Docker, without writing the Docker Compose file by yourself.
+Congrats! You’ve successfully deploy, with the `score-compose` implementation, a simple containerized Nginx workload exposed via a DNS. You provisioned them through Docker, without writing the Docker Compose file by yourself.
 
 ## 3. `score-k8s`
 
@@ -225,7 +236,9 @@ score-k8s init --no-sample \
     --patch-templates https://raw.githubusercontent.com/score-spec/community-patchers/refs/heads/main/score-k8s/unprivileged.tpl
 ```
 
-The `init` command will create the `.score-k8s` directory with the [default resource provisioners]({{< relref "/docs/score-implementation/score-k8s/resources-provisioners/" >}}) available. You can learn more about the resource provisioners available by running this command:
+The `init` command will create the `.score-k8s` directory with the [default resource provisioners]({{< relref "/docs/score-implementation/score-k8s/resources-provisioners/" >}}) available.
+
+You can see the resource provisioners available by running this command:
 
 ```bash
 score-k8s provisioners list
@@ -328,7 +341,6 @@ NAME                         READY   STATUS    RESTARTS   AGE
 pod/nginx-6947586bd6-82lvj   1/1     Running   0          16s
 
 NAME                 TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)    AGE
-service/kubernetes   ClusterIP   10.96.0.1     <none>        443/TCP    52m
 service/nginx        ClusterIP   10.96.38.94   <none>        8080/TCP   17s
 
 NAME                    READY   UP-TO-DATE   AVAILABLE   AGE
@@ -350,7 +362,7 @@ curl localhost -H "Host: dnsev272w.localhost"
 Welcome to nginx!
 ```
 
-Congrats! You’ve successfully deploy, with the `score-k8s` implementation, a simple Nginx containerized workload exposed via a DNS. You provisioned them through `kubectl`, without writing the Kubernetes manifests file by yourself.
+Congrats! You’ve successfully deploy, with the `score-k8s` implementation, a simple containerized Nginx workload exposed via a DNS. You provisioned them through `kubectl`, without writing the Kubernetes manifests file by yourself.
 
 ## Next steps
 

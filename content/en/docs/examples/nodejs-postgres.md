@@ -1,17 +1,26 @@
 ---
 title: "NodeJS and PostgreSQL"
 linkTitle: "NodeJS and PostgreSQL"
-description: "How to deploy a NodeJS containerized application using a PostgreSQL database with score-compose and score-k8s"
+description: "How to deploy a containerized NodeJS application using a PostgreSQL database with `score-compose` and `score-k8s`"
 weight: 3
 ---
 
 ## Overview
 
-In this example we will walk you through how you can deploy a NodeJS containerized application using a PostgreSQL database, and this with both `score-compose` and `score-k8s`.
+In this example we will walk you through how you can deploy a containerized NodeJS application using a PostgreSQL database, and this with both `score-compose` and `score-k8s`.
+
+```mermaid
+flowchart TD
+    dns[DNS] --> nodejs-workload(NodeJS)
+    subgraph Workloads
+        nodejs-workload
+    end
+    nodejs-workload-->postgres[(PostgreSQL)]
+```
 
 ## 1. `score.yaml`
 
-Open your IDE and paste in the following `score.yaml` file, which describes a simple web server that queries a PostgreSQL database on each request and is exposed via a DNS. The demo code can be found [here](https://github.com/score-spec/sample-score-app).
+Open your IDE and paste in the following `score.yaml` file, which describes a simple web server exposed via a DNS that queries a PostgreSQL database on each request. The demo code can be found [here](https://github.com/score-spec/sample-score-app).
 
 ```yaml
 apiVersion: score.dev/v1b1
@@ -28,6 +37,11 @@ containers:
       DB_PASSWORD: ${resources.db.password}
       DB_HOST: ${resources.db.host}
       DB_PORT: ${resources.db.port}
+service:
+  ports:
+    www:
+      port: 8080
+      targetPort: 3000
 resources:
   db:
     type: postgres
@@ -39,17 +53,12 @@ resources:
       host: ${resources.dns.host}
       path: /
       port: 8080
-service:
-  ports:
-    www:
-      port: 8080
-      targetPort: 3000
 ```
 
-From here, you can deploy this exact same Score file:
+From here, we will now see how you can deploy this exact same Score file:
 
 - Either with [`score-compose`](#2-score-compose)
-- Or with [`score-k8s`](#3-score-k8s).
+- Or with [`score-k8s`](#3-score-k8s)
 
 ## 2. `score-compose`
 
@@ -63,7 +72,9 @@ Initialize your current `score-compose` workspace, run the following command in 
 score-compose init --no-sample
 ```
 
-The `init` command will create the `.score-compose` directory with the [default resource provisioners]({{< relref "/docs/score-implementation/score-compose/resources-provisioners/" >}}) available. You can learn more about the resource provisioners available by running this command:
+The `init` command will create the `.score-compose` directory with the [default resource provisioners]({{< relref "/docs/score-implementation/score-compose/resources-provisioners/" >}}) available.
+
+You can see the resource provisioners available by running this command:
 
 ```bash
 score-compose provisioners list
@@ -207,7 +218,7 @@ This is an application talking to a PostgreSQL 17.5 database on host pg-Tut8g7, 
 PostgreSQL 17.5 on x86_64-pc-linux-musl, compiled by gcc (Alpine 14.2.0) 14.2.0, 64-bit
 ```
 
-Congrats! You’ve successfully deploy, with the `score-compose` implementation, a sample NodeJS containerized workload talking to PostgreSQL and exposed via a DNS. You provisioned them through Docker, without writing the Docker Compose file by yourself.
+Congrats! You’ve successfully deploy, with the `score-compose` implementation, a sample containerized NodeJS workload talking to PostgreSQL and exposed via a DNS. You provisioned them through Docker, without writing the Docker Compose file by yourself.
 
 ## 3. `score-k8s`
 
@@ -221,7 +232,9 @@ Initialize your current `score-k8s` workspace, run the following command in your
 score-k8s init --no-sample
 ```
 
-The `init` command will create the `.score-k8s` directory with the [default resource provisioners]({{< relref "/docs/score-implementation/score-k8s/resources-provisioners/" >}}) available. You can learn more about the resource provisioners available by running this command:
+The `init` command will create the `.score-k8s` directory with the [default resource provisioners]({{< relref "/docs/score-implementation/score-k8s/resources-provisioners/" >}}) available.
+
+You can see the resource provisioners available by running this command:
 
 ```bash
 score-k8s provisioners list
@@ -345,7 +358,6 @@ pod/pg-hello-world-87af7a15-0      1/1     Running   0             37s
 
 NAME                              TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
 service/hello-world               ClusterIP   10.96.250.192   <none>        8080/TCP   37s
-service/kubernetes                ClusterIP   10.96.0.1       <none>        443/TCP    91s
 service/pg-hello-world-87af7a15   ClusterIP   10.96.231.3     <none>        5432/TCP   37s
 
 NAME                          READY   UP-TO-DATE   AVAILABLE   AGE
@@ -372,7 +384,7 @@ This is an application talking to a PostgreSQL 17.5 database on host pg-Tut8g7, 
 PostgreSQL 17.5 on x86_64-pc-linux-musl, compiled by gcc (Alpine 14.2.0) 14.2.0, 64-bit
 ```
 
-Congrats! You’ve successfully deploy, with the `score-k8s` implementation, a sample NodeJS containerized workload talking to PostgreSQL and exposed via a DNS. You provisioned them through `kubectl`, without writing the Kubernetes manifests file by yourself.
+Congrats! You’ve successfully deploy, with the `score-k8s` implementation, a sample containerized NodeJS workload talking to PostgreSQL and exposed via a DNS. You provisioned them through `kubectl`, without writing the Kubernetes manifests file by yourself.
 
 ## Next steps
 
