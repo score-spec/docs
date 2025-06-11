@@ -80,15 +80,15 @@ containers:
     variables: # optional
       VAR_NAME: string
     files: # optional
-      - target: string
+      target:
         mode: string # optional
         source: string # oneOf source or content is required
         content: string # oneOf source or content is required
         noExpand: boolean # optional
     volumes: # optional
-      - source: string
+      target:
+        source: string
         path: string # optional
-        target: string
         readOnly: boolean # optional
     resources: # optional
       limits: # optional
@@ -127,21 +127,48 @@ containers:
 
 `variables`: the environment variables for the container. Container variables support both metadata and resource output [placeholders]({{< relref "#placeholder-references" >}}).
 
-`files`: the extra files to mount into the container. Either `content` or `source` must be specified along with `target`.
+`files`: the extra files to mount into the container. Either `content`, `binaryContent` or `source` must be specified.
 
 - `target`: the file path to expose in the container.
-- `mode`: the optional file access mode in octal encoding. For example 0600.
-- `source`: the relative or absolute path to the content file. File content supports both metadata and resource output [placeholders]({{< relref "#placeholder-references" >}}) unless `noExpand` is true.
-- `content`: the inline content for the file. File content supports both metadata and resource output [placeholders]({{< relref "#placeholder-references" >}}) unless `noExpand` is true.
-- `binaryContent`: base64-encoded inline content for the file. This field supports non-utf-8 bytes for binary or archive files. Placeholder expansion is never supported.
-- `noExpand`: if set to true, the placeholders expansion will not occur in the contents of the `content` or `source` file.
+  - `mode`: the optional file access mode in octal encoding. For example 0600.
+  - `source`: the relative or absolute path to the content file. File content supports both metadata and resource output [placeholders]({{< relref "#placeholder-references" >}}) unless `noExpand` is true.
+  - `content`: the inline content for the file. File content supports both metadata and resource output [placeholders]({{< relref "#placeholder-references" >}}) unless `noExpand` is true.
+  - `binaryContent`: base64-encoded inline content for the file. This field supports non-utf-8 bytes for binary or archive files. Placeholder expansion is never supported.
+  - `noExpand`: if set to true, the placeholders expansion will not occur in the contents of the `content` or `source` file.
+
+Note: Since [`score-compose` `0.28.0`](https://github.com/score-spec/score-compose/releases/tag/0.28.0) and [`score-k8s` `0.5.0`](https://github.com/score-spec/score-k8s/releases/tag/0.5.0), the list of `files` is now a `map` which is the recommended approach moving forward. The previous and other option as an `array`, like illustrated below is still supported for backward compatibility (and may be deprecated in the future).
+
+```yaml
+containers:
+  container-name:
+...
+    files: # optional as an array
+      - target: string
+        mode: string # optional
+        source: string # oneOf source or content is required
+        content: string # oneOf source or content is required
+        noExpand: boolean # optional
+```
 
 `volumes`: the volumes to mount.
 
-- `source`: the external volume reference. The volume source supports resource output [placeholders]({{< relref "#placeholder-references" >}}).
-- `path`: an optional sub path in the volume.
 - `target`: the target mount on the container.
-- `readOnly`: indicates if the volume should be mounted in a read-only mode.
+  - `source`: the external volume reference. The volume source supports resource output [placeholders]({{< relref "#placeholder-references" >}}).
+  - `path`: an optional sub path in the volume.
+  - `readOnly`: indicates if the volume should be mounted in a read-only mode.
+
+Note: Since [`score-compose` `0.28.0`](https://github.com/score-spec/score-compose/releases/tag/0.28.0) and [`score-k8s` `0.5.0`](https://github.com/score-spec/score-k8s/releases/tag/0.5.0), the list of `volumes` is now a `map` which is the recommended approach moving forward. The previous and other option as an `array`, like illustrated below is still supported for backward compatibility (and may be deprecated in the future).
+
+```yaml
+containers:
+  container-name:
+...
+    volumes: # optional as an array
+      - target: string
+        source: string
+        path: string # optional
+        readOnly: boolean # optional
+```
 
 `resources`: the compute resources for the container.
 
@@ -185,39 +212,39 @@ containers:
       FRIEND: World!
       MESSAGE: Hello ${metadata.name}
 
-    files:                                  # (Optional) Specifies extra files to mount
-    - target: /etc/hello-world/config.yaml  #    - Target file path and name
-      mode: "666"                           #    - Access mode
-      content: |                            #    - Inline content (supports templates)
-        "---"
-        ${resources.env.APP_CONFIG}
+    files:                                    # (Optional) Specifies extra files to mount
+      /etc/hello-world/config.yaml:           #    - Target file path and name
+        mode: "666"                           #    - Access mode
+        content: |                            #    - Inline content (supports templates)
+          "---"
+          ${resources.env.APP_CONFIG}
 
-    volumes:                                # (Optional) Specifies volumes to mount
-    - source: ${resources.data}             #    - External volume reference
-      path: sub/path                        #    - (Optional) Sub path in the volume
-      target: /mnt/data                     #    - Target mount path on the container
-      readOnly: true                       #    - (Optional) Mount as read-only
+    volumes:                                  # (Optional) Specifies volumes to mount
+      /mnt/data:                              #    - Target mount path on the container
+        source: ${resources.data}             #    - External volume reference
+        path: sub/path                        #    - (Optional) Sub path in the volume       
+        readOnly: true                        #    - (Optional) Mount as read-only
 
-    resources:                              # (Optional) CPU and memory resources needed
-      limits:                               #    - (Optional) Maximum allowed
+    resources:                                # (Optional) CPU and memory resources needed
+      limits:                                 #    - (Optional) Maximum allowed
         memory: "128Mi"
         cpu: "500m"
-      requests:                             #    - (Optional) Minimal required
+      requests:                               #    - (Optional) Minimal required
         memory: "64Mi"
         cpu: "250m"
 
-    livenessProbe:                          # (Optional) Liveness probe
-      httpGet:                              #    - Only HTTP GET is supported
-        scheme: http                        #    - Specify the schema (http or https)
+    livenessProbe:                            # (Optional) Liveness probe
+      httpGet:                                #    - Only HTTP GET is supported
+        scheme: http                          #    - Specify the schema (http or https)
         path: /alive
         port: 8080
 
-    readinessProbe:                         # (Optional) Readiness probe
-      httpGet:                              #    - Only HTTP GET is supported
-        scheme: http                        #    - Specify the schema (http or https)
+    readinessProbe:                           # (Optional) Readiness probe
+      httpGet:                                #    - Only HTTP GET is supported
+        scheme: http                          #    - Specify the schema (http or https)
         path: /ready
         port: 8080
-        httpHeaders:                        #    - (Optional) HTTP Headers to include
+        httpHeaders:                          #    - (Optional) HTTP Headers to include
         - name: Custom-Header
           value: Awesome
 ```
@@ -323,14 +350,6 @@ resources:
     type: postgres
 ```
 
-### Reserved resource types
-
-In general, the Score specification does not specify a set of supported `resource types or outputs of those resources however there are some types that have historical significance in some Score implementations that you may want to be aware of.
-
-- `environment`: This resource type is a source of environment specific values. In `score-compose` this comes from environment variables present when running `score-compose generate`, in Humanitec this comes from the deployed environment configuration. In `score-k8s` this has no specific meaning.
-- `volume`: This resource type should be used with the container volume source field. This is generally implementation specific due to the varied behavior and configuration of mounted volumes.
-- `service`: This resource type is used in Humanitec to return service placeholders. It has no specific meaning in `score-compose` or `score-k8s`.
-
 ## Placeholder References
 
 Score Workloads support `${..}` placeholder references in order to support dynamic configuration within the Workload. Placeholders operate within the context of their Workload and can be used to interpolate values from either Workload metadata or the outputs of named resources. References to unknown keys will result in a failure. The `${}` syntax can be escaped with an additional dollar sign, for example: `$${not a placeholder}` and any `.`'s in a key can be escaped with a backslash: `${some\.thing}`.
@@ -338,8 +357,9 @@ Score Workloads support `${..}` placeholder references in order to support dynam
 Placeholders are supported in the following locations:
 
 - `containers.*.variables.*`: The value of a variable may contain one or more placeholders.
-- `containers.*.files[*].content`: The inline content of a file may contain one or more placeholders.
-- `containers.*.volumes[*].source`: The volume source may contain placeholders. This usually refers to a particular named resource of type `volume`.
+- `containers.*.files.*.content`: The inline content of a file may contain one or more placeholders.
+- `containers.*.files.*.source`: The file source may contain one or more placeholders.
+- `containers.*.volumes.*.source`: The volume source may contain placeholders. This usually refers to a particular named resource of type `volume`.
 - `resources.*.params.*`: The resource params may accept placeholder resolutions.
 
 ### Workload metadata references
@@ -386,9 +406,9 @@ containers:
       RESOURCE_HOOK: ${resources.some-resource.hook}
       COMBINED: ${resources.some-resource.a}-${resources.other-resource.b}
     files:
-    - target: /something.properties
-      content: |
-        xyz=${resources.some-resource.a}
+      /something.properties:
+        content: |
+          xyz=${resources.some-resource.a}
 resources:
   some-resource:
     type: something
@@ -417,8 +437,8 @@ containers:
   example:
     image: some-image
     volumes:
-    - source: ${resources.my-volume}
-      target: /mnt/volume
+      /mnt/volume:
+        source: ${resources.my-volume}
 resources:
   my-volume:
     type: volume
