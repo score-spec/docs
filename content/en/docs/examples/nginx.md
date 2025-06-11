@@ -55,9 +55,9 @@ containers:
   webapp:
     image: .
     volumes:
-    - source: ${resources.tmp}
-      target: /tmp
-      readOnly: false
+      /tmp:
+        source: ${resources.tmp}
+        readOnly: false
 service:
   ports:
     tcp:
