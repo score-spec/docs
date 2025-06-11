@@ -136,7 +136,7 @@ containers:
   - `binaryContent`: base64-encoded inline content for the file. This field supports non-utf-8 bytes for binary or archive files. Placeholder expansion is never supported.
   - `noExpand`: if set to true, the placeholders expansion will not occur in the contents of the `content` or `source` file.
 
-The list of `files` as an `array` like illustrated below has always been supported:
+Note: Since [`score-compose` `0.28.0`](https://github.com/score-spec/score-compose/releases/tag/0.28.0) and [`score-k8s` `0.5.0`](https://github.com/score-spec/score-k8s/releases/tag/0.5.0), the list of `files` is now a `map` which is the recommended approach moving forward. The previous and other option as an `array`, like illustrated below is still supported for backward compatibility (and may be deprecated in the future).
 
 ```yaml
 containers:
@@ -150,20 +150,6 @@ containers:
         noExpand: boolean # optional
 ```
 
-Since [`score-compose` `0.28.0`](https://github.com/score-spec/score-compose/releases/tag/0.28.0) and [`score-k8s` `0.5.0`](https://github.com/score-spec/score-k8s/releases/tag/0.5.0), in addition to still support the version above for backward compatibility, this other format below as a `map` can now be used instead:
-
-```yaml
-containers:
-  container-name:
-...
-    files: # optional as a map
-      target:
-        mode: string # optional
-        source: string # oneOf source or content is required
-        content: string # oneOf source or content is required
-        noExpand: boolean # optional
-```
-
 `volumes`: the volumes to mount.
 
 - `target`: the target mount on the container.
@@ -171,7 +157,7 @@ containers:
   - `path`: an optional sub path in the volume.
   - `readOnly`: indicates if the volume should be mounted in a read-only mode.
 
-The list of `volumes` as an `array` like illustrated below has always been supported:
+Note: Since [`score-compose` `0.28.0`](https://github.com/score-spec/score-compose/releases/tag/0.28.0) and [`score-k8s` `0.5.0`](https://github.com/score-spec/score-k8s/releases/tag/0.5.0), the list of `volumes` is now a `map` which is the recommended approach moving forward. The previous and other option as an `array`, like illustrated below is still supported for backward compatibility (and may be deprecated in the future).
 
 ```yaml
 containers:
@@ -179,19 +165,6 @@ containers:
 ...
     volumes: # optional as an array
       - target: string
-        source: string
-        path: string # optional
-        readOnly: boolean # optional
-```
-
-Since [`score-compose` `0.28.0`](https://github.com/score-spec/score-compose/releases/tag/0.28.0) and [`score-k8s` `0.5.0`](https://github.com/score-spec/score-k8s/releases/tag/0.5.0), in addition to still support the version above for backward compatibility, this other format below as a `map` can now be used instead:
-
-```yaml
-containers:
-  container-name:
-...
-    volumes: # optional as a map
-      target:
         source: string
         path: string # optional
         readOnly: boolean # optional
