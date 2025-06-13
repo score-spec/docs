@@ -110,7 +110,7 @@ The following extra fields can be configured as required on each instance of thi
 | `services`         | String, Go template | A Go template for a valid set of named Compose [Services](https://github.com/compose-spec/compose-spec/blob/master/05-services.md).                                                                                          |
 | `info_logs`        | String, Go template | A Go template for informational messages for the user which may help connecting or testing the provisioned resource.                                                                                                         |
 | `supported_params` | List of String      | A list of parameters that the provisioner expects to be passed in.                                                                                                                                                           |
-| `expected_outputs` | List of String      | A list of expected outputs that the provisioner should return.                                                                                                                                                                |
+| `expected_outputs` | List of String      | A list of expected outputs that the provisioner should return.                                                                                                                                                               |
 
 Each template has access to the [Sprig](http://masterminds.github.io/sprig/) functions library and executes with access to the following structure:
 

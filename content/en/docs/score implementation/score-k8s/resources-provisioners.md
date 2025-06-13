@@ -107,7 +107,7 @@ The following extra fields can be configured as required on each instance of thi
 | `outputs`          | String, Go template | A Go template for a valid YAML dictionary. The values here are the outputs of the resource that can be accessed through `${resources.*}` placeholder resolution.                                                             |
 | `manifests`        | String, Go template | A Go template for a valid YAML dictionary. Each path -> string\|null will create a relative file (string) or delete it (null) relative to the mounts directory.                                                              |
 | `supported_params` | List of String      | A list of parameters that the provisioner expects to be passed in.                                                                                                                                                           |
-| `expected_outputs` | List of String      | A list of expected outputs that the provisioner should return.                                                                                                                                                                |
+| `expected_outputs` | List of String      | A list of expected outputs that the provisioner should return.                                                                                                                                                               |
 
 Each template has access to the [Sprig](http://masterminds.github.io/sprig/) functions library and executes with access to the following structure:
 
