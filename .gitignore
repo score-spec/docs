@@ -6,7 +6,7 @@ package-lock.json
 .cspell/
 .vscode/ltex.dictionary.en-US.txt
 ./static/_pagefind
-.score-compose/state.yaml
-.score-compose/zz-default.provisioners.yaml
-.score-compose/mounts/routing-QXKXWL/nginx.conf
+.score-compose/
 compose.yaml
+.score-k8s/
+manifests.yaml
