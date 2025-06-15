@@ -8,6 +8,8 @@ aliases:
 - /docs/reference/score-cli/score-compose/patch-templates
 ---
 
+## Overview
+
 A common requirement is for Platform Engineers to slightly modify or adjust the output of the conversion process, and this seemlessly for their Developers. This can be done by providing one or more patching templates at `init` time. These patching templates generate JSON patches which are applied on top of the output compose file, just before being written. Patching templates have access to the current compose spec as `.Compose`, the map of workload name to Score Spec as `.Workloads`, and can use any functions from [`Masterminds/sprig`](https://github.com/Masterminds/sprig).
 
 In this way, you can extend the behavior of the `score-compose` implementation.
@@ -22,6 +24,8 @@ services.foo.ports.0     # modifies the first item in the ports array
 services.foo.ports.-1    # adds to the end of the ports array
 something.:0000.xyz      # patches the xyz item in the "0000" item of something (: escapes a numeric index)
 ```
+
+## Example
 
 Here is a concrete example showing how to inject more security for each Workload by using this template [`score-compose/unprivileged.tpl`](https://raw.githubusercontent.com/score-spec/community-patchers/refs/heads/main/score-compose/unprivileged.tpl):
 
@@ -41,6 +45,8 @@ Here is a concrete example showing how to inject more security for each Workload
 {{ end }}
 ```
 
+## Use a patch template
+
 Run this command to import this patch template:
 
 ```bash
@@ -54,5 +60,7 @@ score-compose generate score.yaml
 ```
 
 And then see that this patch template was applied on the final generated `compose.yaml` file.
+
+## Write your own patch template
 
 A list of patch templates shared by the community can be found [here](https://github.com/score-spec/community-patchers). Users are encouraged to use them and contribute to this growing list of patch templates.
