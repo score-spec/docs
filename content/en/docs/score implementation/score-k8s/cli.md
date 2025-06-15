@@ -53,6 +53,8 @@ Loads additional provisoners from a remote url. May be specified multiple times.
 score-k8s init --provisioners https://raw.githubusercontent.com/user/repo/main/example.yaml
 ```
 
+Learn more about this `--provisioners` feature [here](/docs/score-implementation/score-k8s/resources-provisioners/).
+
 #### `--no-default-provisioner`
 
 Skip default provisoners file creation
@@ -60,6 +62,22 @@ Skip default provisoners file creation
 ```bash
 score-k8s init --provisioners https://raw.githubusercontent.com/user/repo/main/example.yaml --no-default-provisioners
 ```
+
+#### `--patch-templates`
+
+Loads patch templates from a remote url. May be specified multiple times. Supports the following formats:
+
+- `http://host/file`
+- `https://host/file`
+- `git-ssh://git@host/repo.git/file`
+- `git-https://host/repo.git/file`
+- `oci://[registry/][namespace/]repository[:tag|@digest][#file]`
+
+```bash
+score-k8s init --patch-templates https://raw.githubusercontent.com/user/repo/main/example.yaml
+```
+
+Learn more about this `--patch-templates` feature [here](/docs/score-implementation/score-k8s/patch-templates/).
 
 #### `--help` | `-h`
 
@@ -81,6 +99,14 @@ score-k8s generate [flags]
 
 The `generate` command can be combined with the following flags:
 
+### `--generate-namespace`
+
+Specifies optionally if a `Namespace` resource should be generated in the manifests. Requires `--namespace` to be set.
+
+```bash
+score-k8s generate --namespace test-ns --generate-namespace
+```
+
 #### `--image`
 
 Specifies an optional container image to use for any container with `image == '.'`.
@@ -89,9 +115,17 @@ Specifies an optional container image to use for any container with `image == '.
 score-k8s generate --image your_container_image
 ```
 
+### `--namespace`
+
+Specifies an optional `Namespace` to set on the resources in the manifests.
+
+```bash
+score-k8s generate --namespace test-ns
+```
+
 #### `--output` | `-o`
 
-Specifies the output file to write the manifest to. By default, the output file is named `manifest.yaml`.
+Specifies the output file to write the manifests to. By default, the output file is named `manifests.yaml`.
 
 ```bash
 score-k8s generate --output your_output_file.yaml
@@ -114,6 +148,8 @@ score-k8s generate score.yaml --overrides-file=./overrides.score.yaml
 ```
 
 #### `--patch-manifests`
+
+_Note: `--patch-manifests` will be soon deprecated, use [`init --patch-templates`](#--patch-templates) instead._
 
 Specifies an optional set of `<kind|*>/<name|*>/path=key` operations for the output manifests.
 
