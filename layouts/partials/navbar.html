@@ -41,6 +41,13 @@
           {{ $menuPath := strings.TrimSuffix "/" .URL }}
           {{ $active = eq $currentPath $menuPath }}
         {{ end -}}
+        {{ if not $active }}
+          {{ $currentPath := strings.TrimSuffix "/" $p.RelPermalink }}
+          {{ $menuPath := strings.TrimSuffix "/" .URL }}
+          {{ if ne $menuPath "" }}
+            {{ $active = strings.HasPrefix $currentPath $menuPath }}
+          {{ end }}
+        {{ end -}}
         {{ $pre := .Pre -}}
         {{ $post := .Post -}}
         {{ $url := urls.Parse .URL -}}
@@ -48,7 +55,6 @@
         <a {{/**/ -}}
           class="nav-link {{- if $active }} active {{- end }}" {{/**/ -}}
           href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .URL | relLangURL }}{{ end }}"
-          {{- if ne $url.Host $baseurl.Host }} target="_blank" {{- end -}}
         >
             {{- with .Pre }}{{ $pre }}{{ end -}}
             <span {{- if $active }} class="active" {{- end }}>

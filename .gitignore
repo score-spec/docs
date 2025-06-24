@@ -11,3 +11,5 @@ package-lock.json
 .score-compose/mounts/routing-QXKXWL/nginx.conf
 compose.yaml
 .prettierignore
+.score-k8s/
+manifests.yaml

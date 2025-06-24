@@ -1,6 +1,7 @@
 .nav-tabs {
   margin-bottom: 0;
   border-bottom: none;
+  border-bottom-color: $primary;
 }
 
 .docs-content .doks-nav-item {
@@ -13,11 +14,14 @@
 
 .nav .nav-link {
   color: $gray-900;
+  border-radius: 14px 14px 0 0;
+  font-weight: 500;
 
   &:hover {
     background-color: $gray-100;
     border-color: transparent;
     border-bottom: 1px solid $gray-300;
+    text-decoration: none;
   }
 
   &.active {
@@ -27,10 +31,21 @@
     border-bottom: 1px solid $white;
     transform: translateY(1px);
   }
+
+  &:not(.active) {
+    color: $grey-3 !important;
+    border: none;
+  }
+}
+
+.nav-tabs .nav-link.active {
+  border-color: $primary;
+  border-bottom-color: white;
+  color: $dark;
 }
 
 .tab-content {
-  border: 1px solid $gray-300;
+  border: 1px solid $primary;
   border-radius: 12px;
   border-top-left-radius: 0;
   padding: 20px;

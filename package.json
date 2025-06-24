@@ -28,7 +28,7 @@
     "hugo-cli": "^0.14.0",
     "hugo-extended": "^0.123.8",
     "lunr": "^2.3.9",
-    "postcss": "^8.5.4",
+    "postcss": "^8.5.6",
     "postcss-cli": "^11.0.1",
     "toml": "^3.0.0"
   },
@@ -49,7 +49,7 @@
     "lint": "vale content/en/docs/**/* && dprint check",
     "gen-all": "yarn gen-get-external-content",
     "gen-get-external-content": "yarn gen-score-specification && yarn gen-score-resources-default-provisioners && yarn gen-score-resources-community-provisioners",
-    "gen-example-pages": "node ./gen/examples-site/gen-example-pages.js ./gen/external-content",
+    "gen-example-pages": "node ./gen/examples-site/gen-example-pages.js ./gen/external-content && yarn fmt",
     "gen-score-specification": "git rm -rfq gen/external-content/score/specification && git read-tree --prefix=gen/external-content/score/specification -u examples/main:specification",
     "gen-score-resources-default-provisioners": "git rm -rfq gen/external-content/score/resources/default-provisioners && git read-tree --prefix=gen/external-content/score/resources/default-provisioners -u examples/main:resources",
     "gen-score-resources-community-provisioners": "git rm -rfq gen/external-content/score/resources/community-provisioners && git read-tree --prefix=gen/external-content/score/resources/community-provisioners -u community-provisioners/main"

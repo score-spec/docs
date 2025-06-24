@@ -24,7 +24,7 @@
     {{ $dirSegments := split (.Get "dir") "/" }}
     {{ $filteredSegments := slice }}
     {{ range $dirSegments }}
-      {{ if and (ne . "") (ne . "default-provisioners") }}
+      {{ if and (ne . "") (ne . "default-provisioners") (ne . "score") }}
         {{ $filteredSegments = $filteredSegments | append . }}
       {{ end }}
     {{ end }}
