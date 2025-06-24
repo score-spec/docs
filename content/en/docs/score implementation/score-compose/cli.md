@@ -61,6 +61,8 @@ Loads additional provisoners from a remote url. May be specified multiple times.
 score-compose init --provisioners https://raw.githubusercontent.com/user/repo/main/example.yaml
 ```
 
+Learn more about this `--provisioners` feature [here](/docs/score-implementation/score-compose/resources-provisioners/).
+
 #### `--no-default-provisioner`
 
 Skip default provisoners file creation
@@ -68,6 +70,22 @@ Skip default provisoners file creation
 ```bash
 score-compose init --provisioners https://raw.githubusercontent.com/user/repo/main/example.yaml --no-default-provisioners
 ```
+
+#### `--patch-templates`
+
+Loads patch templates from a remote url. May be specified multiple times. Supports the following formats:
+
+- `http://host/file`
+- `https://host/file`
+- `git-ssh://git@host/repo.git/file`
+- `git-https://host/repo.git/file`
+- `oci://[registry/][namespace/]repository[:tag|@digest][#file]`
+
+```bash
+score-compose init --patch-templates https://raw.githubusercontent.com/user/repo/main/example.yaml
+```
+
+Learn more about this `--patch-templates` feature [here](/docs/score-implementation/score-compose/patch-templates/).
 
 #### `--help` | `-h`
 
