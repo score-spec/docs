@@ -91,46 +91,65 @@ const generateTabs = (
   githubUrl,
   path
 ) => {
-  const useMainScoreFiles = mainScoreFiles && mainScoreFiles.length > 0;
-  const dataSource = useMainScoreFiles
-    ? mainScoreFiles
-    : scoreFileDirectories || [];
+  const hasMainScoreFiles = mainScoreFiles && mainScoreFiles.length > 0;
+  const hasScoreFileDirectories =
+    scoreFileDirectories && scoreFileDirectories.length > 0;
 
-  if (dataSource.length === 0) {
+  if (!hasMainScoreFiles && !hasScoreFileDirectories) {
     return "";
   }
 
-  const tabsContent = dataSource
-    .map((item) => {
-      let tabName;
-      let tabContent;
+  // Create a map to combine content for tabs with the same name
+  const tabsMap = new Map();
 
-      if (useMainScoreFiles) {
-        tabName = item.replace(".md", "");
-        const filePath = `${sourceFolder}/${parentDir}/${item}`;
-        tabContent = fs.existsSync(filePath)
-          ? fs.readFileSync(filePath, "utf8").trim()
-          : "";
-      } else {
-        tabName = item;
-        const directoryPath = `${sourceFolder}/${path}/${item}`;
-        if (fs.existsSync(directoryPath) && isDirectory(directoryPath)) {
-          const filesInDir = fs
-            .readdirSync(directoryPath)
-            .filter((file) => !isDirectory(`${directoryPath}/${file}`));
-          tabContent = filesInDir
-            .map((file) => {
-              const shortcodeDir = `${path}/${item}`;
-              return generateExampleFileContent(file, shortcodeDir, githubUrl);
-            })
-            .join("\n");
-        } else {
-          tabContent = "";
-        }
+  // Process mainScoreFiles (README content)
+  if (hasMainScoreFiles) {
+    mainScoreFiles.forEach((file) => {
+      const tabName = file.replace(".md", "");
+      const filePath = `${sourceFolder}/${parentDir}/${file}`;
+      const readmeContent = fs.existsSync(filePath)
+        ? fs.readFileSync(filePath, "utf8").trim()
+        : "";
+
+      if (!tabsMap.has(tabName)) {
+        tabsMap.set(tabName, { readmeContent: "", directoryContent: "" });
       }
+      tabsMap.get(tabName).readmeContent = readmeContent;
+    });
+  }
+
+  // Process scoreFileDirectories (directory files)
+  if (hasScoreFileDirectories) {
+    scoreFileDirectories.forEach((dirName) => {
+      const directoryPath = `${sourceFolder}/${path}/${dirName}`;
+      if (fs.existsSync(directoryPath) && isDirectory(directoryPath)) {
+        const filesInDir = fs
+          .readdirSync(directoryPath)
+          .filter((file) => !isDirectory(`${directoryPath}/${file}`));
+        const directoryContent = filesInDir
+          .map((file) => {
+            const shortcodeDir = `${path}/${dirName}`;
+            return generateExampleFileContent(file, shortcodeDir, githubUrl);
+          })
+          .join("\n");
+
+        if (!tabsMap.has(dirName)) {
+          tabsMap.set(dirName, { readmeContent: "", directoryContent: "" });
+        }
+        tabsMap.get(dirName).directoryContent = directoryContent;
+      }
+    });
+  }
+
+  // Generate tabs content by combining README and directory content
+  const tabsContent = Array.from(tabsMap.entries())
+    .map(([tabName, { readmeContent, directoryContent }]) => {
+      const combinedContent = [readmeContent, directoryContent]
+        .filter((content) => content.trim() !== "")
+        .join("\n\n");
 
       return `{{% tab name="${tabName}" %}}
-${tabContent}
+${combinedContent}
 {{%/ tab %}}`;
     })
     .join("\n");
