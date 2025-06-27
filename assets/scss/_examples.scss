@@ -1,5 +1,5 @@
 .examples-page {
-  margin-top: 6rem;
+  margin-top: 1rem;
   border: none;
 
   [data-dark-mode] & {
@@ -11,6 +11,17 @@
     color: $electric-blue;
     font-weight: $font-medium;
   }
+}
+
+@media (min-width: 768px) {
+  .td-404 main,
+  .td-main main .examples-index-page {
+    padding-top: 0;
+  }
+}
+
+.examples-index-page {
+  padding-top: 6rem;
 }
 
 .examples-pagecount {
@@ -27,7 +38,7 @@
 }
 
 .examples-sidebar {
-  margin-top: 6rem;
+  margin-top: 1rem;
   margin-bottom: 2rem;
   width: 25%;
 
