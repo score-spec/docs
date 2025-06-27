@@ -1,0 +1,16 @@
+<div class="row flex-xl-nowrap">
+  <main class="examples-page examples-index-page col-lg-9 mx-xl-auto mt-5">
+    {{ if .Site.Params.options.breadCrumb -}}
+      <!-- https://discourse.gohugo.io/t/breadcrumb-navigation-for-highly-nested-content/27359/6 -->
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          {{ partial "main/breadcrumb" . -}}
+          <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
+        </ol>
+      </nav>
+    {{ end }}
+    <p class="lead">{{ .Params.topTitle | safeHTML }}</p>
+    <h1 class="mb-3">{{ .Title }}</h1>
+    {{ .Content }}
+  </main>
+</div>

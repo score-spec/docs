@@ -23,21 +23,38 @@
     </span>
     {{- /**/ -}}
   </a>
-  <div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+  <div class="td-navbar-nav-scroll mx-auto" id="main_navbar">
     <ul class="navbar-nav mt-2 mt-lg-0">
       {{ $p := . -}}
       {{ range .Site.Menus.main -}}
       <li class="nav-item mr-4 mb-2 mb-lg-0">
         {{ $active := or ($p.IsMenuCurrent "main" .) ($p.HasMenuCurrent "main" .) -}}
-        {{ with .Page }}{{ $active = or $active ( $.IsDescendant .) }}{{ end -}}
+        {{ with .Page }}{{ $active = or $active ( $p.IsDescendant .) }}{{ end -}}
+        {{ if not $active }}
+          {{ $active = eq $p.RelPermalink .URL }}
+        {{ end -}}
+        {{ if not $active }}
+          {{ $active = eq $p.Permalink .URL }}
+        {{ end -}}
+        {{ if not $active }}
+          {{ $currentPath := strings.TrimSuffix "/" $p.RelPermalink }}
+          {{ $menuPath := strings.TrimSuffix "/" .URL }}
+          {{ $active = eq $currentPath $menuPath }}
+        {{ end -}}
+        {{ if not $active }}
+          {{ $currentPath := strings.TrimSuffix "/" $p.RelPermalink }}
+          {{ $menuPath := strings.TrimSuffix "/" .URL }}
+          {{ if ne $menuPath "" }}
+            {{ $active = strings.HasPrefix $currentPath $menuPath }}
+          {{ end }}
+        {{ end -}}
         {{ $pre := .Pre -}}
         {{ $post := .Post -}}
         {{ $url := urls.Parse .URL -}}
-        {{ $baseurl := urls.Parse $.Site.BaseUrl -}}
+        {{ $baseurl := urls.Parse $.Site.BaseURL -}}
         <a {{/**/ -}}
           class="nav-link {{- if $active }} active {{- end }}" {{/**/ -}}
           href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .URL | relLangURL }}{{ end }}"
-          {{- if ne $url.Host $baseurl.Host }} target="_blank" {{- end -}}
         >
             {{- with .Pre }}{{ $pre }}{{ end -}}
             <span {{- if $active }} class="active" {{- end }}>
@@ -61,7 +78,5 @@
   </div>
    <div class="navbar-nav d-none d-lg-block">
     {{ partial "hooks/head-end.html" . }}
-
-
   </div>
 </nav>

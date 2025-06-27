@@ -1,0 +1,11 @@
+- uri: template://community-provisioners/static-service
+  type: service
+  description: Outputs the name of the Workload dependency if it exists in the list of Workloads.
+  init: |
+    name: {{ splitList "." .Id | last }}
+  outputs: |
+    {{ $w := (index .WorkloadServices .Init.name) }}
+    {{ if or (not $w) (not $w.ServiceName) }}{{ fail "unknown workload" }}{{ end }}
+    name: {{ $w.ServiceName | quote }}
+  expected_outputs: 
+    - name

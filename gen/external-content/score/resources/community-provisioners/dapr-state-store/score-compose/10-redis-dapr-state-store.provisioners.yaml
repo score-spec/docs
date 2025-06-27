@@ -1,0 +1,59 @@
+- uri: template://community-provisioners/redis-dapr-state-store
+  type: dapr-state-store
+  description: Generates a Dapr StateStore Component pointing to a Redis Service.
+  init: |
+    port: 6379
+    randomServiceName: redis-{{ randAlphaNum 6 }}
+    randomPassword: {{ randAlphaNum 16 | quote }}
+  state: |
+    serviceName: {{ dig "serviceName" .Init.randomServiceName .State | quote }}
+    password: {{ dig "password" .Init.randomPassword .State | quote }}
+  outputs: |
+    name: {{ .State.serviceName }}
+  expected_outputs:
+    - name
+  files: |
+    components/{{ .State.serviceName }}.yaml: |
+      apiVersion: dapr.io/v1alpha1
+      kind: Component
+      metadata:
+        name: {{ .State.serviceName }}
+      spec:
+        type: state.redis
+        version: v1
+        metadata:
+        - name: redisHost
+          value: {{ .State.serviceName }}:{{ .Init.port }}
+        - name: redisPassword
+          value: {{ .State.password }}
+    {{ .State.serviceName }}/redis.conf: |
+      requirepass {{ .State.password }}
+      port {{ .Init.port }}
+      save 60 1
+      loglevel warning
+  volumes: |
+    {{ .State.serviceName }}-data:
+      name: {{ .State.serviceName }}-data
+      driver: local
+      labels:
+        dev.score.compose.res.uid: {{ .Uid }}
+  services: |
+    {{ .State.serviceName }}:
+      labels:
+        dev.score.compose.res.uid: {{ .Uid }}
+      image: mirror.gcr.io/redis:7-alpine
+      restart: always
+      entrypoint: ["redis-server"]
+      command: ["/usr/local/etc/redis/redis.conf"]
+      volumes:
+      - type: bind
+        source: {{ .MountsDirectory }}/{{ .State.serviceName }}/redis.conf
+        target: /usr/local/etc/redis/redis.conf
+        read_only: true
+      - type: volume
+        source: {{ .State.serviceName }}-data
+        target: /data
+        volume:
+          nocopy: true
+  info_logs: |
+    - "{{.Uid}}: To connect to redis: \"docker run -it --network {{ .ComposeProjectName }}_default --rm redis redis-cli -h {{ .State.serviceName | squote }} -a {{ .State.password | squote }}\""
