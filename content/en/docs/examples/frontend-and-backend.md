@@ -24,7 +24,9 @@ flowchart TD
 
 ## Score files
 
-Open your IDE and paste in the following `score-frontend.yaml` file, which describes the containerized Nginx Frontend application exposed via a DNS that contact a Backend application on each request. The demo code can be found [here](https://github.com/mathieu-benoit/deploy-backstage-with-score).
+We will describe each containerized application with its own Score file for each. The demo code can be found [here](https://github.com/mathieu-benoit/deploy-backstage-with-score).
+
+Open your IDE and paste in the following `score-frontend.yaml` file, which describes the containerized Nginx Frontend application exposed via a DNS that contact a Backend application on each request.
 
 ```yaml
 apiVersion: score.dev/v1b1
