@@ -30,8 +30,6 @@ Open your IDE and paste in the following `score-frontend.yaml` file, which descr
 apiVersion: score.dev/v1b1
 metadata:
   name: frontend
-  annotations:
-    tags: "nginx,javascript,html,css,website"
 containers:
   frontend:
     image: .
@@ -116,6 +114,8 @@ resources:
       path: /api
       port: 7007
 ```
+
+The `id: dns` part under the `dns` resources in both Score files allow to generate a shared `dns` between both `frontend` and `backend` Workloads.
 
 ## Deployment with `score-compose` and `score-k8s`
 
