@@ -46,7 +46,7 @@ By using the [`--patch-templates`](/docs/score-implementation/score-compose/patc
 
 ## `generate`
 
-Convert the `score.yaml` file into a runnable `manifests.yaml`, run the following command in your terminal:
+Convert the `score.yaml` file into a deployable `manifests.yaml`, run the following command in your terminal:
 
 ```bash
 score-k8s generate score.yaml --image nginxinc/nginx-unprivileged:alpine-slim

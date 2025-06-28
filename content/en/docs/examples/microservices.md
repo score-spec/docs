@@ -112,7 +112,7 @@ resources:
     type: service
 ```
 
-The following `score-cart.yaml` file, which describes the `cart` containerized application exposed via a DNS that queries different other applications on each request:
+The following `score-cart.yaml` file describes the `cart` containerized application talking to a Redis database:
 
 ```yaml
 apiVersion: score.dev/v1b1

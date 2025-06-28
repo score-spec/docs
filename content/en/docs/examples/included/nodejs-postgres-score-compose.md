@@ -43,7 +43,7 @@ The Score file example illustrated uses three resource types: `postgres`, `dns` 
 
 ## `generate`
 
-Convert the `score.yaml` file into a runnable `compose.yaml`, run the following command in your terminal:
+Convert the `score.yaml` file into a deployable `compose.yaml`, run the following command in your terminal:
 
 ```bash
 score-compose generate score.yaml --image ghcr.io/score-spec/sample-score-app:latest

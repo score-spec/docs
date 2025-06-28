@@ -48,7 +48,7 @@ The Score files illustrated use three resource types: `dns`, `route`, `redis` an
 
 ## `generate`
 
-Convert the `score-*.yaml` files into a runnable `manifests.yaml`, run the following command in your terminal:
+Convert the `score-*.yaml` files into a deployable `manifests.yaml`, run the following command in your terminal:
 
 ```bash
 score-k8s generate score-cart.yaml \
