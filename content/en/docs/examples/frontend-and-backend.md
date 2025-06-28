@@ -14,9 +14,11 @@ flowchart TD
     dns[DNS] --> frontend-workload(Frontend)
     dns[DNS] --> backend-workload(Backend)
     subgraph Workloads
-        frontend-workload -.-> dns
-        dns -.-> backend-workload
+        frontend-workload
+        backend-workload
     end
+    frontend-workload -.-> dns
+    dns -.-> backend-workload
     backend-workload-->postgres[(PostgreSQL)]
 ```
 
