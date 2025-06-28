@@ -16,7 +16,7 @@ score-compose init --no-sample \
     --provisioners https://raw.githubusercontent.com/score-spec/community-provisioners/refs/heads/main/dns/score-compose/10-dns-with-url.provisioners.yaml
 ```
 
-The `init` command will create the `.score-compose` directory with the [default resource provisioners]({{< relref "/docs/score-implementation/score-compose/resources-provisioners/" >}}) available. We are also importing one external file to support the `dns` dependencies: [`dns` provisioner](https://github.com/score-spec/community-provisioners/blob/main/service/score-compose/10-dns-with-url.provisioners.yaml).
+The `init` command will create the `.score-compose` directory with the [default resource provisioners]({{< relref "/docs/score-implementation/score-compose/resources-provisioners/" >}}) available. We are also importing one external file to support the `dns` dependencies: [`dns` provisioner](https://github.com/score-spec/community-provisioners/blob/main/dns/score-compose/10-dns-with-url.provisioners.yaml).
 
 You can see the resource provisioners available by running this command:
 
@@ -44,7 +44,7 @@ The Score file example illustrated uses three resource types: `postgres-instance
 
 ## `generate`
 
-Convert the `score.yaml` file into a runnable `compose.yaml`, run the following command in your terminal:
+Convert the `score.yaml` file into a deployable `compose.yaml`, run the following command in your terminal:
 
 ```bash
 score-compose generate score.yaml --image ghcr.io/mathieu-benoit/backstage:latest

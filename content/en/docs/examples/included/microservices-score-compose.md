@@ -48,7 +48,7 @@ The Score files illustrated use four resource types: `dns`, `redis`, `route` and
 
 ## `generate`
 
-Convert the `score-*.yaml` files into a runnable `compose.yaml`, run the following commands in your terminal:
+Convert the `score-*.yaml` files into a deployable `compose.yaml`, run the following commands in your terminal:
 
 ```bash
 score-compose generate score-cart.yaml \

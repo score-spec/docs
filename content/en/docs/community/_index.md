@@ -42,6 +42,7 @@ We host [regular community meetings](https://github.com/score-spec/spec?tab=read
 
 ## Read external blog posts about Score
 
+- [Generate your Backstage software catalog files with Score](https://medium.com/@mabenoit/generate-your-backstage-software-catalog-files-with-score-b62aa33e8ecc)
 - [Deploy Backstage with Score](https://medium.com/@mabenoit/deploy-backstage-with-score-45bb2d7c2d90)
 - [Stop Building Platforms Nobody Uses: Pick the Right Kubernetes Abstraction with GitOps](https://itnext.io/stop-building-platforms-nobody-uses-pick-the-right-kubernetes-abstraction-with-gitops-64681357690f)
 - [From CI to Kubernetes Catalog: Building a Composable Platform with GitOps and vCluster](https://itnext.io/from-ci-to-kubernetes-catalog-building-a-composable-platform-with-gitops-and-vcluster-7e1decaa81da)

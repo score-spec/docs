@@ -47,7 +47,7 @@ By using the [`--patch-templates`](/docs/score-implementation/score-compose/patc
 
 ## `generate`
 
-Convert the `score.yaml` file into a runnable `compose.yaml`, run the following command in your terminal:
+Convert the `score.yaml` file into a deployable `compose.yaml`, run the following command in your terminal:
 
 ```bash
 score-compose generate score.yaml --image ghcr.io/dapr/samples/hello-k8s-node:latest
