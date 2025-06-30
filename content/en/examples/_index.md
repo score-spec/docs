@@ -17,17 +17,12 @@ Explore a curated set of example files covering a range of entities for working 
 
 {{< grid columns="3">}}
 
-{{< multi-link-card title="Score" >}}
-{{< link-card-item text="Some teaser text on Score examples. Some teaser text on Score examples. Some teaser text on Score examples" url="/examples/score" linkLabel="Get examples" >}}
-{{< link-card-item text="Some teaser text on contributing to Score examples. Some teaser text on contributing to Score examples." url="/contribute/score" linkLabel="Get involved" >}}
+{{< multi-link-card title="Score specification and resources" >}}
+{{< link-card-item text="Find some Score files examples illustrating how to use the Score specication as well as how use the provisioners with both `score-compose` and `score-k8s`." url="/examples/score" linkLabel="Get examples" >}}
 {{< /multi-link-card >}}
 
-{{< multi-link-card title="Provisioners" >}}
-{{< link-card-item text="Coming soon..." >}}
-{{< /multi-link-card >}}
-
-{{< multi-link-card title="Patch templates" >}}
-{{< link-card-item text="Coming soon..." >}}
+{{< multi-link-card title="More examples" >}}
+{{< link-card-item text="Find more advanced examples illustrating how to deploy a NodeJS application talking to a PostgreSQL database, how to deploy Backstage and Nginx, how to use Dapr with your workloads, etc." url="/docs/examples" linkLabel="Get examples" >}}
 {{< /multi-link-card >}}
 
 {{< /grid >}}
