@@ -1,5 +1,5 @@
 /public
-/resources/
+/resources
 node_modules/
 package-lock.json
 .hugo_build.lock
@@ -8,6 +8,5 @@ package-lock.json
 ./static/_pagefind
 .score-compose/
 compose.yaml
-.prettierignore
 .score-k8s/
 manifests.yaml

@@ -123,8 +123,6 @@ yarn gen-get-external-content
 
 Refer to the [package.json`](./package.json) to see the actual implementation of this command.
 
-## Exam
-
 ## Troubleshooting documentation site builds
 
 This section covers common build issues with Hugo.
