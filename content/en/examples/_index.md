@@ -18,7 +18,7 @@ Explore a curated set of example files covering a range of entities for working 
 {{< grid columns="3">}}
 
 {{< multi-link-card title="Score specification and resources" >}}
-{{< link-card-item text="Find some Score files examples illustrating how to use the Score specication as well as how use the provisioners with both `score-compose` and `score-k8s`." url="/examples/score" linkLabel="Get examples" >}}
+{{< link-card-item text="Find some Score files examples illustrating how to use the Score specification as well as how to use the resources provisioners with both `score-compose` and `score-k8s`." url="/examples/score" linkLabel="Get examples" >}}
 {{< /multi-link-card >}}
 
 {{< multi-link-card title="More examples" >}}
