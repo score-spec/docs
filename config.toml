@@ -11,6 +11,12 @@ enableMissingTranslationPlaceholders = true
 
 enableRobotsTXT = true
 
+# Will give values to .Lastmod etc.
+enableGitInfo = true
+
+# Comment out to enable taxonomies in Docsy
+disableKinds = []
+
 [menus]
 [[menus.main]]
   name = "Documentation"
@@ -21,12 +27,6 @@ enableRobotsTXT = true
   name = "Examples"
   url = "/examples"
   weight = 2
-
-# Will give values to .Lastmod etc.
-enableGitInfo = true
-
-# Comment out to enable taxonomies in Docsy
-disableKinds = []
 
 # You can add your own taxonomies
 [taxonomies]
