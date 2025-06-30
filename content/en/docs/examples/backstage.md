@@ -75,6 +75,7 @@ From here, we will now see how to deploy this exact same Score file with either 
 
 ## Next steps
 
+- [**Deploy this Backstage application into two different Frontend and Backend applications**](/docs/examples/frontend-and-backend.md): Follow the same example where this Backstage application is broken down into two containerized applications: Frontend & Backend.
 - [**Deep dive with the associated step-by-step guide**](https://medium.com/@mabenoit/deploy-backstage-with-score-45bb2d7c2d90): Go through the associated step-by-step guide to understand the different concepts with both: Backstage and Score.
 - [**Explore more examples**](/docs/examples/): Check out more examples to dive into further use cases and experiment with different configurations.
 - [**Join the Score community**]({{< relref "/docs/community" >}}): Connect with fellow Score developers on our CNCF Slack channel or start find your way to contribute to Score.

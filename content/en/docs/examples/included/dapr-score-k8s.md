@@ -44,7 +44,7 @@ The Score file example illustrated uses three resource types: `dapr-state-store`
 
 ## `generate`
 
-Convert the `score.yaml` file into a runnable `manifests.yaml`, run the following command in your terminal:
+Convert the `score.yaml` file into a deployable `manifests.yaml`, run the following command in your terminal:
 
 ```bash
 score-k8s generate score.yaml --image ghcr.io/dapr/samples/hello-k8s-node:latest
