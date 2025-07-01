@@ -13,26 +13,25 @@ parent: "Specification"
 
 {{< tabs >}}
 {{% tab name="score-compose" %}}
-
-## Initialize your local workspace
+Initialize your local workspace
 
 ```bash
 score-compose init
 ```
 
-## Generate the platform specific manifests
+Generate the platform specific manifests
 
 ```bash
 score-compose generate score.yaml --image busybox
 ```
 
-## Deploy the generated manifests
+Deploy the generated manifests
 
 ```bash
 docker compose up -d
 ```
 
-## See the running containers
+See the running containers
 
 ```bash
 docker ps
@@ -40,26 +39,25 @@ docker ps
 
 {{%/ tab %}}
 {{% tab name="score-k8s" %}}
-
-## Initialize your local workspace
+Initialize your local workspace
 
 ```bash
 score-k8s init
 ```
 
-## Generate the platform specific manifests
+Generate the platform specific manifests
 
 ```bash
 score-k8s generate score.yaml --image busybox
 ```
 
-## Deploy the generated manifests
+Deploy the generated manifests
 
 ```bash
 kubectl apply -f manifests.yaml
 ```
 
-## See the running containers
+See the running containers
 
 ```bash
 kubectl get all
