@@ -49,13 +49,10 @@ containers:
 
 **3.** Run the following command to override the default arguments with the contents of the `overrides.score.yaml` file.
 
-```bash
-score-compose generate score.yaml --overrides-file overrides.score.yaml
-```
-
-```bash
-score-k8s generate score.yaml --overrides-file overrides.score.yaml
-```
+{{< tabs name="overrides-file">}}
+{{< tab name="score-compose" include="./included/overrides-file-score-compose.md" />}}
+{{< tab name="score-k8s" include="./included/overrides-file-score-k8s.md" />}}
+{{< /tabs >}}
 
 ## Overrides CLI flag
 
@@ -67,22 +64,16 @@ Use the `--override-property` flag and specify the path to the property and the 
 
 For example, the following looks for the `containers.my-service.image` property and overrides the default image name with a value of `python3`.
 
-```bash
-score-compose run -f score.yaml --override-property containers.my-service.image=python3
-```
-
-```bash
-score-k8s run -f score.yaml --override-property containers.my-service.image=python3
-```
+{{< tabs name="overrides-property">}}
+{{< tab name="score-compose" include="./included/overrides-property-score-compose.md" />}}
+{{< tab name="score-k8s" include="./included/overrides-property-score-k8s.md" />}}
+{{< /tabs >}}
 
 ### How to remove a property
 
 Set the path of the property to an empty value to remove the property.
 
-```bash
-score-compose run -f score.yaml --override-property metadata.my-service=
-```
-
-```bash
-score-k8s run -f score.yaml --override-property metadata.my-service=
-```
+{{< tabs name="overrides-property-empty">}}
+{{< tab name="score-compose" include="./included/overrides-property-empty-score-compose.md" />}}
+{{< tab name="score-k8s" include="./included/overrides-property-empty-score-k8s.md" />}}
+{{< /tabs >}}

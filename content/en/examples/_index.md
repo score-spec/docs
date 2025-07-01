@@ -22,7 +22,7 @@ Explore a curated set of example files covering a range of entities for working 
 {{< /multi-link-card >}}
 
 {{< multi-link-card title="More examples" >}}
-{{< link-card-item text="Find more advanced examples illustrating how to deploy a NodeJS application talking to a PostgreSQL database, how to deploy Backstage and Nginx, how to use Dapr with your workloads, etc." url="/docs/examples" linkLabel="Get examples" >}}
+{{< link-card-item text="Find more advanced examples illustrating how to deploy a NodeJS application talking to a PostgreSQL database, how to deploy Backstage and Nginx, how to use Dapr with your workloads, etc. with both `score-compose` and `score-k8s`." url="/docs/examples" linkLabel="Get examples" >}}
 {{< /multi-link-card >}}
 
 {{< /grid >}}
