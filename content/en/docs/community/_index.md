@@ -18,7 +18,7 @@ aliases:
 
 Score is open-source and a [Cloud Native Computing Foundation (CNCF) Sandbox project](https://www.cncf.io/projects/score/)!
 
-Connect with fellow Score developers on our [Slack](https://cloud-native.slack.com/archives/C07DN0D1UCW) channel on the CNCF Slack (<https://slack.cncf.io/>) or start find your way to [contribute to Score](https://github.com/score-spec/spec/blob/main/CONTRIBUTING.md)!
+Connect with fellow Score developers on our [Slack](https://cloud-native.slack.com/archives/C07DN0D1UCW) channel on the CNCF Slack ([slack.cncf.io](https://slack.cncf.io/)) or start find your way to [contribute to Score](https://github.com/score-spec/spec/blob/main/CONTRIBUTING.md)!
 
 Got something to say or ask about Score? [We're all ears](https://github.com/score-spec/spec/discussions)! We’d love to discuss your ideas on where the project should go next or how we can improve.
 
