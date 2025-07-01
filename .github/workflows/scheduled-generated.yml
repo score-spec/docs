@@ -38,4 +38,4 @@ jobs:
           body: |
             Update generated content.
           branch: update-generated
-          team-reviewers: "Docs"
+          team-reviewers: "common-reviewers"
