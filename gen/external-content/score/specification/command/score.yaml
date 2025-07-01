@@ -1,0 +1,8 @@
+apiVersion: score.dev/v1b1
+metadata:
+  name: my-workload
+containers:
+  demo:
+    image: busybox
+    command: ["/bin/sh"]
+    args: ["-c", "while true; do echo Hello command; sleep 5; done"]

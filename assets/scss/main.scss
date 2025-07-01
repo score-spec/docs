@@ -10,6 +10,7 @@
 @import "../vendor/Font-Awesome/scss/regular.scss";
 @import "../vendor/Font-Awesome/scss/brands.scss";
 
+@import "global";
 @import "support/utilities";
 @import "colors";
 @import "boxes";
@@ -30,6 +31,11 @@
 @import "taxonomy";
 @import "drawio";
 @import "fonts";
+@import "examples";
+
+@import "components/cards";
+@import "components/code";
+@import "components/tabs";
 
 @if $td-enable-google-fonts {
   @import url($web-font-path);
@@ -66,6 +72,7 @@ footer {
 
 @import "rtl/main";
 @import "styles_project";
+@import "navbar_project";
 
 .breadcrumb {
   padding: 0;

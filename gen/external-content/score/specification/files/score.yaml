@@ -1,0 +1,17 @@
+apiVersion: score.dev/v1b1
+metadata:
+  name: my-workload
+containers:
+  my-container:
+    image: busybox
+    command: ["/bin/sh"]
+    args: ["-c", "while true; do cat /fileA.txt; cat /fileB.txt; cat /fileC.bin; sleep 5; done"]
+    files:
+      /fileA.txt:
+        mode: "0644"
+        source: fileA.txt
+      /fileB.txt:
+        content: |
+          I am fileB!
+      /fileC.bin:
+        binaryContent: aGVsbG8gd29ybGQ=

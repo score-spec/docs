@@ -1,0 +1,15 @@
+- uri: cmd://bash#dns-in-codespace
+  type: dns
+  description: Get the forwarded port URL in current GitHub Codespace on port 80
+  args:
+  - -c
+  - |
+    set -eu -o pipefail
+    CODESPACE_NAME=$(gh codespace view --json name | jq -r .name)
+    HOST=${CODESPACE_NAME}-80.app.github.dev
+    URL=https://${HOST}
+    OUTPUTS='{"resource_outputs":{"host":"%s", "url":"%s"},"manifests":[]}'
+    printf "$OUTPUTS" "$HOST" "$URL"
+  expected_outputs:
+    - host
+    - url

@@ -1,0 +1,16 @@
+apiVersion: score.dev/v1b1
+metadata:
+  name: my-workload
+containers:
+  my-container:
+    image: busybox
+    command: ["/bin/sh"]
+    args: ["-c", "while true; do echo $REDIS_HOST; sleep 5; done"]
+    variables:
+      REDIS_HOST: ${resources.my-redis.host}
+      REDIS_PORT: ${resources.my-redis.port}
+      REDIS_USERNAME: ${resources.my-redis.username}
+      REDIS_PASSWORD: ${resources.my-redis.password}
+resources:
+  my-redis:
+    type: redis

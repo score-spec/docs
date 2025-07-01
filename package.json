@@ -20,13 +20,17 @@
   "dependencies": {
     "@popperjs/core": "^2.11.8",
     "autoprefixer": "^10.4.21",
+    "clipboard": "^2.0.11",
     "dprint": "^0.50.0",
+    "gray-matter": "^4.0.3",
+    "hcl2-parser": "^1.0.3",
     "html-hint": "^0.2.4",
     "hugo-cli": "^0.14.0",
     "hugo-extended": "^0.123.8",
     "lunr": "^2.3.9",
     "postcss": "^8.5.6",
-    "postcss-cli": "^11.0.1"
+    "postcss-cli": "^11.0.1",
+    "toml": "^3.0.0"
   },
   "description": "Score technical documentation.",
   "devDependencies": {},
@@ -42,7 +46,13 @@
     "build": "hugo server",
     "draft": "hugo server --buildDrafts",
     "fmt": "dprint fmt",
-    "lint": "vale content/en/docs/**/* && dprint check"
+    "lint": "vale content/en/docs/**/* && dprint check",
+    "gen-all": "yarn gen-get-external-content && yarn gen-example-pages",
+    "gen-get-external-content": "yarn gen-score-specification && yarn gen-score-resources-default-provisioners && yarn gen-score-resources-community-provisioners",
+    "gen-score-specification": "git rm -rfq gen/external-content/score/specification && git read-tree --prefix=gen/external-content/score/specification -u examples/main:specification",
+    "gen-score-resources-default-provisioners": "git rm -rfq gen/external-content/score/resources/default-provisioners && git read-tree --prefix=gen/external-content/score/resources/default-provisioners -u examples/main:resources",
+    "gen-score-resources-community-provisioners": "git rm -rfq gen/external-content/score/resources/community-provisioners && git read-tree --prefix=gen/external-content/score/resources/community-provisioners -u community-provisioners/main",
+    "gen-example-pages": "node ./gen/examples-site/gen-example-pages.js ./gen/external-content && yarn fmt"
   },
   "version": "0.0.1"
 }
