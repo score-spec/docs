@@ -14,6 +14,12 @@ flavor: "Resources"
 
 {{< tabs >}}
 {{% tab name="score-compose" %}}
+{{% example-file filename="10-dns-in-codespace.provisioners.yaml" dir="score/resources/community-provisioners/dns/score-compose" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% example-file filename="10-dns-with-url.provisioners.yaml" dir="score/resources/community-provisioners/dns/score-compose" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% example-file filename="README.md" dir="score/resources/community-provisioners/dns/score-compose" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+
+---
+
 Initialize your local workspace, by importing a specific community provisioner:
 
 ```bash
@@ -58,11 +64,14 @@ See the running containers:
 docker ps
 ```
 
-{{% example-file filename="10-dns-in-codespace.provisioners.yaml" dir="score/resources/community-provisioners/dns/score-compose" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
-{{% example-file filename="10-dns-with-url.provisioners.yaml" dir="score/resources/community-provisioners/dns/score-compose" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
-{{% example-file filename="README.md" dir="score/resources/community-provisioners/dns/score-compose" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
 {{%/ tab %}}
 {{% tab name="score-k8s" %}}
+{{% example-file filename="10-dns-in-codespace.provisioners.yaml" dir="score/resources/community-provisioners/dns/score-k8s" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% example-file filename="10-dns-with-url.provisioners.yaml" dir="score/resources/community-provisioners/dns/score-k8s" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% example-file filename="README.md" dir="score/resources/community-provisioners/dns/score-k8s" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+
+---
+
 Initialize your local workspace, by importing a specific community provisioner:
 
 ```bash
@@ -107,8 +116,5 @@ See the running containers:
 kubectl get all
 ```
 
-{{% example-file filename="10-dns-in-codespace.provisioners.yaml" dir="score/resources/community-provisioners/dns/score-k8s" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
-{{% example-file filename="10-dns-with-url.provisioners.yaml" dir="score/resources/community-provisioners/dns/score-k8s" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
-{{% example-file filename="README.md" dir="score/resources/community-provisioners/dns/score-k8s" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
 {{%/ tab %}}
 {{< /tabs >}}

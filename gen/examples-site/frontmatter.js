@@ -136,15 +136,15 @@ const generateTabs = (
         if (!tabsMap.has(dirName)) {
           tabsMap.set(dirName, { readmeContent: "", directoryContent: "" });
         }
-        tabsMap.get(dirName).directoryContent = directoryContent;
+        tabsMap.get(dirName).directoryContent = directoryContent + "\n\n---\n";
       }
     });
   }
 
-  // Generate tabs content by combining README and directory content
+  // Generate tabs content by combining directory content and README
   const tabsContent = Array.from(tabsMap.entries())
-    .map(([tabName, { readmeContent, directoryContent }]) => {
-      const combinedContent = [readmeContent, directoryContent]
+    .map(([tabName, { directoryContent, readmeContent }]) => {
+      const combinedContent = [directoryContent, readmeContent]
         .filter((content) => content.trim() !== "")
         .join("\n\n");
 
