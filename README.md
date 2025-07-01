@@ -113,6 +113,12 @@ git commit -s -S -m "Integrating external content"
 
 These commands will not have to be repeated unless re-creating the repo integration, or moving the source location. In that case, remove the `remote`, delete the local contents, repeat these commands targeting the new location, and update the generation scripts.
 
+To generate the example hub pages based on the external content, execute this command:
+
+```bash
+yarn gen-example-pages
+```
+
 ### Pulling new content
 
 To pull the current content from the remote example library repo, execute this command:

@@ -17,6 +17,9 @@
       kind: Secret
       metadata:
         name: {{ .State.service }}
+        {{ if ne .Namespace "" }}
+        namespace: {{ .Namespace }}
+        {{ end }}
         annotations:
           k8s.score.dev/source-workload: {{ .SourceWorkload }}
           k8s.score.dev/resource-uid: {{ .Uid }}
@@ -32,6 +35,9 @@
       kind: StatefulSet
       metadata:
         name: {{ .State.service }}
+        {{ if ne .Namespace "" }}
+        namespace: {{ .Namespace }}
+        {{ end }}
         annotations:
           k8s.score.dev/source-workload: {{ .SourceWorkload }}
           k8s.score.dev/resource-uid: {{ .Uid }}
@@ -116,6 +122,9 @@
       kind: Service
       metadata:
         name: {{ .State.service }}
+        {{ if ne .Namespace "" }}
+        namespace: {{ .Namespace }}
+        {{ end }}
         annotations:
           k8s.score.dev/source-workload: {{ .SourceWorkload }}
           k8s.score.dev/resource-uid: {{ .Uid }}
@@ -135,6 +144,9 @@
       kind: Component
       metadata:
         name: {{ .State.service }}
+        {{ if ne .Namespace "" }}
+        namespace: {{ .Namespace }}
+        {{ end }}
       spec:
         type: state.redis
         version: v1

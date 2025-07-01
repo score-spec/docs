@@ -5,7 +5,7 @@ containers:
   my-container:
     image: ghcr.io/stefanprodan/podinfo:latest
     variables:
-      PODINFO_UI_MESSAGE: "Hello, ${resources.dns.host}!"
+      PODINFO_UI_MESSAGE: "Hello, ${resources.dns.url}!"
 resources:
   dns:
     type: dns

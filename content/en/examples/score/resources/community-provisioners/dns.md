@@ -1,5 +1,5 @@
 ---
-title: "Horizontal Pod Autoscaler"
+title: "Dns"
 draft: false
 mermaid: true
 type: examples
@@ -10,7 +10,7 @@ flavor: "Resources"
 
 ---
 
-{{% example-file filename="score.yaml" dir="score/resources/community-provisioners/horizontal-pod-autoscaler" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% example-file filename="score.yaml" dir="score/resources/community-provisioners/dns" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
 
 {{< tabs >}}
 {{% tab name="score-compose" %}}
@@ -58,7 +58,9 @@ See the running containers:
 docker ps
 ```
 
-{{% example-file filename="10-hpa.provisioners.yaml" dir="score/resources/community-provisioners/horizontal-pod-autoscaler/score-compose" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% example-file filename="10-dns-in-codespace.provisioners.yaml" dir="score/resources/community-provisioners/dns/score-compose" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% example-file filename="10-dns-with-url.provisioners.yaml" dir="score/resources/community-provisioners/dns/score-compose" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% example-file filename="README.md" dir="score/resources/community-provisioners/dns/score-compose" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
 {{%/ tab %}}
 {{% tab name="score-k8s" %}}
 Initialize your local workspace, by importing a specific community provisioner:
@@ -105,6 +107,8 @@ See the running containers:
 kubectl get all
 ```
 
-{{% example-file filename="10-hpa.provisioners.yaml" dir="score/resources/community-provisioners/horizontal-pod-autoscaler/score-k8s" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% example-file filename="10-dns-in-codespace.provisioners.yaml" dir="score/resources/community-provisioners/dns/score-k8s" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% example-file filename="10-dns-with-url.provisioners.yaml" dir="score/resources/community-provisioners/dns/score-k8s" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% example-file filename="README.md" dir="score/resources/community-provisioners/dns/score-k8s" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
 {{%/ tab %}}
 {{< /tabs >}}

@@ -14,10 +14,13 @@ do
     for provisioner in $provisioners;
     do
       echo "###### With ${provisioner}:"
-      ${implementation%?} init --no-sample --provisioners $provisioner
-      export NAMESPACE=default
-      ${implementation%?} generate $(ls score*.yaml)
-      rm -r .${implementation%?}
+      if [[ "$provisioner" = "score-compose/10-dns-in-codespace.provisioners.yaml" || "$provisioner" = "score-k8s/10-dns-in-codespace.provisioners.yaml" ]]; then
+        echo "Skipped."
+      else
+        ${implementation%?} init --no-sample --provisioners $provisioner
+        ${implementation%?} generate $(ls score*.yaml)
+        rm -r .${implementation%?}
+      fi
     done
   done
   cd ..

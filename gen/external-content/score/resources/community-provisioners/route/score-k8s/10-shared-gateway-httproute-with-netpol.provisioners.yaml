@@ -1,6 +1,6 @@
-- uri: template://community-provisioners/route-with-shared-gateway
+- uri: template://community-provisioners/route-with-shared-gateway-with-netpol
   type: route
-  description: Generates an HTTPRoute attached to a default Gateway in default Namespace.
+  description: Generates an HTTPRoute attached to a default Gateway in default Namespace, and a NetworkPolicy between them.
   supported_params:
     - path
     - host
@@ -12,6 +12,7 @@
     {{ if not $ports }}{{ fail "no service ports exist" }}{{ end }}
     {{ $port := index $ports (print .Params.port) }}
     {{ if not $port.TargetPort }}{{ fail "params.port is not a named service port" }}{{ end }}
+    targetPort: {{ $port.TargetPort }}
     gatewayNamespace: default
     gatewayName: default
   state: |
@@ -21,9 +22,6 @@
       kind: HTTPRoute
       metadata:
         name: {{ .State.routeName }}
-        {{ if ne .Namespace "" }}
-        namespace: {{ .Namespace }}
-        {{ end }}
         annotations:
           k8s.score.dev/source-workload: {{ .SourceWorkload }}
           k8s.score.dev/resource-uid: {{ .Uid }}
@@ -46,3 +44,24 @@
           backendRefs:
           - name: {{ (index .WorkloadServices .SourceWorkload).ServiceName }}
             port: {{ .Params.port }}
+    - apiVersion: networking.k8s.io/v1
+      kind: NetworkPolicy
+      metadata:
+        name: gateway-to-{{ .SourceWorkload }}
+      spec:
+        podSelector:
+          matchLabels:
+            app.kubernetes.io/name: {{ .SourceWorkload }}
+        policyTypes:
+          - Ingress
+        ingress:
+        - from:
+          - namespaceSelector:
+              matchLabels:
+                kubernetes.io/metadata.name: nginx-gateway
+            podSelector:
+              matchLabels:
+                app.kubernetes.io/name: nginx-gateway-fabric
+          ports:
+          - protocol: TCP
+            port: {{ .Init.targetPort }}

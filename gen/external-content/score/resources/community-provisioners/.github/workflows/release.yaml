@@ -22,7 +22,7 @@ jobs:
             cp $provisioner compose/
           done
           cd compose/
-          oras push ghcr.io/${{ github.repository_owner }}/score-compose-community-provisioners:${{ github.ref_name }},latest $(ls compose/)
+          oras push ghcr.io/${{ github.repository_owner }}/score-compose-community-provisioners:${{ github.ref_name }},latest $(ls .)
       - name: oras push score-k8s
         run: |
           mkdir k8s
@@ -32,4 +32,4 @@ jobs:
             cp $provisioner k8s/
           done
           cd k8s/
-          oras push ghcr.io/${{ github.repository_owner }}/score-k8s-community-provisioners:${{ github.ref_name }},latest $(ls k8s/)
+          oras push ghcr.io/${{ github.repository_owner }}/score-k8s-community-provisioners:${{ github.ref_name }},latest $(ls .)

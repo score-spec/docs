@@ -1,0 +1,13 @@
+- uri: template://community-provisioners/dns-with-route
+  type: dns
+  description: Outputs a *.localhost domain as the hostname and associated URL in http on port 8080
+  init: |
+    randomHostname: dns{{ randAlphaNum 6 | lower }}.localhost
+  state: |
+    instanceHostname: {{ dig "instanceHostname" .Init.randomHostname .State | quote }}
+  outputs: |
+    host: {{ .State.instanceHostname }}
+    url: http://{{ .State.instanceHostname }}:8080
+  expected_outputs:
+    - host
+    - url

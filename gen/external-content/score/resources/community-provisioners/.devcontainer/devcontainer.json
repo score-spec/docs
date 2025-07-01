@@ -10,7 +10,8 @@
 			"version": "latest",
 			"helm": "latest",
 			"minikube": "latest"
-		}
+		},
+		"ghcr.io/devcontainers/features/github-cli:1": {}
 	},
 	"postCreateCommand": "bash .devcontainer/installMoreTools.sh",
 	"customizations": {

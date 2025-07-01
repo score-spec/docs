@@ -17,6 +17,9 @@
       kind: Subscription
       metadata:
         name: {{ .State.name }}
+        {{ if ne .Namespace "" }}
+        namespace: {{ .Namespace }}
+        {{ end }}
       spec:
         topic: {{ .Params.topic }}
         routes:
