@@ -1,0 +1,42 @@
+name: Update generated content
+on:
+  schedule:
+    - cron: "0 10 * * 1-5"
+  workflow_dispatch:
+  push: # uncomment to test this workflow
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+          cache: "npm"
+      - name: Install dependencies
+        run: yarn install
+      - name: Prepare to fetch external content
+        run: |
+          git remote add -f -t main --no-tags examples https://github.com/score-spec/examples.git
+          git remote add -f -t main --no-tags community-provisioners https://github.com/score-spec/community-provisioners.git
+
+          # Set github actions bot as the committer, see https://github.com/actions/checkout/pull/1184
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+      - name: Re-generate generated content
+        run: npm run gen-all
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GH_PAT }}
+          commit-message: "chore: update generated content"
+          title: Update generated content
+          body: |
+            Update generated content.
+          branch: update-generated
+          team-reviewers: "Docs"
