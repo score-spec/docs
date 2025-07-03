@@ -11,6 +11,10 @@ code {
   background: $bg-light;
   color: $black;
   padding: 0.25rem 0.5rem;
+
+  a > & {
+    background: none;
+  }
 }
 
 pre {
