@@ -1,7 +1,11 @@
-# Contribute to Score
-
-This is the starting point for becoming a contributor - improving code, improving docs, etc.
-Here are a few ways to get involved.
+---
+title: "Contribute to Score"
+linkTitle: "Contribute to Score"
+weight: 3
+description: >
+    This is the starting point for becoming a contributor - improving code, improving docs, etc.
+    Here are a few ways to get involved.
+---
 
 ## Contribute to the code
 Score is a diverse, open, and inclusive community.
@@ -50,7 +54,7 @@ Share your samples with the community.
 
 ## Learn and connect
 
-Using or want to use Knative? Have any questions? Find out more here:
+Using or want to use Score? Have any questions? Find out more here:
 
 - [Score](https://github.com/score-spec/spec/discussions):
 Ask questions or propose ideas.
