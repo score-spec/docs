@@ -131,5 +131,5 @@ From here, we will now see how to deploy these exact same Score files with eithe
 ## Next steps
 
 - [**Deep dive with the associated step-by-step guide**](https://medium.com/@mabenoit/deploy-backstage-with-score-45bb2d7c2d90): Go through the associated step-by-step guide to understand the different concepts with both: Backstage and Score.
-- [**Explore more examples**](/docs/examples/): Check out more examples to dive into further use cases and experiment with different configurations.
+- [**Explore more examples**](/examples/): Check out more examples to dive into further use cases and experiment with different configurations.
 - [**Join the Score community**]({{< relref "/docs/community" >}}): Connect with fellow Score developers on our CNCF Slack channel or start find your way to contribute to Score.

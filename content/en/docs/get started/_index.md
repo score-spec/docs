@@ -55,29 +55,7 @@ Initialize your current `score-compose` workspace, run the following command in 
 score-compose init --no-sample
 ```
 
-The `init` command will create the `.score-compose` directory with the [default resource provisioners]({{< relref "/docs/score-implementation/score-compose/resources-provisioners/" >}}) available. You can learn more about the resource provisioners available by running this command:
-
-```bash
-score-compose provisioners list
-```
-
-The Score file example illustrated uses three resource types: `postgres`, `dns` and `route`.
-
-```none
-+---------------+-------+------------------+--------------------------------+---------------------------------+
-|     TYPE      | CLASS |      PARAMS      |            OUTPUTS             |          DESCRIPTION            |
-+---------------+-------+------------------+--------------------------------+---------------------------------+
-| dns           | (any) |                  | host                           | Outputs a *.localhost domain    |
-|               |       |                  |                                | as the hostname                 |
-+---------------+-------+------------------+--------------------------------+---------------------------------+
-| postgres      | (any) |                  | database, host, name,          | Provisions a dedicated          |
-|               |       |                  | password, port, username       | database on a shared PostgreSQL |
-|               |       |                  |                                | instance                        |
-+---------------+-------+------------------+--------------------------------+---------------------------------+
-| route         | (any) | host, path, port |                                | Provisions an Ingress route on  |
-|               |       |                  |                                | a shared Nginx instance         |
-+---------------+-------+------------------+--------------------------------+---------------------------------+
-```
+The `init` command will create the `.score-compose` directory with the [default resource provisioners]({{< relref "/docs/score-implementation/score-compose/resources-provisioners/" >}}) available.
 
 ## 4. `score-compose generate`
 
@@ -89,69 +67,13 @@ score-compose generate score.yaml --image ghcr.io/score-spec/sample-app-gif:main
 
 The `generate` command will add the input `score.yaml` workload with a particular container image to the `.score-compose/state.yaml` state file and generate the output `compose.yaml`.
 
-If you want to build the container image when this `compose.yaml` will be deployed, you can run this `generate` command with the `--build` parameter instead:
-
-```bash
-score-compose generate score.yaml --build 'main={"context":".","tags":["sample-app-gif:local"]}'
-```
-
 See the generated `compose.yaml` by running this command:
 
 ```bash
 cat compose.yaml
 ```
 
-If you make any modifications to the `score.yaml` file, run `score-compose generate score.yaml` to regenerate the output `compose.yaml`.
-
-## 5. `score-compose resources`
-
-Get the information of the resources dependencies of the workload, run the following command:
-
-```bash
-score-compose resources list
-```
-
-```none
-+----------------------------+--------------------------------+
-|            UID             |            OUTPUTS             |
-+----------------------------+--------------------------------+
-| dns.default#sample.dns     | host                           |
-+----------------------------+--------------------------------+
-| postgres.default#sample.db | database, host, name,          |
-|                            | password, port, username       |
-+----------------------------+--------------------------------+
-| route.default#sample.route |                                |
-+----------------------------+--------------------------------+
-```
-
-At this stage, we can already see the value of the `dns` resource generated:
-
-```bash
-score-compose resources get-outputs dns.default#sample.dns --format '{{ .host }}'
-```
-
-```none
-dnsbcsqnd.localhost
-```
-
-Same for the `postgres` resource:
-
-```bash
-score-compose resources get-outputs postgres.default#sample.db
-```
-
-```none
-{
-  "database": "db-cHqToKGM",
-  "host": "pg-l1fFqm",
-  "name": "db-cHqToKGM",
-  "password": "REDACTED",
-  "port": 5432,
-  "username": "REDACTED"
-}
-```
-
-## 6. `docker compose up`
+## 5. `docker compose up`
 
 Run `docker compose up` to execute the generated `compose.yaml` file:
 
@@ -168,7 +90,7 @@ docker compose up -d
  ✔ Container test-sample-main-1         Started
 ```
 
-## 7. `docker ps`
+## 6. `docker ps`
 
 See the running containers:
 
@@ -183,12 +105,12 @@ e4bdd0126d97   mirror.gcr.io/postgres:17-alpine                "docker-entrypoin
 a03dfeea3371   mirror.gcr.io/nginx:1-alpine                    "/docker-entrypoint.…"   3 hours ago   Up About a minute             0.0.0.0:8080->80/tcp, [::]:8080->80/tcp   test-routing-avhAWY-1
 ```
 
-## 8. `curl localhost:8080`
+## 7. `curl localhost:8080`
 
 Test the running container, run the following command:
 
 ```bash
-curl localhost:8080 -H "Host: dnsbcsqnd.localhost"
+curl localhost:8080
 ```
 
 ```none
@@ -199,6 +121,5 @@ Congrats! You’ve successfully deploy your first Score file with the `score-com
 
 ## Next steps
 
-- [**Try other implementations**](/docs/score-implementation/): Continue by deploying the same Score file used in the example above via the `score-k8s` CLI to generate Kubernetes manifests.
-- [**Explore more examples**](/docs/examples/): Check out more examples to dive into further use cases and experiment with different configurations.
+- [**Explore more examples**](/examples/): Check out more examples to dive into further use cases and experiment with different configurations.
 - [**Join the Score community**]({{< relref "/docs/community" >}}): Connect with fellow Score developers on our CNCF Slack channel or start find your way to contribute to Score.
