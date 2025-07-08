@@ -11,6 +11,6 @@ aliases:
 - /docs/how-to/environment-variables/
 ---
 
-Explore a variety of examples of Score files illustrating different features from the Score specification as well as including resources provisioning. You can find these examples in our [examples library](https://github.com/score-spec/examples).
+Explore a variety of examples of Score files illustrating different features from the Score specification as well as including resources provisioning. You can find these examples in our [Examples Hub](/examples/).
 
-In addition to this, you can find more advanced and real-world scenarios in the list below:
+In addition to this, you can find more advanced and real-world scenarios in this list below:

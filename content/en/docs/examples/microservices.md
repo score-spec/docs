@@ -153,5 +153,5 @@ From here, we will now see how to deploy this exact same Score files with either
 
 ## Next steps
 
-- [**Explore more examples**](/docs/examples/): Check out more examples to dive into further use cases and experiment with different configurations.
+- [**Explore more examples**](/examples/): Check out more examples to dive into further use cases and experiment with different configurations.
 - [**Join the Score community**]({{< relref "/docs/community" >}}): Connect with fellow Score developers on our CNCF Slack channel or start find your way to contribute to Score.
