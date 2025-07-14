@@ -11,7 +11,7 @@ aliases:
 
 ## Overview
 
-If you're new to Score, we recommend starting with the [`score-compose`](/docs/score-implementation/score-compose) reference implementation. It provides an helpful blueprint for using Score and allows you to become familiar with the [Score specification](/docs/score-specification/score-spec-reference) before exploring further implementation options. `score-compose` is also great for local development and for building meaningful test steps into CI/CD pipelines.
+If you're new to Score, we recommend starting with the [`score-compose`](/docs/score-implementation/score-compose) reference implementation. It provides a helpful blueprint for using Score and allows you to become familiar with the [Score specification](/docs/score-specification/score-spec-reference) before exploring further implementation options. `score-compose` is also great for local development and for building meaningful test steps into CI/CD pipelines.
 
 ## 1. `score-compose`
 
