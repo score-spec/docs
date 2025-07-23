@@ -13,6 +13,35 @@
   }
 }
 
+/* Collapsible <details> styling */
+details {
+  margin: 1.2rem 0;
+  padding: 0.6rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+}
+
+details[open] {
+  background-color: #fefefe;
+  border-color: #999;
+}
+
+details summary {
+  font-weight: 600;
+  cursor: pointer;
+  margin: -0.4rem -1rem 0.6rem -1rem;
+  padding: 0.6rem 1rem;
+  background-color: #ececec;
+  border-radius: 6px 6px 0 0;
+  transition: background-color 0.2s ease;
+}
+
+details summary:hover {
+  background-color: #e2e2e2;
+}
+
+
 @media (min-width: 768px) {
   .td-404 main,
   .td-main main .examples-index-page {
