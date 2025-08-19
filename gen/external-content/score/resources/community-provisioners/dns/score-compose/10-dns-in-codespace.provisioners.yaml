@@ -10,6 +10,6 @@
     URL=https://${HOST}
     OUTPUTS='{"resource_outputs":{"host":"%s", "url":"%s"}}'
     printf "$OUTPUTS" "$HOST" "$URL"
-  #expected_outputs:
-  #  - host
-  #  - url
+  expected_outputs:
+    - host
+    - url
