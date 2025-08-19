@@ -38,5 +38,4 @@ jobs:
           body: |
             Update generated content.
           branch: update-generated
-          team-reviewers: "common-reviewers"
           signoff: true
