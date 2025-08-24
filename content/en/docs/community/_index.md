@@ -48,6 +48,7 @@ We host [regular community meetings](https://github.com/score-spec/spec?tab=read
 - [Deploy Backstage with Score](https://medium.com/@mabenoit/deploy-backstage-with-score-45bb2d7c2d90)
 - [Stop Building Platforms Nobody Uses: Pick the Right Kubernetes Abstraction with GitOps](https://itnext.io/stop-building-platforms-nobody-uses-pick-the-right-kubernetes-abstraction-with-gitops-64681357690f)
 - [From CI to Kubernetes Catalog: Building a Composable Platform with GitOps and vCluster](https://itnext.io/from-ci-to-kubernetes-catalog-building-a-composable-platform-with-gitops-and-vcluster-7e1decaa81da)
+- [Exploring Cloud Native projects in CNCF Sandbox. Part 3: 14 arrivals of 2024 H1](https://blog.palark.com/cncf-sandbox-2024-h1/)
 - [Descomplicando o Score (CNCF)](https://www.linkedin.com/pulse/descomplicando-o-score-cncf-clecio-antao-nyt3f/)
 - [Who’s Really Responsible for an Internal Developer Platform?](https://itnext.io/whos-really-responsible-for-an-internal-developer-platform-5dce5f2a0401)
 - [From Docker Compose to Score: A Platform Engineering Guide](https://waynegoosen.com/post/platform-engineering-transition-docker-compose-to-score-specification/)
