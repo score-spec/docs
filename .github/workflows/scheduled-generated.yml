@@ -11,7 +11,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 22.x
           cache: "npm"
@@ -38,4 +38,4 @@ jobs:
           body: |
             Update generated content.
           branch: update-generated
-          team-reviewers: "common-reviewers"
+          signoff: true

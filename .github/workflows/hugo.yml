@@ -23,7 +23,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
       - name: Set Node.js 20
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 20
       - name: Install yarn
@@ -42,7 +42,7 @@ jobs:
             --themesDir ../.. \
             --baseURL "${{ steps.pages.outputs.base_url }}"
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: ./public
   deploy:

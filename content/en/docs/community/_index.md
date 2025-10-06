@@ -42,13 +42,18 @@ We host [regular community meetings](https://github.com/score-spec/spec?tab=read
 
 ## Read external blog posts about Score
 
+- [Deploying Angular Apps with Score: Platform-Agnostic Workflows for Docker, Podman & Kubernetes](https://blog.cloudikeme.com/posts/deploy-angular-apps-with-score-to-docker-kubernetes/)
+- [Deploy WordPress with MySQL via Score](https://blog.cloudikeme.com/posts/deploy-wordpress-to-docker-with-score-compose/)
 - [Generate your Backstage software catalog files with Score](https://medium.com/@mabenoit/generate-your-backstage-software-catalog-files-with-score-b62aa33e8ecc)
 - [Deploy Backstage with Score](https://medium.com/@mabenoit/deploy-backstage-with-score-45bb2d7c2d90)
 - [Stop Building Platforms Nobody Uses: Pick the Right Kubernetes Abstraction with GitOps](https://itnext.io/stop-building-platforms-nobody-uses-pick-the-right-kubernetes-abstraction-with-gitops-64681357690f)
 - [From CI to Kubernetes Catalog: Building a Composable Platform with GitOps and vCluster](https://itnext.io/from-ci-to-kubernetes-catalog-building-a-composable-platform-with-gitops-and-vcluster-7e1decaa81da)
+- [Exploring Cloud Native projects in CNCF Sandbox. Part 3: 14 arrivals of 2024 H1](https://blog.palark.com/cncf-sandbox-2024-h1/)
 - [Descomplicando o Score (CNCF)](https://www.linkedin.com/pulse/descomplicando-o-score-cncf-clecio-antao-nyt3f/)
 - [Who’s Really Responsible for an Internal Developer Platform?](https://itnext.io/whos-really-responsible-for-an-internal-developer-platform-5dce5f2a0401)
+- [From Docker Compose to Score: A Platform Engineering Guide](https://waynegoosen.com/post/platform-engineering-transition-docker-compose-to-score-specification/)
 - [What if the `Azure-Samples/aks-store-demo` was using Score?](https://itnext.io/what-if-the-azure-samples-aks-store-demo-was-using-score-655c55f1c3dd)
+- [Score 容器化服务编排的抽象层](https://george.betterde.com/cn/devops/20240801/)
 - [Score: New CNCF Sandbox Tool for Infrastructure-Centric Dev](https://thenewstack.io/score-new-cncf-sandbox-tool-for-infrastructure-centric-dev/)
 - [Dapr with Score and Humanitec — Improving the Developer Experience of your Platform, on steroids!](https://medium.com/@mabenoit/dapr-with-score-and-humanitec-developer-experience-with-your-platform-on-steroids-a848f2de0a5a)
 - [Mastering Workload Specifications: Finding the Right Fit for Your Developers](https://www.infracloud.io/blogs/mastering-workload-specifications/)
