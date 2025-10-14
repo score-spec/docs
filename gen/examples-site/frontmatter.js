@@ -180,7 +180,9 @@ const buildFrontmatter = (
   options = { shouldBeautifyParent: true }
 ) => {
   const dir = options.fileLocation || path.replace(/\.md$/, "");
-  let { excerpt, content, metadata } = processReadme(path);
+  let { excerpt, content, metadata } = processReadme(
+    options.readmeLocation || path
+  );
   const githubUrl = getGitHubUrl(path);
 
   const otherFiles = fs

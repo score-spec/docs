@@ -135,6 +135,7 @@ ${categoryIndexContent}
           `./content/en/examples/${categoryFolder}/${folder}`
         );
         for (const file of files) {
+          if (file === "README.md") continue;
           const fileWithoutExtension = file.replace(/\.[^/.]+$/, "");
           mkdirIfNotExistsSync(`${path}/${fileWithoutExtension}`);
           fs.renameSync(
@@ -148,18 +149,19 @@ ${categoryIndexContent}
             "",
             {
               fileLocation: `${categoryFolder}/${folder}`,
+              readmeLocation: `${categoryFolder}/${folder}`,
               shouldBeautifyParent: false,
             }
           );
         }
         // Move files back to their original location
         for (const file of files) {
+          if (file === "README.md") continue;
           const fileWithoutExtension = file.replace(/\.[^/.]+$/, "");
           fs.renameSync(
             `${path}/${fileWithoutExtension}/${file}`,
             `${path}/${file}`
           );
-          console.log(`${path}/${fileWithoutExtension}`);
           fs.rmdirSync(`${path}/${fileWithoutExtension}`);
         }
       } else {
