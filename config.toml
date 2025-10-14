@@ -164,6 +164,9 @@ url = "https://github.com/score-spec/community-provisioners/blob/main"
 [[Params.exampleTypeLabels]]
 name = "score"
 labels = ["Specification", "Resources", "Provisioner"]
+[[Params.exampleTypeLabels]]
+name = "patch-templates"
+labels = ["Implementation"]
 
 # User interface configuration
 [Params.ui]
