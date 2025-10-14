@@ -143,7 +143,13 @@ ${categoryIndexContent}
           );
           buildFrontmatter(
             fileWithoutExtension,
-            `${categoryFolder}/${folder}/${fileWithoutExtension}`
+            `${categoryFolder}/${folder}/${fileWithoutExtension}`,
+            folder,
+            "",
+            {
+              fileLocation: `${categoryFolder}/${folder}`,
+              shouldBeautifyParent: false,
+            }
           );
         }
         // Move files back to their original location
