@@ -85,8 +85,8 @@ Example output.
 
 ```bash
  styles/style-guide.md
- 40:71  error  Did you really mean             Vale.Spelling 
-               'inclusivity'?                                
+ 40:71  error  Did you really mean             Vale.Spelling
+               'inclusivity'?
 
 ✖ 1 error, 0 warnings and 0 suggestions in 1 file.
 ```
@@ -104,9 +104,11 @@ The commands for the initial integration of the repos are:
 ```bash
 git remote add -f -t main --no-tags examples https://github.com/score-spec/examples.git
 git remote add -f -t main --no-tags community-provisioners https://github.com/score-spec/community-provisioners.git
+git remote add -f -t main --no-tags patch-templates https://github.com/score-spec/community-patchers.git
 git read-tree --prefix=gen/external-content/score/specification -u examples/main:specification
 git read-tree --prefix=gen/external-content/score/resources/default-provisioners -u examples/main:resources
 git read-tree --prefix=gen/external-content/score/resources/community-provisioners -u community-provisioners/main
+git read-tree --prefix=gen/external-content/patch-templates -u patch-templates/main
 git add gen/external-content
 git commit -s -S -m "Integrating external content"
 ```
