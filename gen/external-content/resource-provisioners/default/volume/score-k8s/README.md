@@ -1,0 +1,1 @@
+As an example we have a 'volume' type which returns an emptyDir volume. In production or for real applications you may want to replace this with a provisioner for a tmpfs, host path, or persistent volume and claims.

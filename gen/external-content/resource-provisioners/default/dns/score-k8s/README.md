@@ -1,0 +1,1 @@
+The default dns provisioner just outputs a random localhost domain because we don't know whether external-dns is available. You should replace this with your own dns name generation that matches your external-dns controller.

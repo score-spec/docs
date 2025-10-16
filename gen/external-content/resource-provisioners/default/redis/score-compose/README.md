@@ -1,0 +1,1 @@
+The default redis provisioner adds a redis service to the project which returns a host, port, username, and password.

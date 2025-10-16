@@ -1,0 +1,1 @@
+The default AMQP provisioner provides a simple rabbitmq instance with default configuration and plugins.

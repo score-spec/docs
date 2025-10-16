@@ -1,0 +1,1 @@
+This resource provides an in-cluster minio based S3 bucket with AWS-style credentials. This provides some common and well known outputs that can be used with any generic AWS s3 client. The outputs of the provisioner are a stateful set, a service, a secret, and a job per bucket.

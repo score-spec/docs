@@ -1,0 +1,1 @@
+The 'cmd' scheme has a "host" + path component that indicates the path to the binary to execute. If the host starts with "." it is interpreted as a relative path, if it starts with "~" it resolves to the home directory.

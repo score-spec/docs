@@ -1,0 +1,1 @@
+The default route provisioner sets up an nginx service with an HTTP service that can route on our prefix paths. It assumes the hostnames and routes provided have no overlaps. Weird behavior may happen if there are overlaps.

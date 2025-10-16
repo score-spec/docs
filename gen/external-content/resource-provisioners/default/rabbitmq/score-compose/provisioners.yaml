@@ -1,0 +1,92 @@
+uri: template://default-provisioners/rabbitmq
+type: amqp
+description: Provisions a dedicated RabbitMQ vhost on a shared instance.
+init: |
+  randomServiceName: rabbitmq-{{ randAlphaNum 6 }}
+  randomVHost: vhost-{{ randAlpha 8 }}
+  randomUsername: user-{{ randAlpha 8 }}
+  randomPassword: {{ randAlphaNum 16 | quote }}
+  sk: default-provisioners-rabbitmq
+  publishPort: {{ dig "annotations" "compose.score.dev/publish-port" "0" .Metadata | atoi }}
+  publishManagementPort: {{ dig "annotations" "compose.score.dev/publish-management-port" "0" .Metadata | atoi }}
+state: |
+  vhost: {{ dig "vhost" .Init.randomVHost .State | quote }}
+  username: {{ dig "username" .Init.randomUsername .State | quote }}
+  password: {{ dig "password" .Init.randomPassword .State | quote }}
+outputs: |
+  host: {{ dig .Init.sk "instanceServiceName" "" .Shared }}
+  port: 5672
+  vhost: {{ .State.vhost }}
+  username: {{ .State.username }}
+  password: {{ .State.password }}
+shared: |
+  {{ .Init.sk }}:
+    instanceServiceName: {{ dig .Init.sk "instanceServiceName" .Init.randomServiceName .Shared | quote }}
+    instanceErlangCookie: {{ dig .Init.sk "instanceErlangCookie" (randAlpha 20) .Shared }}
+    {{ $publishPorts := (list) }}
+    {{ if ne .Init.publishPort 0 }}{{ $publishPorts = (append $publishPorts (dict "target" 5672 "published" .Init.publishPort)) }}{{ end }}
+    {{ $x := (dig "annotations" "compose.score.dev/publish-management-port" "0" .Metadata | atoi) }}
+    {{ if ne .Init.publishManagementPort 0 }}{{ $publishPorts = (append $publishPorts (dict "target" 15672 "published" .Init.publishManagementPort)) }}{{ end }}
+    publishPorts: {{ $publishPorts | toJson }}
+volumes: |
+  {{ dig .Init.sk "instanceServiceName" "" .Shared }}-data:
+    driver: local
+files: |
+  {{ dig .Init.sk "instanceServiceName" "" .Shared }}-db-scripts/{{ .State.vhost }}.sh: |
+    while ! rabbitmqctl list_vhosts > /dev/null 2>&1; do
+      sleep 1
+    done
+    rabbitmqctl list_vhosts | grep {{ .State.vhost }} || rabbitmqctl add_vhost {{ .State.vhost }}
+    rabbitmqctl list_users | grep {{ .State.username }} || rabbitmqctl add_user {{ .State.username }} {{ .State.password }}
+    rabbitmqctl set_user_tags {{ .State.username }} administrator
+    rabbitmqctl set_permissions -p {{ .State.vhost }} {{ .State.username }} ".*" ".*" ".*"
+    rabbitmqctl set_topic_permissions -p {{ .State.vhost }} {{ .State.username }} ".*" ".*" ".*"
+services: |
+  {{ dig .Init.sk "instanceServiceName" "" .Shared }}:
+    image: mirror.gcr.io/rabbitmq:3-management-alpine
+    restart: always
+    environment:
+      RABBITMQ_ERLANG_COOKIE: {{ dig .Init.sk "instanceErlangCookie" "" .Shared }}
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    ports: {{ dig .Init.sk "publishPorts" "" .Shared | toJson}}
+    volumes:
+    - type: volume
+      source: {{ dig .Init.sk "instanceServiceName" "" .Shared }}-data
+      target: /var/lib/rabbitmq
+    healthcheck:
+      test: ["CMD-SHELL", "rabbitmq-diagnostics -q check_port_connectivity"]
+      interval: 2s
+      timeout: 5s
+      retries: 15
+  {{ dig .Init.sk "instanceServiceName" "" .Shared }}-init:
+    image: mirror.gcr.io/rabbitmq:3-management-alpine
+    entrypoint: ["/bin/sh"]
+    environment:
+      RABBITMQ_ERLANG_COOKIE: {{ dig .Init.sk "instanceErlangCookie" "" .Shared }}
+    command:
+    - "-c"
+    - |
+      set -exu
+      for s in /db-scripts/*.sh; do source $$s; done
+    depends_on:
+      {{ dig .Init.sk "instanceServiceName" "" .Shared }}:
+        condition: service_healthy
+        restart: true
+    labels:
+      dev.score.compose.labels.is-init-container: "true"
+    network_mode: service:{{ dig .Init.sk "instanceServiceName" "" .Shared }}
+    volumes:
+    - type: bind
+      source: {{ .MountsDirectory }}/{{ dig .Init.sk "instanceServiceName" "" .Shared }}-db-scripts
+      target: /db-scripts
+info_logs: |
+  {{ if ne .Init.publishManagementPort 0 }}
+  - "{{.Uid}}: Browse the rabbitmq UI at \"http://localhost:{{ .Init.publishManagementPort }}\""
+  {{ end }}
+expected_outputs:
+  - host
+  - port
+  - vhost
+  - username
+  - password

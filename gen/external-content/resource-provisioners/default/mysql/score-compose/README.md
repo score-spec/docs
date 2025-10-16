@@ -1,0 +1,1 @@
+The default mysql provisioner adds a mysql instance and then ensures that the required databases are created on startup.

@@ -1,0 +1,1 @@
+Routes could be implemented as either traditional ingress resources or using the newer gateway API. In this default provisioner we use the gateway API with some sensible defaults. But you may wish to replace this.

@@ -1,0 +1,104 @@
+uri: template://default-provisioners/route
+type: route
+description: Provisions a ingress route on a shared Nginx instance.
+init: |
+  randomServiceName: routing-{{ randAlphaNum 6 }}
+  sk: default-provisioners-routing-instance
+  {{ if not (regexMatch "^/|(/([^/]+))+$" .Params.path) }}{{ fail "params.path start with a / but cannot end with /" }}{{ end }}
+  {{ if not (regexMatch "^[a-z0-9_.-]{1,253}$" .Params.host) }}{{ fail (cat "params.host must be a valid hostname but was" .Params.host) }}{{ end }}
+  {{ $ports := (index .WorkloadServices .SourceWorkload).Ports }}
+  {{ if not $ports }}{{ fail "no service ports exist" }}{{ end }}
+  {{ $port := index $ports (print .Params.port) }}
+  {{ if not $port.TargetPort }}{{ fail "params.port is not a named service port" }}{{ end }}
+
+shared: |
+  {{ .Init.sk }}:
+    instancePort: {{ dig .Init.sk "instancePort" 8080 .Shared }}
+    instanceServiceName: {{ dig .Init.sk "instanceServiceName" .Init.randomServiceName .Shared | quote }}
+    {{ $targetHost := (index .WorkloadServices .SourceWorkload).ServiceName }}
+    {{ $ports := (index .WorkloadServices .SourceWorkload).Ports }}
+    {{ $port := index $ports (print .Params.port) }}
+    {{ $targetPort := $port.TargetPort }}
+    {{ $target := (printf "%s:%d" $targetHost $targetPort) }}
+    {{ $hBefore := dig .Init.sk "hosts" (dict) .Shared }}
+    {{ $rBefore := dig .Params.host (dict) $hBefore }}
+    {{ $pathType := dig "compose.score.dev/route-provisioner-path-type" "Prefix" (dig "annotations" (dict) (.Metadata | default (dict))) }}
+    {{ $inner := dict "path" .Params.path "target" $target "port" $targetPort "path_type" $pathType }}
+    {{ $rAfter := (merge $rBefore (dict .Uid $inner)) }}
+    {{ $hAfter := (merge $hBefore (dict .Params.host $rAfter)) }}
+    hosts: {{ $hAfter | toRawJson }}
+files: |
+  {{ dig .Init.sk "instanceServiceName" "" .Shared }}/nginx.conf: |
+    worker_processes 1;
+    worker_rlimit_nofile 8192;
+    events {
+      worker_connections 4096;
+    }
+    http {
+      resolver 127.0.0.11;
+
+      {{ range $h, $r := (dig .Init.sk "hosts" "" .Shared) }}
+      server {
+        listen 80;
+        listen [::]:80;
+        server_name {{ $h }};
+
+        proxy_set_header X-Real-IP              $remote_addr;
+        proxy_set_header X-Forwarded-For        $remote_addr;
+        proxy_set_header X-Original-Forwarded-For $http_x_forwarded_for;
+        proxy_set_header Proxy                  "";
+        proxy_connect_timeout                   5s;
+        proxy_send_timeout                      60s;
+        proxy_read_timeout                      60s;
+        proxy_buffers                           16 4k;
+        proxy_buffer_size                       2k;
+        client_max_body_size                    10m;
+    {{ dig "compose.score.dev/route-provisioner-server-snippet" "" (dig "annotations" (dict) ($.Metadata | default (dict))) | indent 4 }}
+
+        location = /favicon.ico {
+          return 204;
+          access_log     off;
+          log_not_found  off;
+        }
+
+        {{ range $k, $v := $r }}
+        # the basic path variant, "/" or "/one/two"
+        location ~ ^{{ index $v "path" }}$ {
+          set $backend {{ index $v "target" }};
+          proxy_pass http://$backend;
+    {{ dig "compose.score.dev/route-provisioner-location-snippet" "" (dig "annotations" (dict) ($.Metadata | default (dict))) | indent 6 }}
+        }
+
+        # The prefix match variants are included by default but can be excluded via 'compose.score.dev/route-provisioner-path-type' annotation
+        {{ if eq (index $v "path_type") "Prefix" }}
+        location ~ ^{{ index $v "path" | trimSuffix "/" }}/.* {
+          set $backend {{ index $v "target" }};
+          proxy_pass http://$backend;
+    {{ dig "compose.score.dev/route-provisioner-location-snippet" "" (dig "annotations" (dict) ($.Metadata | default (dict))) | indent 6 }}
+        }
+        {{ end }}
+        {{ end }}
+      }
+      {{ end }}
+    }
+
+services: |
+  {{ $p := (dig .Init.sk "instancePort" 0 .Shared) }}
+  {{ dig .Init.sk "instanceServiceName" "" .Shared }}:
+    image: mirror.gcr.io/nginx:1-alpine
+    restart: always
+    ports:
+      - published: {{ $p }}
+        target: 80
+    volumes:
+      - type: bind
+        source: {{ .MountsDirectory }}/{{ dig .Init.sk "instanceServiceName" "" .Shared }}/nginx.conf
+        target: /etc/nginx/nginx.conf
+        readOnly: true
+info_logs: |
+  {{ $p := (dig .Init.sk "instancePort" 0 .Shared) }}
+  - "{{.Uid}}: To connect to this route, http://{{ .Params.host }}:{{ $p }}{{ .Params.path }} (make sure {{ .Params.host }} resolves to localhost)"
+supported_params:
+  - host
+  - port
+  - path

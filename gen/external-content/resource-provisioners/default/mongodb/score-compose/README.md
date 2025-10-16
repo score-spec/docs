@@ -1,0 +1,1 @@
+The default mongodb provisioner adds a mongodb service to the project which returns a host, port, username, and password, and connection string.
