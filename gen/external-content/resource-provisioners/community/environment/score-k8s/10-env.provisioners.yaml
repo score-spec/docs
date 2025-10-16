@@ -1,0 +1,11 @@
+- uri: cmd://python3#dotenv
+  type: environment
+  description: Loads environment variables from a local .env file.
+  args:
+  - -c
+  - |
+    import json
+    with open('.env') as f:
+      content = f.read().strip()
+    env_map = dict([x.split("=",1) for x in content.strip().splitlines()])
+    print(json.dumps({"resource_outputs": env_map}))

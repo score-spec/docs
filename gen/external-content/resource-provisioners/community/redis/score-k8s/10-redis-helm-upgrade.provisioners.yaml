@@ -1,0 +1,22 @@
+- uri: cmd://bash#helm-upgrade-redis
+  type: redis
+  description: Deploys the bitnami/redis Helm chart in an existing cluster. 
+  args:
+  - -c
+  - |
+    STDIN=$(cat)
+    SERVICE=$(echo $STDIN | yq eval -p json '.resource_id' | yq '. |= sub("\.", "-")')
+    NAMESPACE=$(echo $STDIN | yq eval -p json '.namespace')
+    if [ -z "$NAMESPACE" ]; then
+      NAMESPACE="default"
+    fi
+    set -eu -o pipefail
+    helm repo add bitnami https://charts.bitnami.com/bitnami >&2
+    helm upgrade -i ${SERVICE} bitnami/redis --set replica.replicaCount=1 -n ${NAMESPACE} --wait >&2
+    OUTPUTS='{"resource_outputs":{"host":"%s-master", "port":"6379", "username":"", "password":"🔐💬%s_redis-password💬🔐"},"manifests":[]}'
+    printf "$OUTPUTS" "$SERVICE" "$SERVICE"
+  expected_outputs: 
+    - host 
+    - port 
+    - username 
+    - password

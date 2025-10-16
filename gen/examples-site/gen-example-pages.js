@@ -55,7 +55,10 @@ ${categoryIndexContent}
   //For each folder, check if this is the last nesting level:
   for (const folder of folders) {
     //Discard readme and other files:
-    if (!isDirectory(`${sourceFolder}/${categoryFolder}/${folder}`)) {
+    if (
+      !isDirectory(`${sourceFolder}/${categoryFolder}/${folder}`) ||
+      shouldIgnoreFolder(folder)
+    ) {
       continue;
     }
     const isLastNestingLevel = !fs
