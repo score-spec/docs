@@ -19,6 +19,7 @@ const sourceFolder = process.argv[2];
  * @param {string} metadata - Additional metadata for the frontmatter.
  * @param {string} [parent] - The parent page, if applicable.
  * @param {string} [flavor] - The flavor of the example, if applicable.
+ * @param {Object} [options] - Additional options for the frontmatter.
  * @returns {string} The generated frontmatter content.
  */
 const generateFrontmatterContent = (
@@ -27,8 +28,12 @@ const generateFrontmatterContent = (
   content,
   metadata,
   parent,
-  flavor
+  flavor,
+  options = { shouldBeautifyParent: true }
 ) => {
+  if (options.shouldBeautifyParent) {
+    parent = beautify(parent);
+  }
   return `---
 title: "${beautify(title)}"
 draft: false
@@ -36,7 +41,7 @@ mermaid: true
 type: examples
 excerpt: '${excerpt}'
 hasMore: ${excerpt !== content.trim() ? "true" : "false"}
-${parent ? `parent: "${beautify(parent)}"\n` : ""}${
+${parent ? `parent: "${parent}"\n` : ""}${
     flavor ? `flavor: "${beautify(flavor)}"\n` : ""
   }${metadata}
 ---
@@ -167,9 +172,17 @@ ${tabsContent}
  * @param {string} [parent] - The parent page, if applicable.
  * @param {string} [flavor] - The flavor of the example, if applicable.
  */
-const buildFrontmatter = (title, path, parent, flavor) => {
-  const dir = path.replace(/\.md$/, "");
-  let { excerpt, content, metadata } = processReadme(path);
+const buildFrontmatter = (
+  title,
+  path,
+  parent,
+  flavor,
+  options = { shouldBeautifyParent: true }
+) => {
+  const dir = options.fileLocation || path.replace(/\.md$/, "");
+  let { excerpt, content, metadata } = processReadme(
+    options.readmeLocation || path
+  );
   const githubUrl = getGitHubUrl(path);
 
   const otherFiles = fs
@@ -197,7 +210,8 @@ const buildFrontmatter = (title, path, parent, flavor) => {
     content,
     metadata,
     parent,
-    flavor
+    flavor,
+    options
   );
 
   const otherFilesContent = otherFiles

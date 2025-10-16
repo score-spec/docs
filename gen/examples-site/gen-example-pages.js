@@ -55,7 +55,10 @@ ${categoryIndexContent}
   //For each folder, check if this is the last nesting level:
   for (const folder of folders) {
     //Discard readme and other files:
-    if (!isDirectory(`${sourceFolder}/${categoryFolder}/${folder}`)) {
+    if (
+      !isDirectory(`${sourceFolder}/${categoryFolder}/${folder}`) ||
+      shouldIgnoreFolder(folder)
+    ) {
       continue;
     }
     const isLastNestingLevel = !fs
@@ -124,7 +127,46 @@ ${categoryIndexContent}
         }
       }
     } else {
-      buildFrontmatter(folder, `${categoryFolder}/${folder}`);
+      if (config.exampleLibraryOnePagePerFileFolders.includes(categoryFolder)) {
+        const path = `${sourceFolder}/${categoryFolder}/${folder}`;
+        const files = fs.readdirSync(path);
+        // Create output directory structure
+        mkdirIfNotExistsSync(
+          `./content/en/examples/${categoryFolder}/${folder}`
+        );
+        for (const file of files) {
+          if (file === "README.md") continue;
+          const fileWithoutExtension = file.replace(/\.[^/.]+$/, "");
+          mkdirIfNotExistsSync(`${path}/${fileWithoutExtension}`);
+          fs.renameSync(
+            `${path}/${file}`,
+            `${path}/${fileWithoutExtension}/${file}`
+          );
+          buildFrontmatter(
+            fileWithoutExtension,
+            `${categoryFolder}/${folder}/${fileWithoutExtension}`,
+            folder,
+            "",
+            {
+              fileLocation: `${categoryFolder}/${folder}`,
+              readmeLocation: `${categoryFolder}/${folder}`,
+              shouldBeautifyParent: false,
+            }
+          );
+        }
+        // Move files back to their original location
+        for (const file of files) {
+          if (file === "README.md") continue;
+          const fileWithoutExtension = file.replace(/\.[^/.]+$/, "");
+          fs.renameSync(
+            `${path}/${fileWithoutExtension}/${file}`,
+            `${path}/${file}`
+          );
+          fs.rmdirSync(`${path}/${fileWithoutExtension}`);
+        }
+      } else {
+        buildFrontmatter(folder, `${categoryFolder}/${folder}`);
+      }
     }
   }
 }

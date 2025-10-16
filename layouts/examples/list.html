@@ -26,39 +26,66 @@
 				{{ .Content }}
 				{{ range .Pages }}
 					{{ $title := .Title }}
+					{{ if eq (index $section 2) "score" }}
+						<div 
+							class="examples-list-item" 
+							id="{{ .Title | urlize }}"
+							{{ if .Params.flavor }}
+								data-provisioner="{{ .Params.parent | urlize }}"
+								data-resources="{{ .Title | urlize }}"
+							{{ else }}
+								data-specification="{{ .Title | urlize }}"
+							{{ end }}
+						>
+							<div class="examples-list-title">
+								<h2>
+									<a href="{{ .RelPermalink }}">
+										{{ .Title }}
+									</a>
+								</h2>
+								{{ if .Params.flavor }}
+									<span class="examples-parent-badge">{{ .Params.flavor }}</span>
+								{{ end }}
+								{{ if .Params.parent }}
+									{{ $words := split .Params.parent " " }}
+									{{ $parentText := cond (gt (len $words) 1) (delimit (first (sub (len $words) 1) $words) " ") .Params.parent }}
+									<span class="examples-parent-badge">{{ $parentText }}</span>
+								{{ end }}
+							</div>
+							{{ $excerpt := replaceRE `\[(?P<label>[^]]+)\]\(([^h]|h[^t]|ht[^t]|htt[^p])[^\)]*\)` "${label}" .Params.excerpt }}
+							<div>
+								{{ $excerpt | markdownify }}
+								{{ if .Params.hasMore }}
+									<span>(...)</span>
+								{{ end }}
+							</div>
+						</div>
+					{{ end }}
+					{{ if eq (index $section 2) "patch-templates" }}
 					<div 
 						class="examples-list-item" 
 						id="{{ .Title | urlize }}"
-						{{ if .Params.flavor }}
-							data-provisioner="{{ .Params.parent | urlize }}"
-							data-resources="{{ .Title | urlize }}"
-						{{ else }}
-							data-specification="{{ .Title | urlize }}"
-						{{ end }}
-					>
-						<div class="examples-list-title">
-							<h2>
-								<a href="{{ .RelPermalink }}">
-									{{ .Title }}
-								</a>
-							</h2>
-							{{ if .Params.flavor }}
-								<span class="examples-parent-badge">{{ .Params.flavor }}</span>
-							{{ end }}
-							{{ if .Params.parent }}
-								{{ $words := split .Params.parent " " }}
-								{{ $parentText := cond (gt (len $words) 1) (delimit (first (sub (len $words) 1) $words) " ") .Params.parent }}
-								<span class="examples-parent-badge">{{ $parentText }}</span>
-							{{ end }}
+						data-implementation="{{ .Params.parent | urlize }}"
+						>
+							<div class="examples-list-title">
+								<h2>
+									<a href="{{ .RelPermalink }}">
+										{{ .Title }}
+									</a>
+								</h2>
+								{{ if .Params.parent }}
+									<span class="examples-parent-badge">{{ .Params.parent }}</span>
+								{{ end }}
+							</div>
+							{{ $excerpt := replaceRE `\[(?P<label>[^]]+)\]\(([^h]|h[^t]|ht[^t]|htt[^p])[^\)]*\)` "${label}" .Params.excerpt }}
+								<div>
+									{{ $excerpt | markdownify }}
+									{{ if .Params.hasMore }}
+										<span>(...)</span>
+									{{ end }}
+								</div>
 						</div>
-						{{ $excerpt := replaceRE `\[(?P<label>[^]]+)\]\(([^h]|h[^t]|ht[^t]|htt[^p])[^\)]*\)` "${label}" .Params.excerpt }}
-						<div>
-							{{ $excerpt | markdownify }}
-							{{ if .Params.hasMore }}
-								<span>(...)</span>
-							{{ end }}
-						</div>
-					</div>
+					{{ end }}
 				{{ end }}
 			</div>
 		</div>
