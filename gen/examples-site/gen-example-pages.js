@@ -127,7 +127,46 @@ ${categoryIndexContent}
         }
       }
     } else {
-      buildFrontmatter(folder, `${categoryFolder}/${folder}`);
+      if (config.exampleLibraryOnePagePerFileFolders.includes(categoryFolder)) {
+        const path = `${sourceFolder}/${categoryFolder}/${folder}`;
+        const files = fs.readdirSync(path);
+        // Create output directory structure
+        mkdirIfNotExistsSync(
+          `./content/en/examples/${categoryFolder}/${folder}`
+        );
+        for (const file of files) {
+          if (file === "README.md") continue;
+          const fileWithoutExtension = file.replace(/\.[^/.]+$/, "");
+          mkdirIfNotExistsSync(`${path}/${fileWithoutExtension}`);
+          fs.renameSync(
+            `${path}/${file}`,
+            `${path}/${fileWithoutExtension}/${file}`
+          );
+          buildFrontmatter(
+            fileWithoutExtension,
+            `${categoryFolder}/${folder}/${fileWithoutExtension}`,
+            folder,
+            "",
+            {
+              fileLocation: `${categoryFolder}/${folder}`,
+              readmeLocation: `${categoryFolder}/${folder}`,
+              shouldBeautifyParent: false,
+            }
+          );
+        }
+        // Move files back to their original location
+        for (const file of files) {
+          if (file === "README.md") continue;
+          const fileWithoutExtension = file.replace(/\.[^/.]+$/, "");
+          fs.renameSync(
+            `${path}/${fileWithoutExtension}/${file}`,
+            `${path}/${file}`
+          );
+          fs.rmdirSync(`${path}/${fileWithoutExtension}`);
+        }
+      } else {
+        buildFrontmatter(folder, `${categoryFolder}/${folder}`);
+      }
     }
   }
 }

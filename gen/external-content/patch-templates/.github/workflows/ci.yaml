@@ -1,0 +1,27 @@
+name: ci
+permissions:
+  contents: read
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+jobs:
+  test-provisioners:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: score-spec/setup-score@v2
+        with:
+          file: score-compose
+          version: latest
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: score-spec/setup-score@v2
+        with:
+          file: score-k8s
+          version: latest
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: test-provisioners
+        run: |
+          .scripts/test-patchers.sh

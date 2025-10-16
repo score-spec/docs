@@ -13,13 +13,12 @@ function parseConfig(configPath) {
     return {
       exampleLibraryGitHubUrls:
         parsedConfig.data.Params.exampleLibraryGitHubUrls || [],
-      // exampleLibraryEnabledTabGroupTypes:
-      //   parsedConfig.data.params.exampleLibraryEnabledTabGroupTypes || [],
-      // exampleFileTypes: parsedConfig.data.params.exampleFileTypes || [],
       exampleLibraryBlacklistedFolders:
         parsedConfig.data.Params.exampleLibraryBlacklistedFolders || [],
       exampleLibraryGitHubBaseUrl:
         parsedConfig.data.Params.exampleLibraryGitHubBaseUrl || "",
+      exampleLibraryOnePagePerFileFolders:
+        parsedConfig.data.Params.exampleLibraryOnePagePerFileFolders || [],
     };
   } catch (error) {
     console.error("Error parsing config file:", error);

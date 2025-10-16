@@ -23,6 +23,7 @@ jobs:
           git remote add -f -t main --no-tags community-provisioners https://github.com/score-spec/community-provisioners.git
           git remote add -f -t main --no-tags score-compose https://github.com/score-spec/score-compose.git
           git remote add -f -t main --no-tags score-k8s https://github.com/score-spec/score-k8s.git
+          git remote add -f -t main --no-tags patch-templates https://github.com/score-spec/community-patchers.git
 
           # Set github actions bot as the committer, see https://github.com/actions/checkout/pull/1184
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
