@@ -22,7 +22,7 @@ Explore a curated set of example files covering a range of entities for working 
 {{< /multi-link-card >}}
 
 {{< multi-link-card title="Patch templates" >}}
-{{< link-card-item text="Find some Score files examples illustrating how to use the patch templates with both `score-compose` and `score-k8s`." url="/examples/patch-templates" linkLabel="Get examples" >}}
+{{< link-card-item text="Find some examples illustrating how to use the patch templates with both `score-compose` and `score-k8s`." url="/examples/patch-templates" linkLabel="Get examples" >}}
 {{< /multi-link-card >}}
 
 {{< multi-link-card title="More examples" >}}
