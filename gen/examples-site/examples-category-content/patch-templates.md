@@ -1,1 +1,1 @@
-The examples below illustrate how to use patch templates for each Score implementation.
+The examples below illustrate how to use patch templates with either [`score-compose`](https://docs.score.dev/docs/score-implementation/score-compose/patch-templates/) or [`score-k8s`](https://docs.score.dev/docs/score-implementation/score-k8s/patch-templates/).
