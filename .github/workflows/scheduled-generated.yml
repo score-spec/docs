@@ -11,7 +11,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v6
         with:
           node-version: 22.x
           cache: "npm"
@@ -21,6 +21,7 @@ jobs:
         run: |
           git remote add -f -t main --no-tags examples https://github.com/score-spec/examples.git
           git remote add -f -t main --no-tags community-provisioners https://github.com/score-spec/community-provisioners.git
+          git remote add -f -t main --no-tags patch-templates https://github.com/score-spec/community-patchers.git
 
           # Set github actions bot as the committer, see https://github.com/actions/checkout/pull/1184
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"

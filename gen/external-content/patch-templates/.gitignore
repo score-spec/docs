@@ -1,0 +1,6 @@
+**/compose.yaml
+**/manifests.yaml
+**/score.yaml
+.score-k8s/
+.score-compose/
+**/catalog-info.yaml
