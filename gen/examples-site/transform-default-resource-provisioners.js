@@ -175,3 +175,6 @@ if (fs.existsSync(scoreComposeYaml)) {
 if (fs.existsSync(scoreK8sYaml)) {
   splitProvisionersFile(scoreK8sYaml, scoreK8sDir, "score-k8s");
 }
+
+fs.rmSync(scoreComposeDir, { recursive: true, force: true });
+fs.rmSync(scoreK8sDir, { recursive: true, force: true });

@@ -1,1 +1,63 @@
-{}
+---
+resource-provisioners:
+  implementation:
+    - score-compose
+    - score-k8s
+  provisionerType:
+    - cmd
+    - template
+  resourceType:
+    - amqp
+    - dapr-pubsub
+    - dapr-state-store
+    - dapr-subscription
+    - dns
+    - elasticsearch
+    - environment
+    - example-provisioner-resource
+    - horizontal-pod-autoscaler
+    - kafka-topic
+    - mongodb
+    - mssql
+    - mysql
+    - postgres
+    - postgres-instance
+    - redis
+    - route
+    - s3
+    - service
+    - service-port
+    - volume
+  flavor:
+    - dapr
+    - default
+    - dns
+    - dotenv
+    - elasticsearch
+    - empty
+    - example
+    - helm
+    - ingress
+    - kafka
+    - mongo
+    - mongodb
+    - mssql
+    - mysql
+    - postgres
+    - rabbitmq
+    - redis
+    - route
+    - s3
+    - service
+    - static
+    - volume
+  tool:
+    - dns
+    - dotenv
+    - example
+    - helm
+  source:
+    - community
+    - default
+---
+

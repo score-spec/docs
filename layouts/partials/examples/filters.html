@@ -132,4 +132,113 @@
         {{ end }}
       </div>
     {{ end }}
+    {{ if eq $sectionWithoutBase "resource-provisioners" }}
+      {{ $sectionMetadata := index $metadata "resource-provisioners" }}
+      <div class="{{ if len .context.Pages }}mt-4{{ end }}">
+        {{ with site.GetPage .section }}
+          <div>
+            <h3>{{ index $labels 0 }}</h3>
+            {{ range (index $sectionMetadata "source") }}
+              <div class="form-check">
+                <input 
+                  class="form-check-input" 
+                  type="checkbox" 
+                  id="check-{{ . | urlize }}" 
+                  value="{{ . | urlize }}" 
+                  data-directory="source"
+                />
+                <label class="form-check-label" for="check-{{ . | urlize }}">
+                  {{ . | humanize }}
+                </label>
+              </div>
+            {{ end }}
+          </div>
+          <div class="mt-4">
+            <h3>{{ index $labels 1 }}</h3>
+            {{ range (index $sectionMetadata "implementation") }}
+              <div class="form-check">
+                <input 
+                  class="form-check-input" 
+                  type="checkbox" 
+                  id="check-{{ . | urlize }}" 
+                  value="{{ . | urlize }}" 
+                  data-directory="implementation"
+                />
+                <label class="form-check-label" for="check-{{ . | urlize }}">
+                  {{ . }}
+                </label>
+              </div>
+            {{ end }}
+          </div>
+          <div class="mt-4">
+            <h3>{{ index $labels 2 }}</h3>
+            {{ range (index $sectionMetadata "provisionerType") }}
+              <div class="form-check">
+                <input 
+                  class="form-check-input" 
+                  type="checkbox" 
+                  id="check-{{ . | urlize }}" 
+                  value="{{ . | urlize }}" 
+                  data-directory="provisionerType"
+                />
+                <label class="form-check-label" for="check-{{ . | urlize }}">
+                  {{ . | humanize }}
+                </label>
+              </div>
+            {{ end }}
+          </div>
+          <div class="mt-4">
+            <h3>{{ index $labels 3 }}</h3>
+            {{ range (index $sectionMetadata "resourceType") }}
+              <div class="form-check">
+                <input 
+                  class="form-check-input" 
+                  type="checkbox" 
+                  id="check-{{ . | urlize }}" 
+                  value="{{ . | urlize }}" 
+                  data-directory="resourceType"
+                />
+                <label class="form-check-label" for="check-{{ . | urlize }}">
+                  {{ . }}
+                </label>
+              </div>
+            {{ end }}
+          </div>
+          <div class="mt-4">
+            <h3>{{ index $labels 4 }}</h3>
+            {{ range (index $sectionMetadata "flavor") }}
+              <div class="form-check">
+                <input 
+                  class="form-check-input" 
+                  type="checkbox" 
+                  id="check-flavor-{{ . | urlize }}" 
+                  value="{{ . | urlize }}" 
+                  data-directory="flavor"
+                />
+                <label class="form-check-label" for="check-flavor-{{ . | urlize }}">
+                  {{ . }}
+                </label>
+              </div>
+            {{ end }}
+          </div>
+          <div class="mt-4">
+            <h3>{{ index $labels 5 }}</h3>
+            {{ range (index $sectionMetadata "tool") }}
+              <div class="form-check">
+                <input 
+                  class="form-check-input" 
+                  type="checkbox" 
+                  id="check-tool-{{ . | urlize }}" 
+                  value="{{ . | urlize }}" 
+                  data-directory="tool"
+                />
+                <label class="form-check-label" for="check-tool-{{ . | urlize }}">
+                  {{ . }}
+                </label>
+              </div>
+            {{ end }}
+          </div>
+        {{ end }}
+      </div>
+    {{ end }}
 </div>

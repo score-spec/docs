@@ -62,10 +62,10 @@
 						</div>
 					{{ end }}
 					{{ if eq (index $section 2) "patch-templates" }}
-					<div 
-						class="examples-list-item" 
-						id="{{ .Title | urlize }}"
-						data-implementation="{{ .Params.parent | urlize }}"
+						<div 
+							class="examples-list-item" 
+							id="{{ .Title | urlize }}"
+							data-implementation="{{ .Params.parent | urlize }}"
 						>
 							<div class="examples-list-title">
 								<h2>
@@ -78,12 +78,54 @@
 								{{ end }}
 							</div>
 							{{ $excerpt := replaceRE `\[(?P<label>[^]]+)\]\(([^h]|h[^t]|ht[^t]|htt[^p])[^\)]*\)` "${label}" .Params.excerpt }}
-								<div>
-									{{ $excerpt | markdownify }}
-									{{ if .Params.hasMore }}
-										<span>(...)</span>
-									{{ end }}
-								</div>
+							<div>
+								{{ $excerpt | markdownify }}
+								{{ if .Params.hasMore }}
+									<span>(...)</span>
+								{{ end }}
+							</div>
+						</div>
+					{{ end }}
+					{{ if eq (index $section 2) "resource-provisioners" }}
+						<div 
+							class="examples-list-item" 
+							id="{{ .Title | urlize }}"
+							data-source="{{ .Params.source | urlize }}"
+							data-resource-type="{{ .Params.resourceType | urlize }}"
+							data-implementation="{{ .Params.implementation | urlize }}"
+							data-provisioner-type="{{ .Params.provisionerType | urlize }}"
+							data-flavor="{{ .Params.flavor | urlize }}"
+							data-tool="{{ .Params.tool | urlize }}"
+						>
+							<div class="examples-list-title">
+								<h2>
+									<a href="{{ .RelPermalink }}">
+										{{ .Title }}
+									</a>
+								</h2>
+							{{ if .Params.source }}
+								<span class="examples-parent-badge">{{ .Params.source | humanize }}</span>
+							{{ end }}
+							{{ if .Params.resourceType }}
+								<span class="examples-parent-badge">{{ .Params.resourceType }}</span>
+							{{ end }}
+							{{ if .Params.implementation }}
+								<span class="examples-parent-badge">{{ .Params.implementation }}</span>
+							{{ end }}
+							{{ if .Params.provisionerType }}
+								<span class="examples-parent-badge">{{ .Params.provisionerType }}</span>
+							{{ end }}
+							{{ if .Params.tool }}
+								<span class="examples-parent-badge">{{ .Params.tool }}</span>
+							{{ end }}
+							</div>
+							{{ $excerpt := replaceRE `\[(?P<label>[^]]+)\]\(([^h]|h[^t]|ht[^t]|htt[^p])[^\)]*\)` "${label}" .Params.excerpt }}
+							<div>
+								{{ $excerpt | markdownify }}
+								{{ if .Params.hasMore }}
+									<span>(...)</span>
+								{{ end }}
+							</div>
 						</div>
 					{{ end }}
 				{{ end }}

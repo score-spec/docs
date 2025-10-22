@@ -3,6 +3,8 @@ title: "dotenv"
 draft: false
 mermaid: true
 type: examples
+source: "community"
+implementation: "score-k8s"
 resourceType: "environment"
 provisionerType: "cmd"
 flavor: "dotenv"
@@ -17,5 +19,7 @@ hasMore: false
 Prerequisites:
 
 - Have `python` installed, this provisioner is using Python to load the `.env` file.
+
+{{% resource-provisioner-content description="Loads environment variables from a local .env file." type="environment" %}}
 
 {{% example-file filename="10-env.provisioners.yaml" dir="resource-provisioners/community/environment/score-k8s" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}

@@ -7,6 +7,7 @@ const {
   removeNonExternalLinks,
   getExcerpt,
   addAliasesToMetadata,
+  saveMetadata,
 } = require("./metadata-utils");
 const { isDirectory } = require("./file-utils");
 
@@ -32,6 +33,8 @@ title: "${config.title}"
 draft: false
 mermaid: true
 type: examples
+source: "${config.source}"
+implementation: "${config.implementation}"
 resourceType: "${config.resourceType}"
 provisionerType: "${config.provisionerType}"
 flavor: "${config.title.split("-")[0]}"
@@ -99,6 +102,20 @@ const writeContentToFile = (filePath, content) => {
   fs.writeFileSync(fullPath, content);
 };
 
+const generateResourceProvisionerContent = (parsedYaml) => {
+  return `{{% resource-provisioner-content description="${
+    parsedYaml.description
+  }" type="${parsedYaml.type}" ${
+    parsedYaml.supported_params
+      ? `supportedParams="${parsedYaml.supported_params}"`
+      : ""
+  } ${
+    parsedYaml.expected_outputs
+      ? `expectedOutputs="${parsedYaml.expected_outputs}"`
+      : ""
+  } %}}`;
+};
+
 /**
  * Determines the GitHub URL for a provisioner based on type and implementation.
  * @param {string} dirPath - The path to the provisioner directory.
@@ -149,12 +166,28 @@ const buildResourceProvisionerFiles = (
     }
     const provisionerType = parsedYaml.uri.split("://")[0];
 
+    saveMetadata(
+      {
+        data: {
+          source: options.source,
+          implementation,
+          tool,
+          provisionerType,
+          resourceType: parsedYaml.type,
+          flavor: title.split("-")[0],
+        },
+      },
+      "resource-provisioners"
+    );
+
     const frontmatterContent = generateFrontmatterContent({
       ...readmeConfig,
       title,
       provisionerType,
+      source: options.source,
       resourceType: parsedYaml.type,
       description: parsedYaml.description,
+      implementation,
       expectedOutputs: convertToYamlArray(parsedYaml.expected_outputs),
       supportedParams: convertToYamlArray(parsedYaml.supported_params),
       tool,
@@ -163,6 +196,8 @@ const buildResourceProvisionerFiles = (
     writeContentToFile(
       `${dirPath}/${provisionerType}/${title}`,
       `${frontmatterContent}
+
+${generateResourceProvisionerContent(parsedYaml)}
 
 ${generateExampleFileContent(yamlFile, dir, githubUrl)}\n
 `
