@@ -36,9 +36,32 @@ function traverseDirectory(dir, callback) {
   });
 }
 
+/**
+ * Check if a folder is valid (is a directory and not ignored)
+ * @param {string} folderPath - Path to the folder
+ * @returns {boolean} - True if folder is valid
+ */
+const isValidFolder = (folderPath) => {
+  const folderName = folderPath.split("/").pop();
+  return isDirectory(folderPath) && !shouldIgnoreFolder(folderName);
+};
+
+/**
+ * Check if a directory contains subdirectories
+ * @param {string} dirPath - Path to the directory
+ * @returns {boolean} - True if directory contains subdirectories
+ */
+const hasSubdirectories = (dirPath) => {
+  return fs
+    .readdirSync(dirPath)
+    .some((file) => isDirectory(`${dirPath}/${file}`));
+};
+
 module.exports = {
   isDirectory,
   mkdirIfNotExistsSync,
   traverseDirectory,
   shouldIgnoreFolder,
+  isValidFolder,
+  hasSubdirectories,
 };
