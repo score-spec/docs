@@ -1,8 +1,8 @@
-uri: template://default-provisioners/volume
-type: volume
-description: Creates a persistent volume that can be mounted on a workload.
-outputs: |
-  source:
-    emptyDir: {}
-expected_outputs:
-  - source
+- uri: template://default-provisioners/volume
+  type: volume
+  description: Creates a persistent volume that can be mounted on a workload.
+  outputs: |
+    source:
+      emptyDir: {}
+  expected_outputs:
+    - source

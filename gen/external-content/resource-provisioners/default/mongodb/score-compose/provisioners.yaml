@@ -1,53 +1,53 @@
-uri: template://default-provisioners/mongodb
-type: mongodb
-description: Provisions a dedicated MongoDB database.
-init: |
-  port: 27017
-  randomServiceName: mongo-{{ randAlphaNum 6 }}
-  randomUsername: user-{{ randAlpha 8 }}
-  randomPassword: {{ randAlphaNum 16 | quote }}
-state: |
-  serviceName: {{ dig "serviceName" .Init.randomServiceName .State | quote }}
-  username: {{ dig "username" .Init.randomUsername .State | quote }}
-  password: {{ dig "password" .Init.randomPassword .State | quote }}
-outputs: |
-  host: {{ .State.serviceName }}
-  port: {{ .Init.port }}
-  username: {{ .State.username | quote }}
-  password: {{ .State.password | quote }}
-  connection: "mongodb://{{ .State.username }}:{{ .State.password }}@{{ .State.serviceName }}:{{ .Init.port }}/"
-volumes: |
-  {{ .State.serviceName }}-data:
-    name: {{ .State.serviceName }}-data
-    driver: local
-    labels:
-      dev.score.compose.res.uid: {{ .Uid }}
-services: |
-  {{ .State.serviceName }}:
-    labels:
-      dev.score.compose.res.uid: {{ .Uid }}
-    image: mirror.gcr.io/mongo:8
-    restart: always
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: {{ .State.username | quote }}
-      MONGO_INITDB_ROOT_PASSWORD: {{ .State.password | quote }}
-    healthcheck:
-      test: ["CMD-SHELL", "echo 'db.runCommand(\"ping\").ok' | mongosh -u $$MONGO_INITDB_ROOT_USERNAME -p $$MONGO_INITDB_ROOT_PASSWORD"]
-      interval: 2s
-      timeout: 5s
-      retries: 15
-      start_period: 10s
-    volumes:
-    - type: volume
-      source: {{ .State.serviceName }}-data
-      target: /data/db
-      volume:
-        nocopy: true
-info_logs: |
-  - "{{.Uid}}: To connect to mongo: \"docker exec -ti {{ .ComposeProjectName }}-{{ .State.serviceName }}-1 mongosh -u {{ .State.username }} -p {{ .State.password }}\""
-expected_outputs:
-  - host
-  - port
-  - username
-  - password
-  - connection
+- uri: template://default-provisioners/mongodb
+  type: mongodb
+  description: Provisions a dedicated MongoDB database.
+  init: |
+    port: 27017
+    randomServiceName: mongo-{{ randAlphaNum 6 }}
+    randomUsername: user-{{ randAlpha 8 }}
+    randomPassword: {{ randAlphaNum 16 | quote }}
+  state: |
+    serviceName: {{ dig "serviceName" .Init.randomServiceName .State | quote }}
+    username: {{ dig "username" .Init.randomUsername .State | quote }}
+    password: {{ dig "password" .Init.randomPassword .State | quote }}
+  outputs: |
+    host: {{ .State.serviceName }}
+    port: {{ .Init.port }}
+    username: {{ .State.username | quote }}
+    password: {{ .State.password | quote }}
+    connection: "mongodb://{{ .State.username }}:{{ .State.password }}@{{ .State.serviceName }}:{{ .Init.port }}/"
+  volumes: |
+    {{ .State.serviceName }}-data:
+      name: {{ .State.serviceName }}-data
+      driver: local
+      labels:
+        dev.score.compose.res.uid: {{ .Uid }}
+  services: |
+    {{ .State.serviceName }}:
+      labels:
+        dev.score.compose.res.uid: {{ .Uid }}
+      image: mirror.gcr.io/mongo:8
+      restart: always
+      environment:
+        MONGO_INITDB_ROOT_USERNAME: {{ .State.username | quote }}
+        MONGO_INITDB_ROOT_PASSWORD: {{ .State.password | quote }}
+      healthcheck:
+        test: ["CMD-SHELL", "echo 'db.runCommand(\"ping\").ok' | mongosh -u $$MONGO_INITDB_ROOT_USERNAME -p $$MONGO_INITDB_ROOT_PASSWORD"]
+        interval: 2s
+        timeout: 5s
+        retries: 15
+        start_period: 10s
+      volumes:
+      - type: volume
+        source: {{ .State.serviceName }}-data
+        target: /data/db
+        volume:
+          nocopy: true
+  info_logs: |
+    - "{{.Uid}}: To connect to mongo: \"docker exec -ti {{ .ComposeProjectName }}-{{ .State.serviceName }}-1 mongosh -u {{ .State.username }} -p {{ .State.password }}\""
+  expected_outputs:
+    - host
+    - port
+    - username
+    - password
+    - connection

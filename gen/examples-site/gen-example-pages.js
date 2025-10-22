@@ -1,8 +1,8 @@
 const fs = require("fs");
 const { buildFrontmatter } = require("./frontmatter");
+const { buildResourceProvisionerFiles } = require("./frontmatter-provisioners");
 const { parseConfig } = require("./config-parser");
 const {
-  isDirectory,
   mkdirIfNotExistsSync,
   isValidFolder,
   hasSubdirectories,
@@ -79,12 +79,19 @@ for (const categoryFolder of filteredCategoryFolders) {
               continue;
             }
 
-            buildFrontmatter(
-              subsubfolder,
-              `${categoryFolder}/${folder}/${subfolder}/${subsubfolder}`,
-              subfolder,
-              folder
-            );
+            if (categoryFolder === "resource-provisioners") {
+              buildResourceProvisionerFiles(
+                `${categoryFolder}/${folder}/${subfolder}/${subsubfolder}`,
+                { source: folder }
+              );
+            } else {
+              buildFrontmatter(
+                subsubfolder,
+                `${categoryFolder}/${folder}/${subfolder}/${subsubfolder}`,
+                subfolder,
+                folder
+              );
+            }
           }
         } else {
           buildFrontmatter(

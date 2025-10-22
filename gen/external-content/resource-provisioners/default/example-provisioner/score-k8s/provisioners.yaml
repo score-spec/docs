@@ -1,11 +1,11 @@
-uri: cmd://bash#example-provisioner
-type: example-provisioner-resource
-description: Example provisioner that runs a bash script.
-class: default
-id: specific
-# (Optional) additional args that the binary gets run with
-# If any of the args are '<mode>' it will be replaced with "provision"
-args: ["-c", "echo '{\"resource_outputs\":{\"key\":\"value\",\"secret\":\"🔐💬mysecret_mykey💬🔐\"},\"manifests\":[]}'"]
-expected_outputs:
-  - key
-  - secret
+- uri: cmd://bash#example-provisioner
+  type: example-provisioner-resource
+  description: Example provisioner that runs a bash script.
+  class: default
+  id: specific
+  # (Optional) additional args that the binary gets run with
+  # If any of the args are '<mode>' it will be replaced with "provision"
+  args: ["-c", "echo '{\"resource_outputs\":{\"key\":\"value\",\"secret\":\"🔐💬mysecret_mykey💬🔐\"},\"manifests\":[]}'"]
+  expected_outputs:
+    - key
+    - secret

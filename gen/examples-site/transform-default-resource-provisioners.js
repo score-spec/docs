@@ -83,17 +83,6 @@ function extractProvisionerSection(content, uri) {
 
   // Extract the provisioner YAML (without leading comments)
   const yamlLines = lines.slice(startIdx, endIdx);
-  // Remove the leading "- " from the first line to make it an object instead of an array
-  // and remove 2 spaces of indentation from all subsequent lines
-  if (yamlLines.length > 0 && yamlLines[0].startsWith("- ")) {
-    yamlLines[0] = yamlLines[0].substring(2);
-    // Remove 2 spaces from the beginning of all other lines
-    for (let i = 1; i < yamlLines.length; i++) {
-      if (yamlLines[i].startsWith("  ")) {
-        yamlLines[i] = yamlLines[i].substring(2);
-      }
-    }
-  }
   const yamlContent = yamlLines.join("\n").trim();
 
   // Extract just the comments for README
@@ -155,13 +144,11 @@ function splitProvisionersFile(sourceFile, baseDir, implementation) {
 
     if (yamlContent) {
       fs.writeFileSync(targetFile, yamlContent, "utf8");
-      console.log(`Created: ${targetFile}`);
 
       // Create README.md with comments
       if (comments) {
         const readmeFile = path.join(targetDir, "README.md");
         fs.writeFileSync(readmeFile, comments, "utf8");
-        console.log(`Created: ${readmeFile}`);
       }
     } else {
       console.warn(`Could not extract YAML for ${provisioner.uri}`);
@@ -182,11 +169,9 @@ const scoreComposeYaml = path.join(
 const scoreK8sYaml = path.join(scoreK8sDir, "zz-default.provisioners.yaml");
 
 if (fs.existsSync(scoreComposeYaml)) {
-  console.log("\nProcessing score-compose provisioners...");
   splitProvisionersFile(scoreComposeYaml, scoreComposeDir, "score-compose");
 }
 
 if (fs.existsSync(scoreK8sYaml)) {
-  console.log("\nProcessing score-k8s provisioners...");
   splitProvisionersFile(scoreK8sYaml, scoreK8sDir, "score-k8s");
 }
