@@ -23,9 +23,11 @@ For instance, configuring Visual Studio Code involves the following steps:
 - Add the following JSON snippet:
 
 ```json
-"yaml.schemas": {
-       "https://raw.githubusercontent.com/score-spec/spec/main/score-v1b1.json": "score.yaml"
-   }
+  "yaml.customTags": [
+  ],
+  "yaml.schemas": {
+    "https://raw.githubusercontent.com/score-spec/spec/main/score-v1b1.json": "score.yaml"
+  }
 ```
 
 For reference:
