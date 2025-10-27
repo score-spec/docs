@@ -31,3 +31,13 @@ For instance, configuring Visual Studio Code involves the following steps:
 For reference:
 
 ![Visual Studio Code instructions](/images/vsc-score-schema-linting.png)
+
+It should look like the following:
+
+```json
+"yaml.customTags": [
+  ],
+"yaml.schemas": {
+    "https://raw.githubusercontent.com/score-spec/spec/main/score-v1b1.json": "score.yaml"
+  }
+```
