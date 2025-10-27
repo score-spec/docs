@@ -1,11 +1,12 @@
+{{ $workloadNames := keys .Workloads }}
 {{ range $i, $m := .Manifests }}
 {{/* delete the default Service manifest */}}
-{{ if eq $m.kind "Service" }}
+{{ if and (eq $m.kind "Service") (has $m.metadata.name $workloadNames) }}
 - op: delete
   path: {{ $i }}
 {{ end }}
 {{/* make the generated Deployment compliant with the Knative Service to reuse as many features as we can by default: env, liveness|readinessProbe, resources, etc. */}}
-{{ if eq $m.kind "Deployment" }}
+{{ if and (eq $m.kind "Deployment") (has $m.metadata.name $workloadNames) }}
 - op: set
   path: {{ $i }}.kind
   value: Service
