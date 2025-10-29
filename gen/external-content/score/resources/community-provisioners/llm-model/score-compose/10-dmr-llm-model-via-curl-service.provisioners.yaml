@@ -1,0 +1,19 @@
+- uri: template://community-provisioners/dmr-llm-model-via-curl
+  type: llm-model
+  description: Generates a curl service downloading the model with the Docker Model Runner (DMR).
+  supported_params:
+    - model
+  outputs: |
+    model: {{ .Init.model }}
+    url: "http://172.17.0.1:12434/engines/v1/"
+    api-key: "not-needed"
+  expected_outputs:
+    - model
+    - url
+    - api-key
+  init: |
+    model: {{ .Params.model | default "ai/smollm2:135M-Q4_0" }}
+  services: |
+    {{ .Id }}:
+      image: curlimages/curl:latest
+      command: ["curl", "-v", "-d", '{"from": "{{ .Init.model }}"}', "http://172.17.0.1:12434/models/create"]

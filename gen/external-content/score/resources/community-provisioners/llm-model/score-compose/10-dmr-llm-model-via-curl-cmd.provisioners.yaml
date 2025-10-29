@@ -1,0 +1,21 @@
+- uri: cmd://bash#dmr-llm-model-via-curl
+  type: llm-model
+  description: Runs curl to download the model with the Docker Model Runner (DMR).
+  supported_params:
+    - model
+  expected_outputs:
+    - model
+    - url
+    - api-key
+  args:
+    - -c
+    - |
+      STDIN=$(cat)
+      MODEL=$(echo $STDIN | yq eval -p json '.resource_params.model')
+      if [ "$MODEL" == "" ]; then
+        MODEL="ai/smollm2:135M-Q4_0"
+      fi
+      set -eu -o pipefail
+      curl -v -d '{"from":"'"$MODEL"'"}' "http://localhost:12434/models/create" >&2
+      OUTPUTS='{"resource_outputs":{"model":"%s","url":"http://172.17.0.1:12434/engines/v1/","api-key":"not-needed"}}'
+      printf "$OUTPUTS" "$MODEL"
