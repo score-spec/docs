@@ -32,11 +32,14 @@ resource-provisioners:
     - dapr
     - default
     - dns
+    - dns-in-codespace
     - dotenv
     - elasticsearch
     - empty
-    - example
-    - helm
+    - example-provisioner
+    - foo
+    - helm-template-redis
+    - helm-upgrade-redis
     - ingress
     - kafka
     - mongo

@@ -37,7 +37,7 @@ source: "${config.source}"
 implementation: "${config.implementation}"
 resourceType: "${config.resourceType}"
 provisionerType: "${config.provisionerType}"
-flavor: "${config.title.split("-")[0]}"
+flavor: "${config.flavor}"
 excerpt: '${config.excerpt}'
 description: '${config.description}'
 ${
@@ -158,11 +158,13 @@ const buildResourceProvisionerFiles = (
     const githubUrl = getProvisionerGitHubUrl(dirPath, options, implementation);
     const uriParts = parsedYaml.uri.split("/");
     let title = uriParts[uriParts.length - 1];
+    let flavor = title.split("-")[0];
     let tool;
     // Handle URIs with # (e.g., cmd://bash#example-provisioner)
     if (title.includes("#")) {
-      title = title.split("#")[1];
-      tool = title.split("-")[0];
+      title  = title.split("#")[1];
+      flavor = title;
+      tool   = title.split("-")[0];
     }
     const provisionerType = parsedYaml.uri.split("://")[0];
 
@@ -174,7 +176,7 @@ const buildResourceProvisionerFiles = (
           tool,
           provisionerType,
           resourceType: parsedYaml.type,
-          flavor: title.split("-")[0],
+          flavor,
         },
       },
       "resource-provisioners"
@@ -188,6 +190,7 @@ const buildResourceProvisionerFiles = (
       resourceType: parsedYaml.type,
       description: parsedYaml.description,
       implementation,
+      flavor,
       expectedOutputs: convertToYamlArray(parsedYaml.expected_outputs),
       supportedParams: convertToYamlArray(parsedYaml.supported_params),
       tool,

@@ -7,7 +7,7 @@ source: "default"
 implementation: "score-k8s"
 resourceType: "example-provisioner-resource"
 provisionerType: "cmd"
-flavor: "example"
+flavor: "example-provisioner"
 excerpt: 'The &#39;cmd&#39; scheme has a "host" + path component that indicates the path to the binary to execute. If the host starts with "." it is interpreted as a relative path, if it starts with "~" it resolves to the home directory.'
 description: 'Example provisioner that runs a bash script.'
 expectedOutputs: 

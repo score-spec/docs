@@ -7,7 +7,7 @@ source: "community"
 implementation: "score-k8s"
 resourceType: "redis"
 provisionerType: "cmd"
-flavor: "helm"
+flavor: "helm-template-redis"
 excerpt: 'Prerequisites:
 - Have `helm` installed locally, this provisioner renders the manifests from the [Bitnami&#39;s Redis Helm chart](https://bitnami.com/stack/redis/helm).
 - Have `yq` installed locally.'
