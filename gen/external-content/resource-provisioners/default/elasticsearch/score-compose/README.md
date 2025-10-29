@@ -1,0 +1,1 @@
+The default elasticsearch provisioner adds a elasticsearch instance.

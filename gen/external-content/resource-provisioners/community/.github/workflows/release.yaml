@@ -1,0 +1,35 @@
+name: release
+permissions: write-all
+on:
+  push:
+    tags:
+      - 'v*'
+jobs:
+  release:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oras-project/setup-oras@v1
+      - name: oras login
+        run: |
+          echo ${{ secrets.GITHUB_TOKEN }} | oras login ghcr.io -u ${{ github.actor }} --password-stdin
+      - name: oras push score-compose
+        run: |
+          mkdir compose
+          provisioners=$(find -name *.provisioners.yaml | grep /score-compose)
+          for provisioner in $provisioners;
+          do
+            cp $provisioner compose/
+          done
+          cd compose/
+          oras push ghcr.io/${{ github.repository_owner }}/score-compose-community-provisioners:${{ github.ref_name }},latest $(ls .)
+      - name: oras push score-k8s
+        run: |
+          mkdir k8s
+          provisioners=$(find -name *.provisioners.yaml | grep /score-k8s)
+          for provisioner in $provisioners;
+          do
+            cp $provisioner k8s/
+          done
+          cd k8s/
+          oras push ghcr.io/${{ github.repository_owner }}/score-k8s-community-provisioners:${{ github.ref_name }},latest $(ls .)

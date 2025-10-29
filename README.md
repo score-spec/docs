@@ -104,10 +104,15 @@ The commands for the initial integration of the repos are:
 ```bash
 git remote add -f -t main --no-tags examples https://github.com/score-spec/examples.git
 git remote add -f -t main --no-tags community-provisioners https://github.com/score-spec/community-provisioners.git
+git remote add -f -t main --no-tags score-compose https://github.com/score-spec/score-compose.git
+git remote add -f -t main --no-tags score-k8s https://github.com/score-spec/score-k8s.git
 git remote add -f -t main --no-tags patch-templates https://github.com/score-spec/community-patchers.git
 git read-tree --prefix=gen/external-content/score/specification -u examples/main:specification
+git read-tree --prefix=gen/external-content/resource-provisioners/default/score-compose -u score-compose/main:internal/command
 git read-tree --prefix=gen/external-content/score/resources/default-provisioners -u examples/main:resources
 git read-tree --prefix=gen/external-content/score/resources/community-provisioners -u community-provisioners/main
+git read-tree --prefix=gen/external-content/resource-provisioners/default/score-k8s -u score-k8s/main:internal/provisioners/default
+git read-tree --prefix=gen/external-content/resource-provisioners/community -u community-provisioners/main
 git read-tree --prefix=gen/external-content/patch-templates -u patch-templates/main
 git add gen/external-content
 git commit -s -S -m "Integrating external content"

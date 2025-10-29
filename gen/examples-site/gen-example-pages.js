@@ -1,13 +1,18 @@
 const fs = require("fs");
 const { buildFrontmatter } = require("./frontmatter");
+const { buildResourceProvisionerFiles } = require("./frontmatter-provisioners");
 const { parseConfig } = require("./config-parser");
 const {
-  isDirectory,
   mkdirIfNotExistsSync,
-  shouldIgnoreFolder,
+  isValidFolder,
+  hasSubdirectories,
 } = require("./file-utils");
 const { beautify } = require("./content-utils");
 
+// Constants
+const CONTENT_OUTPUT_BASE = "./content/en/examples";
+const CATEGORY_CONTENT_PATH = "./gen/examples-site/examples-category-content";
+const README_FILE = "README.md";
 const sourceFolder = process.argv[2];
 
 //Get the folders inside sourceFolder:
@@ -21,78 +26,43 @@ const config = parseConfig("./config.toml");
 const blacklist = config.exampleLibraryBlacklistedFolders;
 
 // Remove blacklisted folders from the categoryFolders array:
-categoryFolders.forEach((folder, index) => {
-  if (blacklist.includes(folder)) {
-    categoryFolders.splice(index, 1);
-  }
-});
+const filteredCategoryFolders = categoryFolders.filter(
+  (folder) => !blacklist.includes(folder)
+);
 
 //For each folder, make a folder in ./content/examples:
-for (const categoryFolder of categoryFolders) {
-  mkdirIfNotExistsSync(`./content/en/examples/${categoryFolder}`);
+for (const categoryFolder of filteredCategoryFolders) {
+  mkdirIfNotExistsSync(`${CONTENT_OUTPUT_BASE}/${categoryFolder}`);
+  createCategoryIndex(categoryFolder);
 
-  //Write an _index.md file in each folder.
-  //Get content from examples-site category content files
-  const categoryIndexContent = fs.readFileSync(
-    `./gen/examples-site/examples-category-content/${categoryFolder}.md`,
-    "utf8"
-  );
-  fs.writeFileSync(
-    `./content/en/examples/${categoryFolder}/_index.md`,
-    `---
-title: "${beautify(categoryFolder)}"
-draft: false
-type: examples
----
-${categoryIndexContent}
-
----`
-  );
-
-  //Get the folders inside each category:
+  //Process the folders inside each category:
   const folders = fs.readdirSync(`${sourceFolder}/${categoryFolder}`);
-
-  //For each folder, check if this is the last nesting level:
   for (const folder of folders) {
-    //Discard readme and other files:
-    if (
-      !isDirectory(`${sourceFolder}/${categoryFolder}/${folder}`) ||
-      shouldIgnoreFolder(folder)
-    ) {
+    if (!isValidFolder(`${sourceFolder}/${categoryFolder}/${folder}`)) {
       continue;
     }
-    const isLastNestingLevel = !fs
-      .readdirSync(`${sourceFolder}/${categoryFolder}/${folder}`)
-      .some((file) =>
-        isDirectory(`${sourceFolder}/${categoryFolder}/${folder}/${file}`)
-      );
+    const isLastNestingLevel = !hasSubdirectories(
+      `${sourceFolder}/${categoryFolder}/${folder}`
+    );
 
     if (!isLastNestingLevel) {
       const subfolders = fs.readdirSync(
         `${sourceFolder}/${categoryFolder}/${folder}`
       );
-      const folderPath = `./content/en/examples/${categoryFolder}/${folder}`;
+      const folderPath = `${CONTENT_OUTPUT_BASE}/${categoryFolder}/${folder}`;
       for (const subfolder of subfolders) {
         mkdirIfNotExistsSync(folderPath);
-        //Discard readme and other files, and dot folders:
         if (
-          !isDirectory(
+          !isValidFolder(
             `${sourceFolder}/${categoryFolder}/${folder}/${subfolder}`
-          ) ||
-          shouldIgnoreFolder(subfolder)
+          )
         ) {
           continue;
         }
 
-        const isLastNestingLevel = !fs
-          .readdirSync(
-            `${sourceFolder}/${categoryFolder}/${folder}/${subfolder}`
-          )
-          .some((file) =>
-            isDirectory(
-              `${sourceFolder}/${categoryFolder}/${folder}/${subfolder}/${file}`
-            )
-          );
+        const isLastNestingLevel = !hasSubdirectories(
+          `${sourceFolder}/${categoryFolder}/${folder}/${subfolder}`
+        );
 
         if (!isLastNestingLevel) {
           const subsubfolders = fs.readdirSync(
@@ -101,22 +71,27 @@ ${categoryIndexContent}
           const subfolderPath = `${folderPath}/${subfolder}`;
           for (const subsubfolder of subsubfolders) {
             mkdirIfNotExistsSync(subfolderPath);
-            //Discard readme and other files, and dot folders:
             if (
-              !isDirectory(
+              !isValidFolder(
                 `${sourceFolder}/${categoryFolder}/${folder}/${subfolder}/${subsubfolder}`
-              ) ||
-              shouldIgnoreFolder(subsubfolder)
+              )
             ) {
               continue;
             }
 
-            buildFrontmatter(
-              subsubfolder,
-              `${categoryFolder}/${folder}/${subfolder}/${subsubfolder}`,
-              subfolder,
-              folder
-            );
+            if (categoryFolder === "resource-provisioners") {
+              buildResourceProvisionerFiles(
+                `${categoryFolder}/${folder}/${subfolder}/${subsubfolder}`,
+                { source: folder }
+              );
+            } else {
+              buildFrontmatter(
+                subsubfolder,
+                `${categoryFolder}/${folder}/${subfolder}/${subsubfolder}`,
+                subfolder,
+                folder
+              );
+            }
           }
         } else {
           buildFrontmatter(
@@ -128,45 +103,80 @@ ${categoryIndexContent}
       }
     } else {
       if (config.exampleLibraryOnePagePerFileFolders.includes(categoryFolder)) {
-        const path = `${sourceFolder}/${categoryFolder}/${folder}`;
-        const files = fs.readdirSync(path);
-        // Create output directory structure
-        mkdirIfNotExistsSync(
-          `./content/en/examples/${categoryFolder}/${folder}`
-        );
-        for (const file of files) {
-          if (file === "README.md") continue;
-          const fileWithoutExtension = file.replace(/\.[^/.]+$/, "");
-          mkdirIfNotExistsSync(`${path}/${fileWithoutExtension}`);
-          fs.renameSync(
-            `${path}/${file}`,
-            `${path}/${fileWithoutExtension}/${file}`
-          );
-          buildFrontmatter(
-            fileWithoutExtension,
-            `${categoryFolder}/${folder}/${fileWithoutExtension}`,
-            folder,
-            "",
-            {
-              fileLocation: `${categoryFolder}/${folder}`,
-              readmeLocation: `${categoryFolder}/${folder}`,
-              shouldBeautifyParent: false,
-            }
-          );
-        }
-        // Move files back to their original location
-        for (const file of files) {
-          if (file === "README.md") continue;
-          const fileWithoutExtension = file.replace(/\.[^/.]+$/, "");
-          fs.renameSync(
-            `${path}/${fileWithoutExtension}/${file}`,
-            `${path}/${file}`
-          );
-          fs.rmdirSync(`${path}/${fileWithoutExtension}`);
-        }
+        processOnePagePerFileFolder(categoryFolder, folder);
       } else {
         buildFrontmatter(folder, `${categoryFolder}/${folder}`);
       }
     }
   }
+}
+
+/**
+ * Process folders that need one page per file
+ * Temporarily moves files into subdirectories for processing, then moves them back
+ */
+function processOnePagePerFileFolder(categoryFolder, folder) {
+  const sourcePath = `${sourceFolder}/${categoryFolder}/${folder}`;
+  const files = fs.readdirSync(sourcePath);
+
+  // Create output directory structure
+  mkdirIfNotExistsSync(`${CONTENT_OUTPUT_BASE}/${categoryFolder}/${folder}`);
+
+  // Temporarily move files into subdirectories for processing
+  for (const file of files) {
+    if (file === README_FILE) continue;
+
+    const fileWithoutExtension = file.replace(/\.[^/.]+$/, "");
+    const tempDir = `${sourcePath}/${fileWithoutExtension}`;
+
+    mkdirIfNotExistsSync(tempDir);
+    fs.renameSync(`${sourcePath}/${file}`, `${tempDir}/${file}`);
+
+    buildFrontmatter(
+      fileWithoutExtension,
+      `${categoryFolder}/${folder}/${fileWithoutExtension}`,
+      folder,
+      "",
+      {
+        fileLocation: `${categoryFolder}/${folder}`,
+        readmeLocation: `${categoryFolder}/${folder}`,
+        shouldBeautifyParent: false,
+      }
+    );
+  }
+
+  // Move files back to their original location
+  for (const file of files) {
+    if (file === README_FILE) continue;
+
+    const fileWithoutExtension = file.replace(/\.[^/.]+$/, "");
+    const tempDir = `${sourcePath}/${fileWithoutExtension}`;
+
+    fs.renameSync(`${tempDir}/${file}`, `${sourcePath}/${file}`);
+    fs.rmdirSync(tempDir);
+  }
+}
+
+/**
+ * Create the _index.md file for a category folder
+ */
+function createCategoryIndex(categoryFolder) {
+  const categoryIndexContent = fs.readFileSync(
+    `${CATEGORY_CONTENT_PATH}/${categoryFolder}.md`,
+    "utf8"
+  );
+
+  const indexContent = `---
+title: "${beautify(categoryFolder)}"
+draft: false
+type: examples
+---
+${categoryIndexContent}
+
+---`;
+
+  fs.writeFileSync(
+    `${CONTENT_OUTPUT_BASE}/${categoryFolder}/_index.md`,
+    indexContent
+  );
 }

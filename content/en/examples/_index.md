@@ -21,6 +21,10 @@ Explore a curated set of example files covering a range of entities for working 
 {{< link-card-item text="Find some Score files examples illustrating how to use the Score specification as well as how to use the resources provisioners with both `score-compose` and `score-k8s`." url="/examples/score" linkLabel="Get examples" >}}
 {{< /multi-link-card >}}
 
+{{< multi-link-card title="Resources provisioners" >}}
+{{< link-card-item text="Find some Score files examples illustrating how to use the resources provisioners with both `score-compose` and `score-k8s`." url="/examples/resource-provisioners" linkLabel="Get examples" >}}
+{{< /multi-link-card >}}
+
 {{< multi-link-card title="Patch templates" >}}
 {{< link-card-item text="Find some examples illustrating how to use the patch templates with both `score-compose` and `score-k8s`." url="/examples/patch-templates" linkLabel="Get examples" >}}
 {{< /multi-link-card >}}

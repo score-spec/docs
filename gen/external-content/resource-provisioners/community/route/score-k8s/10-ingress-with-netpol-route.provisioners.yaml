@@ -1,0 +1,62 @@
+- uri: template://community-provisioners/ingress-with-net-pol-route
+  type: route
+  description: Provisions an Ingress route on a shared nginx instance, and a NetworkPolicy between them.
+  supported_params:
+    - path
+    - host
+    - port
+  init: |
+    {{ if not (regexMatch "^/|(/([^/]+))+$" .Params.path) }}{{ fail "params.path start with a / but cannot end with /" }}{{ end }}
+    {{ if not (regexMatch "^[a-z0-9_.-]{1,253}$" .Params.host) }}{{ fail (cat "params.host must be a valid hostname but was" .Params.host) }}{{ end }}
+    {{ $ports := (index .WorkloadServices .SourceWorkload).Ports }}
+    {{ if not $ports }}{{ fail "no service ports exist" }}{{ end }}
+    {{ $port := index $ports (print .Params.port) }}
+    {{ if not $port.TargetPort }}{{ fail "params.port is not a named service port" }}{{ end }}
+    targetPort: {{ $port.TargetPort }}
+  state: |
+    routeName: route-{{ .SourceWorkload }}-{{ substr 0 8 .Guid | lower }}
+  manifests: |
+    - apiVersion: networking.k8s.io/v1
+      kind: Ingress
+      metadata:
+        name: {{ .State.routeName }}
+        {{ if ne .Namespace "" }}
+        namespace: {{ .Namespace }}
+        {{ end }}
+      spec:
+        ingressClassName: nginx
+        rules:
+          - host: {{ .Params.host | quote }}
+            http:
+              paths:
+                - path: {{ .Params.path | quote }}
+                  pathType: Prefix
+                  backend:
+                    service:
+                      name: {{ (index .WorkloadServices .SourceWorkload).ServiceName }}
+                      port:
+                        number: {{ .Params.port }}
+    - apiVersion: networking.k8s.io/v1
+      kind: NetworkPolicy
+      metadata:
+        name: ingress-to-{{ .SourceWorkload }}
+        {{ if ne .Namespace "" }}
+        namespace: {{ .Namespace }}
+        {{ end }}
+      spec:
+        podSelector:
+          matchLabels:
+            app.kubernetes.io/name: {{ .SourceWorkload }}
+        policyTypes:
+          - Ingress
+        ingress:
+        - from:
+          - namespaceSelector:
+              matchLabels:
+                kubernetes.io/metadata.name: ingress-nginx
+            podSelector:
+              matchLabels:
+                app.kubernetes.io/name: ingress-nginx
+          ports:
+          - protocol: TCP
+            port: {{ .Init.targetPort }}

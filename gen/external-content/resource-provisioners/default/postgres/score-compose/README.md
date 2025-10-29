@@ -1,0 +1,1 @@
+The default postgres provisioner adds a postgres instance and then ensures that the required databases are created on startup.

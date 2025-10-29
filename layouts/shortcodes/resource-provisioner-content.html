@@ -1,0 +1,15 @@
+<pre><code>{{ .Get "description" }}
+
+<b>type</b>: {{ .Get "type" }}
+{{- if .Get "supportedParams" }}
+<b>supported_params</b>:
+{{- range split (.Get "supportedParams") "," }}
+  - {{ trim . " " }}
+{{- end }}
+{{- end }}
+{{- if .Get "expectedOutputs" }}
+<b>expected_outputs</b>:
+{{- range split (.Get "expectedOutputs") "," }}
+  - {{ trim . " " }}
+{{- end }}
+{{- end }}</code></pre>

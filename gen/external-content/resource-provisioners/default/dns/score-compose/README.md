@@ -1,0 +1,1 @@
+The default dns provisioner just outputs localhost as the hostname every time. This is because without actual control of a dns resolver we can't do any accurate routing on any other name. This can be replaced by a new provisioner in the future.

@@ -1,0 +1,1 @@
+This resource provides a minio based S3 bucket with AWS-style credentials. This provides some common and well known outputs that can be used with any generic AWS s3 client. If the provider has a publish port annotation, it can expose a management port on the local network for debugging and connectivity.

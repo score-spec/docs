@@ -1,0 +1,22 @@
+apiVersion: score.dev/v1b1
+metadata:
+  name: my-workload
+  annotations:
+    dapr.io/enabled: "true"
+    dapr.io/app-id: "my-workload"
+    dapr.io/app-port: "3000"
+containers:
+  my-container:
+    image: busybox
+    command: ["/bin/sh"]
+    args: ["-c", "while true; do echo $PUBSUB_NAME; echo '\n'; sleep 5; done"]
+    variables:
+      PUBSUB_NAME: "${resources.state-store.name}"
+service:
+  ports:
+    tcp:
+      port: 3000
+      targetPort: 3000
+resources:
+  state-store:
+    type: dapr-state-store

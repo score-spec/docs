@@ -1,0 +1,1 @@
+The default provisioner for service resources, this expects a workload and port name and will return the hostname and port required to contact it. This will validate that the workload and port exist, but won't enforce a dependency relationship yet.

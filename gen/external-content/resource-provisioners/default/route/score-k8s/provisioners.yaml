@@ -1,0 +1,45 @@
+- uri: template://default-provisioners/route
+  type: route
+  description: Provisions an HTTPRoute on a shared Nginx instance.
+  init: |
+    {{ if not (regexMatch "^/|(/([^/]+))+$" .Params.path) }}{{ fail "params.path start with a / but cannot end with /" }}{{ end }}
+    {{ if not (regexMatch "^[a-z0-9_.-]{1,253}$" .Params.host) }}{{ fail (cat "params.host must be a valid hostname but was" .Params.host) }}{{ end }}
+    {{ $ports := (index .WorkloadServices .SourceWorkload).Ports }}
+    {{ if not $ports }}{{ fail "no service ports exist" }}{{ end }}
+    {{ $port := index $ports (print .Params.port) }}
+    {{ if not $port.TargetPort }}{{ fail "params.port is not a named service port" }}{{ end }}
+  state: |
+    routeName: route-{{ .SourceWorkload }}-{{ substr 0 8 .Guid | lower }}
+  manifests: |
+    - apiVersion: gateway.networking.k8s.io/v1
+      kind: HTTPRoute
+      metadata:
+        name: {{ .State.routeName }}
+        {{ if ne .Namespace "" }}
+        namespace: {{ .Namespace }}
+        {{ end }}
+        annotations:
+          k8s.score.dev/source-workload: {{ .SourceWorkload }}
+          k8s.score.dev/resource-uid: {{ .Uid }}
+          k8s.score.dev/resource-guid: {{ .Guid }}
+        labels:
+          app.kubernetes.io/managed-by: score-k8s
+          app.kubernetes.io/name: {{ .State.routeName }}
+          app.kubernetes.io/instance: {{ .State.routeName }}
+      spec:
+        parentRefs:
+        - name: default
+        hostnames:
+        - {{ .Params.host | quote }}
+        rules:
+        - matches:
+          - path:
+              type: PathPrefix
+              value: {{ .Params.path | quote }}
+          backendRefs:
+          - name: {{ (index .WorkloadServices .SourceWorkload).ServiceName }}
+            port: {{ .Params.port }}
+  supported_params:
+    - host
+    - port
+    - path

@@ -1,0 +1,11 @@
+- uri: template://default-provisioners/dns
+  type: dns
+  description: Outputs a *.localhost domain as the hostname.
+  init: |
+    randomHostname: dns{{ randAlphaNum 6 | lower }}.localhost
+  state: |
+    instanceHostname: {{ dig "instanceHostname" .Init.randomHostname .State | quote }}
+  outputs: |
+    host: {{ .State.instanceHostname }}
+  expected_outputs:
+    - host

@@ -1,0 +1,64 @@
+- uri: template://community-provisioners/static-service-with-netpol
+  type: service
+  description: Outputs the name of the Workload dependency if it exists in the list of Workloads, and generate NetworkPolicies between them.
+  init: |
+    name: {{ splitList "." .Id | last }}
+  outputs: |
+    {{ $w := (index .WorkloadServices .Init.name) }}
+    {{ if or (not $w) (not $w.ServiceName) }}{{ fail "unknown workload" }}{{ end }}
+    name: {{ .Init.name }}
+  expected_outputs: 
+    - name
+  manifests: |
+    - apiVersion: networking.k8s.io/v1
+      kind: NetworkPolicy
+      metadata:
+        name: {{ .Init.name }}-from-{{ .SourceWorkload }}-ingress
+        {{ if ne .Namespace "" }}
+        namespace: {{ .Namespace }}
+        {{ end }}
+      spec:
+        podSelector:
+          matchLabels:
+            app.kubernetes.io/name: {{ .Init.name }}
+        policyTypes:
+          - Ingress
+        ingress:
+        - from:
+          - podSelector:
+              matchLabels:
+                app.kubernetes.io/name: {{ .SourceWorkload }}
+            namespaceSelector:
+              matchLabels:
+                kubernetes.io/metadata.name: {{ .Namespace | default "default" }}
+          ports:
+          {{- range $k, $port := (index .WorkloadServices .Init.name).Ports }}
+          - protocol: TCP
+            port: {{ $port.TargetPort }}
+          {{- end }}
+    - apiVersion: networking.k8s.io/v1
+      kind: NetworkPolicy
+      metadata:
+        name: {{ .SourceWorkload }}-to-{{ .Init.name }}-egress
+        {{ if ne .Namespace "" }}
+        namespace: {{ .Namespace }}
+        {{ end }}
+      spec:
+        podSelector:
+          matchLabels:
+            app.kubernetes.io/name: {{ .SourceWorkload }}
+        policyTypes:
+          - Egress
+        egress:
+        - to:
+          - podSelector:
+              matchLabels:
+                app.kubernetes.io/name: {{ .Init.name }}
+            namespaceSelector:
+              matchLabels:
+                kubernetes.io/metadata.name: {{ .Namespace | default "default" }}
+          ports:
+          {{- range $k, $port := (index .WorkloadServices .Init.name).Ports }}
+          - protocol: TCP
+            port: {{ $port.TargetPort }}
+          {{- end }}
