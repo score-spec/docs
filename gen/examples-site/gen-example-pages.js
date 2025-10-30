@@ -15,6 +15,19 @@ const CATEGORY_CONTENT_PATH = "./gen/examples-site/examples-category-content";
 const README_FILE = "README.md";
 const sourceFolder = process.argv[2];
 
+// Clean directories within output dir (but keep any files)
+if (fs.existsSync(CONTENT_OUTPUT_BASE)) {
+  const entries = fs.readdirSync(CONTENT_OUTPUT_BASE);
+  entries.forEach(entry => {
+    const fullPath = `${CONTENT_OUTPUT_BASE}/${entry}`;
+    if (fs.statSync(fullPath).isDirectory()) {
+      fs.rmSync(fullPath, { recursive: true, force: true });
+    }
+  });
+} else {
+  fs.mkdirSync(CONTENT_OUTPUT_BASE);
+}
+
 //Get the folders inside sourceFolder:
 const allfiles = fs.readdirSync(sourceFolder);
 const categoryFolders = allfiles.filter((file) =>
