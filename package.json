@@ -54,8 +54,8 @@
     "gen-score-resources-community-provisioners": "git rm -rfq gen/external-content/score/resources/community-provisioners && git read-tree --prefix=gen/external-content/score/resources/community-provisioners -u community-provisioners/main",
     "gen-resource-provisioners-community": "git rm -rfq gen/external-content/resource-provisioners/community && git read-tree --prefix=gen/external-content/resource-provisioners/community -u community-provisioners/main",
     "gen-patch-templates": "git rm -rfq gen/external-content/patch-templates && git read-tree --prefix=gen/external-content/patch-templates -u patch-templates/main",
-    "gen-resource-provisioners-default-score-compose": "git rm -rfq gen/external-content/resource-provisioners/default/score-compose && git read-tree --prefix=gen/external-content/resource-provisioners/default/score-compose -u score-compose/main:internal/command",
-    "gen-resource-provisioners-default-score-k8s": "git rm -rfq gen/external-content/resource-provisioners/default/score-k8s && git read-tree --prefix=gen/external-content/resource-provisioners/default/score-k8s -u score-k8s/main:internal/provisioners/default",
+    "gen-resource-provisioners-default-score-compose": "mkdir gen/external-content/resource-provisioners/default/score-compose && wget https://raw.githubusercontent.com/score-spec/score-compose/refs/heads/main/internal/command/default.provisioners.yaml -O gen/external-content/resource-provisioners/default/score-compose/default.provisioners.yaml",
+    "gen-resource-provisioners-default-score-k8s": "mkdir gen/external-content/resource-provisioners/default/score-k8s && wget https://raw.githubusercontent.com/score-spec/score-k8s/refs/heads/main/internal/provisioners/default/zz-default.provisioners.yaml -O gen/external-content/resource-provisioners/default/score-k8s/zz-default.provisioners.yaml",
     "gen-transform-default-resource-provisioners": "node ./gen/examples-site/transform-default-resource-provisioners.js",
     "gen-example-pages": "node ./gen/examples-site/gen-example-pages.js ./gen/external-content && yarn fmt"
   },
