@@ -8,3 +8,4 @@
 - op: delete
   path: {{ $i }}
 {{ end }}
+{{ end }}

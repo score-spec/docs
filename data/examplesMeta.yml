@@ -17,6 +17,7 @@ resource-provisioners:
     - example-provisioner-resource
     - horizontal-pod-autoscaler
     - kafka-topic
+    - llm-model
     - mongodb
     - mssql
     - mysql
@@ -31,6 +32,8 @@ resource-provisioners:
   flavor:
     - dapr
     - default
+    - dmr
+    - dmr-llm-model-via-curl
     - dns
     - dns-in-codespace
     - dotenv
@@ -55,6 +58,7 @@ resource-provisioners:
     - static
     - volume
   tool:
+    - dmr
     - dns
     - dotenv
     - example

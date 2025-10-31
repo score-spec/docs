@@ -1,0 +1,16 @@
+apiVersion: score.dev/v1b1
+metadata:
+  name: my-workload
+containers:
+  my-container:
+    image: busybox
+    command: ["/bin/sh"]
+    args: ["-c", "while true; do echo $LLM_BASE_URL; sleep 5; done"]
+    variables:
+      LLM_MODEL_NAME: "${resources.model.model}"
+      LLM_BASE_URL: "${resources.model.url}"
+resources:
+  model:
+    type: llm-model
+    params:
+      model: ai/smollm2:135M-Q4_0
