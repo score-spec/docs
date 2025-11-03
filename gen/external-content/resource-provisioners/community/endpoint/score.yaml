@@ -1,0 +1,22 @@
+apiVersion: score.dev/v1b1
+metadata:
+  name: frontend
+containers:
+  frontend:
+    image: busybox
+    command: ["/bin/sh"]
+    args: ["-c", "while true; do echo Hello $SERVICE_DEP!; sleep 5; done"]
+    variables:
+      SERVICE_DEP: ${resources.backend.url}/0.1.0/orders
+service:
+  ports:
+    tcp:
+      port: 8080
+      targetPort: 80
+resources:
+  backend:
+    type: endpoint
+    params:
+      port: 8181
+      openapi_file: ./backend-openapi.yaml
+      openapi_title: Order Service API
