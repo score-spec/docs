@@ -1,0 +1,52 @@
+- uri: template://custom-provisioners/endpoint-with-microcks
+  type: endpoint
+  description: Outputs an endpoint URL for connecting to an other workload (a Microcks mock is generated if not found).
+  init: |
+    hostname: {{ splitList "." .Id | last }}
+    {{ $parsedPath := .Params.openapi_file | splitList "/" }}
+    {{ if eq (len $parsedPath) 0 }}
+    resourcesPath: "."
+    {{ else }}
+    resourcesPath: {{ trimSuffix (last $parsedPath) .Params.openapi_file | trimSuffix "/" }}
+    {{ end }}
+  supported_params:
+    - port
+    - openapi_file
+    - openapi_title
+  outputs: |
+    {{ $w := (index .WorkloadServices .Init.hostname) }}
+    {{ if or (not $w) (not $w.ServiceName) }}
+    url: http://localhost:9090/rest/{{ .Params.openapi_title | replace " " "+" }}
+    {{ else }}
+    url: http://{{ .Init.hostname }}:{{ .Params.port }}
+    {{ end }}
+  expected_outputs:
+    - url
+  services: |
+    {{ $w := (index .WorkloadServices .Init.hostname) }}
+    {{ if or (not $w) (not $w.ServiceName) }}
+    {{ .Init.hostname }}-mock:
+      image: quay.io/microcks/microcks-cli:latest
+      restart: always
+      entrypoint:
+        - "microcks-cli"
+        - "import"
+        - "{{ .Params.openapi_file }}:true"
+        - "--microcksURL=http://microcks:8080/api"
+        - "--insecure"
+        - "--keycloakClientId=foo"
+        - "--keycloakClientSecret=bar"
+      cap_drop:
+        - ALL
+      read_only: true
+      user: "65532"
+      volumes:
+      - type: bind
+        source: {{ .Init.resourcesPath }}
+        target: /resources
+        read_only: true
+      depends_on:
+        microcks:
+          condition: service_started
+          required: true
+    {{ end }}

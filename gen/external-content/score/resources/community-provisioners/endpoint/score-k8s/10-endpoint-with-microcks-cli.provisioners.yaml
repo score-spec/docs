@@ -1,0 +1,29 @@
+- uri: cmd://bash#endpoint-with-microcks-cli
+  type: endpoint
+  description: Outputs an endpoint URL for connecting to an other workload (a Microcks mock is generated if not found).
+  supported_params:
+    - port
+    - openapi_file
+  expected_outputs:
+    - url
+  args:
+  - -c
+  - |
+    STDIN=$(cat)
+    PARAM_PORT=$(echo $STDIN | yq eval -p json '.resource_params.port')
+    PARAM_OPENAPI_FILE=$(echo $STDIN | yq eval -p json '.resource_params.openapi_file')
+    WORKLOAD=$(echo $STDIN | yq eval -p json '.resource_id | split(".") | .[-1]')
+    WORKLOAD_EXISTS=$(echo $STDIN | WORKLOAD=${WORKLOAD} yq eval -p json '.workload_services | has(strenv(WORKLOAD))')
+    URL_HOSTNAME=${WORKLOAD}:${PARAM_PORT}
+    URL_SCHEME="http"
+    URL_PATH=""
+    if [ "$WORKLOAD_EXISTS" != "true" ]; then
+      URL_HOSTNAME="microcks.127.0.0.1.nip.io"
+      URL_SCHEME="https"
+      SPEC_FILE="${PARAM_OPENAPI_FILE}"
+      URL_PATH=/rest/$(cat $SPEC_FILE | yq eval '.info.title' | yq '. |= sub(" ", "+")')
+      set -eu -o pipefail
+      microcks-cli import ${SPEC_FILE}:true --microcksURL=https://${URL_HOSTNAME}/api --insecure --keycloakClientId=foo --keycloakClientSecret=bar >&2
+    fi
+    OUTPUTS='{"resource_outputs":{"url":"%s://%s%s"},"manifests":[]}'
+    printf "$OUTPUTS" "$URL_SCHEME" "$URL_HOSTNAME" "$URL_PATH"

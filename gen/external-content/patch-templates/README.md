@@ -9,13 +9,15 @@ _Note: Do you have other examples that you would like to see in this list? Pleas
 ## For `score-compose`
 
 - `dapr.tpl`
+- `microcks.tpl`
 - `unprivileged.tpl`
 
 Example of usage:
 ```bash
 score-compose init \
-    --patch-templates https://raw.githubusercontent.com/score-spec/community-patchers/refs/heads/main/score-compose/unprivileged.tpl \
-    --patch-templates https://raw.githubusercontent.com/score-spec/community-patchers/refs/heads/main/score-compose/dapr.tpl
+    --patch-templates https://raw.githubusercontent.com/score-spec/community-patchers/refs/heads/main/score-compose/dapr.tpl \
+    --patch-templates https://raw.githubusercontent.com/score-spec/community-patchers/refs/heads/main/score-compose/microcks.tpl \
+    --patch-templates https://raw.githubusercontent.com/score-spec/community-patchers/refs/heads/main/score-compose/unprivileged.tpl
 ```
 
 ## For `score-k8s`

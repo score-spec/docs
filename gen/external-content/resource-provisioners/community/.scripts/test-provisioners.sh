@@ -14,7 +14,10 @@ do
     for provisioner in $provisioners;
     do
       echo "###### With ${provisioner}:"
-      if [[ "$provisioner" = "score-compose/10-dns-in-codespace.provisioners.yaml" || "$provisioner" = "score-k8s/10-dns-in-codespace.provisioners.yaml" || "$provisioner" = "score-compose/10-dmr-llm-model-via-curl-cmd.provisioners.yaml" ]]; then
+      if [[ "$provisioner" = "score-compose/10-dns-in-codespace.provisioners.yaml" 
+      || "$provisioner" = "score-k8s/10-dns-in-codespace.provisioners.yaml" 
+      || "$provisioner" = "score-compose/10-dmr-llm-model-via-curl-cmd.provisioners.yaml"
+      || "$provisioner" = "score-k8s/10-endpoint-with-microcks-cli.provisioners.yaml" ]]; then
         echo "Skipped."
       else
         ${implementation%?} init --no-sample --provisioners $provisioner

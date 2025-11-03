@@ -13,6 +13,7 @@ resource-provisioners:
     - dapr-subscription
     - dns
     - elasticsearch
+    - endpoint
     - environment
     - example-provisioner-resource
     - horizontal-pod-autoscaler
@@ -39,6 +40,8 @@ resource-provisioners:
     - dotenv
     - elasticsearch
     - empty
+    - endpoint
+    - endpoint-with-microcks-cli
     - example-provisioner
     - foo
     - helm-template-redis
@@ -61,6 +64,7 @@ resource-provisioners:
     - dmr
     - dns
     - dotenv
+    - endpoint
     - example
     - helm
   source:
