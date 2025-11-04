@@ -18,19 +18,19 @@ Explore a curated set of example files covering a range of entities for working 
 {{< grid columns="3">}}
 
 {{< multi-link-card title="Score specification and resources" >}}
-{{< link-card-item text="Find some Score files examples illustrating how to use the Score specification as well as how to use the resources provisioners with both `score-compose` and `score-k8s`." url="/examples/score" linkLabel="See examples" >}}
+{{< link-card-item text="Find Score files examples illustrating how to use the Score specification as well as the resources provisioners with either `score-compose` or `score-k8s`." url="/examples/score" linkLabel="See examples" >}}
 {{< /multi-link-card >}}
 
 {{< multi-link-card title="Resources provisioners" >}}
-{{< link-card-item text="Find some Score files examples illustrating how to use the resources provisioners with both `score-compose` and `score-k8s`." url="/examples/resource-provisioners" linkLabel="See examples" >}}
+{{< link-card-item text="Find examples of resources provisioners with either `score-compose` or `score-k8s`." url="/examples/resource-provisioners" linkLabel="See examples" >}}
 {{< /multi-link-card >}}
 
 {{< multi-link-card title="Patch templates" >}}
-{{< link-card-item text="Find some examples illustrating how to use the patch templates with both `score-compose` and `score-k8s`." url="/examples/patch-templates" linkLabel="See examples" >}}
+{{< link-card-item text="Find examples of patch templates with either `score-compose` or `score-k8s`." url="/examples/patch-templates" linkLabel="See examples" >}}
 {{< /multi-link-card >}}
 
 {{< multi-link-card title="More examples" >}}
-{{< link-card-item text="Find more advanced examples illustrating how to deploy a NodeJS application talking to a PostgreSQL database, how to deploy Backstage and Nginx, how to use Dapr with your workloads, etc. with both `score-compose` and `score-k8s`." url="/docs/examples" linkLabel="See examples" >}}
+{{< link-card-item text="Find more advanced examples illustrating how to deploy a NodeJS application talking to a PostgreSQL database, how to deploy Backstage or Nginx apps, how to use Dapr with your workloads, etc. with either `score-compose` or `score-k8s`." url="/docs/examples" linkLabel="See examples" >}}
 {{< /multi-link-card >}}
 
 {{< /grid >}}
