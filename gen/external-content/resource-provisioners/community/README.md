@@ -22,6 +22,7 @@ score-compose init --provisioners https://raw.githubusercontent.com/score-spec/c
 | 10-dmr-llm-model-via-curl-cmd.provisioners.yaml         | `llm-model`                 | (any)   | `model`                                 | `model`, `url`, `api-key` | Runs `curl` to download the model with the Docker Model Runner (DMR).
 | 10-dmr-llm-model-via-curl-service.provisioners.yaml     | `llm-model`                 | (any)   | `model`                                 | `model`, `url`, `api-key` | Generates a `curl` service downloading the model with the Docker Model Runner (DMR).
 | 10-dmr-llm-model-via-service-provider.provisioners.yaml | `llm-model`                 | (any)   | `model`                                 | `model`, `url`, `api-key` | Generates the LLM model service via the Docker Model Runner (DMR) provider.
+| 10-ollama-llm-model-service.provisioners.yaml           | `llm-model`                 | (any)   | `model`                                 | `model`, `url`, `api-key` | Generates an Ollama service to pull a model from an existing local Ollama service.
 | 10-service.provisioners.yaml                            | `service`                   | (any)   | (none)                                  | `name`                    | Outputs the name of the Workload dependency if it exists in the list of Workloads.
 
 ## For `score-k8s`

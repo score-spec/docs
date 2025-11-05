@@ -7,7 +7,7 @@ on:
     branches:
       - main
 jobs:
-  test-provisioners:
+  test-patchers:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -22,6 +22,6 @@ jobs:
           file: score-k8s
           version: latest
           token: ${{ secrets.GITHUB_TOKEN }}
-      - name: test-provisioners
+      - name: test-patchers
         run: |
           .scripts/test-patchers.sh

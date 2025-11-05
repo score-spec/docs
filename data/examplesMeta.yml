@@ -52,6 +52,7 @@ resource-provisioners:
     - mongodb
     - mssql
     - mysql
+    - ollama
     - postgres
     - rabbitmq
     - redis
