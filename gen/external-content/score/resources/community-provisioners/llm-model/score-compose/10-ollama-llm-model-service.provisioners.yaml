@@ -1,0 +1,34 @@
+- uri: template://community-provisioners/ollama-llm-model
+  type: llm-model
+  description: Generates an Ollama service to pull a model from an existing local Ollama service.
+  supported_params:
+    - model
+  outputs: |
+    model: {{ .Init.model }}
+    url: {{ .Init.ollamaHost }}
+    api_key: "not-needed"
+  expected_outputs:
+    - model
+    - url
+    - api-key
+  init: |
+    model: {{ .Params.model | default "gemma3:270m" }}
+    ollamaHost: "http://ollama:11434"
+  services: |
+    {{ .Id }}-puller:
+      image: ollama/ollama:latest
+      environment:
+        OLLAMA_HOST: {{ .Init.ollamaHost }}
+      entrypoint: ["/bin/sh"]
+      command:
+      - "-c"
+      - |
+        ollama pull {{ .Init.model }} && wait
+      volumes:
+        - type: volume
+          source: ollama_data
+          target: /root/.ollama
+      depends_on:
+        ollama:
+          condition: service_started
+          required: true

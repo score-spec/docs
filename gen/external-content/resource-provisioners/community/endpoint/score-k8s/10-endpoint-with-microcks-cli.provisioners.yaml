@@ -23,7 +23,7 @@
       SPEC_FILE="${PARAM_OPENAPI_FILE}"
       URL_PATH=/rest/$(cat $SPEC_FILE | yq eval '.info.title' | yq '. |= sub(" ", "+")')
       set -eu -o pipefail
-      microcks-cli import ${SPEC_FILE}:true --microcksURL=https://${URL_HOSTNAME}/api --insecure --keycloakClientId=foo --keycloakClientSecret=bar >&2
+      microcks import ${SPEC_FILE}:true --microcksURL=https://${URL_HOSTNAME} --insecure-tls --keycloakClientId=foo --keycloakClientSecret=bar >&2
     fi
     OUTPUTS='{"resource_outputs":{"url":"%s://%s%s"},"manifests":[]}'
     printf "$OUTPUTS" "$URL_SCHEME" "$URL_HOSTNAME" "$URL_PATH"
