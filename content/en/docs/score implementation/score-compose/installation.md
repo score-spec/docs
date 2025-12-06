@@ -37,6 +37,7 @@ go install -v github.com/score-spec/score-compose/cmd/score-compose@latest
 Prerequisites: You must have [Docker](https://docs.docker.com/get-docker/) installed.
 
 `score-compose` has two official container images that you can use:
+
 - [`scorespec/score-compose`](https://hub.docker.com/r/scorespec/score-compose)
 - [`ghcr.io/score-spec/score-compose`](https://github.com/score-spec/score-compose/pkgs/container/score-compose)
 
