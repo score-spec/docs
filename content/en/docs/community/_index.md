@@ -26,6 +26,7 @@ We host [regular community meetings](https://github.com/score-spec/spec?tab=read
 
 ## Watch talks about Score
 
+- [Cloud Native Rejekts NA 2025 - Make your Developer's Pains go Away, with the Right Level of Abstraction for your Platform](https://youtu.be/CLCK2lBpWa8)
 - [LF Live Webinar: From CI to Kubernetes Catalog: A Practical Guide to vCluster and GitOps](https://youtu.be/U4AgmEo3oV8)
 - [KubeCon EU 2025 - Score Lightning Talk](https://sched.co/1tcwp) [[video](https://youtu.be/Nq_PgPKZHsc?list=PLj6h78yzYM2MP0QhYFK8HOb8UqgbIkLMc)]
 - [KubeCon EU 2025 - Platform Engineering Loves Security: Shift Down To Your Platform, Not Left To Your Developers!](https://sched.co/1txGE) [[video](https://youtu.be/Es3DBj2UgIE?list=PLj6h78yzYM2MP0QhYFK8HOb8UqgbIkLMc)]
@@ -42,6 +43,8 @@ We host [regular community meetings](https://github.com/score-spec/spec?tab=read
 
 ## Read external blog posts about Score
 
+- [Score + Docker Compose to deploy your local LLM models](https://medium.com/google-cloud/score-docker-compose-to-deploy-your-local-llm-models-10aff89686ce)
+- [Unifying the Inner & Outer Loops to Bridge the Gaps between Devs & Ops with Containers + Microcks + Score](https://itnext.io/unifying-inner-outer-loops-to-bridge-the-gaps-between-devs-ops-with-containers-microcks-d28603342f4b)
 - [Deploying Angular Apps with Score: Platform-Agnostic Workflows for Docker, Podman & Kubernetes](https://blog.cloudikeme.com/posts/deploy-angular-apps-with-score-to-docker-kubernetes/)
 - [Deploy WordPress with MySQL via Score](https://blog.cloudikeme.com/posts/deploy-wordpress-to-docker-with-score-compose/)
 - [Generate your Backstage software catalog files with Score](https://medium.com/@mabenoit/generate-your-backstage-software-catalog-files-with-score-b62aa33e8ecc)
@@ -60,6 +63,7 @@ We host [regular community meetings](https://github.com/score-spec/spec?tab=read
 
 ## Leverage example projects using Score
 
+- [`mathieu-benoit/score-kro-demo`](https://github.com/mathieu-benoit/score-kro-demo)
 - [`mathieu-benoit/deploy-backstage-with-score`](https://github.com/mathieu-benoit/deploy-backstage-with-score)
 - [`la-cc/score-k8s-webapp`](https://github.com/la-cc/score-k8s-webapp)
 - [`mathieu-benoit/nginx-score-demo`](https://github.com/mathieu-benoit/nginx-score-demo)

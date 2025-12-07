@@ -36,20 +36,39 @@ go install -v github.com/score-spec/score-compose/cmd/score-compose@latest
 
 Prerequisites: You must have [Docker](https://docs.docker.com/get-docker/) installed.
 
+`score-compose` has two official container images that you can use:
+
+- [`scorespec/score-compose`](https://hub.docker.com/r/scorespec/score-compose)
+- [`ghcr.io/score-spec/score-compose`](https://github.com/score-spec/score-compose/pkgs/container/score-compose)
+
 ```bash
+docker run --rm -it scorespec/score-compose:latest
+
 docker run --rm -it ghcr.io/score-spec/score-compose:latest
 ```
 
 If you want to run `score-compose` with the `--help` flag to view the available options, you would run the following command.
 
 ```bash
+docker run --rm -it scorespec/score-compose:latest --help
+
 docker run --rm -it ghcr.io/score-spec/score-compose:latest --help
 ```
 
 If you want to run `score-compose` with the `init` subcommand to initialize your local working directory, you would run the following command.
 
 ```bash
+docker run --rm -it -v .:/score-compose scorespec/score-compose:latest init
+
 docker run --rm -it -v .:/score-compose ghcr.io/score-spec/score-compose:latest init
+```
+
+If you want to run `score-compose` as an unprivileged container, you would run the following command.
+
+```bash
+docker run --rm -it -v .:/score-compose --read-only --cap-drop=ALL --user=65532 scorespec/score-compose:latest init
+
+docker run --rm -it -v .:/score-compose --read-only --cap-drop=ALL --user=65532 ghcr.io/score-spec/score-compose:latest init
 ```
 
 ## Manual download
