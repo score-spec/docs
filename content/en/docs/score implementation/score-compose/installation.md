@@ -42,7 +42,7 @@ Prerequisites: You must have [Docker](https://docs.docker.com/get-docker/) insta
 - [`ghcr.io/score-spec/score-compose`](https://github.com/score-spec/score-compose/pkgs/container/score-compose)
 
 ```bash
-docker run --rm -it docker.io/scorespec/score-compose:latest
+docker run --rm -it scorespec/score-compose:latest
 
 docker run --rm -it ghcr.io/score-spec/score-compose:latest
 ```
