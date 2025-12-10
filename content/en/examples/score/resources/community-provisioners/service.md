@@ -7,17 +7,25 @@ excerpt: ''
 hasMore: false
 parent: "Community Provisioners"
 flavor: "Resources"
-
 ---
 
+{{% details "score-backend.yaml" %}}
 {{% example-file filename="score-backend.yaml" dir="score/resources/community-provisioners/service" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% /details %}}
+
+{{% details "score-frontend.yaml" %}}
 {{% example-file filename="score-frontend.yaml" dir="score/resources/community-provisioners/service" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% /details %}}
 
 {{< tabs >}}
-{{% tab name="score-compose" %}}
-{{% example-file filename="10-service.provisioners.yaml" dir="score/resources/community-provisioners/service/score-compose" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
 
----
+{{% tab name="score-compose" %}}
+
+{{% details "10-service.provisioners.yaml (score-compose)" %}}
+{{% example-file filename="10-service.provisioners.yaml" dir="score/resources/community-provisioners/service/score-compose" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% /details %}}
+
+...
 
 Initialize your local workspace, by importing a specific community provisioner:
 
@@ -63,12 +71,19 @@ See the running containers:
 docker ps
 ```
 
-{{%/ tab %}}
-{{% tab name="score-k8s" %}}
-{{% example-file filename="10-service-with-netpol.provisioners.yaml" dir="score/resources/community-provisioners/service/score-k8s" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
-{{% example-file filename="10-service.provisioners.yaml" dir="score/resources/community-provisioners/service/score-k8s" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% /tab %}}
 
----
+{{% tab name="score-k8s" %}}
+
+{{% details "10-service-with-netpol.provisioners.yaml (score-k8s)" %}}
+{{% example-file filename="10-service-with-netpol.provisioners.yaml" dir="score/resources/community-provisioners/service/score-k8s" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% /details %}}
+
+{{% details "10-service.provisioners.yaml (score-k8s)" %}}
+{{% example-file filename="10-service.provisioners.yaml" dir="score/resources/community-provisioners/service/score-k8s" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% /details %}}
+
+...
 
 Initialize your local workspace, by importing a specific community provisioner:
 
@@ -114,5 +129,6 @@ See the running containers:
 kubectl get all
 ```
 
-{{%/ tab %}}
+{{% /tab %}}
+
 {{< /tabs >}}
