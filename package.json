@@ -25,7 +25,7 @@
     "gray-matter": "^4.0.3",
     "hcl2-parser": "^1.0.3",
     "html-hint": "^0.2.4",
-    "hugo-cli": "^0.14.0",
+    "hugo-cli": "^0.15.0",
     "hugo-extended": "^0.123.8",
     "lunr": "^2.3.9",
     "postcss": "^8.5.6",
