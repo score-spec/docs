@@ -21,7 +21,7 @@
     "@popperjs/core": "^2.11.8",
     "autoprefixer": "^10.4.22",
     "clipboard": "^2.0.11",
-    "dprint": "^0.50.2",
+    "dprint": "^0.51.1",
     "gray-matter": "^4.0.3",
     "hcl2-parser": "^1.0.3",
     "html-hint": "^0.2.4",
