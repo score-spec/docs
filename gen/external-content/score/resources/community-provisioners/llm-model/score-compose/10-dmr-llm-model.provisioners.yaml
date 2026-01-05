@@ -1,0 +1,20 @@
+- uri: template://community-provisioners/dmr-llm-model
+  type: llm-model
+  description: Generates the LLM model via the Docker Model Runner (DMR).
+  supported_params:
+    - model
+    - context_size
+  outputs: |
+    model: {{ .Init.model }}
+    url: "http://172.17.0.1:12434/engines/v1/"
+    api-key: "not-needed"
+  expected_outputs:
+    - model
+    - url
+    - api-key
+  init: |
+    model: {{ .Params.model | default "ai/smollm2:135M-Q4_0" }}
+  models: |
+    {{ .Id }}:
+      model: {{ .Init.model }}
+      context_size: {{ .Params.context_size | default 2048 }}

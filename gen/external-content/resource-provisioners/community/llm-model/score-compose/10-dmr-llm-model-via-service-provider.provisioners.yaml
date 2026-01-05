@@ -1,6 +1,9 @@
+# 
 - uri: template://community-provisioners/dmr-llm-model-via-service-provider
   type: llm-model
   description: Generates the LLM model service via the Docker Model Runner (DMR) provider.
+  info_logs: |
+    - "This service provider approach is now deprecated, use the 10-dmr-llm-model.provisioners.yaml provisioner file instead."
   supported_params:
     - model
   outputs: |
