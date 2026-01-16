@@ -14,6 +14,7 @@ flavor: "Resources"
 
 {{< tabs >}}
 {{% tab name="score-compose" %}}
+{{% example-file filename="10-dmr-llm-model-for-openai-clients.provisioners.yaml" dir="score/resources/community-provisioners/llm-model/score-compose" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
 {{% example-file filename="10-dmr-llm-model-via-curl-cmd.provisioners.yaml" dir="score/resources/community-provisioners/llm-model/score-compose" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
 {{% example-file filename="10-dmr-llm-model-via-curl-service.provisioners.yaml" dir="score/resources/community-provisioners/llm-model/score-compose" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
 {{% example-file filename="10-dmr-llm-model-via-service-provider.provisioners.yaml" dir="score/resources/community-provisioners/llm-model/score-compose" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}

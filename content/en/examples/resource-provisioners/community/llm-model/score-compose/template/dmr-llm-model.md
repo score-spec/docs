@@ -9,7 +9,7 @@ resourceType: "llm-model"
 provisionerType: "template"
 flavor: "dmr"
 excerpt: ''
-description: 'Generates the LLM model via the Docker Model Runner (DMR).'
+description: 'Generates the LLM model via the Docker Model Runner (DMR). Outputs the url for Ollama-compatible clients.'
 expectedOutputs: 
   - model
   - url
@@ -21,6 +21,6 @@ hasMore: false
 
 ---
 
-{{% resource-provisioner-content description="Generates the LLM model via the Docker Model Runner (DMR)." type="llm-model" supportedParams="model,context_size" expectedOutputs="model,url,api-key" %}}
+{{% resource-provisioner-content description="Generates the LLM model via the Docker Model Runner (DMR). Outputs the url for Ollama-compatible clients." type="llm-model" supportedParams="model,context_size" expectedOutputs="model,url,api-key" %}}
 
 {{% example-file filename="10-dmr-llm-model.provisioners.yaml" dir="resource-provisioners/community/llm-model/score-compose" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
