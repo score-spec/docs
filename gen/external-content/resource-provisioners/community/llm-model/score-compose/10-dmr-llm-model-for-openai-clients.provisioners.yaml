@@ -1,12 +1,12 @@
-- uri: template://community-provisioners/dmr-llm-model
+- uri: template://community-provisioners/dmr-llm-model-for-openai-clients
   type: llm-model
-  description: Generates the LLM model via the Docker Model Runner (DMR). Outputs the url for Ollama-compatible clients.
+  description: Generates the LLM model via the Docker Model Runner (DMR). Outputs the url for OpenAI SDK/clients.
   supported_params:
     - model
     - context_size
   outputs: |
     model: {{ .Init.model }}
-    url: "http://172.17.0.1:12434/"
+    url: "http://172.17.0.1:12434/engines/v1/"
     api-key: "not-needed"
   expected_outputs:
     - model
