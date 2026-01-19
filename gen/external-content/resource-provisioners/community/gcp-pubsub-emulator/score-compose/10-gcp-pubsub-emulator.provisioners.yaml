@@ -1,0 +1,40 @@
+# GCP Pub/Sub Emulator provisioner
+# For local development and testing without connecting to real GCP
+- uri: template://community-provisioners/gcp-pubsub-emulator
+  type: gcp-pubsub-emulator
+  description: Generates a Google Cloud Pub/Sub Emulator service for local development.
+  supported_params:
+    - project_id
+  init: |
+    port: 8085
+    randomServiceName: pubsub-emulator-{{ randAlphaNum 6 | lower }}
+    defaultProjectId: test-project-{{ randAlphaNum 6 | lower }}
+  state: |
+    serviceName: {{ dig "serviceName" .Init.randomServiceName .State | quote }}
+    projectId: {{ dig "projectId" (.Params.project_id | default .Init.defaultProjectId) .State | quote }}
+  outputs: |
+    host: {{ .State.serviceName }}
+    port: {{ .Init.port }}
+    project_id: {{ .State.projectId }}
+    emulator_host: {{ .State.serviceName }}:{{ .Init.port }}
+  expected_outputs:
+    - host
+    - port
+    - project_id
+    - emulator_host
+  services: |
+    {{ .State.serviceName }}:
+      labels:
+        dev.score.compose.res.uid: {{ .Uid }}
+      image: gcr.io/google.com/cloudsdktool/google-cloud-cli:emulators
+      command:
+        - gcloud
+        - beta
+        - emulators
+        - pubsub
+        - start
+        - --host-port=0.0.0.0:{{ .Init.port }}
+        - --project={{ .State.projectId }}
+      restart: always
+  info_logs: |
+    - "{{ .Uid }}: Pub/Sub Emulator is running at {{ .State.serviceName }}:{{ .Init.port }}"

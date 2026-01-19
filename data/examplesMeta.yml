@@ -16,6 +16,7 @@ resource-provisioners:
     - endpoint
     - environment
     - example-provisioner-resource
+    - gcp-pubsub-emulator
     - horizontal-pod-autoscaler
     - kafka-topic
     - llm-model
@@ -44,6 +45,7 @@ resource-provisioners:
     - endpoint-with-microcks-cli
     - example-provisioner
     - foo
+    - gcp
     - helm-template-redis
     - helm-upgrade-redis
     - ingress
