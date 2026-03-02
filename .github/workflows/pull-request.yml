@@ -8,19 +8,22 @@ on:
       - CONTRIBUTING.md
       - CODE_OF_CONDUCT.md
 
+permissions:
+  contents: read
+
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-node@v6
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
         with:
           node-version: 20
       - run: npm install -g yarn
       - run: yarn install
       - run: yarn run hugo
       - run: yarn run dprint check
-      - uses: score-spec/setup-score@v3
+      - uses: score-spec/setup-score@9ce358a6641972930fbf1c91d93185fec520f7e4 # v3.1.8
         with:
           file: score-compose
           token: ${{ secrets.GITHUB_TOKEN }}
