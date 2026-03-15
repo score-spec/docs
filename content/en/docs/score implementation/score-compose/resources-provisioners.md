@@ -36,7 +36,7 @@ To list the provisioners available from the `.score-compose` directory, run the 
 | `service-port`      | (any) | `port`, `workload`     | `hostname`, `port`                                                                                   | Outputs a hostname and port for connecting to another workload.                         |
 | `volume`            | (any) | (none)                 | `source`, `type`                                                                                     | Creates a persistent volume that can be mounted on a workload.                          |
 
-The full list of these `score-compose` provisioners can be found [here](https://docs.score.dev/examples/resource-provisioners?source=default&implementation=score-compose).
+The full list of these `score-compose` and their source code provisioners can be found [here](https://docs.score.dev/examples/resource-provisioners?source=default&implementation=score-compose).
 
 ## Community provisioners
 
