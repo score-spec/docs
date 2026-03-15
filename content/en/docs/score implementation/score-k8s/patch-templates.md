@@ -27,7 +27,7 @@ something.:0000.xyz      # patches the xyz item in the "0000" item of something 
 
 ## Example
 
-Here is a concrete example showing how to inject more security for each Workload by using this template [`score-k8s/unprivileged.tpl`](https://raw.githubusercontent.com/score-spec/community-patchers/refs/heads/main/score-k8s/unprivileged.tpl):
+Here is a concrete example showing how to inject more security for each Workload by using this template [`score-k8s/unprivileged.tpl`](https://docs.score.dev/examples/patch-templates/score-k8s/unprivileged/):
 
 ```yaml
 {{ range $i, $m := .Manifests }}
@@ -77,4 +77,4 @@ And then see that this patch template was applied on the final generated `manife
 
 ## Write your own patch template
 
-A list of patch templates shared by the community can be found [here](https://github.com/score-spec/community-patchers). Users are encouraged to use them and contribute to this growing list of patch templates.
+A list of patch templates for `score-k8s` shared by the community can be found [here](https://docs.score.dev/examples/patch-templates?implementation=score-k8s). Users are encouraged to use them and contribute to this growing list of patch templates.
