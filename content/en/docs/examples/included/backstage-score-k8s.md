@@ -16,7 +16,7 @@ score-k8s init --no-sample \
     --provisioners https://raw.githubusercontent.com/score-spec/community-provisioners/refs/heads/main/dns/score-k8s/10-dns-with-url.provisioners.yaml
 ```
 
-The `init` command will create the `.score-k8s` directory with the [default resource provisioners]({{< relref "/docs/score-implementation/score-k8s/resources-provisioners/" >}}) available. We are also importing one external file to support the `dns` dependencies: [`dns` provisioner](https://github.com/score-spec/community-provisioners/blob/main/dns/score-k8s/10-dns-with-url.provisioners.yaml).
+The `init` command will create the `.score-k8s` directory with the [default resource provisioners]({{< relref "/docs/score-implementation/score-k8s/resources-provisioners/" >}}) available. We are also importing one external file to support the `dns` dependencies: [`dns` provisioner](https://docs.score.dev/examples/resource-provisioners/community/dns/score-k8s/template/dns-with-url/).
 
 You can see the resource provisioners available by running this command:
 

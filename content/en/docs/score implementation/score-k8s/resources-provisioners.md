@@ -37,7 +37,7 @@ The source code of these provisioners implementations can be found in the [`scor
 
 ## Community provisioners
 
-A list of provisioners authored and shared by the community can also be found [here](https://github.com/score-spec/community-provisioners). Users are encouraged to use them and contribute to this growing list of community provisioners:
+A list of `score-k8s` provisioners authored and shared by the community can also be found [here](https://docs.score.dev/examples/resource-provisioners?source=community&implementation=score-k8s). Users are encouraged to use them and contribute to this growing list of community provisioners:
 
 | Type                        | Class | Params                                                                | Outputs                                | Description                                                                             |
 | --------------------------- | ----- | --------------------------------------------------------------------- | -------------------------------------- | --------------------------------------------------------------------------------------- |
