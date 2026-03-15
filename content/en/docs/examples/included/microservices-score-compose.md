@@ -52,27 +52,27 @@ Convert the `score-*.yaml` files into a deployable `compose.yaml`, run the follo
 
 ```bash
 score-compose generate score-cart.yaml \
-    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/cartservice:v0.10.3
+    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/cartservice:v0.10.5
 score-compose generate score-currency.yaml \
-    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/currencyservice:v0.10.3
+    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/currencyservice:v0.10.5
 score-compose generate score-payment.yaml \
-    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/paymentservice:v0.10.3
+    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/paymentservice:v0.10.5
 score-compose generate score-email.yaml \
-    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/emailservice:v0.10.3
+    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/emailservice:v0.10.5
 score-compose generate score-productcatalog.yaml \
-    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/productcatalogservice:v0.10.3
+    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/productcatalogservice:v0.10.5
 score-compose generate score-shipping.yaml \
-    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/shippingservice:v0.10.3
+    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/shippingservice:v0.10.5
 score-compose generate score-ad.yaml \
-    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/adservice:v0.10.3
+    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/adservice:v0.10.5
 score-compose generate score-recommendation.yaml \
-    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/recommendationservice:v0.10.3
+    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/recommendationservice:v0.10.5
 score-compose generate score-checkout.yaml \
-    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/checkoutservice:v0.10.3
+    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/checkoutservice:v0.10.5
 score-compose generate score-frontend.yaml \
-    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/frontend:v0.10.3
+    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/frontend:v0.10.5
 score-compose generate score-loadgenerator.yaml \
-    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/loadgenerator:v0.10.3
+    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/loadgenerator:v0.10.5
 ```
 
 The `generate` commands will add the input `score-*.yaml` workloads with a particular container image to the `.score-compose/state.yaml` state file and generate the output `compose.yaml`.
@@ -206,17 +206,17 @@ docker ps
 
 ```none
 CONTAINER ID   IMAGE                                                                                        COMMAND                  CREATED              STATUS              PORTS                                              NAMES
-2420e4a5b044   us-central1-docker.pkg.dev/google-samples/microservices-demo/frontend:v0.10.3                "/src/server"            9 minutes ago        9 minutes ago       8080/tcp                                           ob-frontend-frontend-1
-0c8705f6571a   us-central1-docker.pkg.dev/google-samples/microservices-demo/adservice:v0.10.3               "/app/build/install/…"   9 minutes ago        Up 9 minutes        9555/tcp                                           ob-ad-ad-1
-0d72556cc169   us-central1-docker.pkg.dev/google-samples/microservices-demo/loadgenerator:v0.10.3           "/bin/sh -c 'locust …"   9 minutes ago        Up 9 minutes                                                           ob-loadgenerator-loadgenerator-1
-8c72e85b4c66   us-central1-docker.pkg.dev/google-samples/microservices-demo/checkoutservice:v0.10.3         "/src/checkoutservice"   9 minutes ago        Up 9 minutes        5050/tcp                                           ob-checkout-checkout-1
-2dd9df6fa024   us-central1-docker.pkg.dev/google-samples/microservices-demo/productcatalogservice:v0.10.3   "/src/server"            9 minutes ago        Up 9 minutes        3550/tcp                                           ob-productcatalog-productcatalog-1
-a6d0ebc3aab2   us-central1-docker.pkg.dev/google-samples/microservices-demo/paymentservice:v0.10.3          "node index.js"          9 minutes ago        Up 9 minutes        50051/tcp                                          ob-payment-payment-1
-e2511187e454   us-central1-docker.pkg.dev/google-samples/microservices-demo/recommendationservice:v0.10.3   "python recommendati…"   9 minutes ago        Up 9 minutes        8080/tcp                                           ob-recommendation-recommendation-1
-a4156abacd40   us-central1-docker.pkg.dev/google-samples/microservices-demo/cartservice:v0.10.3             "/app/cartservice"       9 minutes ago        Up 9 minutes        7070/tcp                                           ob-cart-cart-1
-2379e57ac8ca   us-central1-docker.pkg.dev/google-samples/microservices-demo/currencyservice:v0.10.3         "node server.js"         9 minutes ago        Up 9 minutes        7000/tcp                                           ob-currency-currency-1
-81efe5bcde69   us-central1-docker.pkg.dev/google-samples/microservices-demo/emailservice:v0.10.3            "python email_server…"   9 minutes ago        Up 9 minutes        8080/tcp                                           ob-email-email-1
-d83a61963aa6   us-central1-docker.pkg.dev/google-samples/microservices-demo/shippingservice:v0.10.3         "/src/shippingservice"   9 minutes ago        Up 9 minutes        50051/tcp                                          ob-shipping-shipping-1
+2420e4a5b044   us-central1-docker.pkg.dev/google-samples/microservices-demo/frontend:v0.10.5                "/src/server"            9 minutes ago        9 minutes ago       8080/tcp                                           ob-frontend-frontend-1
+0c8705f6571a   us-central1-docker.pkg.dev/google-samples/microservices-demo/adservice:v0.10.5               "/app/build/install/…"   9 minutes ago        Up 9 minutes        9555/tcp                                           ob-ad-ad-1
+0d72556cc169   us-central1-docker.pkg.dev/google-samples/microservices-demo/loadgenerator:v0.10.5           "/bin/sh -c 'locust …"   9 minutes ago        Up 9 minutes                                                           ob-loadgenerator-loadgenerator-1
+8c72e85b4c66   us-central1-docker.pkg.dev/google-samples/microservices-demo/checkoutservice:v0.10.5         "/src/checkoutservice"   9 minutes ago        Up 9 minutes        5050/tcp                                           ob-checkout-checkout-1
+2dd9df6fa024   us-central1-docker.pkg.dev/google-samples/microservices-demo/productcatalogservice:v0.10.5   "/src/server"            9 minutes ago        Up 9 minutes        3550/tcp                                           ob-productcatalog-productcatalog-1
+a6d0ebc3aab2   us-central1-docker.pkg.dev/google-samples/microservices-demo/paymentservice:v0.10.5          "node index.js"          9 minutes ago        Up 9 minutes        50051/tcp                                          ob-payment-payment-1
+e2511187e454   us-central1-docker.pkg.dev/google-samples/microservices-demo/recommendationservice:v0.10.5   "python recommendati…"   9 minutes ago        Up 9 minutes        8080/tcp                                           ob-recommendation-recommendation-1
+a4156abacd40   us-central1-docker.pkg.dev/google-samples/microservices-demo/cartservice:v0.10.5             "/app/cartservice"       9 minutes ago        Up 9 minutes        7070/tcp                                           ob-cart-cart-1
+2379e57ac8ca   us-central1-docker.pkg.dev/google-samples/microservices-demo/currencyservice:v0.10.5         "node server.js"         9 minutes ago        Up 9 minutes        7000/tcp                                           ob-currency-currency-1
+81efe5bcde69   us-central1-docker.pkg.dev/google-samples/microservices-demo/emailservice:v0.10.5            "python email_server…"   9 minutes ago        Up 9 minutes        8080/tcp                                           ob-email-email-1
+d83a61963aa6   us-central1-docker.pkg.dev/google-samples/microservices-demo/shippingservice:v0.10.5         "/src/shippingservice"   9 minutes ago        Up 9 minutes        50051/tcp                                          ob-shipping-shipping-1
 ed5f79d80259   mirror.gcr.io/redis:7-alpine                                                                 "redis-server /usr/l…"   9 minutes ago        Up 9 minutes        6379/tcp                                           ob-redis-NYOMHD-1
 6ee7b587922f   mirror.gcr.io/nginx:1-alpine                                                                 "/docker-entrypoint.…"   9 minutes ago        Up 9 minutes        0.0.0.0:8080->80/tcp, [::]:8080->80/tcp            ob-routing-K7ZrCr-1
 ```
