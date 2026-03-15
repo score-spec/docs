@@ -22,7 +22,7 @@ To use the Score GitHub Action, add the following step to your [workflow](https:
 
 ```yaml
 steps:
-  - uses: score-spec/setup-score@v2
+  - uses: score-spec/setup-score@v3
     with:
       file: <score-cli>
       version: '<x.y.z>'
@@ -54,14 +54,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: score-spec/setup-score@v2
+      - uses: score-spec/setup-score@v3
         with:
           file: score-compose
-          version: '0.13.0'
+          version: 'latest'
           token: ${{ secrets.GITHUB_TOKEN }}
       - run: score-compose --version
 ```
 
-This installs version `0.13.0` of `score-compose`, adds it to `$PATH`, and runs `score-compose --version` to verify it is set up correctly.
+This installs the `latest` version of `score-compose`, adds it to `$PATH`, and runs `score-compose --version` to verify it is set up correctly.
 
 The action caches the Score binary, so it won't need to download it each run.

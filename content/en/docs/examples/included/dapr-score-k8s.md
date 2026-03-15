@@ -16,7 +16,7 @@ score-k8s init --no-sample \
     --provisioners https://raw.githubusercontent.com/score-spec/community-provisioners/refs/heads/main/dapr-state-store/score-k8s/10-redis-dapr-state-store.provisioners.yaml
 ```
 
-The `init` command will create the `.score-k8s` directory with the [default resource provisioners]({{< relref "/docs/score-implementation/score-k8s/resources-provisioners/" >}}) available. We are also importing one external file to generate a Dapr StateStore `Component` pointing to a Redis database: [`dapr-state-store` provisioner](https://github.com/score-spec/community-provisioners/blob/main/dapr-state-store/score-k8s/10-redis-dapr-state-store.provisioners.yaml).
+The `init` command will create the `.score-k8s` directory with the [default resource provisioners]({{< relref "/docs/score-implementation/score-k8s/resources-provisioners/" >}}) available. We are also importing one external file to generate a Dapr StateStore `Component` pointing to a Redis database: [`dapr-state-store` provisioner](https://docs.score.dev/examples/resource-provisioners/community/dapr-state-store/score-k8s/template/redis/).
 
 You can see the resource provisioners available by running this command:
 

@@ -33,11 +33,11 @@ To list the provisioners available from the `.score-k8s` directory, run the `sco
 | `service-port` | (any) | `port`, `workload`     | `hostname`, `port`                                                                                   | Outputs a hostname and port for connecting to another workload.                         |
 | `volume`       | (any) | (none)                 | `source`                                                                                             | Creates a persistent volume that can be mounted on a workload.                          |
 
-The source code of these provisioners implementations can be found in the [`score-k8s`'s default provisioners file](https://github.com/score-spec/score-k8s/blob/main/internal/provisioners/default/zz-default.provisioners.yaml).
+The full list of these `score-compose` provisioners and their source code can be found [here](https://docs.score.dev/examples/resource-provisioners?source=default&implementation=score-k8s).
 
 ## Community provisioners
 
-A list of provisioners authored and shared by the community can also be found [here](https://github.com/score-spec/community-provisioners). Users are encouraged to use them and contribute to this growing list of community provisioners:
+A list of `score-k8s` provisioners authored and shared by the community can also be found [here](https://docs.score.dev/examples/resource-provisioners?source=community&implementation=score-k8s). Users are encouraged to use them and contribute to this growing list of community provisioners:
 
 | Type                        | Class | Params                                                                | Outputs                                | Description                                                                             |
 | --------------------------- | ----- | --------------------------------------------------------------------- | -------------------------------------- | --------------------------------------------------------------------------------------- |

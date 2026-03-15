@@ -77,7 +77,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: docker/setup-buildx-action@v3
-      - uses: paulhatch/semantic-version@v5.0.3
+      - uses: paulhatch/semantic-version@v5
         id: semver
       - uses: docker/build-push-action@v5
         with:
@@ -98,10 +98,10 @@ The next set of steps focuses on testing with `score-compose`. This provides val
 This helps to maximize the chance that the "release" step to production succeeds and results in a working application.
 
 ```yaml
-  - uses: score-spec/setup-score@v2
+  - uses: score-spec/setup-score@v3
     with:
       file: score-compose
-      version: 0.15.6
+      version: latest
       token: ${{ secrets.GITHUB_TOKEN }}
   - run: score-compose init
   - run: score-compose generate score.yaml --image=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.semver.outputs.version }}
@@ -147,10 +147,10 @@ jobs:
 And finally, the steps to convert to Kubernetes manifests and deploy them. Notice that the `generate` call is setting the image to the tag that was just uploaded in the previous steps. The `azure/` actions are maintained by Azure, but are not Azure-specific and can deploy to any generic Kubernetes cluster as needed. Notice that this requires a `KUBECONFIG` secret variable set in the Github Actions workflow to authenticate with the target cluster.
 
 ```yaml
-- uses: score-spec/setup-score@v2
+- uses: score-spec/setup-score@v3
   with:
     file: score-k8s
-    version: 0.1.5
+    version: latest
     token: ${{ secrets.GITHUB_TOKEN }}
 - uses: azure/k8s-set-context@v2
   with:

@@ -33,7 +33,7 @@ flowchart TD
 
 ## Score files
 
-We will describe each containerized application with its own Score file for each. The demo code can be found [here](https://github.com/Humanitec-DemoOrg/onlineboutique-demo/tree/main).
+We will describe each containerized application with its own Score file for each. The demo code can be found [here](https://github.com/score-spec/examples/tree/main/samples/onlineboutique).
 
 Open your IDE and paste in the following `score-frontend.yaml` file, which describes the `frontend` containerized application exposed via a DNS that queries different other applications on each request:
 
@@ -140,7 +140,7 @@ resources:
     type: redis
 ```
 
-Just two Score files have been illustrated above, you can grab the other Score files from [this GitHub repository](https://github.com/Humanitec-DemoOrg/onlineboutique-demo/tree/main/apps).
+Just two Score files have been illustrated above, you can grab the other Score files from [this GitHub repository](https://github.com/score-spec/examples/tree/main/samples/onlineboutique).
 
 ## Deployment with `score-compose` and `score-k8s`
 

@@ -72,7 +72,7 @@ EOF
 
 From here, by using the [default provisioners with `score-k8s init`](/docs/score-implementation/score-k8s/resources-provisioners/), you will be able to use this `Gateway` by using the `route` object which will generate an `HTTPRoute` link to this `Gateway`.
 
-This default `HTTPRoute` is assuming that `Gateway` is in the same `Namespace`, but if you want to use the [cross-Namespace Gateway](https://gateway-api.sigs.k8s.io/guides/multiple-ns/) approach, you will need to use [this community provisioner](https://github.com/score-spec/community-provisioners/blob/main/route/score-k8s/10-shared-gateway-httproute.provisioners.yaml) instead:
+This default `HTTPRoute` is assuming that `Gateway` is in the same `Namespace`, but if you want to use the [cross-Namespace Gateway](https://gateway-api.sigs.k8s.io/guides/multiple-ns/) approach, you will need to use [this community provisioner](https://docs.score.dev/examples/resource-provisioners/community/route/score-k8s/template/route-with-shared-gateway/) instead:
 
 ```bash
 score-k8s init \
@@ -87,7 +87,7 @@ Install the Nginx Ingress controller in the Kind cluster:
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
 ```
 
-From here, you can now use [this community provisioner](https://github.com/score-spec/community-provisioners/blob/main/route/score-k8s/10-ingress-route.provisioners.yaml) to generate an `Ingress` for the `route` resource instead of the default `HTTPRoute`:
+From here, you can now use [this community provisioner](https://docs.score.dev/examples/resource-provisioners/community/route/score-k8s/template/ingress-route/) to generate an `Ingress` for the `route` resource instead of the default `HTTPRoute`:
 
 ```bash
 score-k8s init \

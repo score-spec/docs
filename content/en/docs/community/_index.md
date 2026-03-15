@@ -26,6 +26,8 @@ We host [regular community meetings](https://github.com/score-spec/spec?tab=read
 
 ## Watch talks about Score
 
+- _(Coming) [KubeCon India 2026 - The Death of the YAML-Engineer: Engineering "Invisible" Platforms With Crossplane and Score](https://sched.co/2IW4r)_
+- _(Coming) [KubeCon Europe 2026 - Unifying Inner & Outer Loops To Bridge the Gaps Between Devs & Ops With Microcks + Score - Laurent Broudoux, Microcks & Mathieu Benoit, Docker](https://sched.co/2CVxb)_
 - [Cloud Native Rejekts NA 2025 - Make your Developer's Pains go Away, with the Right Level of Abstraction for your Platform](https://youtu.be/CLCK2lBpWa8)
 - [LF Live Webinar: From CI to Kubernetes Catalog: A Practical Guide to vCluster and GitOps](https://youtu.be/U4AgmEo3oV8)
 - [KubeCon EU 2025 - Score Lightning Talk](https://sched.co/1tcwp) [[video](https://youtu.be/Nq_PgPKZHsc?list=PLj6h78yzYM2MP0QhYFK8HOb8UqgbIkLMc)]

@@ -17,7 +17,7 @@ score-compose init --no-sample \
     --patch-templates https://raw.githubusercontent.com/score-spec/community-patchers/refs/heads/main/score-compose/dapr.tpl
 ```
 
-The `init` command will create the `.score-compose` directory with the [default resource provisioners]({{< relref "/docs/score-implementation/score-compose/resources-provisioners/" >}}) available. We are also importing one external file to seamlessly generate a Dapr StateStore `Component` pointing to a Redis database: [`dapr-state-store` provisioner](https://github.com/score-spec/community-provisioners/blob/main/dapr-state-store/score-compose/10-redis-dapr-state-store.provisioners.yaml).
+The `init` command will create the `.score-compose` directory with the [default resource provisioners]({{< relref "/docs/score-implementation/score-compose/resources-provisioners/" >}}) available. We are also importing one external file to seamlessly generate a Dapr StateStore `Component` pointing to a Redis database: [`dapr-state-store` provisioner](https://docs.score.dev/examples/resource-provisioners/community/dapr-state-store/score-compose/template/redis-dapr-state-store/).
 
 You can see the resource provisioners available by running this command:
 

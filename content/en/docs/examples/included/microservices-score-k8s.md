@@ -16,7 +16,7 @@ score-k8s init --no-sample \
     --provisioners https://raw.githubusercontent.com/score-spec/community-provisioners/refs/heads/main/service/score-compose/10-service.provisioners.yaml
 ```
 
-The `init` command will create the `.score-k8s` directory with the [default resource provisioners]({{< relref "/docs/score-implementation/score-k8s/resources-provisioners/" >}}) available. We are also importing one external file to support the `service` dependencies: [`service` provisioner](https://github.com/score-spec/community-provisioners/blob/main/service/score-k8s/10-service.provisioners.yaml).
+The `init` command will create the `.score-k8s` directory with the [default resource provisioners]({{< relref "/docs/score-implementation/score-k8s/resources-provisioners/" >}}) available. We are also importing one external file to support the `service` dependencies: [`service` provisioner](https://docs.score.dev/examples/resource-provisioners/community/service/score-k8s/template/static-service/).
 
 You can see the resource provisioners available by running this command:
 
@@ -52,27 +52,27 @@ Convert the `score-*.yaml` files into a deployable `manifests.yaml`, run the fol
 
 ```bash
 score-k8s generate score-cart.yaml \
-    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/cartservice:v0.10.3
+    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/cartservice:v0.10.5
 score-k8s generate score-currency.yaml \
-    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/currencyservice:v0.10.3
+    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/currencyservice:v0.10.5
 score-k8s generate score-payment.yaml \
-    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/paymentservice:v0.10.3
+    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/paymentservice:v0.10.5
 score-k8s generate score-email.yaml \
-    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/emailservice:v0.10.3
+    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/emailservice:v0.10.5
 score-k8s generate score-productcatalog.yaml \
-    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/productcatalogservice:v0.10.3
+    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/productcatalogservice:v0.10.5
 score-k8s generate score-shipping.yaml \
-    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/shippingservice:v0.10.3
+    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/shippingservice:v0.10.5
 score-k8s generate score-ad.yaml \
-    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/adservice:v0.10.3
+    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/adservice:v0.10.5
 score-k8s generate score-recommendation.yaml \
-    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/recommendationservice:v0.10.3
+    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/recommendationservice:v0.10.5
 score-k8s generate score-checkout.yaml \
-    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/checkoutservice:v0.10.3
+    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/checkoutservice:v0.10.5
 score-k8s generate score-frontend.yaml \
-    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/frontend:v0.10.3
+    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/frontend:v0.10.5
 score-k8s generate score-loadgenerator.yaml \
-    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/loadgenerator:v0.10.3
+    --image us-central1-docker.pkg.dev/google-samples/microservices-demo/loadgenerator:v0.10.5
 ```
 
 The `generate` command will add the input `score-*.yaml` workloads with a particular container image to the `.score-k8s/state.yaml` state file and generate the output `manifests.yaml`.
