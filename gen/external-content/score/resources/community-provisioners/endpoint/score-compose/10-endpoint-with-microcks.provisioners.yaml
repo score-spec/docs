@@ -29,11 +29,11 @@
       image: quay.io/microcks/microcks-cli:latest
       restart: always
       entrypoint:
-        - "microcks-cli"
+        - "microcks"
         - "import"
         - "{{ .Params.openapi_file }}:true"
         - "--microcksURL=http://microcks:8080/api"
-        - "--insecure"
+        - "--insecure-tls"
         - "--keycloakClientId=foo"
         - "--keycloakClientSecret=bar"
       cap_drop:
