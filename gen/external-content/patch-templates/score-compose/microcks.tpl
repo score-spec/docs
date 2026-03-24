@@ -1,7 +1,7 @@
 - op: set
   path: services.microcks
   value:
-    image: quay.io/microcks/microcks-uber:latest-native
+    image: quay.io/microcks/microcks-uber:nightly-native
     read_only: true
     user: "65532"
     cap_drop: ["ALL"]
@@ -12,4 +12,4 @@
     - type: tmpfs
       target: /tmp
       tmpfs:
-        size: 32768
+        size: 655360

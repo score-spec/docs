@@ -11,13 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-      - uses: score-spec/setup-score@v2
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: score-spec/setup-score@9ce358a6641972930fbf1c91d93185fec520f7e4 # v3.1.8
         with:
           file: score-compose
           version: latest
           token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: score-spec/setup-score@v2
+      - uses: score-spec/setup-score@9ce358a6641972930fbf1c91d93185fec520f7e4 # v3.1.8
         with:
           file: score-k8s
           version: latest
