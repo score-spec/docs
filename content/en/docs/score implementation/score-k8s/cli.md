@@ -107,7 +107,7 @@ Specifies optionally if a `Namespace` resource should be generated in the manife
 score-k8s generate --namespace test-ns --generate-namespace
 ```
 
-#### `--image`
+#### `--image` | `-i`
 
 Specifies an optional container image to use for any container with `image == '.'`.
 
@@ -115,7 +115,7 @@ Specifies an optional container image to use for any container with `image == '.
 score-k8s generate --image your_container_image
 ```
 
-### `--namespace`
+### `--namespace` | `-n`
 
 Specifies an optional `Namespace` to set on the resources in the manifests.
 
