@@ -47,7 +47,7 @@ Sets the name of the Docker Compose project. By default, the project name is the
 score-compose init --project score-compose2
 ```
 
-#### `--provisioners` | `-p`
+#### `--provisioners`
 
 Loads additional provisoners from a remote url. May be specified multiple times. Supports the following formats:
 
@@ -123,7 +123,7 @@ Specifies the location to store a skeleton `.env` file for Docker Compose. This 
 score-compose generate --env-file /path/to/env-file
 ```
 
-#### `--image`
+#### `--image` | `-i`
 
 Specifies an optional container image to use for any container with `image == '.'`.
 
@@ -155,7 +155,7 @@ Specifies an optional file of Score overrides to merge in.
 score-compose generate score.yaml --overrides-file=./overrides.score.yaml
 ```
 
-#### `--publish`
+#### `--publish` | `-p`
 
 Specifies an optional set of HOST_PORT:<ref>:CONTAINER_PORT to publish on the host system. <ref> could be either for the workload (example: 8080:my-workload:80) or for a resource (example: 5432:postgres#my-workload.db.host:5432).
 
