@@ -11,7 +11,7 @@ The `score-compose` CLI provides a set of commands and flags to enable the gener
 
 ## Global flags
 
-#### `--help` | `-h`
+### `--help` | `-h`
 
 Displays help information for `score-compose`, includig available commands and flags.
 
@@ -65,6 +65,14 @@ Specifies a Score file to initialize. By default this is `./score.yaml`.
 score-compose init --file custom_file_name.yaml
 ```
 
+### `--no-default-provisioner`
+
+Skip default provisoners file creation
+
+```bash
+score-compose init --provisioners https://raw.githubusercontent.com/user/repo/main/example.yaml --no-default-provisioners
+```
+
 ### `--no-sample`
 
 Disables the generation of the sample Score file if you already have a Score file in place.
@@ -72,6 +80,22 @@ Disables the generation of the sample Score file if you already have a Score fil
 ```bash
 score-compose init --no-sample
 ```
+
+### `--patch-templates`
+
+Loads patch templates from a remote url. May be specified multiple times. Supports the following formats:
+
+- `http://host/file`
+- `https://host/file`
+- `git-ssh://git@host/repo.git/file`
+- `git-https://host/repo.git/file`
+- `oci://[registry/][namespace/]repository[:tag|@digest][#file]`
+
+```bash
+score-compose init --patch-templates https://raw.githubusercontent.com/user/repo/main/example.yaml
+```
+
+Learn more about this `--patch-templates` feature [here](/docs/score-implementation/score-compose/patch-templates/).
 
 ### `--project` | `-p`
 
@@ -96,30 +120,6 @@ score-compose init --provisioners https://raw.githubusercontent.com/user/repo/ma
 ```
 
 Learn more about this `--provisioners` feature [here](/docs/score-implementation/score-compose/resources-provisioners/).
-
-### `--no-default-provisioner`
-
-Skip default provisoners file creation
-
-```bash
-score-compose init --provisioners https://raw.githubusercontent.com/user/repo/main/example.yaml --no-default-provisioners
-```
-
-### `--patch-templates`
-
-Loads patch templates from a remote url. May be specified multiple times. Supports the following formats:
-
-- `http://host/file`
-- `https://host/file`
-- `git-ssh://git@host/repo.git/file`
-- `git-https://host/repo.git/file`
-- `oci://[registry/][namespace/]repository[:tag|@digest][#file]`
-
-```bash
-score-compose init --patch-templates https://raw.githubusercontent.com/user/repo/main/example.yaml
-```
-
-Learn more about this `--patch-templates` feature [here](/docs/score-implementation/score-compose/patch-templates/).
 
 ## `generate`
 
