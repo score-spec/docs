@@ -65,36 +65,20 @@ Specifies a Score file to initialize. By default this is `./score.yaml`.
 score-k8s init --file custom_file_name.yaml
 ```
 
-### `--no-sample`
-
-Disables the generation of the sample Score file if you already have a Score file in place.
-
-```bash
-score-k8s init --no-sample
-```
-
-### `--provisioners`
-
-Loads additional provisoners from a remote url. May be specified multiple times. Supports the following formats:
-
-- `http://host/file`
-- `https://host/file`
-- `git-ssh://git@host/repo.git/file`
-- `git-https://host/repo.git/file`
-- `oci://[registry/][namespace/]repository[:tag|@digest][#file]`
-
-```bash
-score-k8s init --provisioners https://raw.githubusercontent.com/user/repo/main/example.yaml
-```
-
-Learn more about this `--provisioners` feature [here](/docs/score-implementation/score-k8s/resources-provisioners/).
-
 ### `--no-default-provisioner`
 
 Skip default provisoners file creation
 
 ```bash
 score-k8s init --provisioners https://raw.githubusercontent.com/user/repo/main/example.yaml --no-default-provisioners
+```
+
+### `--no-sample`
+
+Disables the generation of the sample Score file if you already have a Score file in place.
+
+```bash
+score-k8s init --no-sample
 ```
 
 ### `--patch-templates`
@@ -112,6 +96,22 @@ score-k8s init --patch-templates https://raw.githubusercontent.com/user/repo/mai
 ```
 
 Learn more about this `--patch-templates` feature [here](/docs/score-implementation/score-k8s/patch-templates/).
+
+### `--provisioners`
+
+Loads additional provisoners from a remote url. May be specified multiple times. Supports the following formats:
+
+- `http://host/file`
+- `https://host/file`
+- `git-ssh://git@host/repo.git/file`
+- `git-https://host/repo.git/file`
+- `oci://[registry/][namespace/]repository[:tag|@digest][#file]`
+
+```bash
+score-k8s init --provisioners https://raw.githubusercontent.com/user/repo/main/example.yaml
+```
+
+Learn more about this `--provisioners` feature [here](/docs/score-implementation/score-k8s/resources-provisioners/).
 
 ## `generate`
 
