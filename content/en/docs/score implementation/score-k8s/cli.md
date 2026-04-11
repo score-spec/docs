@@ -13,7 +13,7 @@ The `score-k8s` CLI provides a set of commands and flags to enable the generatio
 
 ### `--help` | `-h`
 
-Displays help information for `score-k8s`, including available commands and flags.
+Displays help information, including available commands and flags.
 
 ```bash
 score-k8s --help
