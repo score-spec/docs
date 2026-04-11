@@ -13,7 +13,7 @@ The `score-compose` CLI provides a set of commands and flags to enable the gener
 
 ### `--help` | `-h`
 
-Displays help information for `score-compose`, includig available commands and flags.
+Displays help information, including available commands and flags.
 
 ```bash
 score-compose --help
