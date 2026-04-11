@@ -56,7 +56,7 @@ The Score file sits next to your workload’s source code in version control. Bo
 
 ## Example
 
-Below you'll find an example of a simple Score application with a web server that queries a PostgreSQL database on each request. The demo code can be found [here](https://github.com/score-spec/sample-app-gif/blob/main/score.yaml).
+Below you'll find an example of a simple Score application with a web server that queries a PostgreSQL database on each request. The demo code can be found [here](https://github.com/score-spec/sample-score-app/blob/main/score.yaml).
 
 ```yaml
 # The version string helps identify the Score file syntax
