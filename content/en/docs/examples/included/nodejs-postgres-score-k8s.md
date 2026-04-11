@@ -46,7 +46,7 @@ The Score file example illustrated uses three resource types: `postgres`, `dns` 
 Convert the `score.yaml` file into a deployable `manifests.yaml`, run the following command in your terminal:
 
 ```bash
-score-k8s generate score.yaml --image ghcr.io/score-spec/sample-score-app:latest
+score-k8s generate score.yaml --image scorespec/sample-score-app:latest
 ```
 
 The `generate` command will add the input `score.yaml` workload with a particular container image to the `.score-k8s/state.yaml` state file and generate the output `manifests.yaml`.
