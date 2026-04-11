@@ -149,7 +149,7 @@ Specifies an optional `Namespace` to set on the resources in the manifests.
 score-k8s generate --namespace test-ns
 ```
 
-#### `--output` | `-o`
+### `--output` | `-o`
 
 Specifies the output file to write the manifests to. By default, the output file is named `manifests.yaml`.
 
