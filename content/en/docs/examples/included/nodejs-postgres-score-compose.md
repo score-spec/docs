@@ -46,7 +46,7 @@ The Score file example illustrated uses three resource types: `postgres`, `dns` 
 Convert the `score.yaml` file into a deployable `compose.yaml`, run the following command in your terminal:
 
 ```bash
-score-compose generate score.yaml --image ghcr.io/score-spec/sample-score-app:latest
+score-compose generate score.yaml --image scorespec/sample-score-app:latest
 ```
 
 The `generate` command will add the input `score.yaml` workload with a particular container image to the `.score-compose/state.yaml` state file and generate the output `compose.yaml`.
@@ -142,7 +142,7 @@ docker ps
 
 ```none
 CONTAINER ID   IMAGE                                        COMMAND                  CREATED          STATUS                    PORTS                                     NAMES
-8488aa2fe204   ghcr.io/score-spec/sample-score-app:latest   "node index.js"          17 minutes ago   Up 17 minutes             3000/tcp                                  nodejs-hello-world-hello-world-1
+8488aa2fe204   scorespec/sample-score-app:latest            "node index.js"          17 minutes ago   Up 17 minutes             3000/tcp                                  nodejs-hello-world-hello-world-1
 22c78e726612   mirror.gcr.io/nginx:1-alpine                 "/docker-entrypoint.…"   17 minutes ago   Up 17 minutes             0.0.0.0:8080->80/tcp, [::]:8080->80/tcp   nodejs-routing-CzbPM2-1
 01cc858a6162   mirror.gcr.io/postgres:17-alpine             "docker-entrypoint.s…"   17 minutes ago   Up 17 minutes (healthy)   5432/tcp                                  nodejs-pg-Tut8g7-1
 ```
