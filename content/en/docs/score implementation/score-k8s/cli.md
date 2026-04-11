@@ -159,7 +159,7 @@ score-k8s generate --output your_output_file.yaml
 
 ### `--override-property`
 
-Specifies an optional set of path=key overrides to set or remove.
+Specifies an optional set of `path=key` overrides to set or remove.
 
 ```bash
 score-k8s generate --override-property path1=value1
@@ -171,6 +171,22 @@ Specifies an optional file of Score overrides to merge in.
 
 ```bash
 score-k8s generate score.yaml --overrides-file=./overrides.score.yaml
+```
+
+## `provisioners`
+
+The `provisioners` command provides subcommand related to provisioners in `score-k8s`
+
+```bash
+score-k8s provisioners [command]
+```
+
+### `list`
+
+List available `provisioners`
+
+```bash
+score-k8s provisioners list [flags]
 ```
 
 ## `resources`
