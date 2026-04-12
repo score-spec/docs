@@ -71,7 +71,7 @@ The `init` command will create the `.score-compose` directory with the [default 
 Convert the `score.yaml` file into a deployable `compose.yaml`, run the following command in your terminal:
 
 ```bash
-score-compose generate score.yaml --image scorespec/sample-score-app:main
+score-compose generate score.yaml --image scorespec/sample-score-app:latest
 ```
 
 The `generate` command will add the input `score.yaml` workload with a particular container image to the `.score-compose/state.yaml` state file and generate the output `compose.yaml`.
