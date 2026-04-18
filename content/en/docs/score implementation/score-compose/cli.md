@@ -84,13 +84,14 @@ score-compose init --no-sample
 ### `--patch-templates`
 
 Loads patch templates files. May be specified multiple times. Supports the following formats: 
-  - `-` _(read from standard input)_
-  - `./local/path/file-or-folder`
-  - `http://host/file`
-  - `https://host/file`
-  - `git-ssh://git@host/repo.git/file`
-  - `git-https://host/repo.git/file`
-  - `oci://[registry/][namespace/]repository[:tag|@digest][#file]`
+
+- `-` _(read from standard input)_
+- `./local/path/file-or-folder`
+- `http://host/file`
+- `https://host/file`
+- `git-ssh://git@host/repo.git/file`
+- `git-https://host/repo.git/file`
+- `oci://[registry/][namespace/]repository[:tag|@digest][#file]`
 
 ```bash
 score-compose init --patch-templates https://raw.githubusercontent.com/user/repo/main/example.yaml
@@ -109,13 +110,14 @@ score-compose init --project score-compose2
 ### `--provisioners`
 
 Loads provisioners files. May be specified multiple times. Supports the following formats: 
-  - `-` _(read from standard input)_
-  - `./local/path/file-or-folder`
-  - `http://host/file`
-  - `https://host/file`
-  - `git-ssh://git@host/repo.git/file`
-  - `git-https://host/repo.git/file`
-  - `oci://[registry/][namespace/]repository[:tag|@digest][#file]`
+
+- `-` _(read from standard input)_
+- `./local/path/file-or-folder`
+- `http://host/file`
+- `https://host/file`
+- `git-ssh://git@host/repo.git/file`
+- `git-https://host/repo.git/file`
+- `oci://[registry/][namespace/]repository[:tag|@digest][#file]`
 
 ```bash
 score-compose init --provisioners https://raw.githubusercontent.com/user/repo/main/example.yaml
