@@ -65,9 +65,9 @@ Specifies a Score file to initialize. By default this is `./score.yaml`.
 score-k8s init --file custom_file_name.yaml
 ```
 
-### `--no-default-provisioner`
+### `--no-default-provisioners`
 
-Skip default provisoners file creation
+Skips default provisoners file creation
 
 ```bash
 score-k8s init --provisioners https://raw.githubusercontent.com/user/repo/main/example.yaml --no-default-provisioners
@@ -83,8 +83,10 @@ score-k8s init --no-sample
 
 ### `--patch-templates`
 
-Loads patch templates from a remote url. May be specified multiple times. Supports the following formats:
+Loads patch templates files. May be specified multiple times. Supports the following formats:
 
+- `-` _(read from standard input)_
+- `./local/path/file-or-folder`
 - `http://host/file`
 - `https://host/file`
 - `git-ssh://git@host/repo.git/file`
@@ -99,8 +101,10 @@ Learn more about this `--patch-templates` feature [here](/docs/score-implementat
 
 ### `--provisioners`
 
-Loads additional provisoners from a remote url. May be specified multiple times. Supports the following formats:
+Loads provisioners files. May be specified multiple times. Supports the following formats:
 
+- `-` _(read from standard input)_
+- `./local/path/file-or-folder`
 - `http://host/file`
 - `https://host/file`
 - `git-ssh://git@host/repo.git/file`
