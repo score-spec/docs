@@ -228,3 +228,37 @@ Lists the unique identifiers (UIDs) of all provisioned resources.
 ```bash
 score-compose resources list
 ```
+
+## `version`
+
+Show the version for `score-compose` and new version to update if available.
+
+```bash
+score-compose version
+```
+
+#### Flags
+
+### `--no-logo`
+
+Do not show the Score logo.
+
+```bash
+score-compose version --no-logo
+```
+
+### `--no-updates-check`
+
+Do not check for a new version.
+
+```bash
+score-compose version --no-updates-check
+```
+
+## `check-version`
+
+Assert that the version of `score-compose` matches the required constraint.
+
+```bash
+score-compose check-version
+```
