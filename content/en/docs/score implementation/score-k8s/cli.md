@@ -212,3 +212,37 @@ Lists the unique identifiers (UIDs) of all provisioned resources.
 ```bash
 score-k8s resources list
 ```
+
+## `version`
+
+Show the version for `score-k8s` and new version to update if available.
+
+```bash
+score-k8s version
+```
+
+#### Flags
+
+### `--no-logo`
+
+Do not show the Score logo.
+
+```bash
+score-k8s version --no-logo
+```
+
+### `--no-updates-check`
+
+Do not check for a new version.
+
+```bash
+score-k8s version --no-updates-check
+```
+
+## `check-version`
+
+Assert that the version of `score-k8s` matches the required constraint.
+
+```bash
+score-k8s check-version
+```
