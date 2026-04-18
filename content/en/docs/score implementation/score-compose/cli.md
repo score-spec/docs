@@ -83,7 +83,7 @@ score-compose init --no-sample
 
 ### `--patch-templates`
 
-Loads patch templates files. May be specified multiple times. Supports the following formats: 
+Loads patch templates files. May be specified multiple times. Supports the following formats:
 
 - `-` _(read from standard input)_
 - `./local/path/file-or-folder`
@@ -109,7 +109,7 @@ score-compose init --project score-compose2
 
 ### `--provisioners`
 
-Loads provisioners files. May be specified multiple times. Supports the following formats: 
+Loads provisioners files. May be specified multiple times. Supports the following formats:
 
 - `-` _(read from standard input)_
 - `./local/path/file-or-folder`
