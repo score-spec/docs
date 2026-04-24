@@ -19,7 +19,7 @@ score-compose init --no-sample \
 
 The `init` command will create the `.score-compose` directory with the [default resource provisioners]({{< relref "/docs/score-implementation/score-compose/resources-provisioners/" >}}) available, plus the Ollama-specific provisioner for the `llm-model` resource type.
 
-The `--patch-templates` option adds the [`ollama.tpl`](https://github.com/score-spec/community-patchers/blob/main/score-compose/ollama.tpl) patcher which configures the Ollama service integration in the generated Docker Compose file.
+The `--patch-templates` option adds the [`ollama.tpl`](https://github.com/score-spec/community-patchers/blob/main/score-compose/ollama.tpl) patch template which configures the Ollama service integration in the generated Docker Compose file.
 
 You can see the resource provisioners available by running this command:
 

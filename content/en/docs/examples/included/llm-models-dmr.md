@@ -8,7 +8,7 @@ toc_hide: true
 To begin, follow the [installation instructions](/docs/score-implementation/score-compose/installation) to install the latest version of `score-compose`.
 
 {{% alert title="Prerequisites" %}}
-Docker Model Runner (DMR) requires [Docker Desktop](https://www.docker.com/products/docker-desktop/) with the **Model Runner** feature enabled. You can enable it from Docker Desktop Settings under the **Features in Development** or **Beta Features** section.
+Docker Model Runner (DMR) needs to be set up in your local environment. Follow the [DMR get started guide](https://docs.docker.com/model-runner/get-started/) to set it up.
 {{% /alert %}}
 
 ## `init`

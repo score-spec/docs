@@ -7,7 +7,7 @@ weight: 8
 
 ## Overview
 
-In this example we will walk you through how you can deploy local LLM models with [Open WebUI](https://github.com/open-webui/open-webui) as the frontend, and this with `score-compose`. We'll cover two approaches to running the LLM models locally: using [Ollama](https://ollama.com/) and using [Docker Model Runner (DMR)](https://docs.docker.com/desktop/features/model-runner/).
+In this example we will walk you through how you can deploy local LLM models with [Open WebUI](https://github.com/open-webui/open-webui) as the frontend, and this with `score-compose`. We'll cover two approaches to run the LLM models locally: using [Ollama](https://ollama.com/) or using [Docker Model Runner (DMR)](https://docs.docker.com/desktop/features/model-runner/).
 
 ```mermaid
 flowchart TD
