@@ -5,9 +5,14 @@ containers:
   my-container:
     image: busybox
     command: ["/bin/sh"]
-    args: ["-c", "while true; do echo $BACKEND_SVC; sleep 5; done"]
+    args: ["-c", "while true; do echo Hello $BACKEND_SVC!; sleep 5; done"]
     variables:
-      BACKEND_SVC: http://${resources.backend.name}
+      BACKEND_SVC: ${resources.backend.url}/orders
 resources:
   backend:
     type: service
+    params:
+      port: 8181
+      artifacts: backend-openapi.yaml:true
+      name: Order Service API
+      version: 0.1.0

@@ -7,5 +7,7 @@
     {{ $w := (index .WorkloadServices .Init.name) }}
     {{ if or (not $w) (not $w.ServiceName) }}{{ fail "unknown workload" }}{{ end }}
     name: {{ $w.ServiceName | quote }}
+    url: http://{{ $w.ServiceName }}
   expected_outputs: 
     - name
+    - url

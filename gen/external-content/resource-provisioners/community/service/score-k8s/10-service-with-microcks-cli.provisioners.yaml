@@ -1,0 +1,32 @@
+- uri: cmd://bash#service-with-microcks-cli
+  type: service
+  description: Outputs a service URL for connecting to an other workload (a Microcks mock is generated if not found).
+  supported_params:
+    - port
+    - artifacts
+    - name
+    - version
+  expected_outputs:
+    - url
+    - name
+  args:
+  - -c
+  - |
+    STDIN=$(cat)
+    PARAM_PORT=$(echo $STDIN | yq eval -p json '.resource_params.port')
+    PARAM_NAME=$(echo $STDIN | yq eval -p json '.resource_params.name')
+    PARAM_VERSION=$(echo $STDIN | yq eval -p json '.resource_params.version')
+    PARAM_ARTIFACTS=$(echo $STDIN | yq eval -p json '.resource_params.artifacts')
+    WORKLOAD=$(echo $STDIN | yq eval -p json '.resource_id | split(".") | .[-1]')
+    WORKLOAD_EXISTS=$(echo $STDIN | WORKLOAD=${WORKLOAD} yq eval -p json '.workload_services | has(strenv(WORKLOAD))')
+    URL_HOSTNAME=${WORKLOAD}:${PARAM_PORT}
+    URL_SCHEME="http"
+    URL_PATH=""
+    if [ "$WORKLOAD_EXISTS" != "true" ]; then
+      URL_HOSTNAME="microcks.microcks.svc.cluster.local:8080"
+      URL_PATH=/rest/$(echo $PARAM_NAME | yq '. |= sub(" ", "+")')/$PARAM_VERSION
+      set -eu -o pipefail
+      microcks import ${PARAM_ARTIFACTS} --microcksURL=https://microcks.127.0.0.1.nip.io --insecure-tls --keycloakClientId=foo --keycloakClientSecret=bar >&2
+    fi
+    OUTPUTS='{"resource_outputs":{"url":"%s://%s%s/","name":"%s"},"manifests":[]}'
+    printf "$OUTPUTS" "$URL_SCHEME" "$URL_HOSTNAME" "$URL_PATH" "$WORKLOAD"

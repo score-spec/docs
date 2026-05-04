@@ -61,6 +61,7 @@ resource-provisioners:
     - route
     - s3
     - service
+    - service-with-microcks-cli
     - static
     - volume
   tool:
@@ -70,6 +71,7 @@ resource-provisioners:
     - endpoint
     - example
     - helm
+    - service
   source:
     - community
     - default

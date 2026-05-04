@@ -7,8 +7,10 @@
     {{ $w := (index .WorkloadServices .Init.name) }}
     {{ if or (not $w) (not $w.ServiceName) }}{{ fail "unknown workload" }}{{ end }}
     name: {{ .Init.name }}
+    url: http://{{ $w.ServiceName }}
   expected_outputs: 
     - name
+    - url
   manifests: |
     - apiVersion: networking.k8s.io/v1
       kind: NetworkPolicy
