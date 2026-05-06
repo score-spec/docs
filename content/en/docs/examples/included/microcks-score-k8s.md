@@ -18,8 +18,6 @@ score-k8s init --no-sample \
 
 The `init` command will create the `.score-k8s` directory with the [default resource provisioners]({{< relref "/docs/score-implementation/score-k8s/resources-provisioners/" >}}) available. We are also importing the [`service-with-microcks-cli` provisioner](https://github.com/score-spec/community-provisioners/blob/main/service/score-k8s/10-service-with-microcks-cli.provisioners.yaml), which is responsible for importing the OpenAPI spec into the Microcks control plane already running in your Kubernetes cluster.
 
-_Note: You will need to have [Microcks installed](https://microcks.io/documentation/guides/installation/kind-helm/) in your Kubernetes cluster before running the commands below._
-
 You can see the resource provisioners available by running this command:
 
 ```bash
@@ -32,13 +30,17 @@ The Score file example illustrated uses one resource type: `service`.
 +---------+-------+-------------------------------------------+--------+-----------------------------------+
 |  TYPE   | CLASS |                  PARAMS                   |OUTPUTS |          DESCRIPTION              |
 +---------+-------+-------------------------------------------+--------+-----------------------------------+
-| service | (any) | port, artifacts, name, version            | url    | Imports an OpenAPI spec into a    |
-|         |       |                                           |        | running Microcks instance and     |
+| service | (any) | port, artifacts, name, version            | name,  | Imports an OpenAPI spec into a    |
+|         |       |                                           | url    | running Microcks instance and     |
 |         |       |                                           |        | returns the mock endpoint URL.    |
 +---------+-------+-------------------------------------------+--------+-----------------------------------+
 ```
 
 ## `generate`
+
+_You will need to have access to a Kubernetes cluster to execute the following commands. You can follow [these instructions](/docs/how-to/score-k8s/kind-cluster/) if you want to set up a Kind cluster. Your Kubernetes cluster should also have [Microcks installed](https://microcks.io/documentation/guides/installation/kind-helm/) in it._
+
+_This is where the `service` provisioner will be invoked. Under the hood, it uses the [`microcks` CLI](https://microcks.io/documentation/guides/installation/cli/) to import the OpenAPI spec into Microcks (see the [`service-with-microcks-cli` provisioner](https://github.com/score-spec/community-provisioners/blob/main/service/score-k8s/10-service-with-microcks-cli.provisioners.yaml#L29)). You will need the `microcks` CLI installed locally on your machine (outside of the cluster)._
 
 Convert the `score.yaml` file into a deployable `manifests.yaml`, run the following command in your terminal:
 
@@ -65,11 +67,11 @@ score-k8s resources list
 ```
 
 ```none
-+-----------------------------------+---------+
-|               UID                 | OUTPUTS |
-+-----------------------------------+---------+
-| service.default#frontend.backend  | url     |
-+-----------------------------------+---------+
++-----------------------------------+------------+
+|               UID                 |  OUTPUTS   |
++-----------------------------------+------------+
+| service.default#frontend.backend  | name, url  |
++-----------------------------------+------------+
 ```
 
 At this stage, we can already see the value of the `service` resource (the Microcks-provided mock URL in cluster):
@@ -83,8 +85,6 @@ http://microcks.microcks.svc.cluster.local:8080/rest/Order+Service+API/0.1.0
 ```
 
 ## `kubectl apply`
-
-_Here you will need to have access to a Kubernetes cluster to execute the following commands. You can follow [these instructions](/docs/how-to/score-k8s/kind-cluster/) if you want to set up a Kind cluster. Your Kubernetes cluster should also have [Microcks installed](https://microcks.io/documentation/guides/installation/kind-helm/) in it._
 
 Run `kubectl apply` to execute the generated `manifests.yaml` file:
 
