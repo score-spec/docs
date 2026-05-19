@@ -10,11 +10,11 @@ aliases:
 
 ## Overview
 
-A common requirement is for Platform Engineers to slightly modify or adjust the output of the conversion process, and this seemlessly for their Developers. This can be done by providing one or more patching templates at `init` time. These patching templates generate JSON patches which are applied on top of the output manifests file, just before being written. Patching templates have access to the current manifests spec as `.Manifests`, the map of workload name to Score Spec as `.Workloads`, the optional name of the namespace in Kubernetes `.Namespace`, and can use any functions from [`Masterminds/sprig`](https://github.com/Masterminds/sprig).
+A common requirement is for Platform Engineers to slightly modify or adjust the output of the conversion process, and this seamlessly for their Developers. This can be done by providing one or more patching templates at `init` time. These patching templates generate JSON patches which are applied on top of the output manifests file, just before being written. Patching templates have access to the current manifests spec as `.Manifests`, the map of workload name to Score Spec as `.Workloads`, the optional name of the namespace in Kubernetes `.Namespace`, and can use any functions from [`Masterminds/sprig`](https://github.com/Masterminds/sprig).
 
 In this way, you can extend the behavior of the `score-k8s` implementation.
 
-Each template file is evaluated as a Golang text/template and should output a yaml/json encoded array of patches. Each patch is an object with required `op` (`set` or `delete`), `patch` (a dot-separated json path, use backslash to escape), a `value` if the `op` is `set`, and an optional `description` for showing in the logs.
+Each template file is evaluated as a Golang text/template and should output a yaml/json encoded array of patches. Each patch is an object with required `op` (`set` or `delete`), `path` (a dot-separated json path, use backslash to escape), a `value` if the `op` is `set`, and an optional `description` for showing in the logs.
 
 Example of paths:
 
@@ -24,6 +24,43 @@ services.foo.ports.0     # modifies the first item in the ports array
 services.foo.ports.-1    # adds to the end of the ports array
 something.:0000.xyz      # patches the xyz item in the "0000" item of something (: escapes a numeric index)
 ```
+
+## Template inputs
+
+Patch templates run after `score-k8s` has converted the Score workloads and provisioned resources, but before the final `manifests.yaml` file is written.
+The root template input exposes these fields:
+
+| Field        | Description                                                                                                                                                                         |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `.Manifests` | The generated Kubernetes manifests that will be patched. This is a list, so patch paths start with the manifest index, for example `0.metadata.labels`.                             |
+| `.Workloads` | A map of workload name to the original Score workload specification. Use this when the patch decision depends on Score metadata, containers, resources, annotations, or extensions. |
+| `.Namespace` | The namespace passed to `score-k8s generate --namespace`. This is an empty string when no namespace is configured.                                                                  |
+
+These inputs are available as maps, lists, and strings in the template, so access fields using their YAML names, for example `$m.metadata.name` or `$spec.containers`.
+The template can also use Sprig helpers such as `dig`, `default`, `toJson`, and `b64enc`.
+
+When designing a new patch template, a temporary debugging patch can make the available input easier to inspect.
+For example, this writes the full template input as a base64-encoded JSON annotation on generated Deployment manifests:
+
+```yaml
+{{ $input := . }}
+{{ range $i, $m := .Manifests }}
+{{ if eq $m.kind "Deployment" }}
+- op: set
+  path: {{ $i }}.metadata.annotations.score\.dev/debug-template-input
+  value: {{ $input | toJson | b64enc | quote }}
+  description: Inspect patch template input
+{{ end }}
+{{ end }}
+```
+
+After running `score-k8s generate`, copy the annotation value from `manifests.yaml` and decode it locally:
+
+```bash
+printf '%s' '<annotation-value>' | base64 --decode | jq .
+```
+
+Remove this debugging patch once you have identified the fields your final template needs.
 
 ## Example
 
