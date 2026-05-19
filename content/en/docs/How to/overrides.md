@@ -77,3 +77,32 @@ Set the path of the property to an empty value to remove the property.
 {{< tab name="score-compose" include="./included/overrides-property-empty-score-compose.md" />}}
 {{< tab name="score-k8s" include="./included/overrides-property-empty-score-k8s.md" />}}
 {{< /tabs >}}
+
+## Build or supply a container image
+
+When you run `score-compose generate` or `score-k8s generate`, each workload needs a container image. You can supply a pre-built image, or, with `score-compose`, build one from local source.
+
+### How to supply a pre-built image
+
+The value provided to the `--image` flag overrides the `image` field of any workload that lacks an explicit image definition in its Score file. To handle different images for multiple workloads, use the `--override-property` flag shown in [How to override a property](#how-to-override-a-property).
+
+{{< tabs name="image-flag">}}
+{{< tab name="score-compose" include="./included/build-supply-image-score-compose.md" />}}
+{{< tab name="score-k8s" include="./included/build-supply-image-score-k8s.md" />}}
+{{< /tabs >}}
+
+### How to build a container image
+
+Specific to `score-compose generate`, the `--build` flag specifies an optional build context to use for the given container. The format is either `--build=CONTAINER=./dir` or `--build=CONTAINER={"context":"./dir"}`.
+
+The following example builds the `hello-world` container from the current directory:
+
+```bash
+score-compose generate score.yaml --build 'hello-world={"context":"."}'
+```
+
+Run `docker compose up` with the `--build` flag so Docker builds the image before it starts the containers:
+
+```bash
+docker compose up --build -d
+```
