@@ -47,7 +47,7 @@ score-compose --version
 
 ## `init`
 
-The init command creates a basic `score.yaml` file in the current directory and initializes a `.score-compose/` working directory if it doesn't already exist. The `.score-compose/` directory is used to store local state and should be excluded from version control systems such as Git by adding it to your `.gitignore` file.
+The init command creates a basic `score.yaml` file in the current directory and initializes a `.score-compose/` working directory if it doesn't already exist. The `.score-compose/` directory is used to store local state and should be excluded from version control systems such as Git by adding it to your `.gitignore` file. For details on what's stored there and when it matters, see [Local state]({{< relref "/docs/score-implementation/local-state" >}}).
 
 ```bash
 score-compose init [flags]

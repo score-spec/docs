@@ -43,7 +43,7 @@ Find more detail on these steps below.
 - **2:** The implementation **must** validate the files according to the Score specification JSON schema. This validation should take place _after_ applying any additional overrides or defaults.
   - **2.1:** The implementation **should** apply implementation-specific validation to ensure that workloads abide by platform-specific or implementation-specific limitations. Report any errors clearly to the user. For example, some platforms don't support mounted `containers.*.files` and have no choice but to reject Score workloads that use these attributes.
 - **3:** Command line implementations **should** support the following:
-  - **3.1:** Implement an `init` subcommand to initialize any local state in the project directory. This isn't required if the implementation requires no local state. The `init` subcommand should generate a sample Score file if one doesn't exist.
+  - **3.1:** Implement an `init` subcommand to initialize any local state in the project directory. This isn't required if the implementation requires no local state. The `init` subcommand should generate a sample Score file if one doesn't exist. See [Local state]({{< relref "/docs/score-implementation/local-state" >}}) for how the default implementations use this directory.
   - **3.2:** Implement a `generate` subcommand for accepting Score files and their configuration from the user, provisioning resources, and converting to the final manifests. Running the `generate` subcommand must be additive and idempotent.
 
 ### Resource provisioning
