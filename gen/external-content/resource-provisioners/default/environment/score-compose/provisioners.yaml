@@ -1,0 +1,3 @@
+- uri: local-env://default-provisioners/environment
+  type: environment
+  description: Pulls values out of the local environment as outputs to an environment resource
