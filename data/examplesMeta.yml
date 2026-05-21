@@ -5,6 +5,7 @@ resource-provisioners:
     - score-k8s
   provisionerType:
     - cmd
+    - local-env
     - template
   resourceType:
     - amqp
@@ -43,6 +44,7 @@ resource-provisioners:
     - empty
     - endpoint
     - endpoint-with-microcks-cli
+    - environment
     - example-provisioner
     - foo
     - gcp
