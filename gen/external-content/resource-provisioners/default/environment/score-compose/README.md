@@ -1,0 +1,1 @@
+The default environment provisioner resolves environment resource references by looking up OS environment variables at generate time. The accessed variables are tracked and can be written to a skeleton .env file.
