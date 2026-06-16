@@ -35,6 +35,7 @@ score-k8s init --provisioners https://raw.githubusercontent.com/score-spec/commu
 
 | File | Type | Class | Params | Outputs | Description
 | ---- | ---- | ----- | ------ | ------- | -----------
+| 10-azurite-azure-blob.provisioners.yaml                    | `azure-blob`                | (any)   | `container`                                                           | `connection_string`, `account_name`, `account_key`, `blob_endpoint`, `container` | Generates an Azurite (Azure Storage emulator) `StatefulSet` and `Service` exposing the blob endpoint.
 | 10-rabbitmq-dapr-pubsub.provisioners.yaml                  | `dapr-pubsub`               | (any)   | (none)                                                                 | `name`                                  | Generates a Dapr PubSub `Component` pointing to a RabbitMQ `StatefulSet`.
 | 10-redis-dapr-pubsub.provisioners.yaml                     | `dapr-pubsub`               | (any)   | (none)                                                                 | `name`                                  | Generates a Dapr PubSub `Component` pointing to a Redis `StatefulSet`.
 | 10-redis-dapr-state-store.provisioners.yaml                | `dapr-state-store`          | (any)   | (none)                                                                 | `name`                                  | Generates a Dapr StateStore `Component` pointing to a Redis `StatefulSet`.

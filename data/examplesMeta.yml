@@ -9,6 +9,7 @@ resource-provisioners:
     - template
   resourceType:
     - amqp
+    - azure-blob
     - dapr-pubsub
     - dapr-state-store
     - dapr-subscription
@@ -33,6 +34,7 @@ resource-provisioners:
     - service-port
     - volume
   flavor:
+    - azurite
     - dapr
     - default
     - dmr
