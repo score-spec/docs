@@ -1,0 +1,19 @@
+apiVersion: score.dev/v1b1
+metadata:
+  name: my-workload
+containers:
+  my-container:
+    image: busybox
+    command: ["/bin/sh"]
+    args: ["-c", "while true; do echo $AZURE_STORAGE_CONNECTION_STRING; sleep 5; done"]
+    variables:
+      AZURE_STORAGE_CONNECTION_STRING: "${resources.blob.connection_string}"
+      AZURE_STORAGE_ACCOUNT: "${resources.blob.account_name}"
+      AZURE_STORAGE_KEY: "${resources.blob.account_key}"
+      AZURE_BLOB_ENDPOINT: "${resources.blob.blob_endpoint}"
+      AZURE_BLOB_CONTAINER: "${resources.blob.container}"
+resources:
+  blob:
+    type: azure-blob
+    params:
+      container: my-workload-data

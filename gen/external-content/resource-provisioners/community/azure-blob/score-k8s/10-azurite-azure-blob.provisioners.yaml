@@ -1,0 +1,119 @@
+# Azurite (Azure Storage emulator) provisioner for the azure-blob resource type.
+# Runs Azurite in the cluster and gives the workload a connection string plus the
+# well-known dev-storage credentials, so apps using the Azure Blob SDK can work
+# against it locally without a real Azure Storage account.
+# See https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azurite
+- uri: template://community-provisioners/azurite-azure-blob
+  type: azure-blob
+  description: Generates an Azurite (Azure Storage emulator) StatefulSet and Service exposing the blob endpoint.
+  supported_params:
+    - container
+  init: |
+    blobPort: 10000
+    accountName: devstoreaccount1
+    accountKey: "Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw=="
+    defaultContainer: blob-{{ randAlphaNum 6 | lower }}
+  state: |
+    service: azurite-{{ .SourceWorkload }}-{{ substr 0 8 .Guid | lower }}
+    container: {{ dig "container" (.Params.container | default .Init.defaultContainer) .State | quote }}
+  outputs: |
+    connection_string: "DefaultEndpointsProtocol=http;AccountName={{ .Init.accountName }};AccountKey={{ .Init.accountKey }};BlobEndpoint=http://{{ .State.service }}:{{ .Init.blobPort }}/{{ .Init.accountName }};"
+    account_name: {{ .Init.accountName | quote }}
+    account_key: {{ .Init.accountKey | quote }}
+    blob_endpoint: "http://{{ .State.service }}:{{ .Init.blobPort }}/{{ .Init.accountName }}"
+    container: {{ .State.container | quote }}
+  expected_outputs:
+    - connection_string
+    - account_name
+    - account_key
+    - blob_endpoint
+    - container
+  manifests: |
+    - apiVersion: apps/v1
+      kind: StatefulSet
+      metadata:
+        name: {{ .State.service }}
+        {{ if ne .Namespace "" }}
+        namespace: {{ .Namespace }}
+        {{ end }}
+        annotations:
+          k8s.score.dev/source-workload: {{ .SourceWorkload }}
+          k8s.score.dev/resource-uid: {{ .Uid }}
+          k8s.score.dev/resource-guid: {{ .Guid }}
+        labels:
+          app.kubernetes.io/managed-by: score-k8s
+          app.kubernetes.io/name: {{ .State.service }}
+          app.kubernetes.io/instance: {{ .State.service }}
+      spec:
+        serviceName: {{ .State.service }}
+        replicas: 1
+        selector:
+          matchLabels:
+            app.kubernetes.io/instance: {{ .State.service }}
+        template:
+          metadata:
+            labels:
+              app.kubernetes.io/managed-by: score-k8s
+              app.kubernetes.io/name: {{ .State.service }}
+              app.kubernetes.io/instance: {{ .State.service }}
+          spec:
+            containers:
+              - name: azurite
+                image: mcr.microsoft.com/azure-storage/azurite:latest
+                command: ["azurite-blob"]
+                args:
+                  - --blobHost
+                  - 0.0.0.0
+                  - --blobPort
+                  - "{{ .Init.blobPort }}"
+                  - --location
+                  - /data
+                ports:
+                  - name: blob
+                    containerPort: {{ .Init.blobPort }}
+                volumeMounts:
+                  - name: data
+                    mountPath: /data
+                readinessProbe:
+                  tcpSocket:
+                    port: {{ .Init.blobPort }}
+                  initialDelaySeconds: 5
+                  periodSeconds: 5
+                securityContext:
+                  allowPrivilegeEscalation: false
+                  capabilities:
+                    drop:
+                      - ALL
+            securityContext:
+              fsGroup: 1000
+        volumeClaimTemplates:
+          - metadata:
+              name: data
+            spec:
+              accessModes: ["ReadWriteOnce"]
+              resources:
+                requests:
+                  storage: 1Gi
+    - apiVersion: v1
+      kind: Service
+      metadata:
+        name: {{ .State.service }}
+        {{ if ne .Namespace "" }}
+        namespace: {{ .Namespace }}
+        {{ end }}
+        annotations:
+          k8s.score.dev/source-workload: {{ .SourceWorkload }}
+          k8s.score.dev/resource-uid: {{ .Uid }}
+          k8s.score.dev/resource-guid: {{ .Guid }}
+        labels:
+          app.kubernetes.io/managed-by: score-k8s
+          app.kubernetes.io/name: {{ .State.service }}
+          app.kubernetes.io/instance: {{ .State.service }}
+      spec:
+        selector:
+          app.kubernetes.io/instance: {{ .State.service }}
+        type: ClusterIP
+        ports:
+          - port: {{ .Init.blobPort }}
+            targetPort: {{ .Init.blobPort }}
+            name: blob
