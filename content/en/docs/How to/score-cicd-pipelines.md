@@ -174,7 +174,7 @@ This workflow can now test, push, and deploy a Score application. However, there
 
 ### Maintaining `score-k8s` state
 
-CI Workflows typically start with a clean slate every time they execute. No state is stored on disk between runs. However, `score-k8s` _does_ store unique data, random seeds, and non-hermetic attributes in a `.score-k8s/state.yaml` file. For best results, this file should be restored before running `score-k8s` generate.
+CI Workflows typically start with a clean slate every time they execute. No state is stored on disk between runs. However, `score-k8s` _does_ store unique data, random seeds, and non-hermetic attributes in a `.score-k8s/state.yaml` file. For best results, this file should be restored before running `score-k8s` generate. For background on what's stored in this file, see [Local state]({{< relref "/docs/score-implementation/local-state" >}}).
 
 In this example, the file is stored as a secret in the target Kubernetes cluster. First, it's downloaded before running init or generate:
 

@@ -47,7 +47,7 @@ score-k8s --version
 
 ## `init`
 
-The `init` command will prepare the current directory for working with `score-k8s` and write the initial empty state and default provisioners file into the `'.score-k8s'` subdirectory. The `'.score-k8s'` directory contains state that will be used to generate any Kubernetes resource manifests including potentially sensitive data and raw secrets, so this should not be checked into generic source control.
+The `init` command will prepare the current directory for working with `score-k8s` and write the initial empty state and default provisioners file into the `'.score-k8s'` subdirectory. The `'.score-k8s'` directory contains state that will be used to generate any Kubernetes resource manifests including potentially sensitive data and raw secrets, so this should not be checked into generic source control. For details on what's stored there and when it matters, see [Local state]({{< relref "/docs/score-implementation/local-state" >}}).
 
 ```bash
 score-k8s init [flags]
