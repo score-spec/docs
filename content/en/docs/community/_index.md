@@ -26,7 +26,7 @@ We host [regular community meetings](https://github.com/score-spec/spec?tab=read
 
 ## Watch talks about Score
 
-- _(Coming) [KubeCon IN 2026 - The Death of the YAML-Engineer: Engineering "Invisible" Platforms With Crossplane and Score](https://sched.co/2IW4r)_
+- [KubeCon IN 2026 - The Death of the YAML-Engineer: Engineering "Invisible" Platforms With Crossplane and Score](https://sched.co/2IW4r) [[video](https://youtu.be/JEWSboHLuQc)]
 - [Open Source Summit NA 2026 - GitOps Gone Wild: Hardening Delivery Pipelines for the AI Era](https://sched.co/2JQuJ) [[video](https://youtu.be/hFVKJBTc7o4?list=PLbzoR-pLrL6p2URzlq8xlNtBhPspd2xpi)]
 - [Open Source Summit NA 2026 - From Apps To Infrastructure: A Cloud Native First Approach](https://sched.co/2JQws) [[video](https://youtu.be/SXBUv_I_Bfc?list=PLbzoR-pLrL6p2URzlq8xlNtBhPspd2xpi)]
 - [KubeCon EU 2026 - Unifying Inner & Outer Loops To Bridge the Gaps Between Devs & Ops With Microcks + Score](https://sched.co/2CVxb) [[video](https://youtu.be/Y_jfBWbBTZQ?list=PLj6h78yzYM2MXCOWSN9CqqID6OOvF7wxL)]
