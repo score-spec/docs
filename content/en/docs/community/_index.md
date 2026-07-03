@@ -49,8 +49,6 @@ We host [regular community meetings](https://github.com/score-spec/spec?tab=read
 
 - [Score + Docker Compose to deploy your local LLM models](https://medium.com/google-cloud/score-docker-compose-to-deploy-your-local-llm-models-10aff89686ce)
 - [Unifying the Inner & Outer Loops to Bridge the Gaps between Devs & Ops with Containers + Microcks + Score](https://itnext.io/unifying-inner-outer-loops-to-bridge-the-gaps-between-devs-ops-with-containers-microcks-d28603342f4b)
-- [Deploying Angular Apps with Score: Platform-Agnostic Workflows for Docker, Podman & Kubernetes](https://blog.cloudikeme.com/posts/deploy-angular-apps-with-score-to-docker-kubernetes/)
-- [Deploy WordPress with MySQL via Score](https://blog.cloudikeme.com/posts/deploy-wordpress-to-docker-with-score-compose/)
 - [Generate your Backstage software catalog files with Score](https://medium.com/@mabenoit/generate-your-backstage-software-catalog-files-with-score-b62aa33e8ecc)
 - [Deploy Backstage with Score](https://medium.com/@mabenoit/deploy-backstage-with-score-45bb2d7c2d90)
 - [Stop Building Platforms Nobody Uses: Pick the Right Kubernetes Abstraction with GitOps](https://itnext.io/stop-building-platforms-nobody-uses-pick-the-right-kubernetes-abstraction-with-gitops-64681357690f)
