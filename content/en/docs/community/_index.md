@@ -47,6 +47,7 @@ We host [regular community meetings](https://github.com/score-spec/spec?tab=read
 
 ## Read external blog posts about Score
 
+- [Anatomy of a score.yaml: How Resolution Actually Works](https://rootcause.hashnode.dev/anatomy-of-a-score-yaml-how-resolution-actually-works)
 - [Score + Docker Compose to deploy your local LLM models](https://medium.com/google-cloud/score-docker-compose-to-deploy-your-local-llm-models-10aff89686ce)
 - [Unifying the Inner & Outer Loops to Bridge the Gaps between Devs & Ops with Containers + Microcks + Score](https://itnext.io/unifying-inner-outer-loops-to-bridge-the-gaps-between-devs-ops-with-containers-microcks-d28603342f4b)
 - [Generate your Backstage software catalog files with Score](https://medium.com/@mabenoit/generate-your-backstage-software-catalog-files-with-score-b62aa33e8ecc)
