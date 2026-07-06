@@ -17,6 +17,16 @@ When running `score-k8s generate`, all `*.provisioners.yaml` files are loaded in
 
 To list the provisioners available from the `.score-k8s` directory, run the `score-k8s provisioners list` command.
 
+## Resource identity
+
+Every resource gets an identity before it gets a provisioner. Before a provisioner can claim a resource, `score-k8s` has to decide what that resource is. The identity comes from four things you write directly: `type`, an optional `class`, an optional `id`, and the workload name, combined into a resource UID shaped like:
+
+`type.class#workload_name.resource_name`
+
+Skip `class` and it defaults to `default`. A plain `postgres` resource named `db` inside a workload called `checkout` becomes `postgres.default#checkout.db`. You'll run into this exact string the first time a resource has no matching provisioner, since it shows up directly in the error message.
+
+`id` is the interesting field. Leave it unset and a resource is scoped to its own workload. Set it, and two resources in two different workloads with matching `type`, `class`, and `id` are treated as one resource, provisioned once, with both workloads reading the same outputs. There's no separate "shared resource" primitive in the spec. It's identity matching, nothing more.
+
 ## Default provisioners
 
 | Type           | Class | Params                 | Output                                                                                               | Description                                                                             |
