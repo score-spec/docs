@@ -30,7 +30,7 @@
     "lunr": "^2.3.9",
     "postcss": "^8.5.16",
     "postcss-cli": "^11.0.1",
-    "toml": "^4.1.1"
+    "toml": "^4.1.2"
   },
   "description": "Score technical documentation.",
   "devDependencies": {},
