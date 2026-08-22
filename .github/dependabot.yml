@@ -4,13 +4,25 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    groups:
+      ci:
+        patterns:
+          - "*"
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "weekly"
+    groups:
+      ci:
+        patterns:
+          - "*"
     ignore:
       - dependency-name: "hugo-extended"
   - package-ecosystem: "gomod"
     directory: "/"
     schedule:
       interval: "weekly"
+    groups:
+      ci:
+        patterns:
+          - "*"
