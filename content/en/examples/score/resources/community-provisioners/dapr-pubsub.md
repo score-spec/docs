@@ -64,8 +64,12 @@ docker ps
 
 {{%/ tab %}}
 {{% tab name="score-k8s" %}}
+{{% details "10-rabbitmq-dapr-pubsub.provisioners.yaml" %}}
 {{% example-file filename="10-rabbitmq-dapr-pubsub.provisioners.yaml" dir="score/resources/community-provisioners/dapr-pubsub/score-k8s" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% /details %}}
+{{% details "10-redis-dapr-pubsub.provisioners.yaml" %}}
 {{% example-file filename="10-redis-dapr-pubsub.provisioners.yaml" dir="score/resources/community-provisioners/dapr-pubsub/score-k8s" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% /details %}}
 
 ---
 
