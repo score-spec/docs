@@ -10,7 +10,7 @@ WORKDIR /src
 RUN yarn install
 
 # Do an initial hugo build
-RUN yarn hugo --verbose
+RUN yarn hugo
 
 # Run the hugo server at launch
 CMD [ "yarn", "hugo", "server", "--themesDir", "../..", "--disableFastRender", "--renderToMemory", "--bind", "0.0.0.0" ]
