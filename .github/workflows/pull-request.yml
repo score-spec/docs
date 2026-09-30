@@ -23,7 +23,7 @@ jobs:
       - run: yarn install
       - run: yarn run hugo
       - run: yarn run dprint check
-      - uses: score-spec/setup-score@888a7deafd396c3f3f05e00d2d9b0ab225799ac0 # v3.2.4
+      - uses: score-spec/setup-score@433682eb89ccac2215d5ea58355c716a5b852e9a # v3.2.5
         with:
           file: score-compose
           token: ${{ secrets.GITHUB_TOKEN }}
