@@ -68,6 +68,7 @@
               k8s.score.dev/resource-uid: {{ .Uid }}
               k8s.score.dev/resource-guid: {{ .Guid }}
           spec:
+            automountServiceAccountToken: false
             containers:
             - name: mysql-db
               image: mirror.gcr.io/mysql:8
