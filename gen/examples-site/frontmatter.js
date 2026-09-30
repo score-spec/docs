@@ -10,6 +10,9 @@ const { isDirectory } = require("./file-utils");
 const { beautify } = require("./content-utils");
 
 const sourceFolder = process.argv[2];
+const NON_COLLAPSIBLE_EXAMPLE_DIRECTORIES = new Set([
+  "score/specification/files",
+]);
 
 /**
  * Generates frontmatter content for a markdown file.
@@ -58,6 +61,37 @@ ${content}`;
  */
 const generateExampleFileContent = (file, dir, githubUrl) => {
   return `{{% example-file filename="${file}" dir="${dir}" githubUrl="${githubUrl}" %}}`;
+};
+
+/**
+ * Generates example file shortcodes, collapsing each file when multiple files
+ * are displayed together.
+ * @param {string[]} files - The filenames to display.
+ * @param {string} dir - The directory containing the files.
+ * @param {string} githubUrl - The GitHub URL for the files.
+ * @returns {string} The generated example files content.
+ */
+const generateExampleFilesContent = (files, dir, githubUrl) => {
+  const shouldCollapse =
+    files.length > 1 && !NON_COLLAPSIBLE_EXAMPLE_DIRECTORIES.has(dir);
+
+  return files
+    .map((file) => {
+      const exampleFileContent = generateExampleFileContent(
+        file,
+        dir,
+        githubUrl
+      );
+
+      if (!shouldCollapse) {
+        return exampleFileContent;
+      }
+
+      return `{{% details ${JSON.stringify(file)} %}}
+${exampleFileContent}
+{{% /details %}}`;
+    })
+    .join("\n");
 };
 
 /**
@@ -131,12 +165,12 @@ const generateTabs = (
         const filesInDir = fs
           .readdirSync(directoryPath)
           .filter((file) => !isDirectory(`${directoryPath}/${file}`));
-        const directoryContent = filesInDir
-          .map((file) => {
-            const shortcodeDir = `${path}/${dirName}`;
-            return generateExampleFileContent(file, shortcodeDir, githubUrl);
-          })
-          .join("\n");
+        const shortcodeDir = `${path}/${dirName}`;
+        const directoryContent = generateExampleFilesContent(
+          filesInDir,
+          shortcodeDir,
+          githubUrl
+        );
 
         if (!tabsMap.has(dirName)) {
           tabsMap.set(dirName, { readmeContent: "", directoryContent: "" });
@@ -214,9 +248,11 @@ const buildFrontmatter = (
     options
   );
 
-  const otherFilesContent = otherFiles
-    .map((file) => generateExampleFileContent(file, dir, githubUrl))
-    .join("\n");
+  const otherFilesContent = generateExampleFilesContent(
+    otherFiles,
+    dir,
+    githubUrl
+  );
 
   writeContentToFile(
     path,

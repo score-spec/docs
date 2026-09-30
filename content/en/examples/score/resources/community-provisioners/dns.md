@@ -14,9 +14,15 @@ flavor: "Resources"
 
 {{< tabs >}}
 {{% tab name="score-compose" %}}
+{{% details "10-dns-in-codespace.provisioners.yaml" %}}
 {{% example-file filename="10-dns-in-codespace.provisioners.yaml" dir="score/resources/community-provisioners/dns/score-compose" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% /details %}}
+{{% details "10-dns-with-url.provisioners.yaml" %}}
 {{% example-file filename="10-dns-with-url.provisioners.yaml" dir="score/resources/community-provisioners/dns/score-compose" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% /details %}}
+{{% details "README.md" %}}
 {{% example-file filename="README.md" dir="score/resources/community-provisioners/dns/score-compose" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% /details %}}
 
 ---
 
@@ -66,9 +72,15 @@ docker ps
 
 {{%/ tab %}}
 {{% tab name="score-k8s" %}}
+{{% details "10-dns-in-codespace.provisioners.yaml" %}}
 {{% example-file filename="10-dns-in-codespace.provisioners.yaml" dir="score/resources/community-provisioners/dns/score-k8s" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% /details %}}
+{{% details "10-dns-with-url.provisioners.yaml" %}}
 {{% example-file filename="10-dns-with-url.provisioners.yaml" dir="score/resources/community-provisioners/dns/score-k8s" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% /details %}}
+{{% details "README.md" %}}
 {{% example-file filename="README.md" dir="score/resources/community-provisioners/dns/score-k8s" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% /details %}}
 
 ---
 

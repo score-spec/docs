@@ -60,8 +60,12 @@ docker ps
 
 {{%/ tab %}}
 {{% tab name="score-k8s" %}}
+{{% details "10-azurite-azure-blob.provisioners.yaml" %}}
 {{% example-file filename="10-azurite-azure-blob.provisioners.yaml" dir="score/resources/community-provisioners/azure-blob/score-k8s" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% /details %}}
+{{% details "README.md" %}}
 {{% example-file filename="README.md" dir="score/resources/community-provisioners/azure-blob/score-k8s" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% /details %}}
 
 ---
 

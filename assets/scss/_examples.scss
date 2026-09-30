@@ -13,6 +13,19 @@
   }
 }
 
+.example-file-details {
+  margin: 1.2rem 0;
+
+  > summary {
+    cursor: pointer;
+    font-weight: $font-semibold;
+  }
+
+  &[open] > summary {
+    margin-bottom: 0.6rem;
+  }
+}
+
 @media (min-width: 768px) {
   .td-404 main,
   .td-main main .examples-index-page {
