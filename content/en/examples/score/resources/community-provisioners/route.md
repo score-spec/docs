@@ -60,10 +60,18 @@ docker ps
 
 {{%/ tab %}}
 {{% tab name="score-k8s" %}}
+{{% details "10-ingress-route.provisioners.yaml" %}}
 {{% example-file filename="10-ingress-route.provisioners.yaml" dir="score/resources/community-provisioners/route/score-k8s" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% /details %}}
+{{% details "10-ingress-with-netpol-route.provisioners.yaml" %}}
 {{% example-file filename="10-ingress-with-netpol-route.provisioners.yaml" dir="score/resources/community-provisioners/route/score-k8s" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% /details %}}
+{{% details "10-shared-gateway-httproute-with-netpol.provisioners.yaml" %}}
 {{% example-file filename="10-shared-gateway-httproute-with-netpol.provisioners.yaml" dir="score/resources/community-provisioners/route/score-k8s" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% /details %}}
+{{% details "10-shared-gateway-httproute.provisioners.yaml" %}}
 {{% example-file filename="10-shared-gateway-httproute.provisioners.yaml" dir="score/resources/community-provisioners/route/score-k8s" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% /details %}}
 
 ---
 

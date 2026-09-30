@@ -1,0 +1,11 @@
+{{- $summary := .Get 0 -}}
+{{- if not $summary -}}
+  {{- errorf "No summary provided for details shortcode" -}}
+{{- end -}}
+{{- if not .Inner -}}
+  {{- errorf "No content provided for details shortcode" -}}
+{{- end -}}
+<details class="example-file-details">
+  <summary>{{ $summary }}</summary>
+  {{ .Inner | markdownify }}
+</details>

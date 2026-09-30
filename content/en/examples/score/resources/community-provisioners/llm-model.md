@@ -14,12 +14,24 @@ flavor: "Resources"
 
 {{< tabs >}}
 {{% tab name="score-compose" %}}
+{{% details "10-dmr-llm-model-for-openai-clients.provisioners.yaml" %}}
 {{% example-file filename="10-dmr-llm-model-for-openai-clients.provisioners.yaml" dir="score/resources/community-provisioners/llm-model/score-compose" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% /details %}}
+{{% details "10-dmr-llm-model-via-curl-cmd.provisioners.yaml" %}}
 {{% example-file filename="10-dmr-llm-model-via-curl-cmd.provisioners.yaml" dir="score/resources/community-provisioners/llm-model/score-compose" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% /details %}}
+{{% details "10-dmr-llm-model-via-curl-service.provisioners.yaml" %}}
 {{% example-file filename="10-dmr-llm-model-via-curl-service.provisioners.yaml" dir="score/resources/community-provisioners/llm-model/score-compose" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% /details %}}
+{{% details "10-dmr-llm-model-via-service-provider.provisioners.yaml" %}}
 {{% example-file filename="10-dmr-llm-model-via-service-provider.provisioners.yaml" dir="score/resources/community-provisioners/llm-model/score-compose" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% /details %}}
+{{% details "10-dmr-llm-model.provisioners.yaml" %}}
 {{% example-file filename="10-dmr-llm-model.provisioners.yaml" dir="score/resources/community-provisioners/llm-model/score-compose" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% /details %}}
+{{% details "10-ollama-llm-model-service.provisioners.yaml" %}}
 {{% example-file filename="10-ollama-llm-model-service.provisioners.yaml" dir="score/resources/community-provisioners/llm-model/score-compose" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% /details %}}
 
 ---
 

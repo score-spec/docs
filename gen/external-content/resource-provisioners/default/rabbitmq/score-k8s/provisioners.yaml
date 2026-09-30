@@ -61,6 +61,7 @@
               app.kubernetes.io/name: {{ .State.service }}
               app.kubernetes.io/instance: {{ .State.service }}
           spec:
+            automountServiceAccountToken: false
             containers:
               - name: rabbitmq
                 image: mirror.gcr.io/rabbitmq:3-management-alpine

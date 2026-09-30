@@ -10,14 +10,24 @@ flavor: "Resources"
 
 ---
 
+{{% details "backend-openapi.yaml" %}}
 {{% example-file filename="backend-openapi.yaml" dir="score/resources/community-provisioners/service" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% /details %}}
+{{% details "score-backend.yaml" %}}
 {{% example-file filename="score-backend.yaml" dir="score/resources/community-provisioners/service" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% /details %}}
+{{% details "score-frontend.yaml" %}}
 {{% example-file filename="score-frontend.yaml" dir="score/resources/community-provisioners/service" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% /details %}}
 
 {{< tabs >}}
 {{% tab name="score-compose" %}}
+{{% details "10-service-with-microcks.provisioners.yaml" %}}
 {{% example-file filename="10-service-with-microcks.provisioners.yaml" dir="score/resources/community-provisioners/service/score-compose" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% /details %}}
+{{% details "10-service.provisioners.yaml" %}}
 {{% example-file filename="10-service.provisioners.yaml" dir="score/resources/community-provisioners/service/score-compose" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% /details %}}
 
 ---
 
@@ -67,9 +77,15 @@ docker ps
 
 {{%/ tab %}}
 {{% tab name="score-k8s" %}}
+{{% details "10-service-with-microcks-cli.provisioners.yaml" %}}
 {{% example-file filename="10-service-with-microcks-cli.provisioners.yaml" dir="score/resources/community-provisioners/service/score-k8s" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% /details %}}
+{{% details "10-service-with-netpol.provisioners.yaml" %}}
 {{% example-file filename="10-service-with-netpol.provisioners.yaml" dir="score/resources/community-provisioners/service/score-k8s" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% /details %}}
+{{% details "10-service.provisioners.yaml" %}}
 {{% example-file filename="10-service.provisioners.yaml" dir="score/resources/community-provisioners/service/score-k8s" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% /details %}}
 
 ---
 

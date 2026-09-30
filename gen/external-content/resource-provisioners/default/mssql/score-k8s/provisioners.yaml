@@ -65,6 +65,7 @@
               k8s.score.dev/resource-uid: {{ .Uid }}
               k8s.score.dev/resource-guid: {{ .Guid }}
           spec:
+            automountServiceAccountToken: false
             containers:
             - name: mssql-db
               image: mcr.microsoft.com/mssql/server:latest

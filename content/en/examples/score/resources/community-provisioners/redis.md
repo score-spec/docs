@@ -60,9 +60,15 @@ docker ps
 
 {{%/ tab %}}
 {{% tab name="score-k8s" %}}
+{{% details "10-redis-helm-template.provisioners.yaml" %}}
 {{% example-file filename="10-redis-helm-template.provisioners.yaml" dir="score/resources/community-provisioners/redis/score-k8s" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% /details %}}
+{{% details "10-redis-helm-upgrade.provisioners.yaml" %}}
 {{% example-file filename="10-redis-helm-upgrade.provisioners.yaml" dir="score/resources/community-provisioners/redis/score-k8s" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% /details %}}
+{{% details "README.md" %}}
 {{% example-file filename="README.md" dir="score/resources/community-provisioners/redis/score-k8s" githubUrl="https://github.com/score-spec/community-provisioners/blob/main" %}}
+{{% /details %}}
 
 ---
 
