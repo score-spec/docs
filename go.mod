@@ -1,6 +1,6 @@
 module github.com/google/docsy-example
 
-go 1.20.8
+go 1.26.10
 
 require (
 	github.com/google/docsy v0.5.1 // indirect
