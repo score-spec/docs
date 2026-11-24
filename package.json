@@ -18,9 +18,9 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
-    "autoprefixer": "^10.6.2",
+    "autoprefixer": "^10.7.0",
     "clipboard": "^2.0.11",
-    "dprint": "^0.64.3",
+    "dprint": "^0.65.0",
     "gray-matter": "^4.0.3",
     "hcl2-parser": "^1.0.3",
     "html-hint": "^0.2.4",
